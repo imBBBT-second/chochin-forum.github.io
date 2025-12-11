@@ -1,0 +1,85 @@
+{
+  "buttons": [
+    {
+      "id": 1,
+      "title": "Nullscube",
+      "creator": "Timo",
+      "video": "classic_video/nullscube.mp4",
+      "verifier": "Timo",
+      "details": {
+        "맵 ID": "126915240",
+        "길이": "0m 25s",
+        "노래": "Creo - Flow",
+        "노래 ID": "1132447",
+        "오브젝트 수": "33111",
+        "프레임 퍼펙트 수": "9"
+      },
+      "fp": ["1", "6", "2"],
+      "clears": []
+    },
+    {
+      "id": 2,
+      "title": "Reaper Wave",
+      "creator": "Timo",
+      "video": "classic_video/reaper_wave.mp4",
+      "verifier": "Timo",
+      "details": {
+        "맵 ID": "110122641",
+        "길이": "0m 33s",
+        "노래": "Solkrieg - (Silent Hill Dupstep*)",
+        "노래 ID": "509014",
+        "오브젝트 수": "13247",
+        "프레임 퍼펙트 수": "11"
+      },
+      "clears": [],
+      "fp": ["9", "2"]
+    },
+    {
+      "id": 3,
+      "title": "chocubed",
+      "creator": "Light",
+      "video": "classic_video/chocubed.mp4",
+      "verifier": "Light",
+      "details": {
+        "맵 ID": "126886071",
+        "길이": "0m 24s",
+        "노래": "EspiDev - Parfait",
+        "노래 ID": "763176",
+        "오브젝트 수": "1930",
+        "프레임 퍼펙트 수": "35"
+      },
+      "fp": ["21", "14"]
+    },
+    {
+      "id": 4,
+      "title": "Stereo Madness EX",
+      "creator": "Choco",
+      "video": "classic_video/stereo_madness_ex.mp4",
+      "verifier": "Timo",
+      "details": {
+        "맵 ID": "118253574",
+        "길이": "0m 50s",
+        "노래": "ForeverBound - Stereo Madnessasdfasdf",
+        "노래 ID": "(R) 0",
+        "오브젝트 수": "3598",
+        "프레임 퍼펙트 수": "0"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Trolled",
+      "creator": "Light",
+      "video": "classic_video/trolled.mp4",
+      "verifier": "Light",
+      "details": {
+        "맵 ID": "85636626",
+        "길이": "0m 36s",
+        "노래": "AntonyC - Youve Been Trolled",
+        "노래 ID": "477402",
+        "오브젝트 수": "553",
+        "프레임 퍼펙트 수": "1"
+      },
+      "fp": ["0", "1"]
+    }
+  ]
+}
