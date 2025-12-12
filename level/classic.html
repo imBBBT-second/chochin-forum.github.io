@@ -120,7 +120,6 @@
       .divider {
         border: 2px solid white;
         width: 100%;
-        height: 0;
         margin: 10px 0;
       }
 
@@ -222,16 +221,12 @@
         transform-origin: center;
       }
 
-      #detailVideo {
-        margin: 20px 0;
-        border-radius: 12px;
-        display: block;
-      }
-
+      /* ✨ 16:9 비율 고정 */
       .video-wrapper {
         position: relative;
         width: 100%;
-        padding-top: 56.25%; /* 16:9 비율 */
+        padding-top: 56.25%; /* 16:9 */
+        margin-bottom: 20px;
       }
 
       .video-wrapper iframe {
@@ -241,8 +236,8 @@
         width: 100%;
         height: 100%;
         border: none;
+        display: block;
       }
-
 
       .detail-grid {
         display: grid;
@@ -287,12 +282,8 @@
         <p id="detailCreator" style="font-size: 200%"></p>
 
         <div class="video-wrapper">
-          <iframe
-            allowfullscreen
-            id="detailVideo"
-          ></iframe>
+          <iframe allowfullscreen id="detailVideo"></iframe>
         </div>
-
 
         <div id="detailDescription" class="detail-grid"></div>
         <div id="detailFP" style="margin-top: 20px"></div>
@@ -343,13 +334,7 @@
         box.innerHTML = '';
 
         const video = document.getElementById('detailVideo');
-
-        if (item.video) {
-          video.src = item.video;
-        } else {
-          video.src = '';
-        }
-
+        video.src = item.video || '';
 
         if (item.details) {
           for (const key in item.details) {
@@ -461,22 +446,9 @@
           document.querySelector('.item').classList.add('selected');
         }
       });
-
-      setTimeout(() => {
-        video.style.display = 'block';
-
-      // ⭐ 강제로 레이아웃 업데이트 → 영상 높이를 반영해서 아래 요소들이 밀려남
-      const wrapper = document.querySelector('.video-wrapper');
-      wrapper.style.height = wrapper.offsetHeight + 'px';
-      requestAnimationFrame(() => (wrapper.style.height = ''));
-    }, 50);
     </script>
 
     <h4>크레딧</h4>
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
-
-
-
-
