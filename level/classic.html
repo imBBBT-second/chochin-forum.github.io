@@ -149,7 +149,6 @@
         border: none;
         border-radius: 8px;
         font-size: 18px;
-        box-sizing: border-box;
       }
 
       .item {
@@ -223,7 +222,6 @@
         transform-origin: center;
       }
 
-      /* 수정됨: video → iframe */
       #detailVideo {
         width: 100%;
         height: 400px;
@@ -274,12 +272,7 @@
         <div class="detail-title" id="detailTitle"></div>
         <p id="detailCreator" style="font-size: 200%"></p>
 
-         <iframe
-          id="detailVideo"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
-
+        <iframe id="detailVideo" frameborder="0" allowfullscreen></iframe>
 
         <div id="detailDescription" class="detail-grid"></div>
         <div id="detailFP" style="margin-top: 20px"></div>
@@ -331,14 +324,17 @@
 
         const video = document.getElementById('detailVideo');
 
-        /* iframe 방식 */
+        /* ---- 👍 수정된 iframe 로딩 방식 ---- */
         if (item.video) {
-          video.src = item.video; // YouTube embed URL
-          video.style.display = 'block';
+          video.src = item.video;
+          setTimeout(() => {
+            video.style.display = 'block';
+          }, 50);
         } else {
           video.style.display = 'none';
           video.src = '';
         }
+        /* ------------------------------------ */
 
         if (item.details) {
           for (const key in item.details) {
@@ -429,7 +425,9 @@
             </div>
           `;
           div.addEventListener('click', () => {
-            document.querySelectorAll('.item').forEach((i) => i.classList.remove('selected'));
+            document.querySelectorAll('.item').forEach((i) =>
+              i.classList.remove('selected')
+            );
             div.classList.add('selected');
             showDetail(item);
           });
@@ -454,4 +452,3 @@
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
-
