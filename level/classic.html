@@ -344,17 +344,12 @@
 
         const video = document.getElementById('detailVideo');
 
-        /* ---- 👍 수정된 iframe 로딩 방식 ---- */
         if (item.video) {
           video.src = item.video;
-          setTimeout(() => {
-            video.style.display = 'block';
-          }, 50);
         } else {
-          video.style.display = 'none';
           video.src = '';
         }
-        /* ------------------------------------ */
+
 
         if (item.details) {
           for (const key in item.details) {
@@ -481,6 +476,7 @@
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
+
 
 
 
