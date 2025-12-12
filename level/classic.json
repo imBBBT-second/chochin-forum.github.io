@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Nullscube",
       "creator": "Timo",
-      "video": "classic_video/nullscube.mp4",
+      "video": "https://youtu.be/FPVJ53U-tSw?si=aJiR05AYoyABi6WT",
       "verifier": "Timo",
       "details": {
         "맵 ID": "126915240",
@@ -83,3 +83,4 @@
     }
   ]
 }
+
