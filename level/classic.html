@@ -326,6 +326,7 @@
       }
 
       function showDetail(item) {
+        setDetailTitle(item.title);
         const creatorText =
         item.creator === item.verifier
           ? `by ${item.creator}`
@@ -456,6 +457,7 @@
     <p style="font-size: 30px; color: #808080">제작 : 초코, 앞티</p>
   </body>
 </html>
+
 
 
 
