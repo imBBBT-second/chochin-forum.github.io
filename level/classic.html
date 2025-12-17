@@ -216,23 +216,6 @@ input {
   overflow-y: auto;
 }
 
-.detail-header {
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.detail-title {
-  font-family: Paperlogy9;
-  font-size: 3.2rem;
-  color: #fff;
-}
-
-.detail-creator {
-  font-family: Paperlogy4;
-  font-size: 1.6rem;
-  color: #c8c8c8;
-}
-
 .detail-content {
   display: flex;
   flex-direction: column;
@@ -270,34 +253,54 @@ input {
 
   
 /* ===== Bar Graph ===== */
-.bar-row {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:6px 0;
+.graph-box {
+  margin-bottom: 14px;
 }
-.bar-label {
-  width:80px;
-  font-family:Paperlogy4;
-  font-size:15px;
+
+.graph-title {
+  font-family: Paperlogy6;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 6px;
 }
-.bar-bg {
-  flex:1;
-  height:10px;
-  background:#666;
-  border-radius:5px;
-  overflow:hidden;
+
+.graph-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
 }
-.bar-fill {
-  height:100%;
-  background:#ddd;
+
+.graph-label {
+  width: 90px;
+  font-family: Paperlogy3;
+  font-size: 0.9rem;
+  color: #c8c8c8;
+  flex-shrink: 0;
 }
-.bar-value {
-  width:60px;
-  text-align:right;
-  font-family:Paperlogy3;
-  font-size:14px;
+
+.graph-bar-bg {
+  flex: 1;
+  background: #333;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 16px;
 }
+
+.graph-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6fa8ff, #9bd0ff);
+  border-radius: 6px;
+}
+
+.graph-value {
+  width: 50px;
+  text-align: right;
+  font-family: Paperlogy4;
+  font-size: 0.9rem;
+  color: #c8c8c8;
+}
+
 
 /* ===== Clears ===== */
 #detailClears {
@@ -368,20 +371,7 @@ input {
 
 <script>
 let demonData = [];
-
-function barRow(label, value) {
-  const v = Number(value);
-  if (isNaN(v)) return '';
-  return `
-    <div class="bar-row">
-      <span class="bar-label">${label}</span>
-      <div class="bar-bg">
-        <div class="bar-fill" style="width:${v}%"></div>
-      </div>
-      <span class="bar-value">${v}%</span>
-    </div>`;
-}
-
+  
 function addSection(title, html) {
   detailDescription.innerHTML += `
     <div class="section">
@@ -390,23 +380,25 @@ function addSection(title, html) {
     </div>`;
 }
 
-function drawRatioGraph(targetId, data) {
-  const box = document.getElementById(targetId);
-  box.innerHTML = '';
+function makeRatioGraph(title, data, suffix = '%') {
+  if (!data || Object.keys(data).length === 0) return '';
 
-  Object.entries(data || {}).forEach(([key, value]) => {
-    const row = document.createElement('div');
-    row.className = 'bar-row';
-    row.innerHTML = `
-      <span>${key}</span>
-      <div class="bar">
-        <div class="bar-fill" style="width:${value}%"></div>
-      </div>
-      <span>${value}%</span>
-    `;
-    box.appendChild(row);
-  });
+  return `
+    <div class="graph-box">
+      <div class="graph-title">${title}</div>
+      ${Object.entries(data).map(([k, v]) => `
+        <div class="graph-row">
+          <div class="graph-label">${k}</div>
+          <div class="graph-bar-bg">
+            <div class="graph-bar" style="width:${v}%"></div>
+          </div>
+          <div class="graph-value">${v}${suffix}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
+
 
 
 function showDetail(item) {
@@ -447,9 +439,30 @@ function showDetail(item) {
     `;
   }
 
-  // 그래프 / 태그는 다음 단계에서
-  document.getElementById('graphSection').innerHTML = '';
-  document.getElementById('tagSection').innerHTML = '';
+
+const graph = document.getElementById('graphSection');
+graph.innerHTML = '';
+
+if (item.gameplay) {
+  graph.innerHTML += makeRatioGraph(
+    '게임모드 비율',
+    item.gameplay.modeRatio
+  );
+
+  graph.innerHTML += makeRatioGraph(
+    '속도 비율',
+    item.gameplay.speedRatio
+  );
+}
+
+if (item.framePerfect) {
+  graph.innerHTML += makeRatioGraph(
+    '프레임 퍼펙트 (FPS)',
+    item.framePerfect.fps,
+    ''
+  );
+}
+
 }
 
 
@@ -471,6 +484,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
