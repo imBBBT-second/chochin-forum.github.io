@@ -149,6 +149,21 @@ input {
   overflow-y:auto;
 }
 
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 핵심 */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#detailCreator {
+  font-family: Paperlogy4;
+  font-size: 1.6rem;
+  color: #c8c8c8;
+  margin-top: 4px;
+}
+  
 /* ===== Video ===== */
 .video-wrapper {
   position:relative;
@@ -242,8 +257,11 @@ input {
 
   <!-- Detail -->
   <div class="detail-panel">
-    <div id="detailTitle" style="font-family:Paperlogy9;font-size:48px;color:#fff"></div>
-    <p id="detailCreator" style="font-size:22px"></p>
+    <div class="detail-header">
+      <div class="detail-title" id="detailTitle"></div>
+      <p id="detailCreator"></p>
+    </div>
+  
 
     <div class="video-wrapper">
       <iframe id="detailVideo" allowfullscreen></iframe>
@@ -330,6 +348,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
