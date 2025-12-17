@@ -388,9 +388,11 @@ input {
 
 <script>
 let demonData = [];
-  
+
+/* 태그 섹션용 */
 function addSection(title, html) {
   const box = document.getElementById('detailDescription');
+  box.innerHTML = '';
 
   const div = document.createElement('div');
   div.className = 'section';
@@ -402,7 +404,7 @@ function addSection(title, html) {
   box.appendChild(div);
 }
 
-
+/* 그래프 생성 */
 function makeRatioGraph(title, data, suffix = '%') {
   if (!data || Object.keys(data).length === 0) return '';
 
@@ -422,22 +424,20 @@ function makeRatioGraph(title, data, suffix = '%') {
   `;
 }
 
-
-
 function showDetail(item) {
-  // 제목
+  /* 제목 */
   document.getElementById('detailTitle').textContent = item.title;
 
-  // 제작자
+  /* 제작자 */
   document.getElementById('detailCreator').textContent =
     item.creator === item.verifier
       ? `by ${item.creator}`
       : `by ${item.creator} / Verified by ${item.verifier}`;
 
-  // 영상
+  /* 영상 */
   document.getElementById('detailVideo').src = item.video || '';
 
-  // 텍스트 정보
+  /* 텍스트 정보 */
   const info = document.getElementById('infoSection');
   info.innerHTML = '';
 
@@ -462,60 +462,70 @@ function showDetail(item) {
     `;
   }
 
+  /* 그래프 */
+  const graph = document.getElementById('graphSection');
+  graph.innerHTML = '';
 
-const graph = document.getElementById('graphSection');
-graph.innerHTML = '';
+  if (item.gameplay) {
+    graph.innerHTML += makeRatioGraph(
+      '게임모드 비율',
+      item.gameplay.modeRatio
+    );
 
-if (item.gameplay) {
-  graph.innerHTML += makeRatioGraph(
-    '게임모드 비율',
-    item.gameplay.modeRatio
-  );
+    graph.innerHTML += makeRatioGraph(
+      '속도 비율',
+      item.gameplay.speedRatio
+    );
+  }
 
-  graph.innerHTML += makeRatioGraph(
-    '속도 비율',
-    item.gameplay.speedRatio
-  );
+  if (item.framePerfect) {
+    graph.innerHTML += makeRatioGraph(
+      '프레임 퍼펙트 (FPS)',
+      item.framePerfect.fps,
+      ''
+    );
+  }
+
+  /* 태그 */
+  if (item.tags && item.tags.length > 0) {
+    addSection(
+      '태그',
+      item.tags.map(t => `<span class="tag">${t}</span>`).join('')
+    );
+  }
 }
 
-if (item.framePerfect) {
-  graph.innerHTML += makeRatioGraph(
-    '프레임 퍼펙트 (FPS)',
-    item.framePerfect.fps,
-    ''
-  );
-}
-
-  const tag = document.getElementById('tagSection');
-
-if (item.tags && item.tags.length > 0) {
-  addSection(
-    '태그',
-    item.tags.map(t => `<span class="tag">${t}</span>`).join('')
-  );
-}
-
-}
-
-
-
+/* 리스트 생성 */
 fetch('classic.json')
-  .then(r=>r.json())
-  .then(j=>{
+  .then(r => r.json())
+  .then(j => {
     demonData = j.buttons;
-    demonData.forEach(d=>{
+
+    const list = document.getElementById('list');
+    list.innerHTML = '';
+
+    demonData.forEach(d => {
       const div = document.createElement('div');
-      div.className='item';
-      div.innerHTML=`<div class="rank">${d.id}</div><div><div class="title">${d.title}</div><div class="creator">by ${d.creator}</div></div>`;
-      div.onclick=()=>showDetail(d);
+      div.className = 'item';
+      div.innerHTML = `
+        <div class="rank">${d.id}</div>
+        <div>
+          <div class="title">${d.title}</div>
+          <div class="creator">by ${d.creator}</div>
+        </div>
+      `;
+      div.onclick = () => showDetail(d);
       list.appendChild(div);
     });
-    showDetail(demonData[0]);
+
+    if (demonData.length > 0) showDetail(demonData[0]);
   });
 </script>
 
+
 </body>
 </html>
+
 
 
 
