@@ -64,13 +64,13 @@ a { color: inherit; text-decoration: none; }
   display:flex;
   gap:2%;
   padding:2%;
-  min-height:700px;
+  min-height:1000px;
 }
 
 .container,
 .detail-panel,
 .detail-panel.clears-panel {
-  min-height: 600px;
+  min-height: 900px;
 }
 
 
@@ -481,7 +481,7 @@ function showDetail(item) {
 
   if (item.framePerfect) {
     graph.innerHTML += makeRatioGraph(
-      '프레임 퍼펙트 (FPS)',
+      '프레임 퍼펙트',
       item.framePerfect.fps,
       ''
     );
@@ -526,6 +526,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
