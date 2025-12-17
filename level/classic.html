@@ -1,202 +1,272 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <title>초친 포럼 (레벨 - 클래식)</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+<title>초친 포럼 (레벨 - 클래식)</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        color: inherit;
-        font-family: inherit;
-      }
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #323232;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+* { box-sizing: border-box; }
 
-      html, body {
-        min-height: 100vh;
-        background-color: #323232;
-        color: #eaeaea;
-        font-family: Paperlogy4;
-      }
+/* ===== Font ===== */
+@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
+@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
+@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
+@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
+@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
+@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
+@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
+@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
+@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-      @font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
-      @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
-      @font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
-      @font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
-      @font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
-      @font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
-      @font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
-      @font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
-      @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
+/* ===== Common ===== */
+h1 { font-family: Paperlogy7; color:#fff; font-size:170px; text-align:center; }
+h4 { font-family: Paperlogy3; color:#a0a0a0; text-align:center; }
+p, span { font-family: Paperlogy2; color:#c8c8c8; }
+a { color: inherit; text-decoration: none; }
 
-      h1 {
-        font-family: Paperlogy7;
-        font-size: 170px;
-        color: #ffffff;
-        text-align: center;
-      }
+/* ===== Header ===== */
+.header-container {
+  display:flex;
+  justify-content:center;
+  gap:5vw;
+  padding:2vh 0;
+}
+.header-btn {
+  width:400px;
+  font-family:Paperlogy5;
+  font-size:clamp(2rem,5vw,5rem);
+  background:#323232;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
 
-      p {
-        font-family: Paperlogy3;
-        color: #d0d0d0;
-      }
+/* ===== Layout ===== */
+.main-container {
+  flex:1;
+  display:flex;
+  gap:2%;
+  padding:2%;
+  min-height:0;
+}
 
-      a { text-decoration: none; color: inherit; }
+/* ===== Left List & Right Clears (same size) ===== */
+.container,
+.detail-panel.clears-panel {
+  flex:0 0 30%;
+  max-width:30%;
+  background:#404040;
+  border-radius:10px;
+  padding:1.5%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
 
-      .header-container {
-        display: flex;
-        justify-content: center;
-        gap: 5vw;
-        padding: 2vh 0;
-      }
+input {
+  font-size:18px;
+  border-radius:8px;
+  border:none;
+  padding:8px;
+  margin-bottom:10px;
+}
 
-      .header-btn {
-        background-color: #323232;
-        font-size: clamp(2rem, 5vw, 5rem);
-        border: none;
-        border-radius: 10px;
-        padding: 1.5vh 3vw;
-        cursor: pointer;
-        font-family: Paperlogy5;
-        color: #fff;
-      }
+/* ===== List Item ===== */
+.item {
+  display:flex;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid #777;
+  cursor:pointer;
+}
+.rank {
+  width:50px;
+  text-align:center;
+  font-family:Paperlogy8;
+  font-size:26px;
+  color:#fff;
+}
+.title {
+  font-family:Paperlogy5;
+  font-size:22px;
+  color:#fff;
+}
+.creator {
+  font-family:Paperlogy3;
+  font-size:14px;
+  color:#e0e0e0;
+}
 
-      .divider {
-        border: 2px solid white;
-        margin: 10px 0;
-      }
+/* ===== Center Detail ===== */
+.detail-panel {
+  flex:1;
+  background:#505050;
+  border-radius:10px;
+  padding:2%;
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
 
-      /* 🔥 여기부터 핵심 */
-      .main-container {
-        display: flex;
-        gap: 2%;
-        padding: 2%;
-        height: calc(100vh - 350px);
-      }
+/* ===== Video ===== */
+.video-wrapper {
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+}
+.video-wrapper iframe {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
+}
 
-      .container {
-        flex: 0 0 30%;
-        background: #404040;
-        padding: 1.5%;
-        border-radius: 10px;
-        overflow-y: auto;
-      }
+/* ===== Section ===== */
+.section {
+  background:#444;
+  border-radius:8px;
+  padding:12px;
+  margin-top:12px;
+}
+.section-title {
+  font-family:Paperlogy6;
+  font-size:22px;
+  color:#fff;
+  margin-bottom:8px;
+}
 
-      .detail-panel {
-        flex: 0 0 45%;
-        background: #505050;
-        padding: 2%;
-        border-radius: 10px;
-        overflow-y: auto;
-      }
+/* ===== Bar Graph ===== */
+.bar-row {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:6px 0;
+}
+.bar-label {
+  width:80px;
+  font-family:Paperlogy4;
+  font-size:15px;
+}
+.bar-bg {
+  flex:1;
+  height:10px;
+  background:#666;
+  border-radius:5px;
+  overflow:hidden;
+}
+.bar-fill {
+  height:100%;
+  background:#ddd;
+}
+.bar-value {
+  width:60px;
+  text-align:right;
+  font-family:Paperlogy3;
+  font-size:14px;
+}
 
-      .detail-panel.clears-panel {
-        flex: 0 0 25%;
-      }
+/* ===== Clears ===== */
+#detailClears {
+  flex:1;
+  overflow-y:auto;
+}
+</style>
+</head>
 
-      .item {
-        display: flex;
-        gap: 12px;
-        padding: 12px;
-        border-bottom: 1px solid #666;
-        cursor: pointer;
-      }
+<body>
 
-      .rank {
-        font-family: Paperlogy8;
-        font-size: 1.6vw;
-        width: 15%;
-        text-align: center;
-        color: #fff;
-      }
+<div class="header-container">
+  <button class="header-btn">홈</button>
+  <button class="header-btn" style="font-family:Paperlogy9">레벨</button>
+  <button class="header-btn">하디스트</button>
+</div>
 
-      .title {
-        font-family: Paperlogy5;
-        font-size: 1.4vw;
-        color: #fff;
-      }
+<h1>Classic</h1>
 
-      .creator {
-        font-family: Paperlogy3;
-        font-size: 1vw;
-        color: #ccc;
-      }
-    </style>
-  </head>
+<div class="main-container">
+  <!-- Left -->
+  <div class="container">
+    <input id="search" placeholder="검색" />
+    <div id="list" style="overflow-y:auto"></div>
+  </div>
 
-  <body>
-    <div class="header-container">
-      <button class="header-btn">홈</button>
-      <button class="header-btn">레벨</button>
-      <button class="header-btn">하디스트</button>
+  <!-- Detail -->
+  <div class="detail-panel">
+    <div id="detailTitle" style="font-family:Paperlogy9;font-size:48px;color:#fff"></div>
+    <p id="detailCreator" style="font-size:22px"></p>
+
+    <div class="video-wrapper">
+      <iframe id="detailVideo" allowfullscreen></iframe>
     </div>
 
-    <div class="divider"></div>
+    <div id="detailDescription"></div>
+  </div>
 
-    <h1>Classic</h1>
-
-    <div class="main-container">
-      <div class="container" id="list"></div>
-      <div class="detail-panel" id="detailDescription"></div>
-      <div class="detail-panel clears-panel" id="detailClears"></div>
-    </div>
+  <!-- Clears -->
+  <div class="detail-panel clears-panel">
+    <div style="font-family:Paperlogy9;font-size:32px;text-align:center">클리어 명단</div>
+    <div id="detailClears"></div>
+  </div>
+</div>
 
 <script>
 let demonData = [];
 
-function bar(name, value) {
+function barRow(label, value) {
+  const v = Number(value);
+  if (isNaN(v)) return '';
   return `
-  <div class="bar-row">
-    <span>${name}</span>
-    <div class="bar-bg"><div class="bar-fill" style="width:${value}%"></div></div>
-    <span>${value}%</span>
-  </div>`;
+    <div class="bar-row">
+      <span class="bar-label">${label}</span>
+      <div class="bar-bg">
+        <div class="bar-fill" style="width:${v}%"></div>
+      </div>
+      <span class="bar-value">${v}%</span>
+    </div>`;
+}
+
+function addSection(title, html) {
+  detailDescription.innerHTML += `
+    <div class="section">
+      <div class="section-title">${title}</div>
+      ${html}
+    </div>`;
 }
 
 function showDetail(item) {
-  detailTitle.innerHTML = `<span class="detail-title-inner">${item.title}</span>`;
+  detailTitle.textContent = item.title;
   detailCreator.textContent =
     item.creator === item.verifier
-    ? `by ${item.creator}`
-    : `by ${item.creator} / Verified by ${item.verifier}`;
+      ? `by ${item.creator}`
+      : `by ${item.creator} / Verified by ${item.verifier}`;
 
   detailVideo.src = item.video || '';
   detailDescription.innerHTML = '';
 
-  if (item.map) {
-    detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">맵 정보</div>
-      <div class="info-row"><span>ID</span><span>${item.map.mapId}</span></div>
-      <div class="info-row"><span>길이</span><span>${item.map.length}</span></div>
-      <div class="info-row"><span>오브젝트</span><span>${item.map.objects}</span></div>
-      <div class="info-row"><span>업로드</span><span>${item.map.uploadDate}</span></div>
-    </div>`;
-  }
-
   if (item.gameplay) {
-    detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">게임플레이</div>
-      ${Object.entries(item.gameplay.modeRatio||{}).map(([k,v])=>bar(k,v)).join('')}
-      ${Object.entries(item.gameplay.speedRatio||{}).map(([k,v])=>bar(k,v)).join('')}
-    </div>`;
+    addSection('게임플레이',
+      Object.entries(item.gameplay.modeRatio || {}).map(([k,v])=>barRow(k,v)).join('') +
+      Object.entries(item.gameplay.speedRatio || {}).map(([k,v])=>barRow(k,v)).join('')
+    );
   }
 
   if (item.framePerfect) {
-    const f = item.framePerfect.fps || {};
-    detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">프레임 퍼펙트</div>
-      <div class="fp-bars">
-        ${[30,60,120,240].map(n=>`
-          <div class="fp-bar" style="height:${Math.max((f[n]||0)*3,6)}px">
-            ${n}<br>${f[n]||0}
-          </div>`).join('')}
-      </div>
-    </div>`;
+    addSection('프레임 퍼펙트',
+      Object.entries(item.framePerfect.fps || {})
+        .map(([k,v]) => barRow(`${k}fps`, (v / item.framePerfect.total)*100))
+        .join('')
+    );
   }
 
   detailClears.innerHTML = item.clears?.length
@@ -204,37 +274,20 @@ function showDetail(item) {
     : '<p style="color:#aaa;text-align:center">클리어 없음</p>';
 }
 
-function generateList(data) {
-  list.innerHTML = '';
-  data.forEach(item=>{
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <div class="rank">${item.id}</div>
-      <div>
-        <div class="title">${item.title}</div>
-        <div class="creator">by ${item.creator}</div>
-      </div>`;
-    div.onclick = ()=>showDetail(item);
-    list.appendChild(div);
-  });
-}
-
 fetch('classic.json')
   .then(r=>r.json())
   .then(j=>{
     demonData = j.buttons;
-    generateList(demonData);
-    if (demonData.length) showDetail(demonData[0]);
+    demonData.forEach(d=>{
+      const div = document.createElement('div');
+      div.className='item';
+      div.innerHTML=`<div class="rank">${d.id}</div><div><div class="title">${d.title}</div><div class="creator">by ${d.creator}</div></div>`;
+      div.onclick=()=>showDetail(d);
+      list.appendChild(div);
+    });
+    showDetail(demonData[0]);
   });
-
-search.oninput = ()=>{
-  const t = search.value.toLowerCase();
-  generateList(demonData.filter(d=>d.title.toLowerCase().includes(t)));
-};
 </script>
 
 </body>
 </html>
-
-
