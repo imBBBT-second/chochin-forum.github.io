@@ -193,8 +193,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
-        bottom: 10px;
       }
 
       .detail-title-inner {
@@ -276,8 +274,8 @@
 
       <!-- 상세 정보 -->
       <div class="detail-panel">
-        <div class="detail-title" id="detailTitle"></div>
-        <p id="detailCreator" style="font-size:200%"></p>
+        <div class="detail-title" id="detailTitle" style="position: relative; bottom: 10px;"></div>
+        <p id="detailCreator" style="font-size:200%; position: relative; bottom: 10px;"></p>
 
         <div class="video-wrapper">
           <iframe id="detailVideo" allowfullscreen></iframe>
@@ -402,6 +400,7 @@
     <p style="font-size:30px; color:#808080">제작 : 초코, 앞티</p>
   </body>
 </html>
+
 
 
 
