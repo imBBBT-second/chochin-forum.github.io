@@ -1,292 +1,202 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0">
-<title>초친 포럼 (레벨 - 클래식)</title>
+  <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>초친 포럼 (레벨 - 클래식)</title>
 
-<style>
-/* ===== 기본 ===== */
-html, body {
-  min-height: 100vh;
-  margin: 0;
-  background: #323232;
-  display: flex;
-  flex-direction: column;
-}
+    <style>
+      /* ================= 기본 리셋 ================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: inherit;
+        font-family: inherit;
+      }
 
-* {
-  box-sizing: border-box;
-  color: inherit;
-}
+      html, body {
+        min-height: 100vh;
+        background-color: #323232;
+        color: #eaeaea;
+        font-family: Paperlogy4;
+      }
 
-/* ===== 폰트 ===== */
-@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
-@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
-@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
-@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
-@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
-@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
-@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
-@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
-@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
+      /* ================= 폰트 ================= */
+      @font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
+      @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
+      @font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
+      @font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
+      @font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
+      @font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
+      @font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
+      @font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
+      @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-/* ===== 공통 텍스트 ===== */
-h1 {
-  font-family: Paperlogy7;
-  font-size: 160px;
-  color: #fff;
-  text-align: center;
-}
+      /* ================= 텍스트 ================= */
+      h1 {
+        font-family: Paperlogy7;
+        font-size: 170px;
+        color: #ffffff;
+        text-align: center;
+      }
 
-p {
-  font-family: Paperlogy3;
-  color: #c8c8c8;
-  text-align: center;
-}
+      h4 {
+        font-family: Paperlogy3;
+        font-size: 40px;
+        color: #a0a0a0;
+        text-align: center;
+      }
 
-/* ===== 헤더 ===== */
-.header-container {
-  display: flex;
-  justify-content: center;
-  gap: 5vw;
-  padding: 2vh 0;
-}
+      p {
+        font-family: Paperlogy3;
+        color: #d0d0d0;
+      }
 
-.header-btn-wrapper { width: 400px; }
+      /* ================= 링크 / 버튼 ================= */
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-.header-btn {
-  width: 100%;
-  padding: 1.5vh 0;
-  background: #323232;
-  border: none;
-  border-radius: 10px;
-  font-family: Paperlogy6;
-  font-size: clamp(2rem, 5vw, 5rem);
-  color: #fff;
-  cursor: pointer;
-}
+      button {
+        font-family: Paperlogy5;
+        color: #ffffff;
+      }
 
-a { text-decoration: none; color: inherit; }
+      input {
+        font-family: Paperlogy3;
+        color: #ffffff;
+        background: #555;
+      }
 
-.divider {
-  border: 2px solid #fff;
-  margin: 10px 0;
-}
+      /* ================= 레이아웃 ================= */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        gap: 5vw;
+        padding: 2vh 0;
+      }
 
-/* ===== 메인 ===== */
-.main-container {
-  flex: 1;
-  display: flex;
-  gap: 2%;
-  padding: 2%;
-  min-height: 800px;
-}
+      .header-btn {
+        background-color: #323232;
+        font-size: clamp(2rem, 5vw, 5rem);
+        border: none;
+        border-radius: 10px;
+        padding: 1.5vh 3vw;
+        cursor: pointer;
+      }
 
-/* 좌 / 우 동일 */
-.container,
-.clears-panel {
-  width: 28%;
-  background: #404040;
-  border-radius: 10px;
-  padding: 1.5%;
-  overflow-y: auto;
-}
+      .divider {
+        border: 2px solid white;
+        margin: 10px 0;
+      }
 
-/* 중앙 */
-.detail-panel {
-  flex: 1;
-  background: #505050;
-  border-radius: 10px;
-  padding: 2%;
-  overflow-y: auto;
-}
+      .main-container {
+        display: flex;
+        gap: 2%;
+        padding: 2%;
+        height: calc(100vh - 350px);
+      }
 
-/* ===== 리스트 ===== */
-input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: 10px;
-  font-family: Paperlogy4;
-  font-size: 18px;
-}
+      .container {
+        width: 25%;
+        background: #404040;
+        padding: 1.5%;
+        border-radius: 10px;
+        overflow-y: auto;
+      }
 
-.item {
-  display: flex;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #888;
-  cursor: pointer;
-}
+      .detail-panel {
+        flex: 1;
+        background: #505050;
+        padding: 2%;
+        border-radius: 10px;
+        overflow-y: auto;
+      }
 
-.rank {
-  width: 50px;
-  text-align: center;
-  font-family: Paperlogy8;
-  font-size: 26px;
-  color: #fff;
-}
+      .detail-panel.clears-panel {
+        width: 25%;
+      }
 
-.title {
-  font-family: Paperlogy6;
-  font-size: 22px;
-  color: #fff;
-}
+      /* ================= 리스트 ================= */
+      .item {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #666;
+        cursor: pointer;
+      }
 
-.creator {
-  font-family: Paperlogy3;
-  font-size: 14px;
-  color: #ccc;
-}
+      .rank {
+        font-family: Paperlogy8;
+        font-size: 1.8vw;
+        color: #ffffff;
+        width: 15%;
+        text-align: center;
+      }
 
-/* ===== 상세 ===== */
-.detail-title-inner {
-  font-family: Paperlogy9;
-  font-size: 48px;
-  color: #fff;
-}
+      .title {
+        font-family: Paperlogy5;
+        font-size: 1.5vw;
+        color: #ffffff;
+      }
 
-#detailCreator {
-  font-family: Paperlogy4;
-  font-size: 26px;
-  color: #ddd;
-  margin-bottom: 10px;
-}
+      .creator {
+        font-family: Paperlogy3;
+        font-size: 0.9vw;
+        color: #cccccc;
+      }
 
-/* 영상 */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  margin-bottom: 15px;
-}
+      /* ================= 상세 ================= */
+      .section {
+        background: #444;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
 
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+      .section-title {
+        font-family: Paperlogy6;
+        font-size: 22px;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
 
-/* ===== 섹션 ===== */
-.section {
-  background: #444;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
-}
+      .tag {
+        background: #666;
+        padding: 4px 8px;
+        border-radius: 6px;
+        margin: 3px;
+        display: inline-block;
+        font-family: Paperlogy4;
+        color: #ffffff;
+      }
+    </style>
+  </head>
 
-.section-title {
-  font-family: Paperlogy6;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 8px;
-}
+  <body>
+    <div class="header-container">
+      <a href="../index.html"><button class="header-btn">홈</button></a>
+      <a href="../level.html"><button class="header-btn">레벨</button></a>
+      <button class="header-btn">하디스트</button>
+    </div>
 
-/* 가로 정보 */
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  font-family: Paperlogy3;
-  font-size: 16px;
-  color: #ccc;
-}
+    <div class="divider"></div>
 
-/* ===== 바 그래프 ===== */
-.bar-row {
-  display: grid;
-  grid-template-columns: 70px 1fr 60px;
-  gap: 8px;
-  align-items: center;
-  margin: 6px 0;
-}
+    <h1>Classic</h1>
+    <p style="text-align:center; font-size:32px;">
+      초친 멤버들이 만든 레벨들 중 20초 이상의 레벨들을 모아놓은 곳입니다.
+    </p>
 
-.bar-bg {
-  background: #333;
-  height: 12px;
-  border-radius: 6px;
-  overflow: hidden;
-}
+    <div class="main-container">
+      <div class="container" id="list"></div>
+      <div class="detail-panel" id="detailDescription"></div>
+      <div class="detail-panel clears-panel" id="detailClears"></div>
+    </div>
 
-.bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #5fd3ff, #4aa3ff);
-}
-
-/* ===== FP ===== */
-.fp-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-  height: 90px;
-  margin-top: 10px;
-}
-
-.fp-bar {
-  flex: 1;
-  background: #6aa8ff;
-  border-radius: 6px 6px 0 0;
-  text-align: center;
-  font-family: Paperlogy4;
-  font-size: 13px;
-  color: #fff;
-}
-
-/* 태그 */
-.tag {
-  display: inline-block;
-  background: #666;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-family: Paperlogy4;
-  font-size: 14px;
-  color: #fff;
-  margin: 3px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- 헤더 -->
-<div class="header-container">
-  <a href="../index.html" class="header-btn-wrapper"><button class="header-btn">홈</button></a>
-  <a href="../level.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
-  <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
-</div>
-
-<div class="divider"></div>
-
-<h1>Classic</h1>
-<p style="font-size:32px">20초 이상 레벨 모음</p>
-
-<!-- 메인 -->
-<div class="main-container">
-
-  <!-- 왼쪽 -->
-  <div class="container">
-    <input id="search" placeholder="검색">
-    <div id="list"></div>
-  </div>
-
-  <!-- 상세 -->
-  <div class="detail-panel">
-    <div id="detailTitle"></div>
-    <p id="detailCreator"></p>
-    <div class="video-wrapper"><iframe id="detailVideo"></iframe></div>
-    <div id="detailDescription"></div>
-  </div>
-
-  <!-- 클리어 -->
-  <div class="clears-panel">
-    <p style="font-family:Paperlogy7;font-size:28px;color:#fff">클리어 명단</p>
-    <div id="detailClears"></div>
-  </div>
-
-</div>
+    <h4>크레딧</h4>
+    <p style="text-align:center; font-size:30px; color:#808080">제작 : 초코, 앞티</p>
 
 <script>
 let demonData = [];
@@ -381,3 +291,4 @@ search.oninput = ()=>{
 
 </body>
 </html>
+
