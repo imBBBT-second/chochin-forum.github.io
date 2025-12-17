@@ -6,285 +6,306 @@
 <title>초친 포럼 (레벨 - 클래식)</title>
 
 <style>
+/* ===== 기본 ===== */
 html, body {
+  min-height: 100vh;
   margin: 0;
-  height: 100%;
   background: #323232;
+  display: flex;
+  flex-direction: column;
 }
-* { box-sizing: border-box; }
 
-/* ===== Fonts ===== */
+* {
+  box-sizing: border-box;
+  color: inherit;
+}
+
+/* ===== 폰트 ===== */
+@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
 @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
 @font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
+@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
 @font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
+@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
 @font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
+@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
 @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-/* ===== Header ===== */
-.header-container {
-  display:flex;
-  justify-content:center;
-  gap:5vw;
-  padding:20px 0;
-}
-.header-btn {
-  width:400px;
-  background:#323232;
-  color:#fff;
-  border:none;
-  font-size:3rem;
-  font-family:Paperlogy5;
-  cursor:pointer;
-}
-.divider { border:2px solid white; }
-
+/* ===== 공통 텍스트 ===== */
 h1 {
-  color:#fff;
-  font-family:Paperlogy9;
-  font-size:140px;
-  text-align:center;
-  margin:10px 0;
+  font-family: Paperlogy7;
+  font-size: 160px;
+  color: #fff;
+  text-align: center;
 }
 
-/* ===== Layout ===== */
+p {
+  font-family: Paperlogy3;
+  color: #c8c8c8;
+  text-align: center;
+}
+
+/* ===== 헤더 ===== */
+.header-container {
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+  padding: 2vh 0;
+}
+
+.header-btn-wrapper { width: 400px; }
+
+.header-btn {
+  width: 100%;
+  padding: 1.5vh 0;
+  background: #323232;
+  border: none;
+  border-radius: 10px;
+  font-family: Paperlogy6;
+  font-size: clamp(2rem, 5vw, 5rem);
+  color: #fff;
+  cursor: pointer;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.divider {
+  border: 2px solid #fff;
+  margin: 10px 0;
+}
+
+/* ===== 메인 ===== */
 .main-container {
-  display:flex;
-  gap:2%;
-  padding:2%;
-  height: calc(100vh - 260px);
+  flex: 1;
+  display: flex;
+  gap: 2%;
+  padding: 2%;
+  min-height: 800px;
 }
 
+/* 좌 / 우 동일 */
 .container,
-.detail-panel {
-  background:#404040;
-  border-radius:14px;
-  padding:18px;
-  overflow-y:auto;
+.clears-panel {
+  width: 28%;
+  background: #404040;
+  border-radius: 10px;
+  padding: 1.5%;
+  overflow-y: auto;
 }
 
-/* ⬅️ 왼쪽 리스트 확대 */
-.container { width:28%; }
+/* 중앙 */
+.detail-panel {
+  flex: 1;
+  background: #505050;
+  border-radius: 10px;
+  padding: 2%;
+  overflow-y: auto;
+}
 
-/* ➡️ 오른쪽 클리어 축소 */
-.clears-panel { width:20%; }
-
-.detail-panel { flex:1; }
-
-/* ===== List ===== */
+/* ===== 리스트 ===== */
 input {
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  border:none;
-  font-family:Paperlogy3;
-  font-size:18px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+  font-family: Paperlogy4;
+  font-size: 18px;
 }
 
 .item {
-  display:flex;
-  gap:14px;
-  padding:14px 6px;
-  border-bottom:1px solid #666;
-  cursor:pointer;
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #888;
+  cursor: pointer;
 }
 
 .rank {
-  width:42px;
-  font-family:Paperlogy7;
-  font-size:22px;
-  color:#fff;
+  width: 50px;
+  text-align: center;
+  font-family: Paperlogy8;
+  font-size: 26px;
+  color: #fff;
 }
 
 .title {
-  font-family:Paperlogy5;
-  font-size:22px;
-  color:#fff;
+  font-family: Paperlogy6;
+  font-size: 22px;
+  color: #fff;
 }
 
 .creator {
-  font-family:Paperlogy3;
-  font-size:15px;
-  color:#bbb;
+  font-family: Paperlogy3;
+  font-size: 14px;
+  color: #ccc;
 }
 
-/* ===== Detail Global Color Fix ===== */
-.detail-panel,
-.detail-panel * {
-  color:#e0e0e0;
-  font-family:Paperlogy3;
+/* ===== 상세 ===== */
+.detail-title-inner {
+  font-family: Paperlogy9;
+  font-size: 48px;
+  color: #fff;
 }
 
-/* ===== Detail ===== */
-.detail-title {
-  text-align:center;
-  font-family:Paperlogy9;
-  font-size:52px;
-  color:#fff;
-}
 #detailCreator {
-  text-align:center;
-  font-size:18px;
-  color:#c8c8c8;
+  font-family: Paperlogy4;
+  font-size: 26px;
+  color: #ddd;
+  margin-bottom: 10px;
 }
 
-/* Video */
+/* 영상 */
 .video-wrapper {
-  position:relative;
-  width:100%;
-  padding-top:56.25%;
-  margin:18px 0;
-}
-.video-wrapper iframe {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:none;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-bottom: 15px;
 }
 
-/* ===== Sections ===== */
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===== 섹션 ===== */
 .section {
-  background:#4a4a4a;
-  padding:16px;
-  border-radius:12px;
-  margin-bottom:16px;
+  background: #444;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 .section-title {
-  font-family:Paperlogy7;
-  font-size:22px;
-  margin-bottom:12px;
-  color:#fff;
+  font-family: Paperlogy6;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 8px;
 }
 
-/* ===== Info Grid ===== */
-.info-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px 20px;
-}
-
+/* 가로 정보 */
 .info-row {
-  display:flex;
-  justify-content:space-between;
-  font-size:17px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Paperlogy3;
+  font-size: 16px;
+  color: #ccc;
 }
 
-.label {
-  font-family:Paperlogy3;
-  color:#b0b0b0;
-}
-
-.value {
-  font-family:Paperlogy5;
-  color:#ffffff;
-}
-
-/* ===== Bars ===== */
+/* ===== 바 그래프 ===== */
 .bar-row {
-  display:grid;
-  grid-template-columns:90px 1fr 60px;
-  align-items:center;
-  gap:12px;
-  margin:8px 0;
+  display: grid;
+  grid-template-columns: 70px 1fr 60px;
+  gap: 8px;
+  align-items: center;
+  margin: 6px 0;
 }
 
 .bar-bg {
-  background:#2f2f2f;
-  height:16px;
-  border-radius:10px;
-  overflow:hidden;
+  background: #333;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .bar-fill {
-  height:100%;
-  background:linear-gradient(90deg,#6fd6ff,#4aa3ff);
+  height: 100%;
+  background: linear-gradient(90deg, #5fd3ff, #4aa3ff);
 }
 
 /* ===== FP ===== */
 .fp-bars {
-  display:flex;
-  align-items:flex-end;
-  gap:14px;
-  height:120px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 90px;
+  margin-top: 10px;
 }
 
 .fp-bar {
-  flex:1;
-  background:#6aa8ff;
-  border-radius:10px 10px 0 0;
-  text-align:center;
-  font-size:14px;
-  color:#fff;
+  flex: 1;
+  background: #6aa8ff;
+  border-radius: 6px 6px 0 0;
+  text-align: center;
+  font-family: Paperlogy4;
+  font-size: 13px;
+  color: #fff;
 }
 
-/* ===== Tags ===== */
+/* 태그 */
 .tag {
-  display:inline-block;
-  background:#666;
-  padding:8px 12px;
-  border-radius:10px;
-  margin:5px;
-  font-size:15px;
-  color:#fff;
+  display: inline-block;
+  background: #666;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: Paperlogy4;
+  font-size: 14px;
+  color: #fff;
+  margin: 3px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 헤더 -->
 <div class="header-container">
-  <button class="header-btn">홈</button>
-  <button class="header-btn">레벨</button>
-  <button class="header-btn">하디스트</button>
+  <a href="../index.html" class="header-btn-wrapper"><button class="header-btn">홈</button></a>
+  <a href="../level.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
+  <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
 </div>
+
 <div class="divider"></div>
 
 <h1>Classic</h1>
+<p style="font-size:32px">20초 이상 레벨 모음</p>
 
+<!-- 메인 -->
 <div class="main-container">
+
+  <!-- 왼쪽 -->
   <div class="container">
     <input id="search" placeholder="검색">
     <div id="list"></div>
   </div>
 
+  <!-- 상세 -->
   <div class="detail-panel">
-    <div id="detailTitle" class="detail-title"></div>
-    <div id="detailCreator"></div>
-
-    <div class="video-wrapper">
-      <iframe id="detailVideo" allowfullscreen></iframe>
-    </div>
-
+    <div id="detailTitle"></div>
+    <p id="detailCreator"></p>
+    <div class="video-wrapper"><iframe id="detailVideo"></iframe></div>
     <div id="detailDescription"></div>
   </div>
 
-  <div class="detail-panel clears-panel">
-    <div class="detail-title" style="font-size:32px">클리어 명단</div>
+  <!-- 클리어 -->
+  <div class="clears-panel">
+    <p style="font-family:Paperlogy7;font-size:28px;color:#fff">클리어 명단</p>
     <div id="detailClears"></div>
   </div>
+
 </div>
 
 <script>
 let demonData = [];
 
-function bar(label, value) {
+function bar(name, value) {
   return `
-    <div class="bar-row">
-      <span>${label}</span>
-      <div class="bar-bg">
-        <div class="bar-fill" style="width:${value}%"></div>
-      </div>
-      <span>${value}%</span>
-    </div>`;
+  <div class="bar-row">
+    <span>${name}</span>
+    <div class="bar-bg"><div class="bar-fill" style="width:${value}%"></div></div>
+    <span>${value}%</span>
+  </div>`;
 }
 
 function showDetail(item) {
-  detailTitle.textContent = item.title;
+  detailTitle.innerHTML = `<span class="detail-title-inner">${item.title}</span>`;
   detailCreator.textContent =
     item.creator === item.verifier
-      ? `by ${item.creator}`
-      : `by ${item.creator} / Verified by ${item.verifier}`;
+    ? `by ${item.creator}`
+    : `by ${item.creator} / Verified by ${item.verifier}`;
 
   detailVideo.src = item.video || '';
   detailDescription.innerHTML = '';
@@ -293,33 +314,69 @@ function showDetail(item) {
     detailDescription.innerHTML += `
     <div class="section">
       <div class="section-title">맵 정보</div>
-      <div class="info-grid">
-        <div class="info-row"><span class="label">맵 ID</span><span class="value">${item.map.mapId}</span></div>
-        <div class="info-row"><span class="label">길이</span><span class="value">${item.map.length}</span></div>
-        <div class="info-row"><span class="label">오브젝트</span><span class="value">${item.map.objects}</span></div>
-        <div class="info-row"><span class="label">업로드</span><span class="value">${item.map.uploadDate}</span></div>
+      <div class="info-row"><span>ID</span><span>${item.map.mapId}</span></div>
+      <div class="info-row"><span>길이</span><span>${item.map.length}</span></div>
+      <div class="info-row"><span>오브젝트</span><span>${item.map.objects}</span></div>
+      <div class="info-row"><span>업로드</span><span>${item.map.uploadDate}</span></div>
+    </div>`;
+  }
+
+  if (item.gameplay) {
+    detailDescription.innerHTML += `
+    <div class="section">
+      <div class="section-title">게임플레이</div>
+      ${Object.entries(item.gameplay.modeRatio||{}).map(([k,v])=>bar(k,v)).join('')}
+      ${Object.entries(item.gameplay.speedRatio||{}).map(([k,v])=>bar(k,v)).join('')}
+    </div>`;
+  }
+
+  if (item.framePerfect) {
+    const f = item.framePerfect.fps || {};
+    detailDescription.innerHTML += `
+    <div class="section">
+      <div class="section-title">프레임 퍼펙트</div>
+      <div class="fp-bars">
+        ${[30,60,120,240].map(n=>`
+          <div class="fp-bar" style="height:${Math.max((f[n]||0)*3,6)}px">
+            ${n}<br>${f[n]||0}
+          </div>`).join('')}
       </div>
     </div>`;
   }
 
   detailClears.innerHTML = item.clears?.length
     ? item.clears.map((c,i)=>`<p>${i+1}. ${c}</p>`).join('')
-    : '<p style="text-align:center;color:#aaa">클리어 없음</p>';
+    : '<p style="color:#aaa;text-align:center">클리어 없음</p>';
+}
+
+function generateList(data) {
+  list.innerHTML = '';
+  data.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <div class="rank">${item.id}</div>
+      <div>
+        <div class="title">${item.title}</div>
+        <div class="creator">by ${item.creator}</div>
+      </div>`;
+    div.onclick = ()=>showDetail(item);
+    list.appendChild(div);
+  });
 }
 
 fetch('classic.json')
   .then(r=>r.json())
   .then(j=>{
     demonData = j.buttons;
-    demonData.length && showDetail(demonData[0]);
-    demonData.forEach(d=>{
-      const div=document.createElement('div');
-      div.className='item';
-      div.innerHTML=`<div class="rank">${d.id}</div><div><div class="title">${d.title}</div><div class="creator">by ${d.creator}</div></div>`;
-      div.onclick=()=>showDetail(d);
-      list.appendChild(div);
-    });
+    generateList(demonData);
+    if (demonData.length) showDetail(demonData[0]);
   });
+
+search.oninput = ()=>{
+  const t = search.value.toLowerCase();
+  generateList(demonData.filter(d=>d.title.toLowerCase().includes(t)));
+};
 </script>
 
 </body>
