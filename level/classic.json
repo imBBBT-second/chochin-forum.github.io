@@ -55,8 +55,38 @@
       "title": "nullscube",
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
-      "verifier": "Timo"
-      
+      "verifier": "Timo",
+      "map": {
+        "mapId": 126915240,
+        "length": "0m 25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
+      },
+      "song": {
+        "name": "Flow",
+        "artist": "Creo",
+        "id": 1132447
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 12,
+        "fps": {
+          "30": 7,
+          "60": 5,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "1x", "Short", "One-Mode", "Full-Effect"],
+      "clears": []
     },
     {
       "id": 4,
@@ -76,5 +106,6 @@
     }
   ]
 }
+
 
 
