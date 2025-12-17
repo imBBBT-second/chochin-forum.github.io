@@ -11,7 +11,7 @@
         "length": "0m 24s",
         "objects": 1930,
         "uploadDate": "2025-10-10"
-        },
+      },
       "song": {
         "name": "Parfait",
         "artist": "EspiDev",
@@ -22,7 +22,7 @@
         "modeRatio": {
           "Cube": 35.97,
           "Ship": 11.14,
-          "Wave": 52.82,
+          "Wave": 52.82
         },
         "speedRatio": {
           "0.5x": 10.01,
@@ -32,15 +32,15 @@
       },
       "framePerfect": {
         "total": 30,
-      "fps": {
+        "fps": {
           "30": 21,
-        "60": 9,
-        "120": 0,
-        "240": 0
-      }
-  },
-  "tags": ["Wave", "4x", "Short", "None - Effect"],
-  "clears": []
+          "60": 9,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "4x", "Short", "None - Effect"],
+      "clears": []
     },
     {
       "id": 2,
@@ -48,15 +48,7 @@
       "creator": "Choco",
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
-      "details": {
-        "맵 ID": "129453627",
-        "길이": "0m 28s",
-        "노래": "nandinanubis - Portial To The Other Side (Feat. Hatsune Miku)",
-        "노래 ID": "941913",
-        "오브젝트 수": "1431",
-        "프레임 퍼펙트 수": "?"
-      },
-      "fp": ["?"]
+      "clears": []
     },
     {
       "id": 3,
@@ -64,15 +56,6 @@
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/WBCF7mMq_2s",
       "verifier": "Timo",
-      "details": {
-        "맵 ID": "126915240",
-        "길이": "0m 25s",
-        "노래": "Creo - Flow",
-        "노래 ID": "1132447",
-        "오브젝트 수": "33111",
-        "프레임 퍼펙트 수": "9"
-      },
-      "fp": ["7", "5"],
       "clears": []
     },
     {
@@ -81,16 +64,7 @@
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
       "verifier": "Timo",
-      "details": {
-        "맵 ID": "110122641",
-        "길이": "0m 33s",
-        "노래": "Solkrieg - (Silent Hill Dupstep*)",
-        "노래 ID": "509014",
-        "오브젝트 수": "13247",
-        "프레임 퍼펙트 수": "11"
-      },
-      "clears": [],
-      "fp": ["9", "2"]
+      "clears": []
     },
     {
       "id": 5,
@@ -98,35 +72,7 @@
       "creator": "Choco",
       "video": "classic_video/stereo_madness_ex.mp4",
       "verifier": "Timo",
-      "details": {
-        "맵 ID": "118253574",
-        "길이": "0m 50s",
-        "노래": "ForeverBound - Stereo Madnessasdfasdf",
-        "노래 ID": "(R) 0",
-        "오브젝트 수": "3598",
-        "프레임 퍼펙트 수": "0"
-    },
       "clears": []
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
