@@ -313,6 +313,25 @@ function addSection(title, html) {
     </div>`;
 }
 
+function drawRatioGraph(targetId, data) {
+  const box = document.getElementById(targetId);
+  box.innerHTML = '';
+
+  Object.entries(data || {}).forEach(([key, value]) => {
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `
+      <span>${key}</span>
+      <div class="bar">
+        <div class="bar-fill" style="width:${value}%"></div>
+      </div>
+      <span>${value}%</span>
+    `;
+    box.appendChild(row);
+  });
+}
+
+
 function showDetail(item) {
   detailTitle.textContent = item.title;
   detailCreator.textContent =
@@ -353,24 +372,6 @@ function showDetail(item) {
     : '<p style="color:#aaa;text-align:center">클리어 없음</p>';
 }
 
-function drawRatioGraph(targetId, data) {
-  const box = document.getElementById(targetId);
-  box.innerHTML = '';
-
-  Object.entries(data || {}).forEach(([key, value]) => {
-    const row = document.createElement('div');
-    row.className = 'bar-row';
-    row.innerHTML = `
-      <span>${key}</span>
-      <div class="bar">
-        <div class="bar-fill" style="width:${value}%"></div>
-      </div>
-      <span>${value}%</span>
-    `;
-    box.appendChild(row);
-  });
-}
-
 
 fetch('classic.json')
   .then(r=>r.json())
@@ -389,6 +390,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
