@@ -57,60 +57,74 @@ h1 {
 .container,
 .detail-panel {
   background:#404040;
-  border-radius:12px;
-  padding:16px;
+  border-radius:14px;
+  padding:18px;
   overflow-y:auto;
 }
 
-.container { width:25%; }
+/* ⬅️ 왼쪽 리스트 확대 */
+.container { width:28%; }
+
+/* ➡️ 오른쪽 클리어 축소 */
+.clears-panel { width:20%; }
+
 .detail-panel { flex:1; }
-.clears-panel { width:25%; }
 
 /* ===== List ===== */
 input {
   width:100%;
-  padding:10px;
-  border-radius:10px;
+  padding:12px;
+  border-radius:12px;
   border:none;
   font-family:Paperlogy3;
-  font-size:16px;
+  font-size:18px;
 }
 
 .item {
   display:flex;
-  gap:12px;
-  padding:10px 0;
+  gap:14px;
+  padding:14px 6px;
   border-bottom:1px solid #666;
   cursor:pointer;
 }
+
 .rank {
-  width:40px;
+  width:42px;
   font-family:Paperlogy7;
-  font-size:18px;
+  font-size:22px;
   color:#fff;
 }
+
 .title {
   font-family:Paperlogy5;
-  font-size:18px;
+  font-size:22px;
   color:#fff;
 }
+
 .creator {
   font-family:Paperlogy3;
-  font-size:14px;
-  color:#aaa;
+  font-size:15px;
+  color:#bbb;
+}
+
+/* ===== Detail Global Color Fix ===== */
+.detail-panel,
+.detail-panel * {
+  color:#e0e0e0;
+  font-family:Paperlogy3;
 }
 
 /* ===== Detail ===== */
 .detail-title {
   text-align:center;
   font-family:Paperlogy9;
-  font-size:48px;
+  font-size:52px;
+  color:#fff;
 }
 #detailCreator {
   text-align:center;
-  font-family:Paperlogy3;
-  font-size:16px;
-  color:#ccc;
+  font-size:18px;
+  color:#c8c8c8;
 }
 
 /* Video */
@@ -118,7 +132,7 @@ input {
   position:relative;
   width:100%;
   padding-top:56.25%;
-  margin:16px 0;
+  margin:18px 0;
 }
 .video-wrapper iframe {
   position:absolute;
@@ -131,71 +145,75 @@ input {
 /* ===== Sections ===== */
 .section {
   background:#4a4a4a;
-  padding:14px;
-  border-radius:10px;
-  margin-bottom:14px;
+  padding:16px;
+  border-radius:12px;
+  margin-bottom:16px;
 }
+
 .section-title {
   font-family:Paperlogy7;
-  font-size:20px;
-  margin-bottom:10px;
+  font-size:22px;
+  margin-bottom:12px;
+  color:#fff;
 }
 
 /* ===== Info Grid ===== */
 .info-grid {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:8px 16px;
+  gap:10px 20px;
 }
+
 .info-row {
   display:flex;
   justify-content:space-between;
-  font-size:16px;
+  font-size:17px;
 }
+
 .label {
   font-family:Paperlogy3;
-  color:#bbb;
+  color:#b0b0b0;
 }
+
 .value {
   font-family:Paperlogy5;
-  color:#fff;
+  color:#ffffff;
 }
 
 /* ===== Bars ===== */
 .bar-row {
   display:grid;
-  grid-template-columns:80px 1fr 60px;
+  grid-template-columns:90px 1fr 60px;
   align-items:center;
-  gap:10px;
-  margin:6px 0;
+  gap:12px;
+  margin:8px 0;
 }
-.bar-row span {
-  font-family:Paperlogy3;
-}
+
 .bar-bg {
-  background:#333;
-  height:14px;
-  border-radius:8px;
+  background:#2f2f2f;
+  height:16px;
+  border-radius:10px;
   overflow:hidden;
 }
+
 .bar-fill {
   height:100%;
-  background:linear-gradient(90deg,#5fd3ff,#4aa3ff);
+  background:linear-gradient(90deg,#6fd6ff,#4aa3ff);
 }
 
 /* ===== FP ===== */
 .fp-bars {
   display:flex;
   align-items:flex-end;
-  gap:12px;
-  height:100px;
+  gap:14px;
+  height:120px;
 }
+
 .fp-bar {
   flex:1;
   background:#6aa8ff;
-  border-radius:8px 8px 0 0;
+  border-radius:10px 10px 0 0;
   text-align:center;
-  font-family:Paperlogy3;
   font-size:14px;
   color:#fff;
 }
@@ -204,11 +222,10 @@ input {
 .tag {
   display:inline-block;
   background:#666;
-  padding:6px 10px;
-  border-radius:8px;
-  margin:4px;
-  font-family:Paperlogy3;
-  font-size:14px;
+  padding:8px 12px;
+  border-radius:10px;
+  margin:5px;
+  font-size:15px;
   color:#fff;
 }
 </style>
@@ -226,13 +243,11 @@ input {
 <h1>Classic</h1>
 
 <div class="main-container">
-  <!-- 리스트 -->
   <div class="container">
     <input id="search" placeholder="검색">
     <div id="list"></div>
   </div>
 
-  <!-- 상세 -->
   <div class="detail-panel">
     <div id="detailTitle" class="detail-title"></div>
     <div id="detailCreator"></div>
@@ -244,7 +259,6 @@ input {
     <div id="detailDescription"></div>
   </div>
 
-  <!-- 클리어 -->
   <div class="detail-panel clears-panel">
     <div class="detail-title" style="font-size:32px">클리어 명단</div>
     <div id="detailClears"></div>
@@ -288,70 +302,24 @@ function showDetail(item) {
     </div>`;
   }
 
-  if (item.gameplay) {
-    detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">게임플레이</div>
-      ${Object.entries(item.gameplay.modeRatio || {}).map(([k,v])=>bar(k,v)).join('')}
-      ${Object.entries(item.gameplay.speedRatio || {}).map(([k,v])=>bar(k,v)).join('')}
-    </div>`;
-  }
-
-  if (item.framePerfect) {
-    const f = item.framePerfect.fps;
-    detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">프레임 퍼펙트</div>
-      <div class="fp-bars">
-        ${[30,60,120,240].map(n=>`
-          <div class="fp-bar" style="height:${(f[n]||0)*3}px">
-            ${n}<br>${f[n]||0}
-          </div>`).join('')}
-      </div>
-    </div>`;
-  }
-
-  if (item.tags) {
-    detailDescription.innerHTML += `
-    <div class="section">
-      <div class="section-title">태그</div>
-      ${item.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}
-    </div>`;
-  }
-
   detailClears.innerHTML = item.clears?.length
     ? item.clears.map((c,i)=>`<p>${i+1}. ${c}</p>`).join('')
-    : '<p style="color:#aaa;text-align:center">클리어 없음</p>';
-}
-
-function generateList(data) {
-  list.innerHTML = '';
-  data.forEach(d => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <div class="rank">${d.id}</div>
-      <div>
-        <div class="title">${d.title}</div>
-        <div class="creator">by ${d.creator}</div>
-      </div>`;
-    div.onclick = ()=>showDetail(d);
-    list.appendChild(div);
-  });
+    : '<p style="text-align:center;color:#aaa">클리어 없음</p>';
 }
 
 fetch('classic.json')
   .then(r=>r.json())
   .then(j=>{
     demonData = j.buttons;
-    generateList(demonData);
-    showDetail(demonData[0]);
+    demonData.length && showDetail(demonData[0]);
+    demonData.forEach(d=>{
+      const div=document.createElement('div');
+      div.className='item';
+      div.innerHTML=`<div class="rank">${d.id}</div><div><div class="title">${d.title}</div><div class="creator">by ${d.creator}</div></div>`;
+      div.onclick=()=>showDetail(d);
+      list.appendChild(div);
+    });
   });
-
-search.oninput = () => {
-  const t = search.value.toLowerCase();
-  generateList(demonData.filter(d=>d.title.toLowerCase().includes(t)));
-};
 </script>
 
 </body>
