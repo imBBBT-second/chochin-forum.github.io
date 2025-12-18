@@ -387,22 +387,25 @@ input {
   color: #b0b0b0;
 }
 
-/* === 클리어 순위 강조 === */
-.clear-row.rank-1 .clear-rank,
-.clear-row.rank-1 .clear-player {
-  color: #ffd700;
+/* === 클리어 순위 강조 (닉네임 흰색 유지) === */
+.clear-row.rank-1 .clear-rank {
+  color: #ffe066;
   font-family: Paperlogy6;
 }
 
-.clear-row.rank-2 .clear-rank,
-.clear-row.rank-2 .clear-player {
-  color: #c0c0c0;
+.clear-row.rank-2 .clear-rank {
+  color: #e6e6e6;
   font-family: Paperlogy5;
 }
 
-.clear-row.rank-3 .clear-rank,
-.clear-row.rank-3 .clear-player {
-  color: #cd7f32;
+.clear-row.rank-3 .clear-rank {
+  color: #ffb266;
+  font-family: Paperlogy5;
+}
+
+/* 닉네임은 항상 흰색 */
+.clear-player {
+  color: #ffffff;
   font-family: Paperlogy5;
 }
 
@@ -691,5 +694,6 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
