@@ -352,30 +352,41 @@ input {
 .graph-bar[data-key="120"] { background:#ffff00; }
 .graph-bar[data-key="240"] { background:#ff0000; }
   
-/* ===== Clears ===== */
+/* === 클리어 명단 전용 스타일 === */
+.clears-panel {
+  color: #e0e0e0;
+}
+
 .clear-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 6px 8px;
-  border-bottom: 1px solid #666;
-  font-family: Paperlogy4;
+  gap: 0.6vw;
+  padding: 6px 4px;
+
+  font-family: Paperlogy3;
+  font-size: 1.1vw;
+  color: #e0e0e0;
 }
 
 .clear-rank {
-  font-family: Paperlogy7;
-  width: 40px;
+  font-family: Paperlogy6;
+  color: #ffffff;
+  min-width: 3.5vw;
 }
 
 .clear-player {
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .clear-date {
-  font-family: Paperlogy3;
-  color: #bbb;
-  font-size: 0.85rem;
+  font-family: Paperlogy2;
+  font-size: 0.95vw;
+  color: #b0b0b0;
 }
+
 
 </style>
 </head>
@@ -659,3 +670,4 @@ fetch('classic.json')
 
 </body>
 </html>
+
