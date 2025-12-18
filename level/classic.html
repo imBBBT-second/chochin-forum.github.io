@@ -353,10 +353,30 @@ input {
 .graph-bar[data-key="240"] { background:#ff0000; }
   
 /* ===== Clears ===== */
-#detailClears {
-  flex:1;
-  overflow-y:auto;
+.clear-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid #666;
+  font-family: Paperlogy4;
 }
+
+.clear-rank {
+  font-family: Paperlogy7;
+  width: 40px;
+}
+
+.clear-player {
+  flex: 1;
+}
+
+.clear-date {
+  font-family: Paperlogy3;
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
 </style>
 </head>
 
@@ -591,6 +611,25 @@ function showDetail(item) {
   }
 }
 
+  const clearBox = document.getElementById('detailClears');
+  clearBox.innerHTML = '';
+
+  if (item.clears && item.clears.length > 0) {
+    item.clears.forEach((c, i) => {
+      const row = document.createElement('div');
+      row.className = 'clear-row';
+      row.innerHTML = `
+        <div class="clear-rank">#${i + 1}</div>
+        <div class="clear-player">${c.player}</div>
+        <div class="clear-date">${c.date}</div>
+      `;
+      clearBox.appendChild(row);
+    });
+  } else {
+    clearBox.innerHTML =
+      `<p style="text-align:center; color:#aaa">클리어 없음</p>`;
+  }
+  
 /* 리스트 생성 */
 fetch('classic.json')
   .then(r => r.json())
@@ -621,6 +660,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
