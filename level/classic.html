@@ -579,12 +579,13 @@ function makeFramePerfectGraph(framePerfect) {
 
   
 function showDetail(item, element) {
-  // 기존 active 제거
+  // active 제거
   document.querySelectorAll('.item.active')
     .forEach(el => el.classList.remove('active'));
 
-  // 현재 클릭된 버튼 active 추가
-  element.classList.add('active');
+  // element가 있을 때만 active 처리
+  if (element) {
+    element.classList.add('active');
   /* 제목 */
   document.getElementById('detailTitle').textContent = item.title;
 
@@ -730,6 +731,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
