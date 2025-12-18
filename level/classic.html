@@ -239,73 +239,57 @@ input {
   color: #c8c8c8;
 }
 
+/* 상세 정보 텍스트 기본 스타일 */
+.detail-panel,
+.detail-panel span,
+.detail-panel p,
+.detail-panel div {
+  color: #e0e0e0;
+  font-family: Paperlogy3;
+}
+
+/* 정보 텍스트 크기 업 */
 .info-row span {
-  min-width: 45%;
+  font-size: 1.1vw;
 }
 
-.fp-warning {
-  text-align: center;
-  font-family: Paperlogy2;
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 10px;
-}
-
-  
-/* ===== Bar Graph ===== */
-.graph-box {
-  margin-bottom: 14px;
-}
-
+/* 그래프 텍스트 */
 .graph-title {
   font-family: Paperlogy6;
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.graph-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 4px 0;
+  font-size: 1.3vw;
+  color: #ffffff;
 }
 
 .graph-label {
-  width: 90px;
   font-family: Paperlogy3;
-  font-size: 0.9rem;
-  color: #c8c8c8;
-  flex-shrink: 0;
-}
-
-.graph-bar-bg {
-  flex: 1;
-  background: #333;
-  border-radius: 6px;
-  overflow: hidden;
-  height: 16px;
-}
-
-.graph-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #6fa8ff, #9bd0ff);
-  border-radius: 6px;
+  font-size: 1.05vw;
 }
 
 .graph-value {
-  width: 50px;
-  text-align: right;
   font-family: Paperlogy4;
-  font-size: 0.9rem;
-  color: #c8c8c8;
+  font-size: 1.05vw;
 }
 
-.graph-total {
-  margin-left: 8px;
-  font-size: 0.85rem;
-  color: #ccc;
+/* 클리어 명단 */
+.clear-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5vw;
+  font-size: 1.05vw;
   font-family: Paperlogy3;
+  color: #e0e0e0;
+}
+
+.clear-rank {
+  font-family: Paperlogy6;
+}
+
+.clear-player {
+  flex: 1;
+}
+
+.clear-date {
+  opacity: 0.8;
 }
 
 
@@ -351,31 +335,6 @@ input {
 .graph-bar[data-key="60"]  { background:#00ff00; }
 .graph-bar[data-key="120"] { background:#ffff00; }
 .graph-bar[data-key="240"] { background:#ff0000; }
-  
-/* ===== Clears ===== */
-.clear-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 8px;
-  border-bottom: 1px solid #666;
-  font-family: Paperlogy4;
-}
-
-.clear-rank {
-  font-family: Paperlogy7;
-  width: 40px;
-}
-
-.clear-player {
-  flex: 1;
-}
-
-.clear-date {
-  font-family: Paperlogy3;
-  color: #bbb;
-  font-size: 0.85rem;
-}
 
 </style>
 </head>
@@ -659,6 +618,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
