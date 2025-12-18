@@ -609,8 +609,6 @@ function showDetail(item) {
       item.tags.map(t => `<span class="tag">${t}</span>`).join('')
     );
   }
-}
-
   const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
 
@@ -630,6 +628,7 @@ function showDetail(item) {
       `<p style="text-align:center; color:#aaa">클리어 없음</p>`;
   }
   
+}
 /* 리스트 생성 */
 fetch('classic.json')
   .then(r => r.json())
@@ -660,6 +659,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
