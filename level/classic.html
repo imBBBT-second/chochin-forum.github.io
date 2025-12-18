@@ -327,6 +327,31 @@ input {
   white-space: nowrap;
 }
 
+/* ================= 그래프 색상 ================= */
+
+/* 게임모드 */
+.graph-bar[data-key="Cube"]   { background:#00ff00; }
+.graph-bar[data-key="Ship"]   { background:#ff00ff; }
+.graph-bar[data-key="Ball"]   { background:#ff0000; }
+.graph-bar[data-key="UFO"]    { background:#ff9900; }
+.graph-bar[data-key="Wave"]   { background:#66ccff; }
+.graph-bar[data-key="Robot"]  { background:#ffffff; }
+.graph-bar[data-key="Spider"] { background:#9900ff; }
+.graph-bar[data-key="Swing"]  { background:#ffff00; }
+
+/* 속도 */
+.graph-bar[data-key="0.5x"] { background:#ffff00; }
+.graph-bar[data-key="1x"]   { background:#66ccff; }
+.graph-bar[data-key="2x"]   { background:#00ff00; }
+.graph-bar[data-key="3x"]   { background:#ff66cc; }
+.graph-bar[data-key="4x"]   { background:#ff0000; }
+
+/* 프레임 퍼펙트 */
+.graph-bar[data-key="30"]  { background:#66ccff; }
+.graph-bar[data-key="60"]  { background:#00ff00; }
+.graph-bar[data-key="120"] { background:#ffff00; }
+.graph-bar[data-key="240"] { background:#ff0000; }
+  
 /* ===== Clears ===== */
 #detailClears {
   flex:1;
@@ -415,17 +440,21 @@ function addSection(title, html) {
 }
 
 /* 그래프 생성 */
-function makeRatioGraph(title, data, suffix = '%') {
+function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
   if (!data || Object.keys(data).length === 0) return '';
 
   return `
     <div class="graph-box">
-      <div class="graph-title">${title}</div>
+      <div class="graph-title">
+        ${title}
+        ${totalValue !== null ? `<span class="graph-total">(Total : ${totalValue})</span>` : ''}
+      </div>
+
       ${Object.entries(data).map(([k, v]) => `
         <div class="graph-row">
           <div class="graph-label">${k}</div>
           <div class="graph-bar-bg">
-            <div class="graph-bar" style="width:${v}%"></div>
+            <div class="graph-bar" data-key="${k}" style="width:${v}%"></div>
           </div>
           <div class="graph-value">${v}${suffix}</div>
         </div>
@@ -433,6 +462,7 @@ function makeRatioGraph(title, data, suffix = '%') {
     </div>
   `;
 }
+
 
 function makeFramePerfectGraph(framePerfect) {
   if (!framePerfect || !framePerfect.fps || framePerfect.total === 0) return '';
@@ -519,8 +549,22 @@ function showDetail(item) {
   }
 
   if (item.framePerfect) {
-      graph.innerHTML += makeFramePerfectGraph(item.framePerfect);
-    }
+    const total = item.framePerfect.total || 0;
+    const fps = item.framePerfect.fps || {};
+
+    const ratio = {};
+    Object.entries(fps).forEach(([k, v]) => {
+      ratio[k] = total > 0 ? ((v / total) * 100).toFixed(1) : 0;
+    });
+
+    graph.innerHTML += makeRatioGraph(
+      '프레임 퍼펙트 (FPS)',
+      ratio,
+      '%',
+      total
+    );
+  }
+
 
 
   /* 태그 */
@@ -562,6 +606,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
