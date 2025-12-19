@@ -126,6 +126,30 @@ input {
   margin-bottom:10px;
 }
 
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tag-filter .tag {
+  background: #555;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  font-family: Paperlogy5;
+}
+
+.tag-filter .tag.active {
+  background: #ffffff;
+  color: #000000;
+}
+
+  
 /* ===== List Item ===== */
 .item {
   display:flex;
@@ -480,6 +504,7 @@ input {
   <!-- Left -->
   <div class="container">
     <input id="search" placeholder="검색" />
+    <div id="tagFilter" class="tag-filter"></div>
     <div id="list" style="overflow-y:auto"></div>
   </div>
 
@@ -725,6 +750,7 @@ fetch('classic.json')
   .then(r => r.json())
   .then(j => {
     demonData = j.buttons;
+    initTagFilter(demonData);
 
     const list = document.getElementById('list');
     list.innerHTML = '';
@@ -745,11 +771,57 @@ fetch('classic.json')
 
     if (demonData.length > 0) showDetail(demonData[0]);
   });
+
+  function applyFilter() {
+    const text = search.value.toLowerCase();
+
+    filteredData = demonData.filter(item => {
+      const textMatch = item.title.toLowerCase().includes(text);
+      const tagMatch = [...selectedTags].every(tag =>
+        item.tags?.includes(tag)
+      );
+
+      return textMatch && tagMatch;
+    });
+
+    generateList(filteredData);
+
+    if (filteredData.length > 0) {
+      showDetail(filteredData[0]);
+    }
+  }
+
+  function initTagFilter(data) {
+    const tagBox = document.getElementById('tagFilter');
+    tagBox.innerHTML = '';
+
+    const allTags = new Set();
+    data.forEach(d => (d.tags || []).forEach(t => allTags.add(t)));
+
+    [...allTags].sort().forEach(tag => {
+      const el = document.createElement('span');
+      el.className = 'tag';
+      el.textContent = tag;
+
+      el.onclick = () => {
+        el.classList.toggle('active');
+
+        if (selectedTags.has(tag)) selectedTags.delete(tag);
+        else selectedTags.add(tag);
+
+        applyFilter();
+      };
+
+      tagBox.appendChild(el);
+  });
+}
+
 </script>
 
 
 </body>
 </html>
+
 
 
 
