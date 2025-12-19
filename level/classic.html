@@ -35,28 +35,43 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== Header ===== */
 .header-container {
-  display:flex;
-  justify-content:center;
-  gap:5vw;
-  padding:2vh 0;
-}
-.header-btn {
-  width:400px;
-  font-family:Paperlogy5;
-  font-size:clamp(2rem,5vw,5rem);
-  background:#323232;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    padding: 2vh 0;
+    flex-wrap: wrap;
+  }
 
-.divider {
-  border: 2px solid white;
-  width: 100%;
-  height: 0;
-  margin: 10px 0;
-}
+  .header-btn-wrapper {
+    width: 400px; /* 원하는 고정 너비로 맞춰 (필요하면 숫자 조절) */
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-btn {
+    background-color: #323232;
+    color: white;
+    font-size: clamp(2rem, 5vw, 5rem);
+    cursor: pointer;
+    padding: 1.5vh 0; /* 좌우 패딩 없애고 위아래만 */
+    border: none;
+    border-radius: 10px;
+    width: 100%; /* wrapper 안에서 꽉 차게 */
+    transition: background-color 0.25s ease, color 0.25s ease;
+    font-family: Paperlogy5;
+  }
+
+  .header-btn:hover {
+    background-color: #fff;
+    color: #323232;
+  }
+  .divider {
+    border: 2px solid white;
+    width: 100%;
+    height: 0;
+    margin: 10px 0;
+  }
 
 /* ===== Layout ===== */
 .main-container {
@@ -732,6 +747,7 @@ fetch('classic.json')
 
 </body>
 </html>
+
 
 
 
