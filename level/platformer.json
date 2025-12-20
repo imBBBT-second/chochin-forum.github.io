@@ -1,0 +1,133 @@
+{
+  "buttons": [
+    {
+      "id": 1,
+      "title": "chocubed",
+      "creator": "Light",
+      "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
+      "verifier": "Light",
+      "map": {
+        "mapId": 126886071,
+        "length": "0m 24s",
+        "objects": 1930,
+        "uploadDate": "2025-10-10"
+      },
+      "song": {
+        "name": "Parfait",
+        "artist": "EspiDev",
+        "id": 763176
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 35.97,
+          "Ship": 11.14,
+          "Wave": 52.82
+        },
+        "speedRatio": {
+          "0.5x": 10.01,
+          "1x": 5.09,
+          "4x": 84.9
+        }
+      },
+      "framePerfect": {
+        "total": 30,
+        "fps": {
+          "30": 21,
+          "60": 9,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
+      "clears": [{ "player": "Timo", "date": "2025-12-17" }]
+    },
+    {
+      "id": 2,
+      "title": "BOOBAWAVEBA",
+      "creator": "Choco",
+      "video": "https://www.youtube.com/embed/NCW_519mfoc",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 129453627,
+        "length": "0m 28s",
+        "objects": 1431,
+        "uploadDate": "2025-12-14"
+      },
+      "song": {
+        "name": "Portal To The Other Side (feat. Hatsune Miku)",
+        "artist": "nandinanubis",
+        "id": 941913
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Wave": 100
+        },
+        "speedRatio": {
+          "1x": 97.86,
+          "4x": 2.14
+        }
+      },
+      "framePerfect": {
+        "total": 3,
+        "fps": {
+          "30": 3,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "1x", "Short", "Memory", "Low-Effect", "One-Mode"],
+      "clears": []
+    },
+    {
+      "id": 3,
+      "title": "nullscube",
+      "creator": "Timo",
+      "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 126915240,
+        "length": "0m 25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
+      },
+      "song": {
+        "name": "Flow",
+        "artist": "Creo",
+        "id": 1132447
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 12,
+        "fps": {
+          "30": 7,
+          "60": 5,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "1x", "Short", "Physical", "One-Mode", "Full-Effect"],
+      "clears": []
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
