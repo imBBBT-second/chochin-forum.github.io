@@ -187,7 +187,39 @@ input {
   gap: 6px;
 }
 
+.tag-filter-list {
+  display: none;
+}
+  
+.tag-filter-group.open .tag-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+  
+.tag-filter-header {
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.tag-filter-header {
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+.tag-filter-group.open .arrow {
+  transform: rotate(180deg);
+}
+
+.tag-filter-group:has(.tag.active) .tag-filter-header {
+  color: white;
+}
 
 
 .tag-group-title {
@@ -913,6 +945,7 @@ return `
 
 </body>
 </html>
+
 
 
 
