@@ -561,6 +561,7 @@ input {
   font-family: Paperlogy6;
   color: #ffffff;
   min-width: clamp(2rem, 3.5vw, 3.5vw);
+  flex-shrink: 0;
 }
 
 .clear-player {
@@ -572,10 +573,35 @@ input {
   font-family: Paperlogy5;
 }
 
+.clear-player-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.clear-player-link:hover {
+  color: #66ccff;
+  text-decoration: underline;
+}
+
+.clear-percent {
+  font-family: Paperlogy4;
+  color: #c8c8c8;
+  min-width: clamp(3rem, 4vw, 4vw);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.clear-percent.full {
+  color: #ffcc00;
+  font-family: Paperlogy6;
+}
+
 .clear-date {
   font-family: Paperlogy2;
   font-size: clamp(0.8rem, 0.95vw, 0.95vw);
   color: #b0b0b0;
+  flex-shrink: 0;
 }
 
 .clear-row.rank-1 .clear-rank {
@@ -739,7 +765,7 @@ input {
   </div>
 
   <div class="detail-panel clears-panel">
-    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">클리어 명단</div>
+    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
     <div id="detailClears"></div>
   </div>
 </div>
@@ -751,6 +777,13 @@ const TAG_GROUPS = {
   '길이': ['Short', 'Medium', 'Long', 'XL'],
   '성격': ['Memory', 'Sync', 'Gimmick', 'Physical'],
   '특이사항': ['None-Effect', 'Low-Effect', 'Full-Effect', 'One-Mode'],
+};
+
+const PLAYER_YOUTUBE = {
+  'imBBBT': 'https://www.youtube.com/@imBBBT',
+  'Choco': 'https://www.youtube.com/@초코5768',
+  'Light': 'https://www.youtube.com/@CC_Light722',
+  'Timo': 'https://www.youtube.com/@SNIPER_Timo',
 };
 
 const selectedTags = new Set();
@@ -862,15 +895,24 @@ function showDetail(item, element) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
       row.className = `clear-row rank-${i + 1}`;
+      const percentClass = c.percent === 100 ? 'full' : '';
+      
+      const playerName = c.player;
+      const youtubeUrl = PLAYER_YOUTUBE[playerName];
+      const playerHtml = youtubeUrl 
+        ? `<a href="${youtubeUrl}" target="_blank" class="clear-player-link">${playerName}</a>`
+        : playerName;
+      
       row.innerHTML = `
         <div class="clear-rank">#${i + 1}</div>
-        <div class="clear-player">${c.player}</div>
+        <div class="clear-player">${playerHtml}</div>
+        <div class="clear-percent ${percentClass}">${c.percent}%</div>
         <div class="clear-date">${c.date}</div>
       `;
       clearBox.appendChild(row);
     });
   } else {
-    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">클리어 없음</p>`;
+    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">기록 없음</p>`;
   }
 }
 
