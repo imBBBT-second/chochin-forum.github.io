@@ -165,6 +165,8 @@ input {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  font-family: Paperlogy5;
+  color:white
 }
 
   
@@ -738,8 +740,6 @@ function showDetail(item, element) {
         `).join('')}
       </div>
     `
-    if (item.tags && item.tags.length > 0) {
-  addSection('태그', renderTagGroups(item.tags));
 }
 ;
   }
@@ -749,10 +749,7 @@ function showDetail(item, element) {
 
   /* 태그 */
   if (item.tags && item.tags.length > 0) {
-    addSection(
-      '태그',
-      item.tags.map(t => `<span class="tag">${t}</span>`).join('')
-    );
+  addSection('태그', renderTagGroups(item.tags));
   }
   
   const clearBox = document.getElementById('detailClears');
@@ -888,6 +885,7 @@ function renderTagGroups(tags) {
 
 </body>
 </html>
+
 
 
 
