@@ -78,7 +78,7 @@
           "240": 0
         }
       },
-      "tags": ["Wave", "1x", "Short", "Memory", "Low-Effect", "One-Mode"],
+      "tags": ["Wave", "1x", "Short", "Memory", "Spam", "Low-Effect", "One-Mode", "No-Clear"],
       "clears": []
     },
     {
@@ -116,7 +116,7 @@
           "240": 0
         }
       },
-      "tags": ["Cube", "1x", "Short", "Physical", "One-Mode", "Full-Effect"],
+      "tags": ["Cube", "1x", "Short", "Physical", "One-Mode", "Full-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -154,7 +154,7 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "Any-Speed", "Medium", "Physical", "None-Effect"],
+      "tags": ["Any-Mode", "Any-Speed", "Medium", "Physical", "None-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -192,7 +192,7 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Physical", "Low-Effect"],
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -230,7 +230,7 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect"],
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -268,7 +268,7 @@
           "240": 0
         }
       },
-      "tags": ["Cube", "3x", "XL", "Gimmick", "Physical", "Luck", "Low-Effect"],
+      "tags": ["Cube", "3x", "XL", "Gimmick", "Physical", "Luck", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -306,7 +306,7 @@
           "240": 0
         }
       },
-      "tags": ["Cube", "Dual", "2x", "Long", "Memory", "Physical", "None-Effect"],
+      "tags": ["Cube", "Dual", "2x", "Long", "Memory", "Physical", "None-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -344,7 +344,7 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect"],
+      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -382,11 +382,12 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "Dual", "1x", "Long", "Physical", "None-Effect"],
+      "tags": ["Any-Mode", "Dual", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
       "clears": []
     }
   ]
 }
+
 
 
 
