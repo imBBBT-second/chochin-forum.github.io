@@ -862,14 +862,16 @@ fetch('classic.json')
   });
 
 
-  function applyFilter() {
+function applyFilter() {
   const text = search.value.toLowerCase();
 
   const filteredData = demonData.filter(item => {
-    const textMatch = item.title.toLowerCase().includes(text);
-    const tagMatch = [...selectedTags].every(tag =>
-      item.tags?.includes(tag)
-    );
+    const textMatch =
+      item.title.toLowerCase().includes(text);
+
+    const tagMatch =
+      [...selectedTags].every(tag => item.tags?.includes(tag));
+
     return textMatch && tagMatch;
   });
 
@@ -881,35 +883,59 @@ fetch('classic.json')
 }
 
 
-  function initTagFilter(data) {
+
+function initTagFilter() {
   const tagBox = document.getElementById('tagFilter');
   tagBox.innerHTML = '';
 
-  Object.entries(TAG_GROUPS).forEach(([group, values]) => {
+  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
+    /* 그룹 컨테이너 */
     const groupDiv = document.createElement('div');
     groupDiv.className = 'tag-filter-group';
 
-    groupDiv.innerHTML = `<div class="tag-filter-title">${group}</div>`;
+    /* 헤더 (드롭다운 버튼) */
+    const header = document.createElement('div');
+    header.className = 'tag-filter-header';
+    header.innerHTML = `
+      <span>${groupName}</span>
+      <span class="arrow">▼</span>
+    `;
 
-    values.forEach(tag => {
+    /* 태그 목록 */
+    const list = document.createElement('div');
+    list.className = 'tag-filter-list';
+
+    tags.forEach(tag => {
       const el = document.createElement('span');
       el.className = 'tag';
       el.textContent = tag;
 
-      el.onclick = () => {
+      el.onclick = (e) => {
+        e.stopPropagation(); // 드롭다운 닫힘 방지
+
         el.classList.toggle('active');
+
         selectedTags.has(tag)
           ? selectedTags.delete(tag)
           : selectedTags.add(tag);
+
         applyFilter();
       };
 
-      groupDiv.appendChild(el);
+      list.appendChild(el);
     });
 
+    /* 드롭다운 열기/닫기 */
+    header.onclick = () => {
+      groupDiv.classList.toggle('open');
+    };
+
+    groupDiv.appendChild(header);
+    groupDiv.appendChild(list);
     tagBox.appendChild(groupDiv);
   });
 }
+
 
 
 function renderTagGroups(tags) {
@@ -945,6 +971,7 @@ return `
 
 </body>
 </html>
+
 
 
 
