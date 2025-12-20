@@ -149,13 +149,32 @@ input {
   color: #000000;
 }
 
+/* 태그 그룹들을 감싸는 영역처럼 동작 */
+.section:has(.tag-group) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section:has(.tag-group) > .tag-group {
+  display: inline-flex;
+}
+
+.section:has(.tag-group) {
+  align-items: flex-start;
+}
+
+.section:has(.tag-group) .tag-group {
+  margin-right: 12px;
+}
+
 /* 태그 섹션 전체 */
 .section:has(.tag-group) {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-start;
+  flex-direction: column;   /* ⭐ 제목 위, 내용 아래 */
+  gap: 14px;
 }
+
 
 .tag-group {
   background: #3f3f3f;
@@ -893,6 +912,7 @@ function renderTagGroups(tags) {
 
 </body>
 </html>
+
 
 
 
