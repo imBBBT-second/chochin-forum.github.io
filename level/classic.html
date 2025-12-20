@@ -151,6 +151,8 @@ input {
 
 .tag-group {
   margin-bottom: 10px;
+  font-family: Paperlogy5;
+  color: white;
 }
 
 .tag-group-title {
@@ -158,7 +160,7 @@ input {
   opacity: 0.7;
   margin-bottom: 6px;
   font-family: Paperlogy5;
-  color:white
+  color: white;
 }
 
 .tag-group-tags {
@@ -166,7 +168,7 @@ input {
   flex-wrap: wrap;
   gap: 6px;
   font-family: Paperlogy5;
-  color:white
+  color: white;
 }
 
   
@@ -570,9 +572,11 @@ input {
 
 <script>
 const TAG_GROUPS = {
-  '게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing'],
-  '속도': ['0.5x', '1x', '2x', '3x', '4x'],
-  '특징': ['Memory', 'Timing', 'Learny', 'Gimmick', 'XL'],
+  '게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
+  '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
+  '길이': ['Short', 'Medium', 'Long', 'XL'],
+  '성격': ['Memory', 'Sync', 'Gimmick', 'Physical'],
+  '특이사항': ['None-Effect', 'Low-Effect', 'Full-Effect', 'One-Mode'],
 };
 
 
@@ -850,5 +854,6 @@ function renderTagGroups(tags) {
 
 </body>
 </html>
+
 
 
