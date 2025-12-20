@@ -78,7 +78,7 @@
           "240": 0
         }
       },
-      "tags": ["Wave", "1x", "Short", "Memory", "One-Mode"],
+      "tags": ["Wave", "1x", "Short", "Memory", "Low-Effect", "One-Mode"],
       "clears": []
     },
     {
@@ -121,6 +121,7 @@
     }
   ]
 }
+
 
 
 
