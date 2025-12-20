@@ -152,14 +152,17 @@ input {
 .tag-group {
   background: #3f3f3f;
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 12px 14px;
+
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 
-  /* 너무 커지지 않게 */
-  min-width: 180px;
+  /* ⭐ 중요 */
+  flex: 0 0 auto;
+  min-width: 240px;/* 줄어들지 않음 */
 }
+
 
 
 .tag-group-title {
@@ -175,6 +178,7 @@ input {
   flex-wrap: wrap;
   gap: 6px;
 }
+
 
 
 .tag-group-title {
@@ -884,6 +888,7 @@ function renderTagGroups(tags) {
 
 </body>
 </html>
+
 
 
 
