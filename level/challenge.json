@@ -379,9 +379,86 @@
       },
       "tags": ["Wave", "1x", "Tiny", "Physical", "None-Effect", "No-Clear"],
       "clears": []
+    },
+    {
+      "id": "11",
+      "title": "JP Challenge 5",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": "90569476",
+        "length": "15s",
+        "objects": 250,
+        "uploadDate": "2023-05-07"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForverBound",
+        "id": 0
+      },
+      "gameplay": {
+        "mainMode": "UFO",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["UFO", "1x", "Short", "Spam", "None-Effect", "No-Clear", "One-Mode"],
+      "clears": []
+    },
+    {
+      "id": "12",
+      "title": "LT Tresure",
+      "creator": "Light",
+      "video": "-",
+      "verifier": "Light",
+      "map": {
+        "mapId": "84536624",
+        "length": "16s",
+        "objects": 166,
+        "uploadDate": "2022-10-11"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForverBound",
+        "id": 0
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Cube", "1x", "Short", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
     }
   ]
 }
+
 
 
 
