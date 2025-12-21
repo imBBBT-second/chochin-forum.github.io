@@ -8,40 +8,113 @@
       "verifier": "Timo",
       "map": {
         "mapId": 123869094,
-        "length": "0m 12s",
+        "length": "12s",
         "objects": 2832,
         "uploadDate": "2025-07-31"
       },
       "song": {
-        "name": "Frums",
-        "artist": "Jam with Pancake",
+        "name": "Jam with Wave",
+        "artist": "Frums",
         "id": 10009548
       },
       "gameplay": {
         "mainMode": "Wave",
         "modeRatio": {
-          "Cube": 35.97,
-          "Ship": 11.14,
-          "Wave": 52.82
+          "Cube": 100
         },
         "speedRatio": {
-          "0.5x": 10.01,
-          "1x": 5.09,
-          "4x": 84.9
+          "1x": 100
         }
       },
       "framePerfect": {
-        "total": 30,
+        "total": 0,
         "fps": {
-          "30": 21,
-          "60": 9,
+          "30": 0,
+          "60": 0,
           "120": 0,
           "240": 0
         }
       },
-      "tags": ["Wave", "1x", "Short", "Physical", "Low-Effect"],
+      "tags": ["Wave", "1x", "Short", "Physical", "Low-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 2,
+      "title": "B!TCH",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 129446657,
+        "length": "4s",
+        "objects": 1070,
+        "uploadDate": "2025-12-14"
+      },
+      "song": {
+        "name": "B!tchcrush",
+        "artist": "ImCold",
+        "id": 1221726
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "1x", "Short", "Physical", "Low-Effect", "No-Clear"],
+      "clears": []
+    },
+    {
+      "id": 3,
+      "title": "Blink",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 129210712,
+        "length": "8s",
+        "objects": 1583,
+        "uploadDate": "2025-12-09"
+      },
+      "song": {
+        "name": "-Invaders-",
+        "artist": "Waterflame",
+        "id": 108415
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "3x", "Tiny", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
     }
   ]
 }
+
 
