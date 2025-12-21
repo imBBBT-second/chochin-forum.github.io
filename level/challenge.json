@@ -2,43 +2,46 @@
   "buttons": [
     {
       "id": 1,
-      "title": "Nullscube",
+      "title": "Jam With Wave",
       "creator": "Timo",
-      "video": "classic_video/nullscube.mp4",
+      "video": "-",
       "verifier": "Timo",
-      "details": {
-        "맵 ID": "126915240",
-        "길이": "0m 25s",
-        "노래": "Creo - Flow",
-        "노래 ID": "1132447",
-        "오브젝트 수": "33111",
-        "프레임 퍼펙트 수": "9"
+      "map": {
+        "mapId": 123869094,
+        "length": "0m 12s",
+        "objects": 2832,
+        "uploadDate": "2025-07-31"
       },
-      "fp": ["6", "5", "0", "0"],
+      "song": {
+        "name": "Frums",
+        "artist": "Jam with Pancake",
+        "id": 10009548
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 35.97,
+          "Ship": 11.14,
+          "Wave": 52.82
+        },
+        "speedRatio": {
+          "0.5x": 10.01,
+          "1x": 5.09,
+          "4x": 84.9
+        }
+      },
+      "framePerfect": {
+        "total": 30,
+        "fps": {
+          "30": 21,
+          "60": 9,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Wave", "1x", "Short", "Physical", "Low-Effect"],
       "clears": []
-    },
-    { "id": 2, "title": "Reaper Wave", "creator": "Timo" },
-    {
-      "id": 3,
-      "title": "chocubed",
-      "creator": "Light",
-      "video": "classic_video/chocubed.mp4",
-      "verifier": "Light",
-      "details": {
-        "맵 ID": "126886071",
-        "길이": "0m 24s",
-        "노래": "EspiDev - Parfait",
-        "노래 ID": "763176",
-        "오브젝트 수": "1930",
-        "프레임 퍼펙트 수": "34"
-      },
-      "fp": ["26", "8", "0", "0"]
-    },
-    {
-      "id": 4,
-      "title": "Stereo Madness EX",
-      "creator": "Choco"
-    },
-    { "id": 5, "title": "Trolled", "creator": "Light" }
+    }
   ]
 }
+
