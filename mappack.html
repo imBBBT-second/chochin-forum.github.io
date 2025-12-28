@@ -5,10 +5,121 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
 <title>초친 포럼 (맵 팩)</title>
 
-<link rel="stylesheet" href="style.css" />
-<!-- 🔼 기존 CSS를 style.css로 분리해뒀다면 이 방식 추천 -->
-<!-- 만약 아직 HTML 안에 다 있다면 그대로 복붙해도 됨 -->
+<style>
+  * {
+    margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html, body {
+  min-height: 100vh;
+  background-color: #323232;
+  display: flex;
+  flex-direction: column;
+}
+
+@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf') format('truetype'); }
+@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype'); }
+
+h1 {
+  font-family: Paperlogy7;
+  font-size: clamp(3rem, 10vw, 10rem);
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+}
+
+h4 {
+  font-family: Paperlogy3;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  color: #a0a0a0;
+  text-align: center;
+}
+
+p {
+  font-family: Paperlogy2;
+  color: #c8c8c8;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  padding: 2vh 0;
+  flex-wrap: wrap;
+}
+
+.header-btn-wrapper {
+  width: min(400px, 90vw);
+  display: flex;
+  justify-content: center;
+}
+
+.header-btn {
+  background-color: #323232;
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  cursor: pointer;
+  padding: 1.5vh 0;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  font-family: Paperlogy5;
+}
+
+.header-btn:hover {
+  background-color: #fff;
+  color: #323232;
+}
+
+.divider {
+  border: 2px solid white;
+  width: 100%;
+  height: 0;
+  margin: 10px 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.description {
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  max-width: 1200px;
+  margin: 2rem auto;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+.credit-section {
+  margin-top: auto;
+  padding: 2rem 0;
+}
+
+.credit-text {
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  color: #808080;
+  margin-top: 0.5rem;
+}
+</style>
 </head>
 
 <body>
