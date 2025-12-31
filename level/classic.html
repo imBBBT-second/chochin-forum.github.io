@@ -728,6 +728,23 @@ input {
   right: 0;
 }
 
+.dev-panel {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 420px;
+  height: 100%;
+  background: #2f2f2f;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.dev-panel.open {
+  right: 0;
+}
+
+
 .dev-header {
   display: flex;
   justify-content: space-between;
@@ -841,7 +858,11 @@ input {
   </div>
 </div>
   
-<div class="dev-section">
+<div id="devPanel" class="dev-panel">
+  <div class="dev-header">
+    개발자 패널
+    <button onclick="toggleDevPanel()">✕</button>
+  </div>
   <h3>레벨 기본 정보</h3>
   <input id="dev-title" placeholder="레벨 이름" />
   <input id="dev-creator" placeholder="제작자" />
@@ -1148,32 +1169,66 @@ function closeDevPanel() {
 }
 
 function addLevel() {
-  const title = document.getElementById("dev-title").value.trim();
-  const creator = document.getElementById("dev-creator").value.trim();
-  const verifier = document.getElementById("dev-verifier").value.trim();
-  const video = document.getElementById("dev-video").value.trim();
+  const title = devTitle.value;
+  const creator = devCreator.value;
+  const verifier = devVerifier.value;
+  const video = devVideo.value;
 
-  if (!title || !creator) {
-    alert("필수 항목이 비어 있음");
+  const mapId = devMapId.value;
+  const mapLength = devMapLength.value;
+  const mapObjects = devMapObjects.value;
+  const mapDate = devMapDate.value;
+
+  const songName = devSongName.value;
+  const songArtist = devSongArtist.value;
+  const songId = devSongId.value;
+
+  // 🔥 하나라도 비어 있으면 즉시 차단
+  const required = [
+    title, creator, verifier, video,
+    mapId, mapLength, mapObjects, mapDate,
+    songName, songArtist, songId
+  ];
+
+  if (required.some(isEmpty)) {
+    alert("모든 정보를 입력해야 레벨을 추가할 수 있어.");
     return;
   }
 
+  // 태그 체크
+  const tags = [...document.querySelectorAll("#dev-tag-select .tag.active")]
+    .map(t => t.textContent);
+
+  if (tags.length === 0) {
+    alert("태그를 하나 이상 선택해야 해.");
+    return;
+  }
+
+  // 정상일 때만 추가
   const newLevel = {
     id: demonData.length + 1,
     title,
     creator,
-    verifier: verifier || creator,
+    verifier,
     video,
-    tags: [],
+    tags,
+    map: {
+      mapId,
+      length: mapLength,
+      objects: Number(mapObjects),
+      uploadDate: mapDate
+    },
+    song: {
+      name: songName,
+      artist: songArtist,
+      id: songId
+    },
     clears: []
   };
 
   demonData.push(newLevel);
-
   generateList(demonData);
-  showDetail(newLevel);
-
-  alert("레벨 추가 완료");
+  alert("레벨이 추가되었어!");
 }
 
 function initDevTagSelector() {
@@ -1255,11 +1310,15 @@ function initDevTagSelector() {
 
   alert("모든 정보 포함 레벨 추가 완료");
 }
-
+  
+function isEmpty(value) {
+  return !value || value.trim() === "";
+}
 
 </script>
 </body>
 </html>
+
 
 
 
