@@ -1100,7 +1100,7 @@ function renderTagGroups(tags) {
 const DEV_PASSWORD = "1234"; // 나중에 꼭 바꿔
 
 document.addEventListener("keydown", e => {
-  if (e.ctrlKey && e.shiftKey && e.key === "D") {
+  if (e.ctrlKey && e.shiftKey && e.key === "E") {
     const pw = prompt("개발자 비밀번호");
     if (pw === DEV_PASSWORD) {
       document.getElementById("devPanel").classList.add("open");
@@ -1146,6 +1146,7 @@ function addLevel() {
 </script>
 </body>
 </html>
+
 
 
 
