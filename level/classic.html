@@ -874,9 +874,10 @@ input {
 </div>
 
 <div class="dev-section">
-  <h3>태그</h3>
-  <div id="dev-tag-select"></div>
+  <div class="section-title">태그 선택</div>
+  <div id="dev-tag-select" class="tag-filter"></div>
 </div>
+
 
 <div class="dev-section">
   <button onclick="addFullLevel()">레벨 추가</button>
@@ -1120,6 +1121,15 @@ function renderTagGroups(tags) {
   return `<div class="tag-group-container">${groupsHtml}</div>`;
 }
 
+function toggleDevPanel() {
+  devPanel.classList.toggle("open");
+
+  if (devPanel.classList.contains("open")) {
+    initDevTagSelector();
+  }
+}
+
+
 const DEV_PASSWORD = "1234"; // 나중에 꼭 바꿔
 
 document.addEventListener("keydown", e => {
@@ -1168,13 +1178,17 @@ function addLevel() {
 
 function initDevTagSelector() {
   const box = document.getElementById("dev-tag-select");
+  if (!box) return;
+
   box.innerHTML = "";
 
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    const wrap = document.createElement("div");
-    wrap.style.marginBottom = "8px";
+  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
+    const title = document.createElement("div");
+    title.className = "tag-filter-title";
+    title.textContent = groupName;
 
-    wrap.innerHTML = `<strong>${group}</strong><br>`;
+    const wrap = document.createElement("div");
+    wrap.className = "tag-filter-tags";
 
     tags.forEach(tag => {
       const el = document.createElement("span");
@@ -1184,9 +1198,11 @@ function initDevTagSelector() {
       wrap.appendChild(el);
     });
 
+    box.appendChild(title);
     box.appendChild(wrap);
   });
 }
+
 
   function addFullLevel() {
   const get = id => document.getElementById(id)?.value?.trim();
@@ -1244,6 +1260,7 @@ function initDevTagSelector() {
 </script>
 </body>
 </html>
+
 
 
 
