@@ -879,6 +879,16 @@ input {
 </div>
 
 <div class="dev-section">
+  <div class="section-title">게임 모드 비율</div>
+  <div id="devModeRatio"></div>
+</div>
+
+<div class="dev-section">
+  <div class="section-title">속도 비율</div>
+  <div id="devSpeedRatio"></div>
+</div>
+
+<div class="dev-section">
   <h3>프레임 퍼펙트</h3>
   <input id="dev-fp-total" placeholder="Total" />
   <input id="dev-fp-30" placeholder="30 FPS" />
@@ -1136,13 +1146,15 @@ function renderTagGroups(tags) {
   return `<div class="tag-group-container">${groupsHtml}</div>`;
 }
 
-function toggleDevPanel() {
-  devPanel.classList.toggle("open");
+function openDevPanel() {
+  const panel = document.getElementById('devPanel');
+  panel.classList.add('open');
 
-  if (devPanel.classList.contains("open")) {
-    initDevTagSelector();
-  }
+  initDevTagSelector();
+  initModeRatioEditor();
+  initSpeedRatioEditor();
 }
+
 
 
 const DEV_PASSWORD = "1234"; // 나중에 꼭 바꿔
@@ -1314,9 +1326,61 @@ function isEmpty(value) {
   return !value || value.trim() === "";
 }
 
+function initModeRatioEditor() {
+  const box = document.getElementById('devModeRatio');
+  box.innerHTML = '';
+
+  TAG_GROUPS['주 게임모드'].forEach(mode => {
+    const row = document.createElement('div');
+    row.innerHTML = `
+      <span>${mode}</span>
+      <input type="number" min="0" max="100" data-key="${mode}" value="0">
+    `;
+    box.appendChild(row);
+  });
+}
+
+function initModeRatioEditor() {
+  const box = document.getElementById('devModeRatio');
+  box.innerHTML = '';
+
+  TAG_GROUPS['주 게임모드'].forEach(mode => {
+    const row = document.createElement('div');
+    row.innerHTML = `
+      <span>${mode}</span>
+      <input type="number" min="0" max="100" data-key="${mode}" value="0">
+    `;
+    box.appendChild(row);
+  });
+}
+
+function collectRatio(containerId) {
+  const result = {};
+  document
+    .querySelectorAll(`#${containerId} input`)
+    .forEach(input => {
+      const v = Number(input.value);
+      if (v > 0) result[input.dataset.key] = v;
+    });
+  return result;
+}
+
+const modeRatio = collectRatio('devModeRatio');
+const speedRatio = collectRatio('devSpeedRatio');
+
+if (
+  Object.keys(modeRatio).length === 0 ||
+  Object.keys(speedRatio).length === 0
+) {
+  alert('게임 모드 비율과 속도 비율은 반드시 입력해야 해.');
+  return;
+}
+
+
 </script>
 </body>
 </html>
+
 
 
 
