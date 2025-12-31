@@ -889,7 +889,7 @@ input {
 
 <div class="dev-section">
   <div class="section-title">태그 선택</div>
-  <div id="dev-tag-select" class="tag-filter"></div>
+  <div id="devTagSelect"></div>
 </div>
 
 
@@ -1226,31 +1226,36 @@ function addLevel() {
 }
 
 function initDevTagSelector() {
-  const box = document.getElementById("dev-tag-select");
-  if (!box) return;
+  const box = document.getElementById('devTagSelect');
+  box.innerHTML = '';
 
-  box.innerHTML = "";
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'tag-group';
 
-  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
-    const title = document.createElement("div");
-    title.className = "tag-filter-title";
-    title.textContent = groupName;
+    groupDiv.innerHTML = `
+      <div class="tag-group-title">${group}</div>
+      <div class="tag-group-tags"></div>
+    `;
 
-    const wrap = document.createElement("div");
-    wrap.className = "tag-filter-tags";
+    const tagBox = groupDiv.querySelector('.tag-group-tags');
 
     tags.forEach(tag => {
-      const el = document.createElement("span");
-      el.className = "tag";
+      const el = document.createElement('span');
+      el.className = 'tag';
       el.textContent = tag;
-      el.onclick = () => el.classList.toggle("active");
-      wrap.appendChild(el);
+
+      el.onclick = () => {
+        el.classList.toggle('active');
+      };
+
+      tagBox.appendChild(el);
     });
 
-    box.appendChild(title);
-    box.appendChild(wrap);
+    box.appendChild(groupDiv);
   });
 }
+
 
 
   function addFullLevel() {
@@ -1312,6 +1317,7 @@ function isEmpty(value) {
 </script>
 </body>
 </html>
+
 
 
 
