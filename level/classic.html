@@ -837,6 +837,30 @@ input {
   font-size: 0.9rem;
 }
 
+.dev-tag {
+  background: #555;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: Paperlogy5;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dev-tag.active {
+  background: #fff;
+  color: #000;
+}
+
+.dev-tag-title {
+  font-family: Paperlogy6;
+  font-size: 0.95rem;
+  color: #eaeaea;
+  margin: 10px 0 6px;
+  opacity: 0.9;
+}
 
 </style>
 </head>
@@ -1279,7 +1303,7 @@ function renderDevTagSelector() {
 
     tags.forEach(tag => {
       const span = document.createElement('span');
-      span.className = 'tag';
+      span.className = 'dev-tag';
       span.textContent = tag;
       span.onclick = () => toggleDevTag(span, tag);
       tagWrap.appendChild(span);
@@ -1430,7 +1454,7 @@ function renderEditTagSelector(existingTags = []) {
           const active = existingTags.includes(t);
           if (active) devSelectedTags.add(t);
           return `
-            <span class="tag ${active ? 'active' : ''}"
+            <span class="dev-tag ${active ? 'active' : ''}"
               onclick="toggleDevTag(this,'${t}')">
               ${t}
             </span>
@@ -1504,6 +1528,7 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
 
