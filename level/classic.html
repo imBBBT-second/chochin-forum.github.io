@@ -1217,7 +1217,10 @@ function renderDevPanel() {
           ['0.5x','1x','2x','3x','4x'],
           'speed'
         )}
-        
+
+        <div class="dev-section-title">태그</div>
+        <div id="devTagBox"></div>
+      
         <button onclick="submitNewLevel()" class="mode-btn" style="width:100%;margin-top:16px">
           레벨 추가
         </button>
@@ -1464,8 +1467,6 @@ function submitEditLevel(index) {
   alert('레벨 정보가 수정됐어! ✨');
 }
 
-const devSelectedTags = new Set();
-
 function toggleDevTag(el, tag) {
   el.classList.toggle('active');
 
@@ -1492,6 +1493,7 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
 
