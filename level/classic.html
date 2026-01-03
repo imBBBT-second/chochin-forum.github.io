@@ -847,13 +847,17 @@ input {
   </div>
 </div>
 
- <div class="dev-panel">
-  <div class="dev-header">개발자 패널</div>
+ <div id="devPanel" class="dev-panel">
+  <div class="dev-panel-header">
+  개발자 패널
+  <button onclick="closeDevPanel()">✕</button>
+</div>
+
 
   <div class="dev-tabs">
-    <button data-mode="add">레벨 추가</button>
-    <button data-mode="edit">레벨 수정</button>
-    <button data-mode="clear">클리어 등록</button>
+    <button data-mode="add" onclick="setDevMode('add')">레벨 추가</button>
+    <button data-mode="edit" onclick="setDevMode('edit')">레벨 수정</button>
+    <button data-mode="clear" onclick="setDevMode('clear')">클리어 등록</button>
   </div>
 
   <div id="devContent"></div>
@@ -1226,3 +1230,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
+
