@@ -708,89 +708,78 @@ input {
   font-weight: 600;
   cursor: default;
 }
-
-#devPanel {
-  position: fixed;
-  top: 0;
-  right: -420px;
-  width: 420px;
-  height: 100%;
-  background: #2e2e2e;
-  color: white;
-  z-index: 9999;
-  transition: right 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  border-left: 2px solid #555;
-}
-
-#devPanel.open {
-  right: 0;
-}
-
 .dev-panel {
   position: fixed;
   top: 0;
-  right: -420px;
-  width: 420px;
+  right: -480px;
+  width: 480px;
   height: 100%;
   background: #2f2f2f;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.4);
   transition: right 0.3s ease;
   z-index: 9999;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .dev-panel.open {
   right: 0;
 }
 
-
-.dev-header {
+.dev-panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px;
+  padding: 16px;
   font-family: Paperlogy7;
   font-size: 1.4rem;
-  background: #222;
+  color: white;
+  border-bottom: 1px solid #555;
 }
 
-.dev-header button {
+.dev-panel-header button {
   background: none;
   border: none;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
-.dev-section {
-  padding: 16px;
+.dev-tabs {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-.dev-section h3 {
-  margin: 0 0 8px;
-  font-family: Paperlogy6;
-}
-
-.dev-section input {
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  font-size: 1rem;
-}
-
-.dev-section button {
-  margin-top: 8px;
+.dev-tabs button {
+  flex: 1;
   padding: 10px;
-  border-radius: 8px;
+  background: #3a3a3a;
+  color: #ccc;
   border: none;
-  font-family: Paperlogy6;
-  font-size: 1rem;
   cursor: pointer;
+  font-family: Paperlogy5;
 }
+
+.dev-tabs button.active {
+  background: #fff;
+  color: #000;
+}
+
+.dev-content {
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.dev-content input {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.dev-section-title {
+  margin: 14px 0 6px;
+  font-family: Paperlogy6;
+  color: #fff;
+}
+
 </style>
 </head>
 
@@ -857,55 +846,19 @@ input {
     <div id="detailClears"></div>
   </div>
 </div>
-  
-<div id="devPanel" class="dev-panel">
-  <div class="dev-header">
-    개발자 패널
-    <button onclick="toggleDevPanel()">✕</button>
+
+ <div class="dev-panel">
+  <div class="dev-header">개발자 패널</div>
+
+  <div class="dev-tabs">
+    <button data-mode="add">레벨 추가</button>
+    <button data-mode="edit">레벨 수정</button>
+    <button data-mode="clear">클리어 등록</button>
   </div>
-<div class="dev-section">
-  <h3>맵 정보</h3>
-  <input id="dev-mapId" placeholder="맵 ID" />
-  <input id="dev-length" placeholder="길이 (예: Long)" />
-  <input id="dev-objects" placeholder="오브젝트 수" />
-  <input id="dev-uploadDate" placeholder="업로드 날짜 (YYYY-MM-DD)" />
+
+  <div id="devContent"></div>
 </div>
 
-<div class="dev-section">
-  <h3>노래 정보</h3>
-  <input id="dev-songName" placeholder="노래 이름" />
-  <input id="dev-songArtist" placeholder="작곡가" />
-  <input id="dev-songId" placeholder="노래 ID" />
-</div>
-
-<div class="dev-section">
-  <div class="section-title">게임 모드 비율</div>
-  <div id="devModeRatio"></div>
-</div>
-
-<div class="dev-section">
-  <div class="section-title">속도 비율</div>
-  <div id="devSpeedRatio"></div>
-</div>
-
-<div class="dev-section">
-  <h3>프레임 퍼펙트</h3>
-  <input id="dev-fp-total" placeholder="Total" />
-  <input id="dev-fp-30" placeholder="30 FPS" />
-  <input id="dev-fp-60" placeholder="60 FPS" />
-  <input id="dev-fp-120" placeholder="120 FPS" />
-  <input id="dev-fp-240" placeholder="240 FPS" />
-</div>
-
-<div class="dev-section">
-  <div class="section-title">태그 선택</div>
-  <div id="devTagSelect"></div>
-</div>
-
-
-<div class="dev-section">
-  <button onclick="addFullLevel()">레벨 추가</button>
-</div>
 </div>
 
 
@@ -1155,230 +1108,125 @@ function openDevPanel() {
   initSpeedRatioEditor();
 }
 
+let devMode = 'add';
 
-
-const DEV_PASSWORD = "1234"; // 나중에 꼭 바꿔
-
-document.addEventListener("keydown", e => {
-  if (e.ctrlKey && e.shiftKey && e.key === "E") {
-    const pw = prompt("개발자 비밀번호");
-    if (pw === DEV_PASSWORD) {
-      document.getElementById("devPanel").classList.add("open");
-    } else {
-      alert("접근 거부");
-    }
-  }
-});
-
-function closeDevPanel() {
-  document.getElementById("devPanel").classList.remove("open");
+function openDevPanel() {
+  document.getElementById('devPanel').classList.add('open');
+  renderDevPanel();
 }
 
-function addLevel() {
-  const title = devTitle.value;
-  const creator = devCreator.value;
-  const verifier = devVerifier.value;
-  const video = devVideo.value;
+function closeDevPanel() {
+  document.getElementById('devPanel').classList.remove('open');
+}
 
-  const mapId = devMapId.value;
-  const mapLength = devMapLength.value;
-  const mapObjects = devMapObjects.value;
-  const mapDate = devMapDate.value;
+function setDevMode(mode) {
+  devMode = mode;
+  document.querySelectorAll('.dev-tabs button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderDevPanel();
+}
 
-  const songName = devSongName.value;
-  const songArtist = devSongArtist.value;
-  const songId = devSongId.value;
+function renderDevPanel() {
+  const box = document.getElementById('devContent');
+  box.innerHTML = '';
 
-  // 🔥 하나라도 비어 있으면 즉시 차단
-  const required = [
-    title, creator, verifier, video,
-    mapId, mapLength, mapObjects, mapDate,
-    songName, songArtist, songId
-  ];
+  if (devMode === 'add') {
+    box.innerHTML = `
+      <div class="dev-content">
 
-  if (required.some(isEmpty)) {
-    alert("모든 정보를 입력해야 레벨을 추가할 수 있어.");
+        <div class="dev-section-title">기본 정보</div>
+        <input id="dev-title" placeholder="레벨 이름">
+        <input id="dev-creator" placeholder="제작자">
+        <input id="dev-verifier" placeholder="검증자">
+        <input id="dev-video" placeholder="유튜브 영상 URL">
+
+        <div class="dev-section-title">맵 정보</div>
+        <input id="dev-map-id" placeholder="맵 ID">
+        <input id="dev-map-length" placeholder="길이 (Short / Long 등)">
+        <input id="dev-map-objects" placeholder="오브젝트 수">
+        <input id="dev-map-date" placeholder="업로드 날짜 (YYYY-MM-DD)">
+
+        <div class="dev-section-title">노래 정보</div>
+        <input id="dev-song-name" placeholder="노래 이름">
+        <input id="dev-song-artist" placeholder="작곡가">
+        <input id="dev-song-id" placeholder="노래 ID">
+
+        <div class="dev-section-title">태그</div>
+        ${renderTagSelector()}
+
+        <button onclick="submitNewLevel()" class="mode-btn" style="width:100%;margin-top:16px">
+          레벨 추가
+        </button>
+      </div>
+    `;
+  }
+}
+
+function renderTagSelector() {
+  let html = '';
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    html += `
+      <div class="dev-section-title">${group}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        ${tags.map(t => `<span class="tag" onclick="toggleDevTag(this,'${t}')">${t}</span>`).join('')}
+      </div>
+    `;
+  });
+  return html;
+}
+
+const devSelectedTags = new Set();
+
+function toggleDevTag(el, tag) {
+  el.classList.toggle('active');
+  devSelectedTags.has(tag)
+    ? devSelectedTags.delete(tag)
+    : devSelectedTags.add(tag);
+}
+
+  function submitNewLevel() {
+  const title = document.getElementById('dev-title').value.trim();
+  const creator = document.getElementById('dev-creator').value.trim();
+  const verifier = document.getElementById('dev-verifier').value.trim();
+
+  if (!title || !creator || !verifier || devSelectedTags.size === 0) {
+    alert('모든 정보를 입력해야 레벨을 추가할 수 있어!');
     return;
-
-    const modeRatio = collectRatio('devModeRatio');
-    const speedRatio = collectRatio('devSpeedRatio');
-
-    if (
-      Object.keys(modeRatio).length === 0 ||
-      Object.keys(speedRatio).length === 0
-    ) {
-      alert('게임 모드 비율과 속도 비율은 반드시 입력해야 해.');
-      return;
-    }
   }
 
-  // 태그 체크
-  const tags = [...document.querySelectorAll("#dev-tag-select .tag.active")]
-    .map(t => t.textContent);
-
-  if (tags.length === 0) {
-    alert("태그를 하나 이상 선택해야 해.");
-    return;
-  }
-
-  // 정상일 때만 추가
   const newLevel = {
     id: demonData.length + 1,
     title,
     creator,
     verifier,
-    video,
-    tags,
+    video: document.getElementById('dev-video').value.trim(),
     map: {
-      mapId,
-      length: mapLength,
-      objects: Number(mapObjects),
-      uploadDate: mapDate
+      mapId: document.getElementById('dev-map-id').value,
+      length: document.getElementById('dev-map-length').value,
+      objects: Number(document.getElementById('dev-map-objects').value),
+      uploadDate: document.getElementById('dev-map-date').value,
     },
     song: {
-      name: songName,
-      artist: songArtist,
-      id: songId
+      name: document.getElementById('dev-song-name').value,
+      artist: document.getElementById('dev-song-artist').value,
+      id: document.getElementById('dev-song-id').value,
     },
+    tags: [...devSelectedTags],
+    gameplay: { modeRatio: {}, speedRatio: {} },
+    framePerfect: { total: 0, fps: {} },
     clears: []
   };
 
   demonData.push(newLevel);
   generateList(demonData);
-  alert("레벨이 추가되었어!");
+  alert('레벨이 추가되었어!');
 }
 
-function initDevTagSelector() {
-  const box = document.getElementById('devTagSelect');
-  box.innerHTML = '';
-
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    const groupDiv = document.createElement('div');
-    groupDiv.className = 'tag-group';
-
-    groupDiv.innerHTML = `
-      <div class="tag-group-title">${group}</div>
-      <div class="tag-group-tags"></div>
-    `;
-
-    const tagBox = groupDiv.querySelector('.tag-group-tags');
-
-    tags.forEach(tag => {
-      const el = document.createElement('span');
-      el.className = 'tag';
-      el.textContent = tag;
-
-      el.onclick = () => {
-        el.classList.toggle('active');
-      };
-
-      tagBox.appendChild(el);
-    });
-
-    box.appendChild(groupDiv);
-  });
-}
-
-
-
-  function addFullLevel() {
-  const get = id => document.getElementById(id)?.value?.trim();
-
-  const tags = [...document.querySelectorAll("#dev-tag-select .tag.active")]
-    .map(t => t.textContent);
-
-  const newLevel = {
-    id: demonData.length + 1,
-    title: get("dev-title"),
-    creator: get("dev-creator"),
-    verifier: get("dev-verifier") || get("dev-creator"),
-    video: get("dev-video"),
-
-    map: {
-      mapId: get("dev-mapId"),
-      length: get("dev-length"),
-      objects: Number(get("dev-objects")) || 0,
-      uploadDate: get("dev-uploadDate"),
-    },
-
-    song: {
-      name: get("dev-songName"),
-      artist: get("dev-songArtist"),
-      id: get("dev-songId"),
-    },
-
-    gameplay: {
-      modeRatio: {},
-      speedRatio: {},
-    },
-
-    framePerfect: {
-      total: Number(get("dev-fp-total")) || 0,
-      fps: {
-        30: Number(get("dev-fp-30")) || 0,
-        60: Number(get("dev-fp-60")) || 0,
-        120: Number(get("dev-fp-120")) || 0,
-        240: Number(get("dev-fp-240")) || 0,
-      }
-    },
-
-    tags,
-    clears: []
-  };
-
-  demonData.push(newLevel);
-  generateList(demonData);
-  showDetail(newLevel);
-
-  alert("모든 정보 포함 레벨 추가 완료");
-}
-  
-function isEmpty(value) {
-  return !value || value.trim() === "";
-}
-
-function initModeRatioEditor() {
-  const box = document.getElementById('devModeRatio');
-  box.innerHTML = '';
-
-  TAG_GROUPS['주 게임모드'].forEach(mode => {
-    const row = document.createElement('div');
-    row.innerHTML = `
-      <span>${mode}</span>
-      <input type="number" min="0" max="100" data-key="${mode}" value="0">
-    `;
-    box.appendChild(row);
-  });
-}
-
-function initModeRatioEditor() {
-  const box = document.getElementById('devModeRatio');
-  box.innerHTML = '';
-
-  TAG_GROUPS['주 게임모드'].forEach(mode => {
-    const row = document.createElement('div');
-    row.innerHTML = `
-      <span>${mode}</span>
-      <input type="number" min="0" max="100" data-key="${mode}" value="0">
-    `;
-    box.appendChild(row);
-  });
-}
-  
-  function collectRatio(containerId) {
-    const result = {};
-    document
-      .querySelectorAll(`#${containerId} input`)
-      .forEach(input => {
-        const v = Number(input.value);
-        if (v > 0) result[input.dataset.key] = v;
-      });
-    return result;
-  }
 
 </script>
 </body>
 </html>
+
 
 
 
