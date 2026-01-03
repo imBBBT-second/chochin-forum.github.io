@@ -1306,6 +1306,7 @@ function renderAddLevelUI() {
 
   return `
     <div class="dev-section-title">기본 정보</div>
+    <input id="dev-rank" type="number" placeholder="순">
     <input id="dev-title" placeholder="레벨 제목">
     <input id="dev-creator" placeholder="제작자">
     <input id="dev-verifier" placeholder="검증자">
@@ -1355,27 +1356,62 @@ function renderDevTagSelector() {
 function submitAddLevel() {
   const title = document.getElementById('dev-title').value.trim();
   const creator = document.getElementById('dev-creator').value.trim();
+  const rank = parseInt(document.getElementById('dev-rank').value, 10);
 
-  if (!title || !creator || devSelectedTags.size === 0) {
+  if (!title || !creator || !rank || devSelectedTags.size === 0) {
     alert('필수 정보가 비어있어!');
     return;
   }
 
-  console.log('레벨 추가 테스트');
-  console.log({
+  const newItem = {
+    id: rank,
     title,
     creator,
+    verifier: creator,
+    video: document.getElementById('dev-video').value.trim(),
     tags: [...devSelectedTags],
-    modeRatio: collectRatio('mode'),
-    speedRatio: collectRatio('speed'),
+    map: {
+      mapId: document.getElementById('dev-map-id').value,
+      length: document.getElementById('dev-map-length').value,
+      objects: Number(document.getElementById('dev-map-objects').value),
+      uploadDate: document.getElementById('dev-map-date').value,
+    },
+    song: {
+      name: document.getElementById('dev-song-name').value,
+      artist: document.getElementById('dev-song-artist').value,
+      id: document.getElementById('dev-song-id').value,
+    },
+    gameplay: {
+      modeRatio: collectRatio('mode'),
+      speedRatio: collectRatio('speed'),
+    },
+    clears: [],
+  };
+
+  insertLevelWithRank(newItem);
+}
+
+function insertLevelWithRank(newItem) {
+  demonData.forEach(d => {
+    if (d.id >= newItem.id) {
+      d.id += 1;
+    }
   });
 
-  alert('콘솔 로그 확인해봐 👀');
+  demonData.push(newItem);
+
+  demonData.sort((a, b) => a.id - b.id);
+
+  generateList(demonData);
+  showDetail(newItem);
+
+  alert('레벨이 추가됐어!');
 }
 
 </script>
 </body>
 </html>
+
 
 
 
