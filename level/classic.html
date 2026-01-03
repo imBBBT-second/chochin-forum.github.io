@@ -1099,12 +1099,6 @@ function renderTagGroups(tags) {
   return `<div class="tag-group-container">${groupsHtml}</div>`;
 }
 
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.shiftKey && e.key === 'E') {
-    openDevPanel();
-  }
-});
-
 let devMode = 'add';
 
 function openDevPanel() {
@@ -1219,23 +1213,16 @@ function toggleDevTag(el, tag) {
   alert('레벨이 추가되었어!');
 }
 
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+    const panel = document.getElementById('devPanel');
+    panel.classList.contains('open')
+      ? closeDevPanel()
+      : openDevPanel();
+  }
+});
+
 
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
