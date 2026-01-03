@@ -779,6 +779,40 @@ input {
   font-family: Paperlogy6;
   color: #fff;
 }
+  
+.dev-panel {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: 480px;
+  height: 100%;
+  background: #2f2f2f;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.4);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 핵심 */
+#devContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+}
+  
+#devContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+#devContent::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+#devContent::-webkit-scrollbar-track {
+  background: #2f2f2f;
+}
 
 </style>
 </head>
@@ -1230,4 +1264,5 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
+
 
