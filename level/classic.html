@@ -1000,15 +1000,22 @@ function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
 }
 
 function showDetail(item, element) {
+  // 초기화
   document.getElementById('detailDescription').innerHTML = '';
   document.querySelectorAll('.item.active').forEach(el => el.classList.remove('active'));
   if (element) element.classList.add('active');
 
+  // 제목 / 제작자
   document.getElementById('detailTitle').textContent = item.title;
   document.getElementById('detailCreator').textContent =
-    item.creator === item.verifier ? `by ${item.creator}` : `by ${item.creator} / Verified by ${item.verifier}`;
+    item.creator === item.verifier
+      ? `by ${item.creator}`
+      : `by ${item.creator} / Verified by ${item.verifier}`;
+
+  // 영상
   document.getElementById('detailVideo').src = item.video || '';
 
+  /* ===== 정보 ===== */
   const info = document.getElementById('infoSection');
   info.innerHTML = '';
 
@@ -1033,6 +1040,7 @@ function showDetail(item, element) {
     `;
   }
 
+  /* ===== 그래프 ===== */
   const graph = document.getElementById('graphSection');
   graph.innerHTML = '';
 
@@ -1045,13 +1053,17 @@ function showDetail(item, element) {
     const total = item.framePerfect.total || 0;
     const fps = item.framePerfect.fps || {};
     const ratio = {};
+
     Object.entries(fps).forEach(([k, v]) => {
       ratio[k] = total > 0 ? ((v / total) * 100).toFixed(1) : 0;
     });
 
     graph.innerHTML += `
       <div class="graph-box">
-        <div class="graph-title">프레임 퍼펙트 (FPS)<span class="graph-total">(Total : ${total})</span></div>
+        <div class="graph-title">
+          프레임 퍼펙트 (FPS)
+          <span class="graph-total">(Total : ${total})</span>
+        </div>
         ${Object.entries(fps).map(([k, v]) => `
           <div class="graph-row">
             <div class="graph-label">${k}</div>
@@ -1065,29 +1077,39 @@ function showDetail(item, element) {
     `;
   }
 
-  if (item.tags && item.tags.length > 0) {
+  /* ===== 태그 ===== */
+  if (item.tags?.length) {
     addSection('태그', renderTagGroups(item.tags));
   }
 
+  /* ===== 기록 명단 ===== */
   const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
 
-  if (item.clears && item.clears.length > 0) {
+  if (item.clears?.length) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
       row.className = `clear-row rank-${i + 1}`;
+
       const percentClass = c.percent === 100 ? 'full' : '';
-      
-      const playerName = c.player;
-      const youtubeUrl = PLAYER_YOUTUBE[playerName];
-      const playerHtml = youtubeUrl 
-        ? `<a href="${youtubeUrl}" target="_blank" class="clear-player-link">${playerName}</a>`
-        : playerName;
-      
+      const youtube = PLAYER_YOUTUBE[c.player];
+
+      const playerHTML = youtube
+        ? `<a href="${youtube}" target="_blank" class="clear-player-link">${c.player}</a>`
+        : c.player;
+
       row.innerHTML = `
-        <div class="clear-rank">#${i + 1}</div>`;
-  return;)
+        <div class="clear-rank">#${i + 1}</div>
+        <div class="clear-player">${playerHTML}</div>
+        <div class="clear-percent ${percentClass}">${c.percent}%</div>
+        <div class="clear-date">${c.date || ''}</div>
+      `;
+
+      clearBox.appendChild(row);
+    });
+  }
 }
+
 
 
 function collectRatio(prefix) {
@@ -1229,6 +1251,7 @@ function requestDevPassword() {
 </script>
 </body>
 </html>
+
 
 
 
