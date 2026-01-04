@@ -917,8 +917,7 @@ input {
 
 <div id="devPanel" class="dev-panel">
   <div class="detail-header">
-    <div class="detail-title">Developer Panel</div>
-    <div id="devModeDesc">Classic / Developer</div>
+    <div class="detail-title">개발자 패널</div>
   </div>
 
   <div id="devContent" class="detail-content"></div>
@@ -1308,6 +1307,73 @@ function renderDevHome() {
     `<div class="section-title">태그</div>` + renderEditableTags([]);
 }
 
+function collectSelectedTags(containerId) {
+  const tags = [];
+  document
+    .querySelectorAll(`#${containerId} .tag.active`)
+    .forEach(el => tags.push(el.textContent));
+  return tags;
+}
+
+function submitAddLevel() {
+  const rank = Number(document.getElementById('add-rank').value);
+  const title = document.getElementById('add-title').value.trim();
+  const creator = document.getElementById('add-creator').value.trim();
+  const verifier = document.getElementById('add-verifier').value.trim();
+  const video = document.getElementById('add-video').value.trim();
+
+  const tags = collectSelectedTags('add-tags');
+
+  // 🔒 유효성 검사
+  if (
+    !rank || !title || !creator || !verifier ||
+    !video || tags.length === 0
+  ) {
+    alert('모든 정보를 입력해야 해!');
+    return;
+  }
+
+  // 새 레벨 기본 구조
+  const newLevel = {
+    id: 0, // 아래에서 다시 정렬
+    title,
+    creator,
+    verifier,
+    video,
+    map: {
+      mapId: '',
+      length: '',
+      objects: 0,
+      uploadDate: '',
+    },
+    song: null,
+    gameplay: {
+      modeRatio: {},
+      speedRatio: {},
+    },
+    framePerfect: null,
+    tags,
+    clears: [],
+  };
+
+  // 📌 순위 밀어내기
+  const insertIndex = Math.max(0, Math.min(rank - 1, demonData.length));
+  demonData.splice(insertIndex, 0, newLevel);
+
+  // 📌 순위 재정렬
+  demonData.forEach((d, i) => {
+    d.id = i + 1;
+  });
+
+  // 📌 UI 즉시 갱신
+  generateList(demonData);
+  showDetail(newLevel);
+
+  alert('레벨이 추가됐어! 🎉');
+  renderDevHome();
+}
+
+
 function renderEditableTags(selected = []) {
   let html = '<div class="tag-group-container">';
   Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
@@ -1372,6 +1438,7 @@ function submitAddLevel() {
 </script>
 </body>
 </html>
+
 
 
 
