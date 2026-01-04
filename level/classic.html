@@ -887,6 +887,36 @@ input {
   font-family: Paperlogy4;
 }
 
+.dev-tag-group {
+  margin-bottom: 16px;
+}
+
+.dev-tag-group-title {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.dev-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dev-tag-list .tag {
+  background: #555;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dev-tag-list .tag.active {
+  background: #fff;
+  color: #000;
+}
+
 }
 
 </style>
@@ -988,6 +1018,8 @@ const DEV_PASSWORD = '6974'; // 원하는 비밀번호로 바꿔
 
 const selectedTags = new Set();
 let demonData = [];
+const devSelectedTags = new Set();
+
 
 demonData = [
   {
@@ -1247,8 +1279,11 @@ function generateList(data) {
   
 function openDevPanel() {
   document.getElementById('devPanel').classList.add('open');
-  renderDevHome();
+
+  devSelectedTags.clear();
+  renderDevTagSelector();
 }
+
 
 function closeDevPanel() {
   document.getElementById('devPanel').classList.remove('open');
@@ -1300,6 +1335,11 @@ function renderDevHome() {
     <div class="dev-block">
       <div class="dev-label">영상 URL</div>
       <input id="add-video">
+    </div>
+
+    <div class="dev-section">
+      <div class="dev-label">태그</div>
+      <div id="devTagSelector"></div>
     </div>
 
   </div>
@@ -1376,6 +1416,45 @@ function submitAddLevel() {
   renderDevHome();
 }
 
+function renderDevTagSelector() {
+  const box = document.getElementById('devTagSelector');
+  box.innerHTML = '';
+
+  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'dev-tag-group';
+
+    groupDiv.innerHTML = `
+      <div class="dev-tag-group-title">${group}</div>
+      <div class="dev-tag-list"></div>
+    `;
+
+    const list = groupDiv.querySelector('.dev-tag-list');
+
+    tags.forEach(tag => {
+      const btn = document.createElement('span');
+      btn.className = 'tag';
+      btn.textContent = tag;
+
+      btn.onclick = () => {
+        if (devSelectedTags.has(tag)) {
+          devSelectedTags.delete(tag);
+          btn.classList.remove('active');
+        } else {
+          devSelectedTags.add(tag);
+          btn.classList.add('active');
+        }
+      };
+
+      list.appendChild(btn);
+    });
+
+    box.appendChild(groupDiv);
+  });
+}
+
+const tags = [...devSelectedTags];
+
 
 function renderEditableTags(selected = []) {
   let html = '<div class="tag-group-container">';
@@ -1441,6 +1520,7 @@ function submitAddLevel() {
 </script>
 </body>
 </html>
+
 
 
 
