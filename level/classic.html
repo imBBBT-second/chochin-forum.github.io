@@ -1415,6 +1415,7 @@ function submitAddLevel() {
 
 function renderDevTagSelector() {
   const box = document.getElementById('devTagSelector');
+  box.innerHTML = '';
 
   Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
     const groupDiv = document.createElement('div');
@@ -1512,6 +1513,7 @@ function loadEditLevel() {
 </script>
 </body>
 </html>
+
 
 
 
