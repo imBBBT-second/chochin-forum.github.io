@@ -1019,6 +1019,8 @@ const selectedTags = new Set();
 let demonData = [];
 const devSelectedTags = new Set();
 
+let devMode = 'add'; // 'add' | 'edit'
+let editingLevelIndex = null;
 
 demonData = [
   {
@@ -1635,7 +1637,109 @@ function renderRatioInputs(containerId, keys) {
   return { ratio, total };
 }
 
+  const devAddBtn = document.getElementById('devAddBtn');
+const devEditBtn = document.getElementById('devEditBtn');
+const editLevelSelect = document.getElementById('editLevelSelect');
+
+devAddBtn.onclick = () => {
+  devMode = 'add';
+  editingLevelIndex = null;
+  devAddBtn.classList.add('active');
+  devEditBtn.classList.remove('active');
+  editLevelSelect.style.display = 'none';
+  clearDevForm();
+};
+
+devEditBtn.onclick = () => {
+  devMode = 'edit';
+  devEditBtn.classList.add('active');
+  devAddBtn.classList.remove('active');
+  editLevelSelect.style.display = 'block';
+  openEditSelector();
+};
+
+  function openEditSelector() {
+  editLevelSelect.innerHTML = '';
+
+  demonData.forEach((item, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `#${item.id} ${item.title}`;
+    editLevelSelect.appendChild(opt);
+  });
+
+  editLevelSelect.onchange = () => {
+    editingLevelIndex = Number(editLevelSelect.value);
+    loadLevelToForm(demonData[editingLevelIndex]);
+  };
+
+  if (demonData.length > 0) {
+    editingLevelIndex = 0;
+    editLevelSelect.value = 0;
+    loadLevelToForm(demonData[0]);
+  }
+}
+
+  function loadLevelToForm(item) {
+  titleInput.value = item.title;
+  creatorInput.value = item.creator;
+  verifierInput.value = item.verifier;
+  videoInput.value = item.video || '';
+
+  rankInput.value = item.id;
+
+  /* 태그 */
+  selectedDevTags.clear();
+  item.tags?.forEach(t => selectedDevTags.add(t));
+  renderDevTagSelector();
+
+  /* 게임모드 / 속도 */
+  setRatioInputs(item.gameplay?.modeRatio || {});
+  setSpeedInputs(item.gameplay?.speedRatio || {});
+
+  /* 프레임 퍼펙트 */
+  setFramePerfectInputs(item.framePerfect?.fps || {});
+}
+
+  saveLevelBtn.onclick = () => {
+  if (!validateDevForm()) return;
+
+  const levelData = buildLevelObjectFromForm();
+
+  if (devMode === 'add') {
+    insertLevelWithRank(levelData);
+  } else {
+    updateExistingLevel(levelData);
+  }
+
+  generateList(demonData);
+  showDetail(levelData);
+};
+
+  function insertLevelWithRank(level) {
+  demonData.splice(level.id - 1, 0, level);
+
+  demonData.forEach((d, i) => {
+    d.id = i + 1;
+  });
+}
+
+  function clearDevForm() {
+  titleInput.value = '';
+  creatorInput.value = '';
+  verifierInput.value = '';
+  videoInput.value = '';
+  rankInput.value = '';
+
+  selectedDevTags.clear();
+  renderDevTagSelector();
+
+  clearRatioInputs();
+  clearFramePerfectInputs();
+}
+
 </script>
 </body>
 </html>
+
 
