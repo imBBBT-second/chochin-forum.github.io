@@ -1259,13 +1259,14 @@ function generateList(data) {
 }
   
 function openDevPanel() {
-  document.getElementById('devPanel').style.display = 'flex';
+  document.getElementById('devPanel').classList.add('open');
   renderDevHome();
 }
 
 function closeDevPanel() {
-  document.getElementById('devPanel').style.display = 'none';
+  document.getElementById('devPanel').classList.remove('open');
 }
+
   
 function renderDevHome() {
   const box = document.getElementById('devContent');
@@ -1371,6 +1372,7 @@ function submitAddLevel() {
 </script>
 </body>
 </html>
+
 
 
 
