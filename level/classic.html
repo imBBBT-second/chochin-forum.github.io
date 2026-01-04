@@ -962,7 +962,6 @@ const DEV_PASSWORD = '6974'; // 원하는 비밀번호로 바꿔
 
 const selectedTags = new Set();
 let demonData = [];
-const devSelectedTags = new Set();
 
 demonData = [
   {
@@ -1168,11 +1167,12 @@ document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
     const panel = document.getElementById('devPanel');
 
-    if (panel.classList.contains('open')) {
+    if (panel.style.display === 'flex') {
       closeDevPanel();
     } else {
       requestDevPassword();
     }
+
   }
 });
 
@@ -1274,6 +1274,7 @@ function generateList(data) {
   
 function openDevPanel() {
   document.getElementById('devPanel').style.display = 'flex';
+  renderDevHome();
 }
 
 function closeDevPanel() {
@@ -1377,9 +1378,14 @@ function loadEditLevel() {
   `;
 }
 
+function submitAddLevel() {
+  alert('아직 구현 중!');
+}
+
 </script>
 </body>
 </html>
+
 
 
 
