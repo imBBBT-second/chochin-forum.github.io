@@ -188,11 +188,12 @@ input {
 }
 
 .tag-group-title {
-  font-size: 16px;
-  opacity: 0.7;
+  font-family: Paperlogy6;
+  font-size: 18px;
+  color: #ffffff;
   margin-bottom: 6px;
-  font-family: Paperlogy5;
-  color: white;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
 .tag-group-tags {
@@ -236,30 +237,6 @@ input {
   color: white;
 }
 
-.tag-group-title {
-  font-family: Paperlogy6;
-  font-size: 18px;
-  color: #ffffff;
-  margin-bottom: 6px;
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-}
-
-.tag-filter-title {
-  font-family: Paperlogy7;
-  font-size: 16px;
-  color: #eaeaea;
-  margin: 12px 0 6px;
-  padding-left: 4px;
-  border-left: 3px solid #888;
-}
-
-#detailDescription {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
 .tag-group-container {
   display: flex;
   flex-wrap: wrap;
@@ -279,19 +256,6 @@ input {
   width: 100%;
   display: block;
   margin-bottom: 12px;
-}
-
-.tag-filter-header {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 6px;
-}
-
-.tag-filter-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
 }
 
 .item {
@@ -660,6 +624,18 @@ input {
   transition: background 0.2s, color 0.2s;
 }
 
+.mode-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.mode-btn.active {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: default;
+}
+
 @media (max-width: 768px) {
   .mode-btn {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
@@ -674,250 +650,6 @@ input {
     font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
   }
 }
-
-#modeShortcut .mode {
-  color: #aaa;
-  text-decoration: none;
-  cursor: pointer;
-  font-family: Paperlogy7;
-  font-size: 64px;
-}
-
-#modeShortcut .mode:hover {
-  color: #fff;
-}
-
-#modeShortcut .mode.active {
-  color: #fff;
-  font-weight: 700;
-  cursor: default;
-}
-
-#detailPanel {
-  margin-top: 64px;
-}
-
-.mode-btn:hover {
-  background: #fff;
-  color: #000;
-}
-
-.mode-btn.active {
-  background: #fff;
-  color: #000;
-  font-weight: 600;
-  cursor: default;
-}
-.dev-panel {
-  position: fixed;
-  top: 0;
-  right: -480px;
-  width: 480px;
-  height: 100%;
-  background: #2f2f2f;
-  box-shadow: -4px 0 16px rgba(0,0,0,0.4);
-  transition: right 0.3s ease;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-}
-
-.dev-panel.open {
-  right: 0;
-}
-
-.dev-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  font-family: Paperlogy7;
-  font-size: 1.4rem;
-  color: white;
-  border-bottom: 1px solid #555;
-}
-
-.dev-panel-header button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.dev-tabs {
-  display: flex;
-}
-
-.dev-tabs button {
-  flex: 1;
-  padding: 10px;
-  background: #3a3a3a;
-  color: #ccc;
-  border: none;
-  cursor: pointer;
-  font-family: Paperlogy5;
-}
-
-.dev-tabs button.active {
-  background: #fff;
-  color: #000;
-}
-
-.dev-content {
-  padding: 14px;
-  overflow-y: auto;
-}
-
-.dev-content input {
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.dev-section-title {
-  margin: 14px 0 6px;
-  font-family: Paperlogy6;
-  color: #fff;
-}
-
-/* 핵심 */
-#devContent {
-  flex: 1;
-  overflow-y: auto;
-  padding: 14px;
-}
-  
-#devContent::-webkit-scrollbar {
-  width: 8px;
-}
-
-#devContent::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 4px;
-}
-
-#devContent::-webkit-scrollbar-track {
-  background: #2f2f2f;
-}
-  
-.dev-ratio-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-.dev-ratio-label {
-  width: 80px;
-  font-family: Paperlogy4;
-  color: #ddd;
-  font-size: 0.9rem;
-}
-
-.dev-ratio-input {
-  width: 80px;
-  padding: 4px 6px;
-  border-radius: 6px;
-  border: none;
-  font-family: Paperlogy5;
-  font-size: 0.9rem;
-}
-
-.dev-tag {
-  background: #555;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-family: Paperlogy5;
-  font-size: 0.95rem;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.15s, color 0.15s;
-}
-
-.dev-tag.active {
-  background: #fff;
-  color: #000;
-}
-
-.dev-tag-title {
-  font-family: Paperlogy6;
-  font-size: 0.95rem;
-  color: #eaeaea;
-  margin: 10px 0 6px;
-  opacity: 0.9;
-}
-  
-.dev-form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.dev-form-row span {
-  font-family: Paperlogy4;
-  color: #c8c8c8;
-}
-
-.dev-title {
-  font-family: Paperlogy6;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 16px;
-  }
-
-.dev-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.dev-block {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 12px;
-}
-  
-.dev-panel .dev-label {
-  display: block;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  letter-spacing: -0.3px;
-  font-family: Paperlogy4;
-}
-
-.dev-tag-group {
-  margin-bottom: 16px;
-}
-
-.dev-tag-group-title {
-  color: #ddd;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.dev-tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.dev-tag-list .tag {
-  background: #555;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 13px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.dev-tag-list .tag.active {
-  background: #fff;
-  color: #000;
-}
-
 </style>
 </head>
 
@@ -929,14 +661,9 @@ input {
   <a href="../level.html" class="header-btn-wrapper">
     <button class="header-btn">레벨</button>
   </a>
-  <div class="header-btn-wrapper">
-    <a href="../mappack.html" class="header-btn-wrapper">
-      <button class="header-btn">맵 팩</button>
-    </a>
-  </div>
-  <div class="header-btn-wrapper">
+  <a href="../hardest.html" class="header-btn-wrapper">
     <button class="header-btn">하디스트</button>
-  </div>
+  </a>
 </div>
 
 <div class="divider"></div>
@@ -985,19 +712,7 @@ input {
   </div>
 </div>
 
-<div id="devPanel" class="dev-panel">
-  <div class="detail-header">
-    <div class="detail-title">개발자 패널</div>
-  </div>
-
-  <div id="devContent" class="detail-content"></div>
-</div>
-
-</div>
-
-
 <script>
-  
 const TAG_GROUPS = {
   '주 게임모드': ['Cube', 'Ship', 'Ball', 'UFO', 'Wave', 'Robot', 'Spider', 'Swing', 'Any-Mode'],
   '속도': ['0.5x', '1x', '2x', '3x', '4x', 'Any-Speed'],
@@ -1013,54 +728,9 @@ const PLAYER_YOUTUBE = {
   'Timo': 'https://www.youtube.com/@SNIPER_Timo',
 };
 
-const DEV_PASSWORD = '6974'; // 원하는 비밀번호로 바꿔
-
 const selectedTags = new Set();
 let demonData = [];
-const devSelectedTags = new Set();
 
-let devMode = 'add'; // 'add' | 'edit'
-let editingLevelIndex = null;
-
-let editingIndex = null;
-let editBackup = null;
-
-demonData = [
-  {
-    id: 1,
-    title: 'Test Level',
-    creator: 'imBBBT',
-    verifier: 'imBBBT',
-    video: '',
-    map: {
-      mapId: '123456',
-      length: 'Long',
-      objects: 12345,
-      uploadDate: '2025-01-01',
-    },
-    song: {
-      name: 'Test Song',
-      artist: 'Test Artist',
-      id: '987654',
-    },
-    gameplay: {
-      modeRatio: { Cube: 50, Ship: 50 },
-      speedRatio: { '1x': 70, '2x': 30 },
-    },
-    framePerfect: {
-      total: 10,
-      fps: { 60: 6, 120: 4 },
-    },
-    tags: ['Cube', '1x', 'Long'],
-    clears: [
-      { player: 'imBBBT', percent: 100, date: '2025-01-02' },
-    ],
-  }
-];
-
-generateList(demonData);
-showDetail(demonData[0]);
-  
 function addSection(title, html) {
   const box = document.getElementById('detailDescription');
   const div = document.createElement('div');
@@ -1091,22 +761,15 @@ function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
 }
 
 function showDetail(item, element) {
-  // 초기화
   document.getElementById('detailDescription').innerHTML = '';
   document.querySelectorAll('.item.active').forEach(el => el.classList.remove('active'));
   if (element) element.classList.add('active');
 
-  // 제목 / 제작자
   document.getElementById('detailTitle').textContent = item.title;
   document.getElementById('detailCreator').textContent =
-    item.creator === item.verifier
-      ? `by ${item.creator}`
-      : `by ${item.creator} / Verified by ${item.verifier}`;
-
-  // 영상
+    item.creator === item.verifier ? `by ${item.creator}` : `by ${item.creator} / Verified by ${item.verifier}`;
   document.getElementById('detailVideo').src = item.video || '';
 
-  /* ===== 정보 ===== */
   const info = document.getElementById('infoSection');
   info.innerHTML = '';
 
@@ -1131,7 +794,6 @@ function showDetail(item, element) {
     `;
   }
 
-  /* ===== 그래프 ===== */
   const graph = document.getElementById('graphSection');
   graph.innerHTML = '';
 
@@ -1144,17 +806,13 @@ function showDetail(item, element) {
     const total = item.framePerfect.total || 0;
     const fps = item.framePerfect.fps || {};
     const ratio = {};
-
     Object.entries(fps).forEach(([k, v]) => {
       ratio[k] = total > 0 ? ((v / total) * 100).toFixed(1) : 0;
     });
 
     graph.innerHTML += `
       <div class="graph-box">
-        <div class="graph-title">
-          프레임 퍼펙트 (FPS)
-          <span class="graph-total">(Total : ${total})</span>
-        </div>
+        <div class="graph-title">프레임 퍼펙트 (FPS)<span class="graph-total">(Total : ${total})</span></div>
         ${Object.entries(fps).map(([k, v]) => `
           <div class="graph-row">
             <div class="graph-label">${k}</div>
@@ -1168,746 +826,126 @@ function showDetail(item, element) {
     `;
   }
 
-  /* ===== 태그 ===== */
-  if (item.tags?.length) {
+  if (item.tags && item.tags.length > 0) {
     addSection('태그', renderTagGroups(item.tags));
   }
 
-  /* ===== 기록 명단 ===== */
   const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
 
-  if (item.clears?.length) {
+  if (item.clears && item.clears.length > 0) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
       row.className = `clear-row rank-${i + 1}`;
-
       const percentClass = c.percent === 100 ? 'full' : '';
-      const youtube = PLAYER_YOUTUBE[c.player];
-
-      const playerHTML = youtube
-        ? `<a href="${youtube}" target="_blank" class="clear-player-link">${c.player}</a>`
-        : c.player;
-
+      
+      const playerName = c.player;
+      const youtubeUrl = PLAYER_YOUTUBE[playerName];
+      const playerHtml = youtubeUrl 
+        ? `<a href="${youtubeUrl}" target="_blank" class="clear-player-link">${playerName}</a>`
+        : playerName;
+      
       row.innerHTML = `
         <div class="clear-rank">#${i + 1}</div>
-        <div class="clear-player">${playerHTML}</div>
+        <div class="clear-player">${playerHtml}</div>
         <div class="clear-percent ${percentClass}">${c.percent}%</div>
-        <div class="clear-date">${c.date || ''}</div>
+        <div class="clear-date">${c.date}</div>
       `;
-
       clearBox.appendChild(row);
     });
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
-    const panel = document.getElementById('devPanel');
-
-    if (panel.style.display === 'flex') {
-      closeDevPanel();
-    } else {
-      requestDevPassword();
-    }
-
-  }
-});
-
-function toggleDevTag(el, tag) {
-  el.classList.toggle('active');
-
-  if (devSelectedTags.has(tag)) {
-    devSelectedTags.delete(tag);
   } else {
-    devSelectedTags.add(tag);
+    clearBox.innerHTML = `<p style="text-align:center; color:#aaa; font-size: 1.6rem;">기록 없음</p>`;
   }
-}
-
-function moveLevelToRank(levelIndex, newRank) {
-  // 현재 레벨 꺼내기
-  const level = demonData.splice(levelIndex, 1)[0];
-
-  // 배열 index는 0부터라서 -1
-  const targetIndex = Math.max(0, Math.min(newRank - 1, demonData.length));
-
-  // 새 위치에 삽입
-  demonData.splice(targetIndex, 0, level);
-
-  // 순위 재정렬
-  demonData.forEach((d, i) => {
-    d.id = i + 1;
-  });
-
-  return level;
 }
 
 function generateList(data) {
   const list = document.getElementById('list');
   list.innerHTML = '';
-
-  data.forEach((item, i) => {
+  data.forEach(d => {
     const div = document.createElement('div');
     div.className = 'item';
     div.innerHTML = `
-      <div class="rank">#${i + 1}</div>
+      <div class="rank">${d.id}</div>
       <div>
-        <div class="title">${item.title}</div>
-        <div class="creator">${item.creator}</div>
+        <div class="title">${d.title}</div>
+        <div class="creator">by ${d.creator}</div>
       </div>
     `;
-    div.onclick = () => showDetail(item, div);
+    div.onclick = () => showDetail(d, div);
     list.appendChild(div);
   });
 }
-  
-function openDevPanel() {
-  const panel = document.getElementById('devPanel');
-  panel.classList.add('open');
-  renderDevHome();
-}
 
-function closeDevPanel() {
-  document.getElementById('devPanel').classList.remove('open');
-}
-
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
-    const pw = prompt('개발자 비밀번호 입력');
-    if (pw === DEV_PASSWORD) openDevPanel();
-    else if (pw !== null) alert('비밀번호 틀림');
-  }
-});
-
-  
-function renderDevHome() {
-  devMode = 'home';
-  const box = document.getElementById('devContent');
-
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">개발자 메뉴</div>
-      <div class="header-container">
-        <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
-        <button class="header-btn" onclick="renderEditSelector()">레벨 수정</button>
-      </div>
-    </div>
-  `;
-}
-
-
-  function renderAddLevel() {
-  devMode = 'add';
-  devSelectedTags.clear();
-
-  const box = document.getElementById('devContent');
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">레벨 추가</div>
-
-      <div class="dev-block">
-        <div class="dev-label">순위</div>
-        <input id="add-rank" type="number" min="1">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">제목</div>
-        <input id="add-title">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">제작자</div>
-        <input id="add-creator">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">검증자</div>
-        <input id="add-verifier">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">영상 URL</div>
-        <input id="add-video">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">태그</div>
-        <div id="devTagSelector"></div>
-      </div>
-
-      <div class="header-container">
-        <button class="header-btn" onclick="submitAddLevel()">추가</button>
-        <button class="header-btn" onclick="renderDevHome()">취소</button>
-      </div>
-    </div>
-  `;
-
-  renderDevTagSelector();
-}
-
-
-  function collectFramePerfect() {
-  const fps = {};
-  let total = 0;
-
-  document
-    .querySelectorAll('#devFramePerfect .dev-ratio-input')
-    .forEach(input => {
-      const v = Number(input.value) || 0;
-      const key = input.dataset.fps;
-
-      if (v > 0) {
-        fps[key] = v;
-        total += v;
-      }
-    });
-
-  return total > 0 ? { total, fps } : null;
-}
-
-function renderFramePerfectInputs() {
-  const box = document.getElementById('devFramePerfect');
-  box.innerHTML = '';
-
-  ['30', '60', '120', '240'].forEach(fps => {
-    const row = document.createElement('div');
-    row.className = 'dev-ratio-row';
-    row.innerHTML = `
-      <div class="dev-ratio-label">${fps} FPS</div>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        class="dev-ratio-input"
-        data-fps="${fps}"
-      >
-      <span>개</span>
-    `;
-    box.appendChild(row);
+fetch('classic.json')
+  .then(r => r.json())
+  .then(j => {
+    demonData = j.buttons;
+    initTagFilter(demonData);
+    generateList(demonData);
+    if (demonData.length > 0) showDetail(demonData[0]);
   });
+
+function applyFilter() {
+  const text = search.value.toLowerCase();
+  const filteredData = demonData.filter(item => {
+    const textMatch = item.title.toLowerCase().includes(text);
+    const tagMatch = [...selectedTags].every(tag => item.tags?.includes(tag));
+    return textMatch && tagMatch;
+  });
+  generateList(filteredData);
+  if (filteredData.length > 0) showDetail(filteredData[0]);
 }
 
-  
-function collectSelectedTags(containerId) {
-  const tags = [];
-  document
-    .querySelectorAll(`#${containerId} .tag.active`)
-    .forEach(el => tags.push(el.textContent));
-  return tags;
-}
+function initTagFilter() {
+  const tagBox = document.getElementById('tagFilter');
+  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'tag-filter-group';
 
-function submitAddLevel() {
-  const rank = Number(document.getElementById('add-rank').value);
-  const title = document.getElementById('add-title').value.trim();
-  const creator = document.getElementById('add-creator').value.trim();
-  const verifier = document.getElementById('add-verifier').value.trim();
-  const video = document.getElementById('add-video').value.trim();
-
-  if (!rank || !title || !creator || !verifier) {
-    alert('필수 정보 누락!');
-    return;
-  }
-
-  const newLevel = {
-    id: 0,
-    title,
-    creator,
-    verifier,
-    video,
-    map: {},
-    song: null,
-    gameplay: {},
-    framePerfect: null,
-    tags: [...devSelectedTags],
-    clears: [],
-  };
-
-  const idx = Math.max(0, Math.min(rank - 1, demonData.length));
-  demonData.splice(idx, 0, newLevel);
-
-  demonData.forEach((d, i) => d.id = i + 1);
-
-  generateList(demonData);
-  showDetail(newLevel);
-
-  alert('레벨 추가 완료 🎉');
-  renderDevHome();
-}
-
-function renderEditSelector() {
-  devMode = 'edit';
-  const box = document.getElementById('devContent');
-
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">레벨 수정</div>
-      <select id="edit-select" onchange="renderEditForm()">
-        <option value="">선택</option>
-        ${demonData.map(d => `<option value="${d.id}">#${d.id} ${d.title}</option>`).join('')}
-      </select>
-    </div>
-  `;
-}
-
-function renderEditForm() {
-  const id = Number(document.getElementById('edit-select').value);
-  const d = demonData.find(x => x.id === id);
-  if (!d) return;
-
-  editingLevelId = id;
-  devSelectedTags.clear();
-  d.tags.forEach(t => devSelectedTags.add(t));
-
-  const box = document.getElementById('devContent');
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">레벨 수정</div>
-
-      <div class="dev-block">
-        <div class="dev-label">제목</div>
-        <input id="edit-title" value="${d.title}">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">제작자</div>
-        <input id="edit-creator" value="${d.creator}">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">태그</div>
-        <div id="devTagSelector"></div>
-      </div>
-
-      <div class="header-container">
-        <button class="header-btn" onclick="applyEditLevel()">저장</button>
-        <button class="header-btn" onclick="renderDevHome()">취소</button>
-      </div>
-    </div>
-  `;
-
-  renderDevTagSelector();
-}
-
-  
-function renderDevTagSelector() {
-  const box = document.getElementById('devTagSelector');
-  box.innerHTML = '';
-
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    const g = document.createElement('div');
-    g.className = 'dev-tag-group';
-    g.innerHTML = `<div class="dev-tag-group-title">${group}</div>`;
+    const header = document.createElement('div');
+    header.className = 'tag-filter-header';
+    header.innerHTML = `<span>${groupName}</span><span class="arrow">▼</span>`;
 
     const list = document.createElement('div');
-    list.className = 'dev-tag-list';
+    list.className = 'tag-filter-list';
 
     tags.forEach(tag => {
       const el = document.createElement('span');
       el.className = 'tag';
       el.textContent = tag;
-
-      el.onclick = () => {
+      el.onclick = (e) => {
+        e.stopPropagation();
         el.classList.toggle('active');
-        devSelectedTags.has(tag)
-          ? devSelectedTags.delete(tag)
-          : devSelectedTags.add(tag);
+        selectedTags.has(tag) ? selectedTags.delete(tag) : selectedTags.add(tag);
+        applyFilter();
       };
-
       list.appendChild(el);
     });
 
-    g.appendChild(list);
-    box.appendChild(g);
+    header.onclick = () => groupDiv.classList.toggle('open');
+    groupDiv.appendChild(header);
+    groupDiv.appendChild(list);
+    tagBox.appendChild(groupDiv);
   });
-}
-
-const tags = [...devSelectedTags];
-
-
-function renderEditableTags(selected = []) {
-  let html = '<div class="tag-group-container">';
-  Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    html += `
-      <div class="tag-group">
-        <div class="tag-group-title">${group}</div>
-        <div class="tag-group-tags">
-          ${tags.map(t =>
-            `<span class="tag ${selected.includes(t) ? 'active' : ''}"
-              onclick="this.classList.toggle('active')">${t}</span>`
-          ).join('')}
-        </div>
-      </div>
-    `;
-  });
-  html += '</div>';
-  return html;
-}
-
-function renderEditLevel() {
-  const box = document.getElementById('devContent');
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">레벨 수정</div>
-
-      <div class="info-row">
-        <select id="edit-select" onchange="loadEditLevel()">
-          <option value="">레벨 선택</option>
-          ${demonData.map(d =>
-            `<option value="${d.id}">#${d.id} ${d.title}</option>`
-          ).join('')}
-        </select>
-      </div>
-
-      <div id="edit-form"></div>
-    </div>
-  `;
-}
-
-function loadEditLevel() {
-  const id = document.getElementById('edit-select').value;
-  const d = demonData.find(x => x.id == id);
-  if (!d) return;
-
-  document.getElementById('edit-form').innerHTML = `
-    <div class="dev-row">
-      <div class="dev-section">
-  <div class="dev-section-title">레벨 기본 정보</div>
-
-  <div class="dev-row">
-    <div class="dev-label">제목</div>
-    <input id="devTitle" placeholder="레벨 제목">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">제작자</div>
-    <input id="devCreator" placeholder="Creator">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">검증자</div>
-    <input id="devVerifier" placeholder="Verifier">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">영상 링크</div>
-    <input id="devVideo" placeholder="YouTube Embed URL">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">순위</div>
-    <input id="devRank" type="number" min="1">
-  </div>
-</div>
-
-<div class="dev-section">
-  <div class="dev-section-title">맵 정보</div>
-
-  <div class="dev-row">
-    <div class="dev-label">맵 ID</div>
-    <input id="devMapId" placeholder="12345678">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">길이</div>
-    <input id="devMapLength" placeholder="Short / Long / XL">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">오브젝트 수</div>
-    <input id="devMapObjects" type="number">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">업로드 날짜</div>
-    <input id="devMapDate" placeholder="YYYY-MM-DD">
-  </div>
-</div>
-
-<div class="dev-section">
-  <div class="dev-section-title">노래 정보</div>
-
-  <div class="dev-row">
-    <div class="dev-label">노래 이름</div>
-    <input id="devSongName" placeholder="Song Name">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">작곡가</div>
-    <input id="devSongArtist" placeholder="Artist">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">노래 ID</div>
-    <input id="devSongId" placeholder="Song ID">
-  </div>
-</div>
-
-    <div class="section-title">태그</div>
-    ${renderEditableTags(d.tags)}
-
-    <div class="header-container">
-      <div class="dev-action-row">
-      <button class="header-btn" onclick="applyEditLevel()">저장</button>
-      <button class="header-btn" onclick="cancelEditLevel()">취소</button>
-    </div>
-
-    </div>
-  `;
-}
-
-function renderRatioInputs(containerId, keys) {
-  const box = document.getElementById(containerId);
-  box.innerHTML = '';
-
-  keys.forEach(k => {
-    const row = document.createElement('div');
-    row.className = 'dev-ratio-row';
-    row.innerHTML = `
-      <div class="dev-ratio-label">${k}</div>
-      <input
-        type="number"
-        min="0"
-        max="100"
-        value="0"
-        class="dev-ratio-input"
-        data-key="${k}"
-      >
-      <span>%</span>
-    `;
-    box.appendChild(row);
-  });
-}
-
-  function collectRatio(containerId) {
-  const ratio = {};
-  let total = 0;
-
-  document
-    .querySelectorAll(`#${containerId} .dev-ratio-input`)
-    .forEach(input => {
-      const v = Number(input.value) || 0;
-      if (v > 0) {
-        ratio[input.dataset.key] = v;
-        total += v;
-      }
-    });
-
-  return { ratio, total };
-}
-
-  const devAddBtn = document.getElementById('devAddBtn');
-const devEditBtn = document.getElementById('devEditBtn');
-const editLevelSelect = document.getElementById('editLevelSelect');
-
-devAddBtn.onclick = () => {
-  devMode = 'add';
-  editingLevelIndex = null;
-  devAddBtn.classList.add('active');
-  devEditBtn.classList.remove('active');
-  editLevelSelect.style.display = 'none';
-  clearDevForm();
-};
-
-devEditBtn.onclick = () => {
-  devMode = 'edit';
-  devEditBtn.classList.add('active');
-  devAddBtn.classList.remove('active');
-  editLevelSelect.style.display = 'block';
-  openEditSelector();
-};
-
-  function openEditSelector() {
-  editLevelSelect.innerHTML = '';
-
-  demonData.forEach((item, i) => {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = `#${item.id} ${item.title}`;
-    editLevelSelect.appendChild(opt);
-  });
-
-  editLevelSelect.onchange = () => {
-    editingLevelIndex = Number(editLevelSelect.value);
-    loadLevelToForm(demonData[editingLevelIndex]);
-  };
-
-  if (demonData.length > 0) {
-    editingLevelIndex = 0;
-    editLevelSelect.value = 0;
-    loadLevelToForm(demonData[0]);
-  }
-}
-
-  function loadLevelToForm(item) {
-  titleInput.value = item.title || '';
-  creatorInput.value = item.creator || '';
-  verifierInput.value = item.verifier || '';
-  videoInput.value = item.video || '';
-  rankInput.value = item.id || '';
-
-  mapIdInput.value = item.map?.mapId || '';
-  mapLengthInput.value = item.map?.length || '';
-  mapObjectsInput.value = item.map?.objects || '';
-  mapDateInput.value = item.map?.uploadDate || '';
-
-  songNameInput.value = item.song?.name || '';
-  songArtistInput.value = item.song?.artist || '';
-  songIdInput.value = item.song?.id || '';
-
-  /* 태그 */
-  selectedDevTags.clear();
-  item.tags?.forEach(t => selectedDevTags.add(t));
-  renderDevTagSelector();
-
-  /* 비율 */
-  setRatioInputs(item.gameplay?.modeRatio || {});
-  setSpeedInputs(item.gameplay?.speedRatio || {});
-  setFramePerfectInputs(item.framePerfect?.fps || {});
-}
-
-
-  saveLevelBtn.onclick = () => {
-  if (!validateDevForm()) return;
-
-  const levelData = buildLevelObjectFromForm();
-
-  if (devMode === 'add') {
-    insertLevelWithRank(levelData);
-  } else {
-    updateExistingLevel(levelData);
-  }
-
-  generateList(demonData);
-  showDetail(levelData);
-};
-
-  function insertLevelWithRank(level) {
-  demonData.splice(level.id - 1, 0, level);
-
-  demonData.forEach((d, i) => {
-    d.id = i + 1;
-  });
-}
-
-  function clearDevForm() {
-  titleInput.value = '';
-  creatorInput.value = '';
-  verifierInput.value = '';
-  videoInput.value = '';
-  rankInput.value = '';
-
-  selectedDevTags.clear();
-  renderDevTagSelector();
-
-  clearRatioInputs();
-  clearFramePerfectInputs();
-}
-
-  function buildLevelObjectFromForm() {
-  return {
-    id: Number(rankInput.value),
-    title: titleInput.value,
-    creator: creatorInput.value,
-    verifier: verifierInput.value,
-    video: videoInput.value,
-
-    map: {
-      mapId: mapIdInput.value,
-      length: mapLengthInput.value,
-      objects: Number(mapObjectsInput.value),
-      uploadDate: mapDateInput.value,
-    },
-
-    tags: [...selectedDevTags],
-
-    gameplay: {
-      modeRatio: getModeRatioValues(),
-      speedRatio: getSpeedRatioValues(),
-    },
-
-    framePerfect: {
-      fps: getFramePerfectValues(),
-      total: Object.values(getFramePerfectValues()).reduce((a, b) => a + b, 0),
-    },
-
-    clears: []
-  };
-}
-
-  function validateDevForm() {
-  if (
-    !titleInput.value ||
-    !creatorInput.value ||
-    !verifierInput.value ||
-    !mapIdInput.value ||
-    !mapLengthInput.value ||
-    !mapDateInput.value ||
-    selectedDevTags.size === 0
-  ) {
-    alert('모든 정보를 입력해야 해!');
-    return false;
-  }
-  return true;
-}
-
-  function startEditLevel(index) {
-  editingIndex = index;
-  editBackup = JSON.parse(JSON.stringify(demonData[index])); // 깊은 복사
-
-  loadLevelToForm(demonData[index]);
-}
-
-  function cancelEditLevel() {
-  if (editingIndex === null || !editBackup) return;
-
-  // 원래 데이터 복구
-  demonData[editingIndex] = editBackup;
-
-  // UI 갱신
-  generateList(demonData);
-  showDetail(demonData[editingIndex]);
-
-  // 상태 초기화
-  editingIndex = null;
-  editBackup = null;
-
-  alert('레벨 수정이 취소됐어');
-}
-  
-function applyEditLevel() {
-  const d = demonData.find(x => x.id === editingLevelId);
-  if (!d) return;
-
-  d.title = document.getElementById('edit-title').value.trim();
-  d.creator = document.getElementById('edit-creator').value.trim();
-  d.tags = [...devSelectedTags];
-
-  generateList(demonData);
-  showDetail(d);
-
-  alert('수정 완료 ✅');
-  renderDevHome();
 }
 
 function renderTagGroups(tags) {
   if (!tags || tags.length === 0) return '';
-
-  return `
-    <div class="tag-group-container">
-      ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-    </div>
-  `;
+  let groupsHtml = '';
+  Object.entries(TAG_GROUPS).forEach(([group, values]) => {
+    const matched = tags.filter(t => values.includes(t));
+    if (!matched.length) return;
+    groupsHtml += `
+      <div class="tag-group">
+        <div class="tag-group-title">${group}</div>
+        <div class="tag-group-tags">
+          ${matched.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  });
+  return `<div class="tag-group-container">${groupsHtml}</div>`;
 }
-
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
