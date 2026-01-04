@@ -1307,47 +1307,45 @@ function renderDevHome() {
   function renderAddLevel() {
   const box = document.getElementById('devContent');
   box.innerHTML = `
-  <div class="section">
+    <div class="section">
+      <div class="section-title">레벨 추가</div>
 
-    <div class="section-title">레벨 추가</div>
+      <div class="dev-block">
+        <div class="dev-label">순위</div>
+        <input id="add-rank" type="number" min="1">
+      </div>
 
-    <div class="dev-block">
-      <div class="dev-label">순위</div>
-      <input id="add-rank" type="number" min="1">
+      <div class="dev-block">
+        <div class="dev-label">제목</div>
+        <input id="add-title">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">제작자</div>
+        <input id="add-creator">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">검증자</div>
+        <input id="add-verifier">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">영상 URL</div>
+        <input id="add-video">
+      </div>
+
+      <div class="dev-section">
+        <div class="dev-label">태그</div>
+        <div id="devTagSelector"></div>
+      </div>
     </div>
+  `;
 
-    <div class="dev-block">
-      <div class="dev-label">제목</div>
-      <input id="add-title">
-    </div>
-
-    <div class="dev-block">
-      <div class="dev-label">제작자</div>
-      <input id="add-creator">
-    </div>
-
-    <div class="dev-block">
-      <div class="dev-label">검증자</div>
-      <input id="add-verifier">
-    </div>
-
-    <div class="dev-block">
-      <div class="dev-label">영상 URL</div>
-      <input id="add-video">
-    </div>
-
-    <div class="dev-section">
-      <div class="dev-label">태그</div>
-      <div id="devTagSelector"></div>
-    </div>
-
-  </div>
-`;
-
-
-  document.getElementById('add-tags').innerHTML =
-    `<div class="section-title">태그</div>` + renderEditableTags([]);
-}
+  // ⭐ 이 줄 필수
+  devSelectedTags.clear();
+  renderDevTagSelector();
+  }
 
 function collectSelectedTags(containerId) {
   const tags = [];
@@ -1512,13 +1510,10 @@ function loadEditLevel() {
   `;
 }
 
-function submitAddLevel() {
-  alert('아직 구현 중!');
-}
-
 </script>
 </body>
 </html>
+
 
 
 
