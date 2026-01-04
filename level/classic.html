@@ -1336,6 +1336,21 @@ function renderDevHome() {
       </div>
 
       <div class="dev-section">
+        <div class="dev-label">게임 모드 비율 (%)</div>
+        <div id="devModeRatio"></div>
+      </div>
+
+      <div class="dev-section">
+        <div class="dev-label">속도 비율 (%)</div>
+        <div id="devSpeedRatio"></div>
+      </div>
+
+      <div class="dev-section">
+        <div class="dev-label">프레임 퍼펙트 (FPS)</div>
+        <div id="devFramePerfect"></div>
+      </div>
+
+      <div class="dev-section">
         <div class="dev-label">태그</div>
         <div id="devTagSelector"></div>
       </div>
@@ -1345,8 +1360,60 @@ function renderDevHome() {
   // ⭐ 이 줄 필수
   devSelectedTags.clear();
   renderDevTagSelector();
+  renderRatioInputs('devModeRatio', [
+  'Cube','Ship','Ball','UFO','Wave','Robot','Spider','Swing'
+]);
+
+renderRatioInputs('devSpeedRatio', [
+  '0.5x','1x','2x','3x','4x'
+]);
+    renderFramePerfectInputs();
+
+
   }
 
+  function collectFramePerfect() {
+  const fps = {};
+  let total = 0;
+
+  document
+    .querySelectorAll('#devFramePerfect .dev-ratio-input')
+    .forEach(input => {
+      const v = Number(input.value) || 0;
+      const key = input.dataset.fps;
+
+      if (v > 0) {
+        fps[key] = v;
+        total += v;
+      }
+    });
+
+  return total > 0 ? { total, fps } : null;
+}
+
+function renderFramePerfectInputs() {
+  const box = document.getElementById('devFramePerfect');
+  box.innerHTML = '';
+
+  ['30', '60', '120', '240'].forEach(fps => {
+    const row = document.createElement('div');
+    row.className = 'dev-ratio-row';
+    row.innerHTML = `
+      <div class="dev-ratio-label">${fps} FPS</div>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        class="dev-ratio-input"
+        data-fps="${fps}"
+      >
+      <span>개</span>
+    `;
+    box.appendChild(row);
+  });
+}
+
+  
 function collectSelectedTags(containerId) {
   const tags = [];
   document
@@ -1373,6 +1440,16 @@ function submitAddLevel() {
     return;
   }
 
+  const modeData = collectRatio('devModeRatio');
+  const speedData = collectRatio('devSpeedRatio');
+  const framePerfect = collectFramePerfect();
+
+  if (modeData.total !== 100 || speedData.total !== 100) {
+    alert('게임모드 비율과 속도 비율은 각각 합이 100%여야 해!');
+    return;
+  }
+
+
   // 새 레벨 기본 구조
   const newLevel = {
     id: 0, // 아래에서 다시 정렬
@@ -1388,12 +1465,14 @@ function submitAddLevel() {
     },
     song: null,
     gameplay: {
-      modeRatio: {},
-      speedRatio: {},
+      modeRatio: modeData.ratio,
+      speedRatio: speedData.ratio,
     },
-    framePerfect: null,
+
+    framePerfect,
     tags,
     clears: [],
+    
   };
 
   // 📌 순위 밀어내기
@@ -1510,42 +1589,46 @@ function loadEditLevel() {
   `;
 }
 
+function renderRatioInputs(containerId, keys) {
+  const box = document.getElementById(containerId);
+  box.innerHTML = '';
+
+  keys.forEach(k => {
+    const row = document.createElement('div');
+    row.className = 'dev-ratio-row';
+    row.innerHTML = `
+      <div class="dev-ratio-label">${k}</div>
+      <input
+        type="number"
+        min="0"
+        max="100"
+        value="0"
+        class="dev-ratio-input"
+        data-key="${k}"
+      >
+      <span>%</span>
+    `;
+    box.appendChild(row);
+  });
+}
+
+  function collectRatio(containerId) {
+  const ratio = {};
+  let total = 0;
+
+  document
+    .querySelectorAll(`#${containerId} .dev-ratio-input`)
+    .forEach(input => {
+      const v = Number(input.value) || 0;
+      if (v > 0) {
+        ratio[input.dataset.key] = v;
+        total += v;
+      }
+    });
+
+  return { ratio, total };
+}
+
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
