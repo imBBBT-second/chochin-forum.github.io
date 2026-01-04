@@ -779,20 +779,6 @@ input {
   font-family: Paperlogy6;
   color: #fff;
 }
-  
-.dev-panel {
-  position: fixed;
-  top: 0;
-  right: -480px;
-  width: 480px;
-  height: 100%;
-  background: #2f2f2f;
-  box-shadow: -4px 0 16px rgba(0,0,0,0.4);
-  transition: right 0.3s ease;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-}
 
 /* 핵심 */
 #devContent {
@@ -929,7 +915,7 @@ input {
   </div>
 </div>
 
- <div id="devPanel" class="detail-panel" style="display:none">
+<div id="devPanel" class="dev-panel">
   <div class="detail-header">
     <div class="detail-title">Developer Panel</div>
     <div id="devModeDesc">Classic / Developer</div>
@@ -1385,6 +1371,7 @@ function submitAddLevel() {
 </script>
 </body>
 </html>
+
 
 
 
