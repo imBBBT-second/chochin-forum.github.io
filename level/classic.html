@@ -1022,21 +1022,6 @@ const devSelectedTags = new Set();
 let devMode = 'add'; // 'add' | 'edit'
 let editingLevelIndex = null;
 
-const titleInput = document.getElementById('devTitle');
-const creatorInput = document.getElementById('devCreator');
-const verifierInput = document.getElementById('devVerifier');
-const videoInput = document.getElementById('devVideo');
-const rankInput = document.getElementById('devRank');
-
-const mapIdInput = document.getElementById('devMapId');
-const mapLengthInput = document.getElementById('devMapLength');
-const mapObjectsInput = document.getElementById('devMapObjects');
-const mapDateInput = document.getElementById('devMapDate');
-
-const songNameInput = document.getElementById('devSongName');
-const songArtistInput = document.getElementById('devSongArtist');
-const songIdInput = document.getElementById('devSongId');
-
 let editingIndex = null;
 let editBackup = null;
 
@@ -1257,26 +1242,6 @@ function moveLevelToRank(levelIndex, newRank) {
   return level;
 }
 
-
-function requestDevPassword() {
-  const input = prompt('개발자 비밀번호를 입력해줘');
-
-  if (input === null) return; // 취소
-
-  if (input === DEV_PASSWORD) {
-    openDevPanel();
-  } else {
-    alert('비밀번호가 틀렸어!');
-  }
-}
-function renderTagGroups(tags) {
-  return `
-    <div class="tag-group-container">
-      ${tags.map(t => `<span class="tag">${t}</span>`).join('')}
-    </div>
-  `;
-}
-
 function generateList(data) {
   const list = document.getElementById('list');
   list.innerHTML = '';
@@ -1297,34 +1262,44 @@ function generateList(data) {
 }
   
 function openDevPanel() {
-  document.getElementById('devPanel').classList.add('open');
-
-  devSelectedTags.clear();
+  const panel = document.getElementById('devPanel');
+  panel.classList.add('open');
   renderDevHome();
 }
-
 
 function closeDevPanel() {
   document.getElementById('devPanel').classList.remove('open');
 }
 
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+    const pw = prompt('개발자 비밀번호 입력');
+    if (pw === DEV_PASSWORD) openDevPanel();
+    else if (pw !== null) alert('비밀번호 틀림');
+  }
+});
+
   
 function renderDevHome() {
+  devMode = 'home';
   const box = document.getElementById('devContent');
+
   box.innerHTML = `
     <div class="section">
       <div class="section-title">개발자 메뉴</div>
-
       <div class="header-container">
         <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
-        <button class="header-btn" onclick="renderEditLevel()">레벨 수정</button>
-        <button class="header-btn" onclick="renderAddClear()">클리어 등록</button>
+        <button class="header-btn" onclick="renderEditSelector()">레벨 수정</button>
       </div>
     </div>
   `;
 }
 
+
   function renderAddLevel() {
+  devMode = 'add';
+  devSelectedTags.clear();
+
   const box = document.getElementById('devContent');
   box.innerHTML = `
     <div class="section">
@@ -1355,92 +1330,21 @@ function renderDevHome() {
         <input id="add-video">
       </div>
 
-      <div class="dev-section">
-  <div class="dev-section-title">맵 정보</div>
-
-  <div class="dev-row">
-    <div class="dev-label">맵 ID</div>
-    <input id="devMapId" placeholder="12345678">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">길이</div>
-    <input id="devMapLength" placeholder="Short / Long / XL">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">오브젝트 수</div>
-    <input id="devMapObjects" type="number">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">업로드 날짜</div>
-    <input id="devMapDate" placeholder="YYYY-MM-DD">
-  </div>
-</div>
-
-<div class="dev-section">
-  <div class="dev-section-title">노래 정보</div>
-
-  <div class="dev-row">
-    <div class="dev-label">노래 이름</div>
-    <input id="devSongName" placeholder="Song Name">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">작곡가</div>
-    <input id="devSongArtist" placeholder="Artist">
-  </div>
-
-  <div class="dev-row">
-    <div class="dev-label">노래 ID</div>
-    <input id="devSongId" placeholder="Song ID">
-  </div>
-</div>
-
-      
-      <div class="dev-section">
-        <div class="dev-label">게임 모드 비율 (%)</div>
-        <div id="devModeRatio"></div>
-      </div>
-
-      <div class="dev-section">
-        <div class="dev-label">속도 비율 (%)</div>
-        <div id="devSpeedRatio"></div>
-      </div>
-
-      <div class="dev-section">
-        <div class="dev-label">프레임 퍼펙트 (FPS)</div>
-        <div id="devFramePerfect"></div>
-      </div>
-
-      <div class="dev-section">
+      <div class="dev-block">
         <div class="dev-label">태그</div>
         <div id="devTagSelector"></div>
       </div>
-    </div>
 
-    <div class="header-container">
-      <button class="header-btn" onclick="submitAddLevel()">추가</button>
-      <button class="header-btn" onclick="renderDevHome()">취소</button>
+      <div class="header-container">
+        <button class="header-btn" onclick="submitAddLevel()">추가</button>
+        <button class="header-btn" onclick="renderDevHome()">취소</button>
+      </div>
     </div>
-
   `;
 
-  // ⭐ 이 줄 필수
-  devSelectedTags.clear();
   renderDevTagSelector();
-  renderRatioInputs('devModeRatio', [
-  'Cube','Ship','Ball','UFO','Wave','Robot','Spider','Swing'
-]);
+}
 
-renderRatioInputs('devSpeedRatio', [
-  '0.5x','1x','2x','3x','4x'
-]);
-    renderFramePerfectInputs();
-
-
-  }
 
   function collectFramePerfect() {
   const fps = {};
@@ -1499,103 +1403,121 @@ function submitAddLevel() {
   const verifier = document.getElementById('add-verifier').value.trim();
   const video = document.getElementById('add-video').value.trim();
 
-  const tags = collectSelectedTags('add-tags');
-
-  // 🔒 유효성 검사
-  if (
-    !rank || !title || !creator || !verifier ||
-    !video || tags.length === 0
-  ) {
-    alert('모든 정보를 입력해야 해!');
+  if (!rank || !title || !creator || !verifier) {
+    alert('필수 정보 누락!');
     return;
   }
 
-  const modeData = collectRatio('devModeRatio');
-  const speedData = collectRatio('devSpeedRatio');
-  const framePerfect = collectFramePerfect();
-
-  if (modeData.total !== 100 || speedData.total !== 100) {
-    alert('게임모드 비율과 속도 비율은 각각 합이 100%여야 해!');
-    return;
-  }
-
-
-  // 새 레벨 기본 구조
   const newLevel = {
-    id: 0, // 아래에서 다시 정렬
+    id: 0,
     title,
     creator,
     verifier,
     video,
-    map: {
-      mapId: '',
-      length: '',
-      objects: 0,
-      uploadDate: '',
-    },
+    map: {},
     song: null,
-    gameplay: {
-      modeRatio: modeData.ratio,
-      speedRatio: speedData.ratio,
-    },
-
-    framePerfect,
-    tags,
+    gameplay: {},
+    framePerfect: null,
+    tags: [...devSelectedTags],
     clears: [],
-    
   };
 
-  // 📌 순위 밀어내기
-  const insertIndex = Math.max(0, Math.min(rank - 1, demonData.length));
-  demonData.splice(insertIndex, 0, newLevel);
+  const idx = Math.max(0, Math.min(rank - 1, demonData.length));
+  demonData.splice(idx, 0, newLevel);
 
-  // 📌 순위 재정렬
-  demonData.forEach((d, i) => {
-    d.id = i + 1;
-  });
+  demonData.forEach((d, i) => d.id = i + 1);
 
-  // 📌 UI 즉시 갱신
   generateList(demonData);
   showDetail(newLevel);
 
-  alert('레벨이 추가됐어! 🎉');
+  alert('레벨 추가 완료 🎉');
   renderDevHome();
 }
 
+function renderEditSelector() {
+  devMode = 'edit';
+  const box = document.getElementById('devContent');
+
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">레벨 수정</div>
+      <select id="edit-select" onchange="renderEditForm()">
+        <option value="">선택</option>
+        ${demonData.map(d => `<option value="${d.id}">#${d.id} ${d.title}</option>`).join('')}
+      </select>
+    </div>
+  `;
+}
+
+function renderEditForm() {
+  const id = Number(document.getElementById('edit-select').value);
+  const d = demonData.find(x => x.id === id);
+  if (!d) return;
+
+  editingLevelId = id;
+  devSelectedTags.clear();
+  d.tags.forEach(t => devSelectedTags.add(t));
+
+  const box = document.getElementById('devContent');
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">레벨 수정</div>
+
+      <div class="dev-block">
+        <div class="dev-label">제목</div>
+        <input id="edit-title" value="${d.title}">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">제작자</div>
+        <input id="edit-creator" value="${d.creator}">
+      </div>
+
+      <div class="dev-block">
+        <div class="dev-label">태그</div>
+        <div id="devTagSelector"></div>
+      </div>
+
+      <div class="header-container">
+        <button class="header-btn" onclick="applyEditLevel()">저장</button>
+        <button class="header-btn" onclick="renderDevHome()">취소</button>
+      </div>
+    </div>
+  `;
+
+  renderDevTagSelector();
+}
+
+  
 function renderDevTagSelector() {
   const box = document.getElementById('devTagSelector');
   box.innerHTML = '';
 
   Object.entries(TAG_GROUPS).forEach(([group, tags]) => {
-    const groupDiv = document.createElement('div');
-    groupDiv.className = 'dev-tag-group';
+    const g = document.createElement('div');
+    g.className = 'dev-tag-group';
+    g.innerHTML = `<div class="dev-tag-group-title">${group}</div>`;
 
-    groupDiv.innerHTML = `
-      <div class="dev-tag-group-title">${group}</div>
-      <div class="dev-tag-list"></div>
-    `;
-
-    const list = groupDiv.querySelector('.dev-tag-list');
+    const list = document.createElement('div');
+    list.className = 'dev-tag-list';
 
     tags.forEach(tag => {
-      const btn = document.createElement('span');
-      btn.className = 'tag';
-      btn.textContent = tag;
+      const el = document.createElement('span');
+      el.className = 'tag';
+      el.textContent = tag;
 
-      btn.onclick = () => {
-        if (devSelectedTags.has(tag)) {
-          devSelectedTags.delete(tag);
-          btn.classList.remove('active');
-        } else {
-          devSelectedTags.add(tag);
-          btn.classList.add('active');
-        }
+      el.onclick = () => {
+        el.classList.toggle('active');
+        devSelectedTags.has(tag)
+          ? devSelectedTags.delete(tag)
+          : devSelectedTags.add(tag);
       };
 
-      list.appendChild(btn);
+      list.appendChild(el);
     });
 
-    box.appendChild(groupDiv);
+    g.appendChild(list);
+    box.appendChild(g);
   });
 }
 
@@ -1951,81 +1873,27 @@ devEditBtn.onclick = () => {
 
   alert('레벨 수정이 취소됐어');
 }
+  
 function applyEditLevel() {
-  if (editingIndex === null) return;
+  const d = demonData.find(x => x.id === editingLevelId);
+  if (!d) return;
 
-  const level = demonData[editingIndex];
+  d.title = document.getElementById('edit-title').value.trim();
+  d.creator = document.getElementById('edit-creator').value.trim();
+  d.tags = [...devSelectedTags];
 
-  // ===== 기본 정보 =====
-  level.title = document.getElementById('edit-title').value.trim();
-  level.creator = document.getElementById('edit-creator').value.trim();
-  level.verifier = document.getElementById('edit-verifier').value.trim();
-  level.video = document.getElementById('edit-video').value.trim();
-
-  // ===== 맵 정보 =====
-  level.map = {
-    mapId: document.getElementById('edit-map-id').value.trim(),
-    length: document.getElementById('edit-length').value,
-    objects: Number(document.getElementById('edit-objects').value || 0),
-    uploadDate: document.getElementById('edit-upload-date').value,
-  };
-
-  // ===== 노래 정보 =====
-  level.song = {
-    name: document.getElementById('edit-song-name').value.trim(),
-    artist: document.getElementById('edit-song-artist').value.trim(),
-    id: document.getElementById('edit-song-id').value.trim(),
-  };
-
-  // ===== 태그 =====
-  level.tags = collectSelectedTags('edit-tags');
-
-  // ===== 게임모드 비율 =====
-  const modeRatio = {};
-  document.querySelectorAll('#edit-mode-ratio input').forEach(input => {
-    const v = Number(input.value);
-    if (v > 0) modeRatio[input.dataset.key] = v;
-  });
-
-  // ===== 속도 비율 =====
-  const speedRatio = {};
-  document.querySelectorAll('#edit-speed-ratio input').forEach(input => {
-    const v = Number(input.value);
-    if (v > 0) speedRatio[input.dataset.key] = v;
-  });
-
-  level.gameplay = {
-    modeRatio,
-    speedRatio,
-  };
-
-  // ===== 프레임 퍼펙트 =====
-  const fps = {};
-  let total = 0;
-
-  document.querySelectorAll('#edit-fp input').forEach(input => {
-    const v = Number(input.value);
-    if (v > 0) {
-      fps[input.dataset.key] = v;
-      total += v;
-    }
-  });
-
-  level.framePerfect = total > 0 ? { total, fps } : null;
-
-  // ===== UI 갱신 =====
   generateList(demonData);
-  showDetail(level);
+  showDetail(d);
 
-  editingIndex = null;
-  editBackup = null;
-
-  alert('레벨이 수정됐어 ✨');
+  alert('수정 완료 ✅');
+  renderDevHome();
 }
+
 
 </script>
 </body>
 </html>
+
 
 
 
