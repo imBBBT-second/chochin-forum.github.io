@@ -1590,8 +1590,15 @@ function loadEditLevel() {
   if (!d) return;
 
   document.getElementById('edit-form').innerHTML = `
-    <div class="info-row"><span>제목</span><input id="edit-title" value="${d.title}"></div>
-    <div class="info-row"><span>제작자</span><input id="edit-creator" value="${d.creator}"></div>
+    <div class="dev-row">
+      <div class="dev-label">맵 정보</div>
+
+      <input id="devMapId" placeholder="맵 ID">
+      <input id="devMapLength" placeholder="길이 (Short / Long / XL)">
+      <input id="devMapObjects" placeholder="오브젝트 수" type="number">
+      <input id="devMapDate" placeholder="업로드 날짜 (YYYY-MM-DD)">
+    </div>
+
 
     <div class="section-title">태그</div>
     ${renderEditableTags(d.tags)}
@@ -1797,6 +1804,7 @@ devEditBtn.onclick = () => {
 </script>
 </body>
 </html>
+
 
 
 
