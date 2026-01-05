@@ -1060,6 +1060,32 @@ function submitLevelForm() {
   alert('저장 완료했어! ✅');
   renderDevHome();
 }
+  
+function renderReachManager() {
+  const box = document.getElementById('devContent');
+
+  box.innerHTML = `
+    <div class="section">
+      <div class="section-title">도달 기록 관리</div>
+
+      <div class="dev-block">
+        <div class="dev-label">레벨 선택</div>
+        <select id="reach-level-select" onchange="renderReachList(this.value)">
+          <option value="">레벨 선택</option>
+          ${demonData.map(d => `
+            <option value="${d.id}">#${d.id} ${d.title}</option>
+          `).join('')}
+        </select>
+      </div>
+
+      <div id="reachContent"></div>
+
+      <div style="margin-top:20px;">
+        <button class="header-btn" onclick="renderDevHome()">뒤로가기</button>
+      </div>
+    </div>
+  `;
+}
 
 function renderReachList(levelId) {
   const box = document.getElementById('reachContent');
@@ -1103,6 +1129,7 @@ function renderReachList(levelId) {
 </script>
 </body>
 </html>
+
 
 
 
