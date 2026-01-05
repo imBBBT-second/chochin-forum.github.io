@@ -1073,6 +1073,7 @@ function submitLevelForm() {
   showDetail(newLevel);
   alert('저장 완료했어! ✅');
   renderDevHome();
+  saveClassicJSON();
 }
   
 function renderReachManager() {
@@ -1274,9 +1275,47 @@ function historyColor(type) {
   return '#ccc';
 }
 
+async function loadClassicJSON() {
+  const res = await fetch('classic.json');
+  const json = await res.json();
+
+  demonData = json.levels || [];
+  changeHistory = json.history || [];
+
+  generateList(demonData);
+  if (demonData.length > 0) showDetail(demonData[0]);
+  renderHistory();
+}
+
+async function saveClassicJSON() {
+  const data = {
+    levels: demonData,
+    history: changeHistory
+  };
+
+  await fetch('classic.json', {
+    method: 'PUT', // 또는 POST (서버 방식에 따라)
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data, null, 2)
+  });
+}
+
+function addHistory(type, levelTitle, detail) {
+  changeHistory.unshift({
+    time: nowString(),
+    type,
+    title: levelTitle,
+    detail
+  });
+
+  renderHistory();
+  saveClassicJSON(); // ⭐ 자동 저장
+}
+
 </script>
 </body>
 </html>
+
 
 
 
