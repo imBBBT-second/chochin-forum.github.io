@@ -1063,13 +1063,24 @@ function submitLevelForm() {
 
 function renderReachManager() {
   const box = document.getElementById('devContent');
+
   box.innerHTML = `
     <div class="section">
       <div class="section-title">도달 기록 관리</div>
 
-      <p style="color:#ccc;">
-        여기에 레벨 선택 + 도달 기록 관리 UI가 들어갈 예정이야 🙂
-      </p>
+      <div class="dev-block">
+        <div class="dev-label">레벨 선택</div>
+        <select id="reach-level-select"
+                onchange="renderReachList(this.value)"
+                style="font-size:1.1rem; padding:10px;">
+          <option value="">레벨을 선택해줘</option>
+          ${demonData.map(d => `
+            <option value="${d.id}">#${d.id} ${d.title}</option>
+          `).join('')}
+        </select>
+      </div>
+
+      <div id="reachContent"></div>
 
       <button class="header-btn" onclick="renderDevHome()" style="margin-top:20px;">
         뒤로가기
@@ -1078,9 +1089,11 @@ function renderReachManager() {
   `;
 }
 
+
 </script>
 </body>
 </html>
+
 
 
 
