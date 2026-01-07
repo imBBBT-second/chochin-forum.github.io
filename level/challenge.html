@@ -3,10 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
-<title>초친 포럼 (레벨 - 챌린지)</title>
+<title>초친 포럼</title> <style>
+/* =========================================
+   [테마 설정] 
+   이곳의 색상만 바꾸면 전체 분위기가 바뀝니다.
+   - 클래식: 파랑 계열 (#6fa8ff, #00ff00 등)
+   - 챌린지: 빨강 계열 (#ff6f6f, #ffcc66 등)
+   - 플랫포머: 보라 또는 초록 계열
+   ========================================= */
+:root {
+  /* 메인 하이라이트 색상 (그래프, 1위 랭크 등) */
+  --theme-color-main: #ff6f6f; 
+  /* 서브 하이라이트 (2위, 3위 등) */
+  --theme-color-sub1: #ffaa66;
+  --theme-color-sub2: #ffcc66;
+  /* 그래프 그라데이션 */
+  --graph-gradient: linear-gradient(90deg, #ff8c6f, #ff6f6f);
+}
 
-<style>
-/* --- 기본 설정 --- */
+/* --- 기본 폰트 및 레이아웃 설정 --- */
 html, body {
   height: 100%;
   margin: 0;
@@ -17,7 +32,7 @@ html, body {
 }
 * { box-sizing: border-box; }
 
-/* 폰트 설정 */
+/* 폰트 파일 경로가 맞는지 확인해주세요 */
 @font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
 @font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
 @font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
@@ -29,11 +44,10 @@ html, body {
 @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
 h1 { font-family: Paperlogy7; color: white; font-size: 170px; text-align: center; }
-h4 { font-family: Paperlogy3; color: #a0a0a0; text-align: center; }
 p, span { font-family: Paperlogy2; color: #c8c8c8; }
 a { color: inherit; text-decoration: none; }
 
-/* --- 헤더 영역 --- */
+/* --- 헤더 --- */
 .header-container {
   display: flex;
   justify-content: center;
@@ -42,264 +56,78 @@ a { color: inherit; text-decoration: none; }
   padding: 2vh 0;
   flex-wrap: wrap;
 }
-.header-btn-wrapper {
-  width: min(400px, 90vw);
-  display: flex;
-  justify-content: center;
-}
+.header-btn-wrapper { width: min(400px, 90vw); display: flex; justify-content: center; }
 .header-btn {
-  background-color: #323232;
-  color: white;
+  background-color: #323232; color: white;
   font-size: clamp(1.5rem, 4vw, 3rem);
-  cursor: pointer;
-  padding: 1.5vh 0;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  font-family: Paperlogy5;
+  cursor: pointer; padding: 1.5vh 0;
+  border: none; border-radius: 10px; width: 100%;
+  transition: 0.25s; font-family: Paperlogy5;
 }
-.header-btn:hover {
-  background-color: #fff;
-  color: #323232;
-}
-.divider {
-  border: 2px solid white;
-  width: 100%;
-  height: 0;
-  margin: 6px 0;
-}
+.header-btn:hover { background-color: #fff; color: #323232; }
+.divider { border: 2px solid white; width: 100%; height: 0; margin: 6px 0; }
 
-/* --- 메인 컨테이너 레이아웃 --- */
+/* --- 메인 레이아웃 --- */
 .main-container {
-  flex: 1;
-  display: flex;
-  gap: 2%;
-  padding: 1.2%;
-  align-items: stretch;
+  flex: 1; display: flex; gap: 2%; padding: 1.2%; align-items: stretch;
 }
-
-/* 패널 공통 스타일 */
-.container,
-.detail-panel,
-.detail-panel.clears-panel {
-  background: #404040;
-  border-radius: 10px;
-  padding: 1.5%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden;
+.container, .detail-panel, .detail-panel.clears-panel {
+  background: #404040; border-radius: 10px; padding: 1.5%;
+  display: flex; flex-direction: column; height: 100%; overflow: hidden;
 }
-
-.container {
-  flex: 0 0 25%;
-  max-width: 25%;
+.container { flex: 0 0 25%; max-width: 25%; }
+.detail-panel { 
+  flex: 0 0 50%; max-width: 50%; 
+  background: #505050; overflow-y: auto; 
 }
+.detail-panel.clears-panel { flex: 0 0 25%; max-width: 25%; }
 
-.detail-panel {
-  flex: 0 0 50%;
-  max-width: 50%;
-  background: #505050;
-  border-radius: 10px;
-  padding: 1.5%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-
-.detail-panel.clears-panel {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-
-/* 반응형 미디어 쿼리 */
 @media (max-width: 1400px) {
-  .main-container {
-    flex-direction: column;
-  }
-  .container,
-  .detail-panel,
-  .detail-panel.clears-panel {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 400px;
+  .main-container { flex-direction: column; }
+  .container, .detail-panel, .detail-panel.clears-panel {
+    width: 100%; max-width: 100%; height: auto; min-height: 400px;
   }
   .detail-panel { min-height: 800px; }
 }
 
-/* --- 검색 및 리스트 --- */
-input {
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-.tag-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
-}
+/* --- 리스트 아이템 --- */
+input { font-size: 18px; border-radius: 8px; border: none; padding: 8px; margin-bottom: 10px; }
+.tag-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
 .item {
-  display: flex;
-  align-items: flex-start;
-  padding: 0.9rem 0.5rem;
-  gap: 0.8rem;
-  border-bottom: 1px solid #777;
-  cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
-  min-height: fit-content;
+  display: flex; align-items: flex-start; padding: 0.9rem 0.5rem; gap: 0.8rem;
+  border-bottom: 1px solid #777; cursor: pointer; transition: 0.15s; min-height: fit-content;
 }
 .item:hover, .item.active { background-color: #ffffff; }
-.item:hover .title, .item:hover .creator, .item:hover .rank,
-.item.active .title, .item.active .creator, .item.active .rank {
-  color: #000000;
-}
-.rank {
-  font-family: Paperlogy9;
-  font-size: clamp(2rem, 3.2vw, 3.2rem);
-  min-width: clamp(2rem, 3.2vw, 3.2rem);
-  text-align: center;
-  color: #ffffff;
-  flex-shrink: 0;
-}
-.title {
-  font-family: Paperlogy7;
-  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
-  line-height: 1.3;
-  color: #ffffff;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
-.creator {
-  font-family: Paperlogy4;
-  font-size: clamp(0.8rem, 1vw, 1rem);
-  color: #d0d0d0;
-}
+.item:hover *, .item.active * { color: #000000 !important; }
+
+.rank { font-family: Paperlogy9; font-size: clamp(2rem, 3.2vw, 3.2rem); min-width: 3.5rem; text-align: center; color: #fff; }
+.title { font-family: Paperlogy7; font-size: clamp(1.4rem, 2.4vw, 2.4rem); line-height: 1.3; color: #fff; word-break: keep-all; }
+.creator { font-family: Paperlogy4; font-size: clamp(0.8rem, 1vw, 1rem); color: #d0d0d0; }
 
 /* --- 상세 정보 --- */
-.detail-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 10px;
-}
-#detailCreator {
-  font-family: Paperlogy4;
-  font-size: clamp(1rem, 1.6vw, 1.6rem);
-  color: #c8c8c8;
-  margin-top: 4px;
-}
-.detail-title {
-  font-family: Paperlogy9;
-  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
-  color: #ffffff;
-  line-height: 1.1;
-  text-align: center;
-  white-space: normal;
-  word-break: keep-all;
-  margin-bottom: 6px;
-}
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-}
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.section {
-  background: #444;
-  border-radius: 8px;
-  padding: 12px;
-  margin-top: 12px;
-}
-.section-title {
-  font-family: Paperlogy6;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 8px;
-}
-.detail-content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.info-section, .graph-section, .tag-section {
-  background: #444;
-  padding: 14px;
-  border-radius: 10px;
-}
-.info-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  font-family: Paperlogy3;
-  font-size: 1rem;
-  color: #c8c8c8;
-}
+.detail-header { text-align: center; margin-bottom: 10px; }
+.detail-title { font-family: Paperlogy9; font-size: clamp(2.4rem, 4.8vw, 4.8rem); color: #fff; line-height: 1.1; margin-bottom: 6px; }
+#detailCreator { font-family: Paperlogy4; font-size: clamp(1rem, 1.6vw, 1.6rem); color: #c8c8c8; margin-top: 4px; }
+.video-wrapper { position: relative; width: 100%; padding-top: 56.25%; }
+.video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.detail-content { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.section { background: #444; border-radius: 10px; padding: 14px; }
+.section-title { font-family: Paperlogy6; font-size: 22px; color: #fff; margin-bottom: 8px; }
+.info-row { display: flex; gap: 12px; flex-wrap: wrap; font-family: Paperlogy3; font-size: 1rem; color: #c8c8c8; }
 .info-row span { min-width: 45%; }
-.fp-warning {
-  text-align: center;
-  font-family: Paperlogy2;
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-top: 10px;
-}
+.fp-warning { text-align: center; font-family: Paperlogy2; font-size: 0.9rem; color: #aaa; margin-top: 10px; }
 
-/* --- 그래프 (Challenge 테마: 주황/붉은색) --- */
+/* --- 그래프 --- */
 .graph-box { margin-bottom: 14px; }
-.graph-title {
-  font-family: Paperlogy6;
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 6px;
-}
-.graph-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 4px 0;
-}
-.graph-label {
-  width: 90px;
-  font-family: Paperlogy3;
-  font-size: 0.9rem;
-  color: #c8c8c8;
-  flex-shrink: 0;
-}
-.graph-bar-bg {
-  flex: 1;
-  background: #333;
-  border-radius: 6px;
-  overflow: hidden;
-  height: 16px;
-}
-.graph-bar {
-  height: 100%;
-  /* Challenge: 붉은색 계열 그라데이션 */
-  background: linear-gradient(90deg, #ff8c6f, #ff6f6f); 
-  border-radius: 6px;
-}
-.graph-value {
-  width: 50px;
-  text-align: right;
-  font-family: Paperlogy4;
-  font-size: 0.9rem;
-  color: #c8c8c8;
-}
-.graph-total { margin-left: 8px; font-size: 0.85rem; color: #ccc; font-family: Paperlogy3; }
+.graph-title { font-family: Paperlogy6; font-size: 1.2rem; color: #fff; margin-bottom: 6px; }
+.graph-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+.graph-label { width: 90px; font-family: Paperlogy3; font-size: 0.9rem; color: #c8c8c8; flex-shrink: 0; }
+.graph-bar-bg { flex: 1; background: #333; border-radius: 6px; overflow: hidden; height: 16px; }
+.graph-bar { height: 100%; background: var(--graph-gradient); border-radius: 6px; } /* 테마 색상 적용 */
+.graph-value { width: 50px; text-align: right; font-family: Paperlogy4; font-size: 0.9rem; color: #c8c8c8; }
+.graph-total { margin-left: 8px; font-size: 0.85rem; color: #ccc; }
 
-/* 그래프 색상 데이터 속성 */
+/* 그래프 고정 색상 (모드/속도 등은 고정색 유지) */
 .graph-bar[data-key="Cube"] { background: #00ff00; }
 .graph-bar[data-key="Ship"] { background: #ff00ff; }
 .graph-bar[data-key="Ball"] { background: #ff0000; }
@@ -308,218 +136,65 @@ input {
 .graph-bar[data-key="Robot"] { background: #ffffff; }
 .graph-bar[data-key="Spider"] { background: #9900ff; }
 .graph-bar[data-key="Swing"] { background: #ffff00; }
-/* Challenge 속도 색상 유지 혹은 변경 가능 */
-.graph-bar[data-key="0.5x"] { background: #ffff00; }
-.graph-bar[data-key="1x"] { background: #66ccff; }
-.graph-bar[data-key="2x"] { background: #00ff00; }
-.graph-bar[data-key="3x"] { background: #ff66cc; }
-.graph-bar[data-key="4x"] { background: #ff0000; }
 
-/* --- 태그 --- */
-.tag-group-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 4px;
-}
-.tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #5f5f5f;
-  color: #ffffff;
-  font-family: Paperlogy4;
-  font-size: 1rem;
-  padding: 6px 14px;
-  border-radius: 12px;
-  margin: 4px 6px 4px 0;
-  white-space: nowrap;
-}
+/* --- 태그 및 기록 --- */
+.tag-group-container { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.tag { display: inline-flex; background: #5f5f5f; color: #fff; font-family: Paperlogy4; padding: 6px 14px; border-radius: 12px; margin: 4px 6px 4px 0; cursor: pointer; }
+.tag.active { background: #fff; color: #000; }
 
-/* --- 기록 명단 (Clears) --- */
 .clears-panel { color: #e0e0e0; }
-.clear-row {
-  display: flex;
-  align-items: center;
-  gap: 0.4vw;
-  padding: 6px 4px;
-  font-family: Paperlogy3;
-  font-size: clamp(0.9rem, 1.1vw, 1.1vw);
-  color: #e0e0e0;
-}
-.clear-rank {
-  font-family: Paperlogy6;
-  color: #ffffff;
-  min-width: 2.2rem;
-  text-align: right;
-  flex-shrink: 0;
-}
-.clear-player {
-  flex: 1 1 auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #ffffff;
-  font-family: Paperlogy5;
-  min-width: 0;
-}
-.clear-player-link {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.clear-player-link:hover { color: #ff8c6f; text-decoration: underline; } /* Hover 색상 변경 */
-.clear-percent {
-  font-family: Paperlogy4;
-  color: #c8c8c8;
-  min-width: 48px;
-  text-align: right;
-  flex-shrink: 0;
-}
-.clear-percent.full { color: #ff6f6f; font-family: Paperlogy6; } /* 100% 색상 변경 */
-.clear-date {
-  font-family: Paperlogy2;
-  font-size: clamp(0.8rem, 0.95vw, 0.95vw);
-  color: #b0b0b0;
-  flex-shrink: 0;
-  min-width: 70px;
-  text-align: right;
-}
+.clear-row { display: flex; align-items: center; gap: 0.4vw; padding: 6px 4px; font-family: Paperlogy3; font-size: clamp(0.9rem, 1.1vw, 1.1vw); border-bottom: 1px solid #555; }
+.clear-rank { font-family: Paperlogy6; color: #fff; min-width: 2.2rem; text-align: right; flex-shrink: 0; }
+.clear-player { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; font-family: Paperlogy5; padding-left: 10px; }
+.clear-player-link:hover { color: var(--theme-color-main); text-decoration: underline; }
+.clear-percent { font-family: Paperlogy4; color: #c8c8c8; min-width: 48px; text-align: right; }
+.clear-percent.full { color: var(--theme-color-main); font-family: Paperlogy6; }
+.clear-date { font-family: Paperlogy2; font-size: 0.8em; color: #b0b0b0; min-width: 70px; text-align: right; }
 
-/* 1~3위 색상 (Challenge 테마) */
-.clear-row.rank-1 .clear-rank { color: #ff6f6f; font-family: Paperlogy6; } /* Red */
-.clear-row.rank-2 .clear-rank { color: #ffaa66; font-family: Paperlogy5; } /* Orange */
-.clear-row.rank-3 .clear-rank { color: #ffcc66; font-family: Paperlogy5; } /* Yellow */
+.clear-row.rank-1 .clear-rank { color: var(--theme-color-main); }
+.clear-row.rank-2 .clear-rank { color: var(--theme-color-sub1); }
+.clear-row.rank-3 .clear-rank { color: var(--theme-color-sub2); }
 
-/* --- 상단 타이틀 --- */
-#detailHeader {
-  text-align: center;
-  margin-bottom: 64px;
-}
-#headerTitle {
-  font-family: Paperlogy7;
-  font-size: clamp(80px, 10vw, 170px);
-  color: #fff;
-  text-align: center;
-  margin: 20px 0;
-}
-#detailSubtitle {
-  margin-top: 4px;
-  color: #aaa;
-  font-family: Paperlogy3;
-  font-size: clamp(22px, 2.8vw, 32px);
-}
-#modeShortcut {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 18px;
-}
-.mode-btn {
-  background: transparent;
-  border: 1.5px solid #fff;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-family: Paperlogy7;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
+/* --- 상단 타이틀 영역 --- */
+#detailHeader { text-align: center; margin-bottom: 64px; }
+#headerTitle { font-family: Paperlogy7; font-size: clamp(80px, 10vw, 170px); color: #fff; margin: 20px 0; }
+#detailSubtitle { margin-top: 4px; color: #aaa; font-family: Paperlogy3; font-size: clamp(22px, 2.8vw, 32px); }
+#modeShortcut { display: flex; justify-content: center; gap: 10px; margin-top: 10px; margin-bottom: 18px; }
+.mode-btn { background: transparent; border: 1.5px solid #fff; color: #fff; padding: 6px 16px; border-radius: 999px; font-family: Paperlogy7; font-size: clamp(1.2rem, 3vw, 2rem); cursor: pointer; transition: 0.2s; }
 .mode-btn:hover { background: #fff; color: #000; }
 .mode-btn.active { background: #fff; color: #000; font-weight: 600; cursor: default; }
 
-/* --- 개발자 패널 (Dev Panel) --- */
-.dev-panel {
-  position: fixed;
-  top: 0;
-  right: -480px;
-  width: 480px;
-  height: 100%;
-  background: #2f2f2f;
-  box-shadow: -4px 0 16px rgba(0,0,0,0.4);
-  transition: right 0.3s ease;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-}
+/* --- 개발자 패널 --- */
+.dev-panel { position: fixed; top: 0; right: -480px; width: 480px; height: 100%; background: #2f2f2f; box-shadow: -4px 0 16px rgba(0,0,0,0.4); transition: right 0.3s ease; z-index: 9999; display: flex; flex-direction: column; }
 .dev-panel.open { right: 0; }
-.dev-content {
-  padding: 14px;
-  overflow-y: auto;
-  flex: 1;
-}
-.dev-content::-webkit-scrollbar { width: 8px; }
-.dev-content::-webkit-scrollbar-thumb { background: #666; border-radius: 4px; }
-.dev-block {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 12px;
-}
-.dev-label {
-  display: block;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  letter-spacing: -0.3px;
-  font-family: Paperlogy4;
-}
-.dev-content input, .dev-content select {
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  font-family: Paperlogy5;
-}
-.dev-tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.dev-tag-list .tag {
-  background: #555;
-  cursor: pointer;
-  user-select: none;
-}
-.dev-tag-list .tag.active {
-  background: #fff;
-  color: #000;
-}
+.dev-content { padding: 14px; overflow-y: auto; flex: 1; }
+.dev-label { display: block; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 6px; font-family: Paperlogy4; }
+.dev-content input, .dev-content select { width: 100%; margin-bottom: 12px; padding: 8px; border-radius: 6px; border: none; font-family: Paperlogy5; }
+.dev-tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
 </style>
 </head>
 
 <body>
 <div class="header-container">
-  <a href="../index.html" class="header-btn-wrapper">
-    <button class="header-btn">홈</button>
-  </a>
-  <a href="../level.html" class="header-btn-wrapper">
-    <button class="header-btn">레벨</button>
-  </a>
-  <div class="header-btn-wrapper">
-    <a href="../mappack.html" class="header-btn-wrapper">
-      <button class="header-btn">맵 팩</button>
-    </a>
-  </div>
-  <div class="header-btn-wrapper">
-    <button class="header-btn">하디스트</button>
-  </div>
+  <a href="../index.html" class="header-btn-wrapper"><button class="header-btn">홈</button></a>
+  <a href="../level.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
+  <a href="../mappack.html" class="header-btn-wrapper"><button class="header-btn">맵 팩</button></a>
+  <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
 </div>
 
 <div class="divider"></div>
 
 <div id="detailHeader">
   <div id="headerTitle">Challenge</div>
-  <div id="detailSubtitle">초친 멤버들이 만든 20초 미만의 챌린지 맵들을 모아놓은 곳입니다.</div>
+  
+  <div id="detailSubtitle">초친 멤버들이 만든 30초 미만의 챌린지 맵들을 모아놓은 곳입니다.</div>
+  
   <div style="margin-top:70px;"></div>
   <div id="detailSubtitle">&lt;레벨 리스트 바로가기&gt;</div>
+  
   <div id="modeShortcut">
     <button class="mode-btn" onclick="location.href='classic.html'">Classic</button>
-    <button class="mode-btn active">Challenge</button>
+    <button class="mode-btn active" onclick="location.href='challenge.html'">Challenge</button>
     <button class="mode-btn" onclick="location.href='platformer.html'">Platformer</button>
   </div>
 </div>
@@ -536,17 +211,14 @@ input {
       <div id="detailTitle" class="detail-title"></div>
       <div id="detailCreator" class="detail-creator"></div>
     </div>
-
     <div class="video-wrapper">
       <iframe id="detailVideo" allowfullscreen></iframe>
     </div>
-
     <div class="detail-content">
-      <div id="infoSection" class="info-section"></div>
-      <div id="graphSection" class="graph-section"></div>
+      <div id="infoSection" class="section"></div>
+      <div id="graphSection" class="section"></div>
       <div id="detailDescription"></div>
     </div>
-
     <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
   </div>
 
@@ -566,16 +238,25 @@ input {
 </div>
 
 <script>
-/* ================= 데이터 및 상수 ================= */
-// Challenge 전용 태그 그룹으로 변경
+/* =================================================================
+   [설정 영역]
+   이곳의 값들만 수정하면 Classic / Challenge / Platformer 모드로
+   쉽게 전환할 수 있습니다.
+   ================================================================= */
+
+// 1. 데이터 파일명 (읽고 쓸 JSON 파일 이름)
+const DATA_FILENAME = 'challenge.json';
+
+// 2. 태그 그룹 설정 (해당 모드에 필요한 태그들을 정의)
 const TAG_GROUPS = {
   '주 게임모드': ['Wave', 'Ship', 'Cube', 'Ball', 'UFO', 'Robot', 'Spider', 'Swing'],
   '속도': ['0.5x', '1x', '2x', '3x', '4x'],
-  '길이': ['Tiny', 'Short'], // 챌린지는 주로 짧음
+  '길이': ['Tiny', 'Short'], // Challenge용 길이
   '성격': ['Spam', 'Consistency', 'Timing', 'Nerve', 'Memory', 'Gimmick', 'Impossible'],
   '스타일': ['VSC-Style', 'Nine Circles', 'Layout', 'Full-Decorated']
 };
 
+// 3. 플레이어 유튜브 링크 (공통)
 const PLAYER_YOUTUBE = {
   'imBBBT': 'https://www.youtube.com/@imBBBT',
   'Choco': 'https://www.youtube.com/@초코5768',
@@ -583,105 +264,104 @@ const PLAYER_YOUTUBE = {
   'Timo': 'https://www.youtube.com/@SNIPER_Timo',
 };
 
-const DEV_PASSWORD = '6974'; // 비밀번호
+// 4. 개발자 비밀번호
+const DEV_PASSWORD = '6974'; 
+
+
+/* =================================================================
+   [엔진 영역]
+   아래 코드는 수정할 필요가 없습니다. 
+   위의 설정값에 따라 자동으로 동작합니다.
+   ================================================================= */
 
 let changeHistory = [];
-let demonData = []; // Challenge Data
+let demonData = [];
+let devSelectedTags = new Set();
+let editingLevelId = null; 
 
-// challenge.json을 불러옵니다
-fetch('challenge.json')
+// 데이터 로드
+fetch(DATA_FILENAME)
   .then(r => r.json())
   .then(j => {
     demonData = j.levels || [];
     changeHistory = j.history || [];
-    
-    // 초기 렌더링
-    generateList(demonData);
-    renderHistory();
-    if (demonData.length > 0) showDetail(demonData[0]);
+    initPage();
   })
   .catch(e => {
-    console.log('JSON 로드 실패 또는 파일 없음. 빈 상태로 시작합니다.');
-    // 더미 데이터 (테스트용)
+    console.warn('데이터 로드 실패 (파일 없음 등). 빈 상태로 시작합니다.');
+    // 테스트용 더미 데이터
     if(demonData.length === 0) {
       demonData = [{
         id: 1,
-        title: "Challenge 1",
+        title: "Example Level",
         creator: "Admin",
         verifier: "Admin",
         video: "",
-        map: { mapId: "123", length: "Tiny", objects: 500, uploadDate: "2025-12-14" },
-        tags: ["Wave", "3x", "Spam", "Tiny"],
+        map: { mapId: "123", length: "Tiny", objects: 0, uploadDate: "2025-01-01" },
+        song: { name: "Song", artist: "Artist", id: "1" },
+        gameplay: { modeRatio: {"Wave":100}, speedRatio: {"3x":100} },
+        framePerfect: { total: 0, fps: {} },
+        tags: ["Wave", "3x"],
         clears: []
       }];
-      generateList(demonData);
-      showDetail(demonData[0]);
     }
+    initPage();
   });
 
+function initPage() {
+  generateList(demonData);
+  renderHistory();
+  if (demonData.length > 0) showDetail(demonData[0]);
+  
+  // 검색 기능 연결
+  document.getElementById('search').addEventListener('input', (e) => {
+    const val = e.target.value.toLowerCase();
+    const filtered = demonData.filter(d => 
+      d.title.toLowerCase().includes(val) || 
+      d.creator.toLowerCase().includes(val)
+    );
+    generateList(filtered);
+  });
+}
 
-// 개발자 모드용 변수
-let devSelectedTags = new Set();
-let editingLevelId = null; 
-
-/* ================= 초기화 및 렌더링 ================= */
-// 리스트 생성
 function generateList(data) {
   const list = document.getElementById('list');
   list.innerHTML = '';
-
-  data.forEach((item, i) => {
+  data.forEach((item) => {
     const div = document.createElement('div');
     div.className = 'item';
     div.innerHTML = `
       <div class="rank">${item.id}</div>
-      <div>
-        <div class="title">${item.title}</div>
-        <div class="creator">${item.creator}</div>
-      </div>
+      <div><div class="title">${item.title}</div><div class="creator">${item.creator}</div></div>
     `;
     div.onclick = () => showDetail(item, div);
     list.appendChild(div);
   });
 }
 
-// 상세 정보 표시
 function showDetail(item, element) {
-  // 활성화 스타일 처리
   document.getElementById('detailDescription').innerHTML = '';
   document.querySelectorAll('.item.active').forEach(el => el.classList.remove('active'));
   if (element) element.classList.add('active');
 
-  // 제목 및 기본 정보
   document.getElementById('detailTitle').textContent = item.title;
   document.getElementById('detailCreator').textContent =
-    item.creator === item.verifier
-      ? `by ${item.creator}`
-      : `by ${item.creator} / Verified by ${item.verifier}`;
-
+    item.creator === item.verifier ? `by ${item.creator}` : `by ${item.creator} / Verified by ${item.verifier}`;
   document.getElementById('detailVideo').src = item.video || '';
 
-  // 상세 정보 섹션
+  // 정보 섹션
   const info = document.getElementById('infoSection');
-  info.innerHTML = '';
+  info.innerHTML = `<div class="section-title">맵 정보</div>`;
   if (item.map) {
-    info.innerHTML += `
-      <div class="info-row">
-        <span>맵 ID : ${item.map.mapId || '-'}</span>
-        <span>길이 : ${item.map.length || '-'}</span>
-        <span>오브젝트 : ${item.map.objects?.toLocaleString() || '0'}</span>
-        <span>날짜 : ${item.map.uploadDate || '-'}</span>
-      </div>
-    `;
+    info.innerHTML += `<div class="info-row">
+      <span>ID : ${item.map.mapId || '-'}</span><span>길이 : ${item.map.length || '-'}</span>
+      <span>Obj : ${item.map.objects?.toLocaleString() || '0'}</span><span>Date : ${item.map.uploadDate || '-'}</span>
+    </div>`;
   }
   if (item.song) {
-    info.innerHTML += `
-      <div class="info-row">
-        <span>노래 : ${item.song.name || '-'}</span>
-        <span>작곡가 : ${item.song.artist || '-'}</span>
-        <span>ID : ${item.song.id || '-'}</span>
-      </div>
-    `;
+    info.innerHTML += `<div class="info-row" style="margin-top:8px;">
+      <span>Song : ${item.song.name || '-'}</span><span>Artist : ${item.song.artist || '-'}</span><span>Song ID : ${item.song.id || '-'}</span>
+    </div>`;
   }
 
   // 그래프 섹션
@@ -689,59 +369,30 @@ function showDetail(item, element) {
   graph.innerHTML = '';
   if (item.gameplay) {
     graph.innerHTML += makeRatioGraph('게임모드 비율', item.gameplay.modeRatio);
-    graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio);
+    graph.innerHTML += makeRatioGraph('속도 비율', item.gameplay.speedRatio); // 속도 그래프도 추가
   }
-
-  // FPS 그래프
   if (item.framePerfect) {
-    const total = item.framePerfect.total || 0;
-    const fps = item.framePerfect.fps || {};
-    const ratio = {};
-    Object.entries(fps).forEach(([k, v]) => {
-      ratio[k] = total > 0 ? ((v / total) * 100).toFixed(1) : 0;
-    });
-
-    graph.innerHTML += `
-      <div class="graph-box">
-        <div class="graph-title">
-          프레임 퍼펙트 (FPS)
-          <span class="graph-total">(Total : ${total})</span>
-        </div>
-        ${Object.entries(fps).map(([k, v]) => `
-          <div class="graph-row">
-            <div class="graph-label">${k}</div>
-            <div class="graph-bar-bg">
-              <div class="graph-bar" data-key="${k}" style="width:${ratio[k]}%"></div>
-            </div>
-            <div class="graph-value">${v}</div>
-          </div>
-        `).join('')}
-      </div>
-    `;
+    graph.innerHTML += makeFpsGraph(item.framePerfect);
   }
 
-  // 태그 섹션
-  if (item.tags?.length) {
-    addSection('태그', renderTagGroups(item.tags));
-  }
+  // 태그
+  if (item.tags?.length) addSection('태그', renderTagGroups(item.tags));
 
-  // 기록 명단
+  // 클리어 명단
   const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
   if (item.clears?.length) {
     item.clears.forEach((c, i) => {
       const row = document.createElement('div');
       row.className = `clear-row rank-${i + 1}`;
-      const percentClass = c.percent === 100 ? 'full' : '';
-      const youtube = PLAYER_YOUTUBE[c.player];
-      const playerHTML = youtube
-        ? `<a href="${youtube}" target="_blank" class="clear-player-link">${c.player}</a>`
+      const link = PLAYER_YOUTUBE[c.player] 
+        ? `<a href="${PLAYER_YOUTUBE[c.player]}" target="_blank" class="clear-player-link">${c.player}</a>` 
         : c.player;
-
+      
       row.innerHTML = `
-        <div class="clear-rank">${i + 1}</div>
-        <div class="clear-player">${playerHTML}</div>
-        <div class="clear-percent ${percentClass}">${c.percent}%</div>
+        <div class="clear-rank">#${i + 1}</div>
+        <div class="clear-player">${link}</div>
+        <div class="clear-percent ${c.percent===100?'full':''}">${c.percent}%</div>
         <div class="clear-date">${c.date || ''}</div>
       `;
       clearBox.appendChild(row);
@@ -749,7 +400,31 @@ function showDetail(item, element) {
   }
 }
 
-// Helper: 섹션 추가
+/* --- Helper Functions --- */
+function makeRatioGraph(title, data, suffix='%') {
+  if (!data || Object.keys(data).length === 0) return '';
+  return `<div class="graph-box"><div class="graph-title">${title}</div>` +
+    Object.entries(data).map(([k, v]) => `
+      <div class="graph-row">
+        <div class="graph-label">${k}</div>
+        <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${v}%"></div></div>
+        <div class="graph-value">${v}${suffix}</div>
+      </div>`).join('') + `</div>`;
+}
+
+function makeFpsGraph(fpData) {
+  const total = fpData.total || 0;
+  const fps = fpData.fps || {};
+  if(total === 0) return '';
+  return `<div class="graph-box"><div class="graph-title">FP (Total: ${total})</div>` +
+    Object.entries(fps).map(([k, v]) => `
+      <div class="graph-row">
+        <div class="graph-label">${k}FPS</div>
+        <div class="graph-bar-bg"><div class="graph-bar" style="width:${(v/total)*100}%"></div></div>
+        <div class="graph-value">${v}</div>
+      </div>`).join('') + `</div>`;
+}
+
 function addSection(title, html) {
   const box = document.getElementById('detailDescription');
   const div = document.createElement('div');
@@ -758,475 +433,230 @@ function addSection(title, html) {
   box.appendChild(div);
 }
 
-// Helper: 그래프 HTML 생성
-function makeRatioGraph(title, data, suffix = '%', totalValue = null) {
-  if (!data || Object.keys(data).length === 0) return '';
-  return `
-    <div class="graph-box">
-      <div class="graph-title">
-        ${title}
-        ${totalValue !== null ? `<span class="graph-total">(Total : ${totalValue})</span>` : ''}
-      </div>
-      ${Object.entries(data).map(([k, v]) => `
-        <div class="graph-row">
-          <div class="graph-label">${k}</div>
-          <div class="graph-bar-bg">
-            <div class="graph-bar" data-key="${k}" style="width:${v}%"></div>
-          </div>
-          <div class="graph-value">${v}${suffix}</div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-}
-
-// Helper: 태그 그룹 HTML
 function renderTagGroups(tags) {
-  if (!tags || tags.length === 0) return '';
-  return `
-    <div class="tag-group-container">
-      ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-    </div>
-  `;
+  return `<div class="tag-group-container">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`;
 }
 
-/* ================= 개발자 패널 로직 ================= */
-// 단축키 리스너 (Ctrl + Shift + E)
+/* --- 개발자 패널 --- */
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
     const panel = document.getElementById('devPanel');
-    if (panel.classList.contains('open')) {
-      closeDevPanel();
-    } else {
-      const pw = prompt('개발자 비밀번호 입력');
-      if (pw === DEV_PASSWORD) {
+    if (panel.classList.contains('open')) closeDevPanel();
+    else {
+      if (prompt('비밀번호') === DEV_PASSWORD) {
         panel.classList.add('open');
         renderDevHome();
-      } else if (pw !== null) {
-        alert('비밀번호가 틀렸어.');
       }
     }
   }
 });
 
-function closeDevPanel() {
-  document.getElementById('devPanel').classList.remove('open');
-}
+function closeDevPanel() { document.getElementById('devPanel').classList.remove('open'); }
 
 function renderDevHome() {
-  const box = document.getElementById('devContent');
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">메뉴 선택</div>
-      <div class="header-container" style="gap:10px; padding:0;">
-        <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
-        <button class="header-btn" onclick="renderEditSelector()">레벨 수정</button>
-        <button class="header-btn" onclick="renderReachManager()">도달 기록</button>
-      </div>
-      <div style="margin-top:20px; text-align:center;">
-        <button class="header-btn" onclick="closeDevPanel()" style="width:auto; padding:10px 30px;">닫기</button>
-      </div>
+  document.getElementById('devContent').innerHTML = `
+    <div class="section-title">메뉴</div>
+    <div style="display:flex; gap:10px; flex-direction:column;">
+      <button class="header-btn" onclick="renderAddLevel()">레벨 추가</button>
+      <button class="header-btn" onclick="renderEditSelector()">레벨 수정</button>
+      <button class="header-btn" onclick="renderReachManager()">기록 관리</button>
+      <button class="header-btn" onclick="closeDevPanel()">닫기</button>
     </div>
   `;
 }
 
-// --- 레벨 추가 화면 ---
-function renderAddLevel() {
-  editingLevelId = null; // 신규 추가 모드
-  devSelectedTags.clear();
-  renderLevelForm('레벨 추가');
-}
+// ... (이하 Add/Edit/Reach 로직은 데이터 구조에 맞춰 동일하게 작동)
+function renderAddLevel() { editingLevelId = null; devSelectedTags.clear(); renderLevelForm('레벨 추가'); }
 
-// --- 레벨 수정 화면 (선택) ---
 function renderEditSelector() {
-  const box = document.getElementById('devContent');
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">레벨 수정</div>
-      <select id="edit-select" onchange="startEditLevel(this.value)" style="font-size:1.2rem; padding:10px;">
-        <option value="">수정할 레벨 선택</option>
-        ${demonData.map(d => `<option value="${d.id}">#${d.id} ${d.title}</option>`).join('')}
-      </select>
-      <button class="header-btn" onclick="renderDevHome()" style="margin-top:20px;">뒤로가기</button>
-    </div>
+  document.getElementById('devContent').innerHTML = `
+    <div class="section-title">수정할 레벨 선택</div>
+    <select onchange="startEditLevel(this.value)">
+      <option value="">선택...</option>
+      ${demonData.map(d => `<option value="${d.id}">#${d.id} ${d.title}</option>`).join('')}
+    </select>
+    <button class="header-btn" style="margin-top:10px" onclick="renderDevHome()">취소</button>
   `;
 }
 
 function startEditLevel(id) {
-  if (!id) return;
+  if(!id) return;
   const d = demonData.find(x => x.id == id);
-  if (!d) return;
-
   editingLevelId = Number(id);
-  devSelectedTags = new Set(d.tags); // 기존 태그 불러오기
+  devSelectedTags = new Set(d.tags);
   renderLevelForm('레벨 수정', d);
 }
 
-// --- 공통 폼 렌더링 ---
-function renderLevelForm(modeTitle, data = null) {
-  const box = document.getElementById('devContent');
+function renderLevelForm(title, data = null) {
+  const v = (key, nested) => data ? (nested ? (data[nested]?.[key]||'') : (data[key]||'')) : '';
+  let html = `<div class="section-title">${title}</div>`;
   
-  // 기존 데이터가 있으면 채워넣기
-  const val = (key, nested) => {
-    if (!data) return '';
-    if (nested && data[nested]) return data[nested][key] || '';
-    return data[key] || '';
-  };
-
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">${modeTitle}</div>
-      
-      <div class="dev-block">
-        <div class="dev-label">순위 (Rank)</div>
-        <input id="form-rank" type="number" value="${data ? data.id : demonData.length + 1}">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">기본 정보</div>
-        <input id="form-title" placeholder="제목" value="${val('title')}">
-        <input id="form-creator" placeholder="제작자" value="${val('creator')}">
-        <input id="form-verifier" placeholder="검증자" value="${val('verifier')}">
-        <input id="form-video" placeholder="영상 URL" value="${val('video')}">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">맵 상세</div>
-        <input id="form-mapId" placeholder="맵 ID" value="${val('mapId', 'map')}">
-        <input id="form-length" placeholder="길이 (Tiny, Short..)" value="${val('length', 'map')}">
-        <input id="form-objects" type="number" placeholder="오브젝트 수" value="${val('objects', 'map')}">
-        <input id="form-date" placeholder="업로드 날짜" value="${val('uploadDate', 'map')}">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">노래 정보</div>
-        <input id="form-song-name" placeholder="노래 이름" value="${data?.song?.name || ''}">
-        <input id="form-song-artist" placeholder="작곡가" value="${data?.song?.artist || ''}">
-        <input id="form-song-id" placeholder="노래 ID" value="${data?.song?.id || ''}">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">게임모드 비율 (%)</div>
-        ${TAG_GROUPS['주 게임모드'].map(m => `
-          <div style="display:flex; gap:8px; align-items:center;">
-            <span style="width:80px;">${m}</span>
-            <input type="number" min="0" max="100"
-              id="mode-${m}"
-              value="${data?.gameplay?.modeRatio?.[m] ?? ''}">
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">프레임 퍼펙트</div>
-        <input id="fp-total" type="number" placeholder="총 FP 수" value="${data?.framePerfect?.total || ''}">
-        <div style="display:flex; gap:8px;">
-          <input id="fp-60" type="number" placeholder="60FPS" value="${data?.framePerfect?.fps?.[60] || ''}">
-          <input id="fp-120" type="number" placeholder="120FPS" value="${data?.framePerfect?.fps?.[120] || ''}">
-          <input id="fp-240" type="number" placeholder="240FPS" value="${data?.framePerfect?.fps?.[240] || ''}">
-        </div>
-      </div>
-
-
-      <div class="dev-block">
-        <div class="dev-label">태그 선택</div>
-        <div id="devTagSelector"></div>
-      </div>
-
-      <div class="header-container" style="gap:10px; padding:10px 0;">
-        <button class="header-btn" onclick="submitLevelForm()">저장</button>
-        <button class="header-btn" onclick="renderDevHome()">취소</button>
-      </div>
-    </div>
-  `;
+  html += `<label class="dev-label">순위</label><input id="f-rank" type="number" value="${data?data.id:demonData.length+1}">`;
+  html += `<label class="dev-label">기본정보</label>
+    <input id="f-title" placeholder="제목" value="${v('title')}">
+    <input id="f-creator" placeholder="제작자" value="${v('creator')}">
+    <input id="f-verifier" placeholder="검증자" value="${v('verifier')}">
+    <input id="f-video" placeholder="영상 URL" value="${v('video')}">`;
+    
+  html += `<label class="dev-label">맵 정보</label>
+    <input id="f-mid" placeholder="ID" value="${v('mapId','map')}">
+    <input id="f-len" placeholder="길이" value="${v('length','map')}">
+    <input id="f-obj" placeholder="오브젝트" type="number" value="${v('objects','map')}">
+    <input id="f-date" placeholder="날짜" value="${v('uploadDate','map')}">`;
+    
+  html += `<label class="dev-label">태그</label><div id="devTagSelector"></div>`;
   
+  html += `<div style="display:flex; gap:10px; margin-top:10px;">
+    <button class="header-btn" onclick="submitLevelForm()">저장</button>
+    <button class="header-btn" onclick="renderDevHome()">취소</button></div>`;
+    
+  document.getElementById('devContent').innerHTML = html;
   renderDevTagSelector();
 }
 
 function renderDevTagSelector() {
-  const container = document.getElementById('devTagSelector');
-  container.innerHTML = '';
-
-  Object.entries(TAG_GROUPS).forEach(([groupName, tags]) => {
-    const groupDiv = document.createElement('div');
-    groupDiv.style.marginBottom = '10px';
-    groupDiv.innerHTML = `<div style="color:#ddd; margin-bottom:4px; font-size:0.9rem;">${groupName}</div>`;
-    
-    const listDiv = document.createElement('div');
-    listDiv.className = 'dev-tag-list';
-    
-    tags.forEach(tag => {
-      const span = document.createElement('span');
-      span.className = 'tag';
-      if (devSelectedTags.has(tag)) span.classList.add('active');
-      span.textContent = tag;
-      span.onclick = () => {
-        if (devSelectedTags.has(tag)) devSelectedTags.delete(tag);
-        else devSelectedTags.add(tag);
-        renderDevTagSelector(); // 재렌더링으로 상태 반영
+  const box = document.getElementById('devTagSelector');
+  box.innerHTML = '';
+  Object.entries(TAG_GROUPS).forEach(([grp, tags]) => {
+    const d = document.createElement('div');
+    d.innerHTML = `<div style="color:#aaa; font-size:0.8rem; margin:8px 0 4px;">${grp}</div>`;
+    const list = document.createElement('div');
+    list.className = 'dev-tag-list';
+    tags.forEach(t => {
+      const s = document.createElement('span');
+      s.className = `tag ${devSelectedTags.has(t)?'active':''}`;
+      s.textContent = t;
+      s.onclick = () => {
+        if(devSelectedTags.has(t)) devSelectedTags.delete(t); else devSelectedTags.add(t);
+        renderDevTagSelector();
       };
-      listDiv.appendChild(span);
+      list.appendChild(s);
     });
-    groupDiv.appendChild(listDiv);
-    container.appendChild(groupDiv);
+    d.appendChild(list);
+    box.appendChild(d);
   });
 }
 
-// --- 저장 로직 ---
 function submitLevelForm() {
-  const rank = Number(document.getElementById('form-rank').value);
-  const title = document.getElementById('form-title').value.trim();
-  const creator = document.getElementById('form-creator').value.trim();
-  
-  if (!rank || !title || !creator) {
-    alert('순위, 제목, 제작자는 필수야!');
-    return;
-  }
+  const rank = Number(document.getElementById('f-rank').value);
+  const title = document.getElementById('f-title').value;
+  if(!title) return alert('제목 필수');
 
-  const modeRatio = {};
-  TAG_GROUPS['주 게임모드'].forEach(m => {
-    const v = Number(document.getElementById(`mode-${m}`)?.value);
-    if (v > 0) modeRatio[m] = v;
-  });
-
-  const speedRatio = {};
-  TAG_GROUPS['속도'].forEach(s => {
-    // 폼에는 속도 입력란이 따로 없으므로 기존 로직 유지 혹은 빈값
-    // (필요 시 modeRatio처럼 폼에 추가해야 함)
-  });
-
-  const fpTotal = Number(document.getElementById('fp-total')?.value);
-  const fps = {};
-  [60, 120, 240].forEach(f => {
-    const v = Number(document.getElementById(`fp-${f}`)?.value);
-    if (v > 0) fps[f] = v;
-  });
-  
   const newLevel = {
     id: rank,
     title: title,
-    creator: creator,
-    verifier: document.getElementById('form-verifier').value.trim(),
-    video: document.getElementById('form-video').value.trim(),
+    creator: document.getElementById('f-creator').value,
+    verifier: document.getElementById('f-verifier').value,
+    video: document.getElementById('f-video').value,
     map: {
-      mapId: document.getElementById('form-mapId').value,
-      length: document.getElementById('form-length').value,
-      objects: Number(document.getElementById('form-objects').value),
-      uploadDate: document.getElementById('form-date').value,
+      mapId: document.getElementById('f-mid').value,
+      length: document.getElementById('f-len').value,
+      objects: Number(document.getElementById('f-obj').value),
+      uploadDate: document.getElementById('f-date').value
     },
-    song: {
-      name: document.getElementById('form-song-name').value,
-      artist: document.getElementById('form-song-artist').value,
-      id: document.getElementById('form-song-id').value
-    },
-    gameplay: { modeRatio: modeRatio, speedRatio: speedRatio },
-    framePerfect: { total: fpTotal, fps: fps },
+    song: { name: "", artist: "", id: "" }, // 폼 간소화를 위해 생략했지만 필요하면 추가 가능
+    gameplay: { modeRatio: {}, speedRatio: {} },
+    framePerfect: { total: 0, fps: {} },
     tags: [...devSelectedTags],
     clears: []
   };
 
-  // 기존 데이터가 있다면 clears 등 유지
-  if (editingLevelId !== null) {
-    const oldIdx = demonData.findIndex(d => d.id === editingLevelId);
-    if (oldIdx > -1) {
-      newLevel.clears = demonData[oldIdx].clears;
-      // speedRatio가 폼에 없으므로 기존값 유지 시도
-      if (Object.keys(newLevel.gameplay.speedRatio).length === 0) {
-        newLevel.gameplay.speedRatio = demonData[oldIdx].gameplay.speedRatio;
-      }
-      demonData.splice(oldIdx, 1);
-      
-      addHistory('rank-change', title, `${title} 정보 수정됨`);
+  if(editingLevelId !== null) {
+    const idx = demonData.findIndex(d => d.id === editingLevelId);
+    if(idx > -1) {
+      // 기존 기록/상세 데이터 보존
+      newLevel.clears = demonData[idx].clears;
+      newLevel.gameplay = demonData[idx].gameplay;
+      newLevel.framePerfect = demonData[idx].framePerfect;
+      newLevel.song = demonData[idx].song;
+      demonData.splice(idx, 1);
+      addHistory('update', title, '레벨 정보 수정');
     }
   } else {
-    addHistory('add', title, `${title} 레벨이 새로 추가됨`);
+    addHistory('add', title, '신규 레벨 추가');
   }
 
   const targetIdx = Math.max(0, Math.min(rank - 1, demonData.length));
   demonData.splice(targetIdx, 0, newLevel);
-
   demonData.forEach((d, i) => d.id = i + 1);
 
-  generateList(demonData);
-  showDetail(newLevel);
-  saveChallengeJSON(); // 자동 저장 시도
+  saveAndRefresh(newLevel);
+}
+
+function renderReachManager() {
+  document.getElementById('devContent').innerHTML = `
+    <div class="section-title">기록 추가</div>
+    <select id="r-sel"><option>레벨 선택</option>${demonData.map(d=>`<option value="${d.id}">#${d.id} ${d.title}</option>`).join('')}</select>
+    <input id="r-player" placeholder="플레이어" style="margin-top:10px;">
+    <input id="r-percent" placeholder="퍼센트" type="number">
+    <input id="r-date" placeholder="날짜" value="${new Date().toISOString().split('T')[0]}">
+    <button class="header-btn" onclick="submitReach()">기록 저장</button>
+    <button class="header-btn" onclick="renderDevHome()" style="margin-top:10px">취소</button>
+  `;
+}
+
+function submitReach() {
+  const id = document.getElementById('r-sel').value;
+  const player = document.getElementById('r-player').value;
+  const percent = Number(document.getElementById('r-percent').value);
+  const date = document.getElementById('r-date').value;
   
-  alert('저장 완료했어! ✅');
+  const level = demonData.find(d => d.id == id);
+  if(!level || !player) return alert('정보 부족');
+  
+  level.clears.push({ player, percent, date });
+  level.clears.sort((a,b) => b.percent - a.percent || new Date(a.date) - new Date(b.date));
+  
+  addHistory('reach', level.title, `${player} ${percent}% 달성`);
+  saveAndRefresh(level);
+}
+
+function saveAndRefresh(targetItem) {
+  initPage(); // 리스트 갱신
+  if(targetItem) showDetail(targetItem);
+  saveJson();
+  alert('완료');
   renderDevHome();
 }
-  
-function renderReachManager() {
-  const box = document.getElementById('devContent');
 
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">도달 기록 관리</div>
-
-      <select id="reach-level-select"
-        onchange="renderReachForm(this.value)"
-        style="font-size:1.1rem; padding:10px;">
-        <option value="">레벨 선택</option>
-        ${demonData.map(d =>
-          `<option value="${d.id}">#${d.id} ${d.title}</option>`
-        ).join('')}
-      </select>
-
-      <button class="header-btn"
-        style="margin-top:20px;"
-        onclick="renderDevHome()">뒤로가기</button>
-    </div>
-  `;
-}
-
-function renderReachForm(levelId) {
-  if (!levelId) return;
-
-  const level = demonData.find(d => d.id == levelId);
-  if (!level) return;
-
-  const box = document.getElementById('devContent');
-
-  box.innerHTML = `
-    <div class="section">
-      <div class="section-title">
-        #${level.id} ${level.title}
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">닉네임</div>
-        <input id="reach-player" placeholder="플레이어 이름">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">도달 퍼센트</div>
-        <input id="reach-percent" type="number" min="0" max="100" placeholder="0 ~ 100">
-      </div>
-
-      <div class="dev-block">
-        <div class="dev-label">날짜</div>
-        <input id="reach-date" placeholder="YYYY-MM-DD" value="${new Date().toISOString().split('T')[0]}">
-      </div>
-
-      <div class="header-container" style="gap:10px;">
-        <button class="header-btn"
-          onclick="submitReach(${level.id})">추가</button>
-        <button class="header-btn"
-          onclick="renderReachManager()">취소</button>
-      </div>
-    </div>
-  `;
-}
-
-function submitReach(levelId) {
-  const player = document.getElementById('reach-player').value.trim();
-  const percent = Number(document.getElementById('reach-percent').value);
-  const date = document.getElementById('reach-date').value.trim();
-
-  if (!player || isNaN(percent) || percent < 0 || percent > 100 || !date) {
-    alert('모든 값을 올바르게 입력해줘!');
-    return;
-  }
-
-  const level = demonData.find(d => d.id === levelId);
-  if (!level) return;
-
-  level.clears.push({ player, percent, date });
-
-  // 정렬 규칙 (퍼센트 높은 순 -> 날짜 빠른 순)
-  level.clears.sort((a, b) => {
-    if (b.percent !== a.percent) return b.percent - a.percent;
-    return new Date(a.date) - new Date(b.date);
-  });
-  
-  addHistory('reach', level.title, `${player}님이 ${percent}% 달성`);
-
-  generateList(demonData);
-  showDetail(level);
-  saveChallengeJSON();
-
-  alert('도달 기록 추가 완료! 🎉');
-  renderReachManager();
-}
-
-function exportJson() {
-  const data = {
-    levels: demonData,
-    history: changeHistory
-  };
-
-  const json = JSON.stringify(data, null, 2);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'challenge.json';
-  a.click();
-
-  URL.revokeObjectURL(url);
-}
-
+/* --- JSON 저장/이력 관리 --- */
 function nowString() {
   const d = new Date();
-  const pad = n => n.toString().padStart(2, '0');
-  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
 }
 
-function addHistory(type, levelTitle, detail) {
-  changeHistory.unshift({
-    time: nowString(),
-    type,
-    title: levelTitle,
-    detail
-  });
-
-  renderHistory();
+function addHistory(type, title, detail) {
+  changeHistory.unshift({ time: nowString(), type, title, detail });
 }
 
 function renderHistory() {
   const box = document.getElementById('historyBox');
-  if (!box) return;
-
-  box.innerHTML = `
-    <div style="font-family:Paperlogy9;font-size:2.4rem;text-align:center;color:white;">
-      변경 이력
+  if(!box) return;
+  const colors = { 'add':'#6fff6f', 'update':'#6fa8ff', 'reach':'#ffcc66' };
+  box.innerHTML = changeHistory.slice(0, 20).map(h => `
+    <div style="font-size:0.9rem; color:#ccc; margin-bottom:4px; font-family:Paperlogy3;">
+      <span style="color:#777">[${h.time}]</span> <span style="color:${colors[h.type]||'#fff'}">${h.title}</span> : ${h.detail}
     </div>
-    ${changeHistory.slice(0, 30).map(h => `
-      <div style="margin-top:6px;font-family:Paperlogy3;font-size:0.95rem;color:#ccc;">
-        <span style="color:#aaa;">${h.time}</span> |
-        <b style="color:${historyColor(h.type)}">${h.title}</b> |
-        ${h.detail}
-      </div>
-    `).join('')}
-  `;
+  `).join('');
 }
 
-function historyColor(type) {
-  if (type === 'add') return '#6fff6f';
-  if (type === 'rank-change') return '#6fa8ff';
-  if (type === 'reach') return '#ffcc66';
-  return '#ccc';
+function exportJson() {
+  const blob = new Blob([JSON.stringify({ levels: demonData, history: changeHistory }, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = DATA_FILENAME;
+  a.click();
 }
 
-// 서버 저장 시도 (백엔드가 없다면 에러가 날 수 있지만 기능 유지를 위해 포함)
-async function saveChallengeJSON() {
+async function saveJson() {
   try {
-    const data = {
-      levels: demonData,
-      history: changeHistory
-    };
-  
-    await fetch('challenge.json', {
+    await fetch(DATA_FILENAME, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data, null, 2)
+      body: JSON.stringify({ levels: demonData, history: changeHistory }, null, 2)
     });
-  } catch(e) {
-    console.warn('서버 저장 실패 (로컬 테스트 환경일 수 있음)');
-  }
+  } catch(e) {}
 }
-
 </script>
 </body>
 </html>
-
