@@ -39,8 +39,20 @@
           "240": 0
         }
       },
-      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
-      "clears": [{ "player": "Timo", "date": "2025-12-17", "percent": 100}]
+      "tags": [
+        "Wave",
+        "4x",
+        "Short",
+        "Physical",
+        "None-Effect"
+      ],
+      "clears": [
+        {
+          "player": "Timo",
+          "date": "2025-12-17",
+          "percent": 100
+        }
+      ]
     },
     {
       "id": 2,
@@ -78,7 +90,121 @@
           "240": 0
         }
       },
-      "tags": ["Wave", "1x", "Short", "Memory", "Spam", "Low-Effect", "One-Mode", "No-Clear"],
+      "tags": [
+        "Wave",
+        "1x",
+        "Short",
+        "Memory",
+        "Spam",
+        "Low-Effect",
+        "One-Mode",
+... (959줄 남음)
+접기
+classic (1).json
+21KB
+﻿
+{
+  "levels": [
+    {
+      "id": 1,
+      "title": "chocubed",
+      "creator": "Light",
+      "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
+      "verifier": "Light",
+      "map": {
+        "mapId": 126886071,
+        "length": "0m 24s",
+        "objects": 1930,
+        "uploadDate": "2025-10-10"
+      },
+      "song": {
+        "name": "Parfait",
+        "artist": "EspiDev",
+        "id": 763176
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Cube": 35.97,
+          "Ship": 11.14,
+          "Wave": 52.82
+        },
+        "speedRatio": {
+          "0.5x": 10.01,
+          "1x": 5.09,
+          "4x": 84.9
+        }
+      },
+      "framePerfect": {
+        "total": 30,
+        "fps": {
+          "30": 21,
+          "60": 9,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Wave",
+        "4x",
+        "Short",
+        "Physical",
+        "None-Effect"
+      ],
+      "clears": [
+        {
+          "player": "Timo",
+          "date": "2025-12-17",
+          "percent": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "BOOBAWAVEBA",
+      "creator": "Choco",
+      "video": "https://www.youtube.com/embed/NCW_519mfoc",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 129453627,
+        "length": "0m 28s",
+        "objects": 1431,
+        "uploadDate": "2025-12-14"
+      },
+      "song": {
+        "name": "Portal To The Other Side (feat. Hatsune Miku)",
+        "artist": "nandinanubis",
+        "id": 941913
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Wave": 100
+        },
+        "speedRatio": {
+          "1x": 97.86,
+          "4x": 2.14
+        }
+      },
+      "framePerfect": {
+        "total": 3,
+        "fps": {
+          "30": 3,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Wave",
+        "1x",
+        "Short",
+        "Memory",
+        "Spam",
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -116,7 +242,15 @@
           "240": 0
         }
       },
-      "tags": ["Cube", "1x", "Short", "Physical", "One-Mode", "Full-Effect", "No-Clear"],
+      "tags": [
+        "Cube",
+        "1x",
+        "Short",
+        "Physical",
+        "One-Mode",
+        "Full-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -154,7 +288,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "Any-Speed", "Medium", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "Any-Speed",
+        "Medium",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -192,7 +333,15 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Physical", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -230,7 +379,16 @@
           "240": 0
         }
       },
-      "tags": ["Cube", "3x", "XL", "Gimmick", "Physical", "Luck", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Cube",
+        "3x",
+        "XL",
+        "Gimmick",
+        "Physical",
+        "Luck",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -268,7 +426,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -306,7 +471,16 @@
           "240": 0
         }
       },
-      "tags": ["Cube", "Dual", "2x", "Long", "Memory", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Cube",
+        "Dual",
+        "2x",
+        "Long",
+        "Memory",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -344,7 +518,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -382,7 +563,15 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "Dual", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "Dual",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -420,7 +609,15 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "2x", "XL", "XXL", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "2x",
+        "XL",
+        "XXL",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -458,7 +655,15 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "2x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "2x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -496,7 +701,17 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "Dual", "Boss", "1x", "Long", "Physical", "Luck", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "Dual",
+        "Boss",
+        "1x",
+        "Long",
+        "Physical",
+        "Luck",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -534,7 +749,14 @@
           "240": 0
         }
       },
-      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Ship",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -572,25 +794,371 @@
           "240": 0
         }
       },
-      "tags": ["Ship", "3x", "Long", "Fast", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Ship",
+        "3x",
+        "Long",
+        "Fast",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 16,
+      "title": "JPA EP9",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "map": {
+        "mapId": "87116363",
+        "length": "1m 22s",
+        "objects": 7380,
+        "uploadDate": "2022-12-26"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "3x",
+        "Long",
+        "Low-Effect",
+        "Fast",
+        "Learny",
+        "Physical"
+      ],
+      "clears": []
+    },
+    {
+      "id": 17,
+      "title": "JPA EP6",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "map": {
+        "mapId": "85797010",
+        "length": "2m 55s",
+        "objects": 4055,
+        "uploadDate": "2022-11-18"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "2x",
+        "Sync",
+        "Learny",
+        "Low-Effect",
+        "XL",
+        "Ship"
+      ],
+      "clears": []
+    },
+    {
+      "id": 18,
+      "title": "LT EP6",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "-",
+      "map": {
+        "mapId": "85605798",
+        "length": "43s",
+        "objects": 1628,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Cube",
+        "Ship",
+        "Any-Mode",
+        "2x",
+        "1x",
+        "Medium",
+        "Learny",
+        "Physical",
+        "Low-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 19,
+      "title": "LT EP4",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "-",
+      "map": {
+        "mapId": "85191093",
+        "length": "45s",
+        "objects": 1785,
+        "uploadDate": "2022-10-31"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Sync",
+        "Slow",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 20,
+      "title": "LT EP5",
+      "creator": "Lighjt",
+      "verifier": "Light",
+      "video": "-",
+      "map": {
+        "mapId": "85596289",
+        "length": "53s",
+        "objects": 1492,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Any-Mode",
+        "Fast",
+        "Physical",
+        "Medium",
+        "Any-Speed",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 21,
+      "title": "Glide Fastival",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "map": {
+        "mapId": "122547026",
+        "length": "2m 37s",
+        "objects": 5683,
+        "uploadDate": "2025-07-08"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Any-Mode",
+        "2x",
+        "3x",
+        "Fast",
+        "XXL",
+        "Physical",
+        "Sync",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 22,
+      "title": "LT EP3",
+      "creator": "Light",
+      "verifier": "Light",
+      "video": "-",
+      "map": {
+        "mapId": "84810667",
+        "length": "39s",
+        "objects": 742,
+        "uploadDate": "2022-10-20"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Cube",
+        "Ship",
+        "1x",
+        "Medium",
+        "Boss",
+        "Physical",
+        "Spam",
+        "None-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 23,
+      "title": "Answer Me",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "",
+      "map": {
+        "mapId": "124680897",
+        "length": "20s",
+        "objects": 1040,
+        "uploadDate": "2025-08-15"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Any-Mode",
+        "3x",
+        "Fast",
+        "Sync",
+        "Learny",
+        "Short",
+        "Full-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 24,
+      "title": "Slow Challenge",
+      "creator": "Choco",
+      "verifier": "Choco",
+      "video": "-",
+      "map": {
+        "mapId": "101683550",
+        "length": "2m 55s",
+        "objects": 1718,
+        "uploadDate": "2024-02-29"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": null,
+      "tags": [
+        "Wave",
+        "4x",
+        "XXL",
+        "Gimmick",
+        "Physical",
+        "Slow",
+        "None-Effect"
+      ],
       "clears": []
     }
   ],
-  "history": []
+  "history": [
+    {
+      "time": "2026-01-11 23:11",
+      "type": "add",
+      "title": "Slow Challenge",
+      "detail": "Slow Challenge 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 23:08",
+      "type": "add",
+      "title": "Answer Me",
+      "detail": "Answer Me 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 23:07",
+      "type": "add",
+      "title": "LT EP3",
+      "detail": "LT EP3 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 23:04",
+      "type": "add",
+      "title": "Glide Fastival",
+      "detail": "Glide Fastival 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 23:02",
+      "type": "add",
+      "title": "LT EP5",
+      "detail": "LT EP5 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 23:01",
+      "type": "add",
+      "title": "LT EP4",
+      "detail": "LT EP4 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 22:59",
+      "type": "add",
+      "title": "LT EP6",
+      "detail": "LT EP6 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 22:56",
+      "type": "add",
+      "title": "JPA EP6",
+      "detail": "JPA EP6 레벨이 새로 추가됨"
+    },
+    {
+      "time": "2026-01-11 22:53",
+      "type": "add",
+      "title": "JPA EP9",
+      "detail": "JPA EP9 레벨이 새로 추가됨"
+    }
+  ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
