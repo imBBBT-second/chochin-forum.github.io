@@ -1,5 +1,5 @@
 ﻿{
-  "levels": [
+  "buttons": [
     {
       "id": 1,
       "title": "chocubed",
@@ -1057,5 +1057,6 @@
     }
   ]
 }
+
 
 
