@@ -28,7 +28,6 @@ html, body {
 @font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
 @font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
 
-h1 { font-family: Paperlogy7; color: white; font-size: 170px; text-align: center; }
 a { color: inherit; text-decoration: none; }
 
 /* --- 헤더 영역 --- */
@@ -128,7 +127,7 @@ a { color: inherit; text-decoration: none; }
 .title { font-family: Paperlogy7; font-size: 1.4rem; color: #fff; }
 .creator { font-family: Paperlogy4; font-size: 0.9rem; color: #d0d0d0; }
 
-/* --- 중앙 패널 스타일 --- */
+/* --- 상세 정보 패널 --- */
 .detail-header { text-align: center; margin-bottom: 20px; }
 .pack-title { font-family: Paperlogy9; font-size: 3rem; color: #fff; margin-bottom: 5px; }
 .pack-subtitle { font-family: Paperlogy4; font-size: 1.1rem; color: #aaa; }
@@ -155,7 +154,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 8px;
   margin-bottom: 8px;
   transition: 0.2s;
-  cursor: pointer; /* 클릭 가능 표시 */
+  cursor: pointer;
 }
 .level-item:hover { background: #666; transform: translateX(5px); }
 .level-idx {
@@ -199,7 +198,7 @@ a { color: inherit; text-decoration: none; }
 
 <div class="header-container">
   <a href="../index.html" class="header-btn-wrapper"><button class="header-btn">홈</button></a>
-  <a href="level.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
+  <a href="level/classic.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
   <div class="header-btn-wrapper"><button class="header-btn active">맵 팩</button></div>
   <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
 </div>
@@ -219,24 +218,18 @@ a { color: inherit; text-decoration: none; }
 
   <div class="detail-panel">
     <div id="packDetailContent">
-      <div style="text-align:center; margin-top:50px; color:#888; font-family:Paperlogy5;">
-        왼쪽에서 팩을 선택해주세요.
-      </div>
+      <div style="text-align:center; margin-top:50px; color:#888; font-family:Paperlogy5;">데이터를 불러오는 중...</div>
     </div>
   </div>
 
   <div class="detail-panel clears-panel">
-    <div style="font-family:Paperlogy9; font-size:2.5rem; text-align:center; color:white; margin-bottom:20px;">
-      All Clears
-    </div>
+    <div style="font-family:Paperlogy9; font-size:2.5rem; text-align:center; color:white; margin-bottom:20px;">All Clears</div>
     <div id="packClears"></div>
   </div>
 </div>
 
 <div class="history-panel">
-  <div style="font-family:Paperlogy9; font-size:2rem; text-align:center; color:white; margin-bottom:10px;">
-    최근 변경 기록
-  </div>
+  <div style="font-family:Paperlogy9; font-size:2rem; text-align:center; color:white; margin-bottom:10px;">최근 변경 기록</div>
   <div id="historyBox"></div>
 </div>
 
@@ -256,32 +249,23 @@ const TIER_COLORS = {
 };
 
 let packData = [];
+let classicLevelData = []; 
 let changeHistory = [];
 
-fetch('mappack.json')
-  .then(r => r.json())
-  .then(j => {
-    packData = j.packs || [];
-    changeHistory = j.history || [];
-    initPage();
-  })
-  .catch(() => {
-    packData = [
-      {
-        id: "pack1",
-        title: "Beginner Pack",
-        tier: "Tier 1",
-        creator: "Admin",
-        description: "초보자를 위한 기초 레벨 모음입니다.",
-        levels: [
-          { name: "Step One", author: "User A", levelId: "12345" }, // levelId가 있으면 바로 이동 가능
-          { name: "Jump Jump", author: "User B", levelId: "67890" }
-        ],
-        clears: []
-      }
-    ];
-    initPage();
-  });
+// [수정] level/classic.json 경로에서 데이터를 가져옴
+Promise.all([
+  fetch('mappack.json').then(r => r.json()).catch(() => ({ packs: [], history: [] })),
+  fetch('level/classic.json').then(r => r.json()).catch(() => ({ levels: [] }))
+]).then(([packJson, levelJson]) => {
+  packData = packJson.packs || [];
+  changeHistory = packJson.history || [];
+  classicLevelData = levelJson.levels || [];
+  
+  initPage();
+}).catch(err => {
+  console.error("데이터 로딩 실패:", err);
+  document.getElementById('packDetailContent').innerHTML = "데이터 로드 오류";
+});
 
 function initPage() {
   renderList(packData);
@@ -308,14 +292,20 @@ function renderList(data) {
   });
 }
 
-// 레벨 페이지로 이동하는 함수
-function goToLevel(levelId) {
-  if(!levelId) {
-    alert("해당 레벨의 ID 정보가 없습니다.");
-    return;
+// [핵심] classicLevelData를 검색해서 이동
+function goToLevelAuto(levelName, author) {
+  // classic.json의 title 필드와 creator 필드를 비교 (공백/대소문자 무시)
+  const target = classicLevelData.find(l => 
+    l.title.trim().toLowerCase() === levelName.trim().toLowerCase() &&
+    l.creator.trim().toLowerCase() === author.trim().toLowerCase()
+  );
+
+  if (target && target.id) {
+    // 요청하신 경로: level/classic.html?id=ID
+    window.location.href = `level/classic.html?id=${target.id}`;
+  } else {
+    alert(`'${levelName}' 레벨을 classic.json에서 찾을 수 없습니다.`);
   }
-  // level.html로 id 파라미터를 들고 이동
-  window.location.href = `level.html?id=${levelId}`;
 }
 
 function showPackDetail(pack, el) {
@@ -336,9 +326,9 @@ function showPackDetail(pack, el) {
     </div>
 
     <div class="pack-content-box">
-      <div class="content-header">수록곡 리스트 (클릭 시 레벨 페이지로 이동)</div>
+      <div class="content-header">수록곡 리스트</div>
       ${pack.levels.map((lvl, idx) => `
-        <div class="level-item" onclick="goToLevel('${lvl.levelId}')">
+        <div class="level-item" onclick="goToLevelAuto('${lvl.name}', '${lvl.author}')">
           <div class="level-idx">${idx + 1}</div>
           <div class="level-info">
             <div class="level-name">${lvl.name}</div>
@@ -360,7 +350,7 @@ function showPackDetail(pack, el) {
       clearBox.appendChild(row);
     });
   } else {
-    clearBox.innerHTML = '<div style="text-align:center; color:#777; margin-top:20px;">아직 클리어한 유저가 없습니다.</div>';
+    clearBox.innerHTML = '<div style="text-align:center; color:#777; margin-top:20px;">클리어 유저가 없습니다.</div>';
   }
 }
 
@@ -370,7 +360,7 @@ document.getElementById('search').addEventListener('input', (e) => {
   renderList(filtered);
 });
 
-/* --- 관리자 패널 관련은 이전과 동일 (생략 가능하나 유지) --- */
+/* --- 관리자 패널 --- */
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
     if (prompt('비밀번호') === DEV_PASSWORD) {
@@ -400,8 +390,8 @@ function renderAddPack() {
     </select>
     <div class="dev-label">설명</div>
     <input id="p-desc" class="dev-input">
-    <div class="dev-label">레벨 목록 (JSON) - levelId 꼭 포함!</div>
-    <textarea id="p-levels" class="dev-input" style="height:150px; background:#444; color:#fff;" placeholder='[{"name":"Lvl1", "author":"A", "levelId":"123"}]'></textarea>
+    <div class="dev-label">레벨 목록 (JSON)</div>
+    <textarea id="p-levels" class="dev-input" style="height:150px; background:#444; color:#fff;" placeholder='[{"name":"이름", "author":"제작자"}]'></textarea>
     <button class="header-btn" onclick="submitPack()">저장</button>
   `;
 }
@@ -421,7 +411,7 @@ function submitPack() {
     addHistory("팩 추가", newPack.title);
     initPage();
     renderDevHome();
-  } catch(e) { alert("JSON 형식 오류"); }
+  } catch(e) { alert("JSON 오류"); }
 }
 
 function renderAddClear() {
