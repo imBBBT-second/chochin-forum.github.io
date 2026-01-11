@@ -536,10 +536,49 @@
       },
       "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
       "clears": []
+    },
+    {
+      "id": 15,
+      "title": "JPA EP3",
+      "creator": "Choco",
+      "video": "-",
+      "verifier": "Choco",
+      "map": {
+        "mapId": 84660687,
+        "length": "1m 22s",
+        "objects": 3700,
+        "uploadDate": "2022-10-15"
+      },
+      "song": {
+        "name": "Electrodynamix",
+        "artist": "DJ-Nate",
+        "id": 14
+      },
+      "gameplay": {
+        "mainMode": "Ship",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": ["Ship", "3x", "Long", "Fast", "Physical", "None-Effect", "No-Clear"],
+      "clears": []
     }
   ],
   "history": []
 }
+
 
 
 
