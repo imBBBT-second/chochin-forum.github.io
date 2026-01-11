@@ -255,7 +255,7 @@ let changeHistory = [];
 // [수정] level/classic.json 경로에서 데이터를 가져옴
 Promise.all([
   fetch('mappack.json').then(r => r.json()).catch(() => ({ packs: [], history: [] })),
-  fetch('level/classic.json').then(r => r.json()).catch(() => ({ levels: [] }))
+  fetch('level/classic.json').then(r => r.json()).catch(() => ({ buttons: [] }))
 ]).then(([packJson, levelJson]) => {
   packData = packJson.packs || [];
   changeHistory = packJson.history || [];
