@@ -21,13 +21,35 @@
       ],
       "clears": [
       ]
+    },
+    {
+      "id": "pack 1",
+      "title": "Adventure Pack",
+      "tier": "Tier 1",
+      "description": "엣날 라이트가 만든 레벨을 해보세요!",
+      "levels": [
+        {
+          "name": "JPA EP2",
+          "author": "Choco"
+        },
+        {
+          "name": "JPA EP7",
+          "author": "Choco"
+        },
+        {
+          "name": "JPA EP1",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+      ]
     }
   ],
   "history": [
     {
       "time": "2026-01-11",
       "type": "팩 추가",
-      "detail": ""
+      "detail": "Treasure Pack / Adventure Pack I / Adventure Pack II / Troll Pack / Wave Pack / Inspired Pack 추가"
     }
   ]
 }
