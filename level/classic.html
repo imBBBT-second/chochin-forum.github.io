@@ -434,6 +434,24 @@ input#search {
 .dev-tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
 .dev-tag-list .tag { background: #555; cursor: pointer; user-select: none; }
 .dev-tag-list .tag.active { background: #fff; color: #000; }
+
+/* 클리어한 레벨의 배경색을 연한 초록색으로 변경 */
+.item.cleared {
+  background-color: #2e4a2e !important;
+  border-left: 5px solid #4f9;
+}
+
+/* 마우스를 올렸을 때나 선택되었을 때 글자색 유지 */
+.item.cleared:hover .title, .item.cleared.active .title {
+  color: #000 !important;
+}
+
+/* 제목 옆에 체크 표시 아이콘 */
+.clear-check {
+  color: #4f9;
+  margin-left: 8px;
+  font-size: 1.1rem;
+}
 </style>
 </head>
 
@@ -443,6 +461,9 @@ input#search {
   <a href="../level.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
   <div class="header-btn-wrapper"><a href="../mappack.html" class="header-btn-wrapper"><button class="header-btn">맵 팩</button></a></div>
   <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
+  <div style="text-align: right; padding-right: 20px;">
+    <button onclick="login()" class="mode-btn" style="font-size: 0.9rem; padding: 5px 15px;">계정 선택</button>
+  </div>
 </div>
 
 <div class="divider"></div>
@@ -1031,7 +1052,54 @@ async function saveClassicJSON() {
   // 로컬 테스트용: 실제 서버가 있다면 PUT 요청
   console.log('데이터 저장 시도 (서버 필요)');
 }
+
+let currentUser = null; // 현재 선택된 계정
+
+// 계정 선택(로그인) 함수
+function login() {
+  const name = prompt("본인의 닉네임을 입력해줘 (클리어 명단과 일치해야 해):");
+  if (!name) return;
+
+  currentUser = name;
+  alert(`${name} 계정으로 접속했어. 클리어한 레벨은 초록색으로 표시될 거야!`);
+  
+  // 리스트를 다시 그려서 초록색 적용
+  generateList(filteredData);
+}
+
+// [핵심] 클리어 여부 확인 함수
+// 해당 레벨의 clears 배열 안에 현재 사용자의 이름이 있는지 확인
+function checkIfCleared(levelItem) {
+  if (!currentUser || !levelItem.clears) return false;
+  return levelItem.clears.some(c => c.player.toLowerCase() === currentUser.toLowerCase());
+}
+
+function generateList(data) {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  data.forEach(item => {
+    const isCleared = checkIfCleared(item); // 자동 체크 로직 사용
+    const div = document.createElement('div');
+    
+    // 클리어 여부에 따라 cleared 클래스 추가
+    div.className = `item ${isCleared ? 'cleared' : ''}`;
+    
+    div.innerHTML = `
+      <div class="rank">${item.id}</div>
+      <div>
+        <div class="title">
+          ${item.title} ${isCleared ? '<span class="clear-check">✅</span>' : ''}
+        </div>
+        <div class="creator">${item.creator}</div>
+      </div>
+    `;
+    div.onclick = () => showDetail(item, div);
+    list.appendChild(div);
+  });
+}
 </script>
 </body>
 </html>
+
 
