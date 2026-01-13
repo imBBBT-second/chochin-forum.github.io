@@ -552,13 +552,13 @@ window.onload = function() {
 };
 
 function login() {
-  const name = prompt("본인의 닉네임을 입력해줘 (클리어 명단/검증자와 일치해야 함):");
+  const name = prompt("닉네임을 입력해주세요.");
   if (!name) return;
 
   currentUser = name;
   localStorage.setItem('currentUser', name);
   document.getElementById('userStatus').innerText = `접속 계정: ${name}`;
-  alert(`${name}님 환영해!`);
+  alert(`${name}님, 환영합니다!`);
   
   generateList(filteredData);
 }
@@ -789,6 +789,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
