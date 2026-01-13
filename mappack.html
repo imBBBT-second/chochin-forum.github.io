@@ -399,8 +399,8 @@ function login() {
   if (!name) return;
   currentUser = name;
   localStorage.setItem('currentUser', name);
-  document.getElementById('userStatus').innerText = `${name}님, 환영합니다!`;
-  alert(`${name}님 환영해!`);
+  document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+  alert(`${name}님, 환영합니다!`);
   renderList(packData);
   // 현재 선택된 팩 상세 내용 갱신
   const activeTitle = document.querySelector('.item.active .title')?.innerText.replace(' ✅', '');
