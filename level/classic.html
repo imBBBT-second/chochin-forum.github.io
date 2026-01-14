@@ -802,6 +802,7 @@ function showDetail(item, element) {
     document.getElementById('detailDescription').appendChild(tagBox);
   }
   const levelSpecificHistory = changeHistory.filter(h => h.title === item.title);
+  renderHistory(item.title);
   
   clearBox.innerHTML = '';
   if (item.clears?.length) {
@@ -820,7 +821,6 @@ function showDetail(item, element) {
       `;
       clearBox.appendChild(row);
     });
-    renderHistory(item.title);
   }
 }
 
@@ -931,6 +931,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
