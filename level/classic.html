@@ -431,6 +431,14 @@ input#search {
   height: 400px; overflow-y: auto;
 }
 
+#modeShortcut {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
 .mode-btn {
   background: transparent;
   border: 1.5px solid #fff;
@@ -442,6 +450,55 @@ input#search {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+}
+
+@media (max-width: 768px) {
+  .mode-btn {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    padding: 4px 12px;
+  }
+  
+  #modeShortcut {
+    gap: 6px;
+  }
+  
+  .clears-panel > div:first-child {
+    font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
+  }
+}
+
+#modeShortcut .mode {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Paperlogy7;
+  font-size: 64px;
+}
+
+#modeShortcut .mode:hover {
+  color: #fff;
+}
+
+#modeShortcut .mode.active {
+  color: #fff;
+  font-weight: 700;
+  cursor: default;
+}
+
+#detailPanel {
+  margin-top: 64px;
+}
+
+.mode-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.mode-btn.active {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: default;
 }
 </style>
 </head>
@@ -809,6 +866,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
