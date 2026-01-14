@@ -607,12 +607,16 @@ input#search {
     <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
   </div>
 
-  <div id="historySection" class="section">
-    <div class="section-title">변경 이력 (Level History)</div>
-  <div id="historyList"></div>
+  <div class="detail-panel clears-panel">
+    <div style="font-family:Paperlogy9;font-size:3.2rem;text-align:center;color:white;">기록 명단</div>
+    <div id="detailClears"></div>
   </div>
 </div>
 
+  <div id="historySection" class="section">
+  <div class="section-title">변경 이력 (Level History)</div>
+  <div id="historyList"></div> </div>
+  
 <div id="devPanel" class="dev-panel">
   <div class="detail-header" style="margin-top: 20px;">
     <div class="detail-title" style="font-size: 2.5rem;">개발자 패널</div>
@@ -943,6 +947,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
