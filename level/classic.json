@@ -329,15 +329,6 @@
       "clears": []
     }
   ],
-  "history": [
-    { "time": "2026-01-11 23:11", "type": "add", "title": "Slow Challenge", "detail": "Slow Challenge 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 23:08", "type": "add", "title": "Answer Me", "detail": "Answer Me 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 23:07", "type": "add", "title": "LT EP3", "detail": "LT EP3 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 23:04", "type": "add", "title": "Glide Fastival", "detail": "Glide Fastival 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 23:02", "type": "add", "title": "LT EP5", "detail": "LT EP5 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 23:01", "type": "add", "title": "LT EP4", "detail": "LT EP4 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 22:59", "type": "add", "title": "LT EP6", "detail": "LT EP6 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 22:56", "type": "add", "title": "JPA EP6", "detail": "JPA EP6 레벨이 새로 추가됨" },
-    { "time": "2026-01-11 22:53", "type": "add", "title": "JPA EP9", "detail": "JPA EP9 레벨이 새로 추가됨" }
-  ]
+  "history": []
 }
+
