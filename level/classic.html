@@ -730,7 +730,7 @@ function generateList(data) {
 function showDetail(item, element) {
   // 1. 활성화 표시 관리
   document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
-  if(el) el.classList.add('active');
+  if(element) element.classList.add('active');
 
   // 2. 요소 확인 (에러 방지 핵심)
   const panel = document.getElementById('detailPanel');
@@ -978,6 +978,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
