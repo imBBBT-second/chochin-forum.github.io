@@ -728,8 +728,19 @@ function generateList(data) {
 }
 
 function showDetail(item, element) {
-  document.querySelectorAll('.item.active').forEach(el => el.classList.remove('active'));
-  if (element) element.classList.add('active');
+  // 1. 활성화 표시 관리
+  document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
+  if(el) el.classList.add('active');
+
+  // 2. 요소 확인 (에러 방지 핵심)
+  const panel = document.getElementById('detailPanel');
+  const clearBox = document.getElementById('detailClears');
+  
+  // 만약 HTML에 ID가 없으면 에러를 내지 않고 종료
+  if (!panel || !clearBox) {
+    console.error("에러: detailPanel 또는 detailClears 요소를 찾을 수 없어!");
+    return;
+  }
 
   document.getElementById('detailTitle').textContent = item.title;
   document.getElementById('detailCreator').textContent =
@@ -970,6 +981,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
