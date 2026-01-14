@@ -802,8 +802,6 @@ function showDetail(item, element) {
     document.getElementById('detailDescription').appendChild(tagBox);
   }
   const levelSpecificHistory = changeHistory.filter(h => h.title === item.title);
-
-  const panel = document.getElementById('detailPanel');
   panel.innerHTML = `
     <div style="text-align:center; margin-bottom:20px;">
       <div style="font-family:Paperlogy9; font-size:3rem; color:#fff;">${item.title}</div>
@@ -981,6 +979,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
