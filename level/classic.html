@@ -902,10 +902,13 @@ function updateFilter() {
     showDetail(filteredData[0]);
   }
 }
-
+  
 function renderHistory() {
   const list = document.getElementById('historyList'); // 이력이 담길 div ID
-  list.innerHTML = '';
+  if (!list) return; // 요소가 없으면 실행하지 않음 (에러 방지)
+  
+  // 만약 전체 이력을 보여주는 페이지가 따로 있다면 여기서 처리
+  list.innerHTML = ''; 
 
   changeHistory.forEach(h => {
     let typeClass = 'info';
@@ -967,6 +970,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
