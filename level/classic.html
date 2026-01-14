@@ -802,39 +802,7 @@ function showDetail(item, element) {
     document.getElementById('detailDescription').appendChild(tagBox);
   }
   const levelSpecificHistory = changeHistory.filter(h => h.title === item.title);
-  panel.innerHTML = `
-    <div style="text-align:center; margin-bottom:20px;">
-      <div style="font-family:Paperlogy9; font-size:3rem; color:#fff;">${item.title}</div>
-      <div style="color:#ccc; font-family:Paperlogy4;">by ${item.creator}</div>
-    </div>
-    <div class="video-wrapper">
-      <iframe src="${item.video}" allowfullscreen></iframe>
-    </div>
-    
-    <div style="background:#444; padding:20px; border-radius:10px; color:#ddd; font-family:Paperlogy3; margin-bottom:20px;">
-      <p>ID: ${item.map?.mapId || '-'}</p>
-      <p>오브젝트: ${item.map?.objects?.toLocaleString() || '0'}</p>
-      <div style="margin-top:10px;">
-        ${item.tags?.map(t => `<span style="background:#666; padding:4px 8px; border-radius:5px; margin-right:5px; font-size:0.8rem;">#${t}</span>`).join('')}
-      </div>
-    </div>
-
-    <div style="background:#333; padding:15px; border-radius:8px; margin-top:10px;">
-      <div style="font-family:Paperlogy7; color:#fff; font-size:1.2rem; margin-bottom:10px; border-bottom:1px solid #555; padding-bottom:5px;">Level History</div>
-      ${levelSpecificHistory.length > 0 ? levelSpecificHistory.map(h => {
-        // 타입별 색상 설정
-        const colors = { add: '#2ecc71', move: '#3498db', 'rank-change': '#3498db', remove: '#e74c3c' };
-        const color = colors[h.type] || '#f1c40f';
-        return `
-          <div style="display:flex; gap:10px; padding:8px 0; border-bottom:1px solid #444; font-size:0.9rem; font-family:Paperlogy3;">
-            <span style="color:#aaa; min-width:85px;">${h.time.split(' ')[0]}</span>
-            <b style="color:${color}; text-transform:uppercase;">[${h.type}]</b>
-            <span style="color:#eee;">${h.detail}</span>
-          </div>
-        `;
-      }).join('') : '<div style="color:#888; font-size:0.9rem;">기록이 없습니다.</div>'}
-    </div>
-  `;
+  
   clearBox.innerHTML = '';
   if (item.clears?.length) {
     item.clears.forEach((c, i) => {
@@ -970,6 +938,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
