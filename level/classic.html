@@ -835,7 +835,6 @@ function showDetail(item, element) {
       }).join('') : '<div style="color:#888; font-size:0.9rem;">기록이 없습니다.</div>'}
     </div>
   `;
-  const clearBox = document.getElementById('detailClears');
   clearBox.innerHTML = '';
   if (item.clears?.length) {
     item.clears.forEach((c, i) => {
@@ -979,6 +978,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
