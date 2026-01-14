@@ -613,9 +613,9 @@ input#search {
   </div>
 </div>
 
-<div class="history-panel">
-  <div class="history-title" style="font-family:Paperlogy9; color:#fff; font-size:2rem; text-align:center;">CHANGELOG</div>
-  <div id="historyList"></div> 
+<div class="history-panel" style="margin: 20px; padding: 20px; background: #252525; border-radius: 10px;">
+  <h2 style="color: #fff; font-family: Paperlogy9; text-align: center;">CHANGELOG</h2>
+  <div id="historyList"></div>
 </div>
 
 <div id="devPanel" class="dev-panel">
@@ -820,8 +820,8 @@ function showDetail(item, element) {
       `;
       clearBox.appendChild(row);
     });
+    renderHistory(item.title);
   }
-  renderHistory(item.title);
 }
 
 function makeRatioGraph(title, data, suffix = '%') {
@@ -882,31 +882,24 @@ function updateFilter() {
   
 function renderHistory(targetTitle = null) {
   const list = document.getElementById('historyList');
-  if (!list) return; // [에러 방지] 요소가 없으면 실행 안 함
+  if (!list) return; // [핵심] 에러 방지: 요소가 없으면 실행 중단
 
-  list.innerHTML = ''; // 기존 내용 비우기
+  list.innerHTML = ''; 
 
-  // targetTitle이 있으면 해당 레벨 이력만, 없으면 전체 이력 표시
+  // targetTitle이 있으면 해당 레벨 이력만 필터링, 없으면 전체 표시
   const displayData = targetTitle 
     ? changeHistory.filter(h => h.title === targetTitle)
     : changeHistory;
 
   displayData.forEach(h => {
-    let typeClass = 'info';
-    let typeLabel = 'INFO';
-    if (h.type === 'add') { typeClass = 'add'; typeLabel = 'ADDED'; }
-    else if (h.type === 'move' || h.type === 'rank-change') { typeClass = 'move'; typeLabel = 'MOVED'; }
-    else if (h.type === 'remove') { typeClass = 'remove'; typeLabel = 'REMOVED'; }
-
+    let typeClass = h.type === 'add' ? 'add' : (h.type === 'remove' ? 'remove' : 'move');
+    
     const item = document.createElement('div');
     item.className = `history-item ${typeClass}`;
-    // 네가 기존에 쓰던 스타일 그대로 유지
+    item.style = "display: flex; gap: 15px; padding: 10px; border-bottom: 1px solid #444; color: #eee;";
     item.innerHTML = `
-      <div class="history-date" style="color:#aaa; min-width:100px;">${h.time.split(' ')[0]}</div>
-      <div class="history-tag">${typeLabel}</div>
-      <div class="history-content" style="color:#eee; flex:1;">
-        <b style="color:#fff;">${h.title}</b> ${h.detail}
-      </div>
+      <div style="color: #aaa; min-width: 100px;">${h.time.split(' ')[0]}</div>
+      <div style="flex: 1;"><b style="color: #fff;">${h.title}</b> ${h.detail}</div>
     `;
     list.appendChild(item);
   });
@@ -938,6 +931,7 @@ function getHistoryColor(type) {
 </script>
 </body>
 </html>
+
 
 
 
