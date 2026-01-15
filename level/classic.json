@@ -245,21 +245,20 @@
       "id": 6,
       "title": "PPPP",
       "creator": "Choco",
-      "video": "https://www.youtu.com/embed/bhJ6x2_qNKs?si=nkMceOtd88D99pn5",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/bhJ6x2_qNKs?si=nkMceOtd88D99pn5",
       "map": {
-        "mapId": 128210347,
+        "mapId": "128210347",
         "length": "1m 4s",
         "objects": 5782,
         "uploadDate": "2025-11-16"
       },
       "song": {
         "name": "PPPP",
-        "artist": "TAK",
+        "author": "TAK",
         "id": "NONG"
       },
       "gameplay": {
-        "mainMode": "Wave",
         "modeRatio": {
           "Cube": 100
         },
@@ -268,13 +267,13 @@
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Any-Mode",
@@ -1169,9 +1168,3 @@
   ],
   "history": []
 }
-
-
-
-
-
-
