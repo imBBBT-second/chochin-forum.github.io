@@ -898,29 +898,171 @@ function renderHistory(targetTitle = null) {
   });
 }
 
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+    const panel = document.getElementById('devPanel');
+    if (panel.classList.contains('open')) panel.classList.remove('open');
+    else if (prompt('개발자 비밀번호') === DEV_PASSWORD) {
+      panel.classList.add('open');
+      renderDevHome();
+    }
+  }
+});
+
+// 1. 개발자 패널 홈
 function renderDevHome() {
   document.getElementById('devContent').innerHTML = `
-    <button class="header-btn" onclick="alert('기능 구현 필요 (이전 코드 참조)')">레벨 관리</button>
-    <button class="header-btn" onclick="document.getElementById('devPanel').classList.remove('open')" style="margin-top:20px;">닫기</button>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <button class="dev-btn" onclick="renderAddLevel()">➕ 새 레벨 등록</button>
+      <button class="dev-btn" onclick="renderEditList()">📝 레벨 수정 / 기록 갱신</button>
+      <div style="margin-top:20px; padding:10px; background:#333; font-size:0.8rem; color:#aaa;">
+        * 모든 변경사항은 'JSON 내보내기'를 통해 파일로 저장해야 실제 반영됩니다.
+      </div>
+    </div>
   `;
 }
 
+// 2. 레벨 등록 폼
+function renderAddLevel() {
+  document.getElementById('devContent').innerHTML = `
+    <h3>새 레벨 등록</h3>
+    <input id="newTitle" class="dev-input" placeholder="레벨 제목">
+    <input id="newCreator" class="dev-input" placeholder="제작자">
+    <input id="newVerifier" class="dev-input" placeholder="베리파이어">
+    <input id="newVideo" class="dev-input" placeholder="유튜브 임베드 URL">
+    <input id="newMapID" class="dev-input" placeholder="맵 ID">
+    <button class="dev-btn" onclick="saveNewLevel()">등록하기</button>
+    <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
+  `;
+}
+
+// 3. 레벨 수정 리스트
+function renderEditList() {
+  let html = '<h3>수정할 레벨 선택</h3><div style="max-height:400px; overflow-y:auto;">';
+  demonData.forEach((lv, idx) => {
+    html += `<div class="item" style="padding:10px; font-size:0.9rem;" onclick="renderEditLevel(${idx})">
+              ${lv.id}. ${lv.title}
+             </div>`;
+  });
+  html += '</div><button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>';
+  document.getElementById('devContent').innerHTML = html;
+}
+
+// 4. 레벨 수정 및 기록 갱신 폼
+function renderEditLevel(idx) {
+  const lv = demonData[idx];
+  document.getElementById('devContent').innerHTML = `
+    <h3>레벨 수정 (${lv.title})</h3>
+    <label>제목</label><input id="editTitle" class="dev-input" value="${lv.title}">
+    <label>제작자</label><input id="editCreator" class="dev-input" value="${lv.creator}">
+    <label>비디오</label><input id="editVideo" class="dev-input" value="${lv.video}">
+    
+    <hr style="border:0.5px solid #444; margin:15px 0;">
+    <h4>기록 갱신 (Player, Percent, Date)</h4>
+    <div id="editClearsArea">
+      ${lv.clears.map((c, cIdx) => `
+        <div style="display:flex; gap:5px; margin-bottom:5px;">
+          <input class="dev-input cl-p" value="${c.player}" style="flex:2">
+          <input class="dev-input cl-v" value="${c.percent}" style="flex:1">
+          <button onclick="this.parentElement.remove()" style="background:red; color:white; border:none; cursor:pointer;">X</button>
+        </div>
+      `).join('')}
+    </div>
+    <button class="dev-btn" onclick="addClearRow()">+ 기록 추가</button>
+    
+    <button class="dev-btn" style="background:#4f9; color:#000;" onclick="saveEditLevel(${idx})">수정 완료</button>
+    <button class="dev-btn" onclick="renderEditList()">뒤로가기</button>
+  `;
+}
+
+// --- 보조 로직 함수들 ---
+
+function addClearRow() {
+  const div = document.createElement('div');
+  div.style = "display:flex; gap:5px; margin-bottom:5px;";
+  div.innerHTML = `<input class="dev-input cl-p" placeholder="닉네임" style="flex:2">
+                   <input class="dev-input cl-v" placeholder="%" style="flex:1">
+                   <button onclick="this.parentElement.remove()" style="background:red; color:white; border:none; cursor:pointer;">X</button>`;
+  document.getElementById('editClearsArea').appendChild(div);
+}
+
+function saveNewLevel() {
+  const title = document.getElementById('newTitle').value;
+  if(!title) return alert("제목은 필수야!");
+  
+  const newLv = {
+    id: demonData.length + 1,
+    title: title,
+    creator: document.getElementById('newCreator').value,
+    verifier: document.getElementById('newVerifier').value,
+    video: document.getElementById('newVideo').value,
+    map: { mapId: document.getElementById('newMapID').value },
+    clears: [],
+    tags: []
+  };
+  
+  demonData.push(newLv);
+  addHistory('add', title, "리스트에 새로운 레벨이 등록되었습니다.");
+  alert("등록 성공!");
+  generateList(demonData);
+  renderDevHome();
+}
+
+function saveEditLevel(idx) {
+  const oldTitle = demonData[idx].title;
+  const newTitle = document.getElementById('editTitle').value;
+  
+  // 데이터 업데이트
+  demonData[idx].title = newTitle;
+  demonData[idx].creator = document.getElementById('editCreator').value;
+  demonData[idx].video = document.getElementById('editVideo').value;
+  
+  // 기록(Clears) 업데이트
+  const pInputs = document.querySelectorAll('.cl-p');
+  const vInputs = document.querySelectorAll('.cl-v');
+  const newClears = [];
+  pInputs.forEach((input, i) => {
+    if(input.value) {
+      newClears.push({ player: input.value, percent: parseInt(vInputs[i].value) || 100 });
+    }
+  });
+  
+  // 기록 변화 감지하여 히스토리 남기기
+  if(demonData[idx].clears.length !== newClears.length) {
+    addHistory('info', newTitle, `기록 명단이 갱신되었습니다. (총 ${newClears.length}명)`);
+  }
+  
+  demonData[idx].clears = newClears;
+  
+  alert("수정 완료!");
+  generateList(demonData);
+  renderDevHome();
+}
+
+function addHistory(type, title, detail) {
+  const now = new Date();
+  const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+  changeHistory.unshift({
+    time: timeStr,
+    type: type,
+    title: title,
+    detail: detail
+  });
+}
+
+// JSON 저장 기능 (기존 것 유지 혹은 확인)
 function exportJson() {
-  const data = { levels: demonData, history: changeHistory };
+  const data = { 
+    levels: demonData, 
+    history: changeHistory 
+  };
   const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'classic.json';
   a.click();
 }
-
-// 타입별 색상 반환 함수
-function getHistoryColor(type) {
-  if (type === 'add') return '#2ecc71';         // 초록
-  if (type === 'rank-change' || type === 'move') return '#3498db'; // 파랑
-  if (type === 'remove') return '#e74c3c';      // 빨강
-  return '#f1c40f';                             // 노랑(기본)
-}
 </script>
 </body>
 </html>
+
