@@ -56,6 +56,54 @@
     },
     {
       "id": 2,
+      "title": "Stereo MadnesS EX",
+      "creator": "Choco & Timo",
+      "video": "-",
+      "verifier": "Timo",
+      "map": {
+        "mapId": 131445339,
+        "length": "1m 25s",
+        "objects": 9990,
+        "uploadDate": "2026-01-15"
+      },
+      "song": {
+        "name": "Stereo Madness",
+        "artist": "ForeverBound",
+        "id": 0
+      },
+      "gameplay": {
+        "mainMode": "Ship",
+        "modeRatio": {
+          "Wave": 100
+        },
+        "speedRatio": {
+          "1x": 97.86,
+          "4x": 2.14
+        }
+      },
+      "framePerfect": {
+        "total": 3,
+        "fps": {
+          "30": 3,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Long",
+        "Memory",
+        "Physical",
+        "Full-Effect",
+        "Slow",
+        "No-Clear"
+      ],
+      "clears": []
+    },
+    {
+      "id": 3,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
@@ -103,7 +151,7 @@
       "clears": []
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "nullscube",
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
@@ -149,7 +197,7 @@
       "clears": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Reaper Wave",
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
@@ -189,52 +237,6 @@
         "Medium",
         "Physical",
         "None-Effect",
-        "No-Clear"
-      ],
-      "clears": []
-    },
-    {
-      "id": 5,
-      "title": "Stereo Madness EX",
-      "creator": "Choco",
-      "video": "-",
-      "verifier": "Timo",
-      "map": {
-        "mapId": 118253574,
-        "length": "0m 50s",
-        "objects": 3594,
-        "uploadDate": "2025-05-02"
-      },
-      "song": {
-        "name": "Stereo Madness*",
-        "artist": "ForeverBound",
-        "id": 0
-      },
-      "gameplay": {
-        "mainMode": "Any-Mode",
-        "modeRatio": {
-          "Cube": 100
-        },
-        "speedRatio": {
-          "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
-      },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Memory",
-        "Physical",
-        "Low-Effect",
         "No-Clear"
       ],
       "clears": []
@@ -1074,3 +1076,4 @@
   ],
   "history": []
 }
+
