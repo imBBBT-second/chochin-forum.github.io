@@ -245,7 +245,7 @@
       "id": 6,
       "title": "PPPP",
       "creator": "Choco",
-      "video": "https://youtu.be/embed/bhJ6x2_qNKs?si=nkMceOtd88D99pn5",
+      "video": "https://www.youtu.com/embed/bhJ6x2_qNKs?si=nkMceOtd88D99pn5",
       "verifier": "Choco",
       "map": {
         "mapId": 128210347,
@@ -339,7 +339,7 @@
       "id": 8,
       "title": "Egg Layout",
       "creator": "Light",
-      "video": "https://youtu.be/embed/Enf5QGaAPyI",
+      "video": "https://www.youtu.com/embed/Enf5QGaAPyI",
       "verifier": "Light",
       "map": {
         "mapId": 123940130,
@@ -1169,6 +1169,7 @@
   ],
   "history": []
 }
+
 
 
 
