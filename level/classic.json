@@ -242,7 +242,7 @@
       "clears": []
     },
     {
-      "id": 7,
+      "id": 6,
       "title": "PPPP",
       "creator": "Choco",
       "video": "-",
@@ -289,7 +289,7 @@
       "clears": []
     },
     {
-      "id": 8,
+      "id": 7,
       "title": "JPA EP8",
       "creator": "Choco",
       "video": "-",
@@ -336,7 +336,7 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 8,
       "title": "Egg Layout",
       "creator": "Light",
       "video": "https://youtu.be/Enf5QGaAPyI",
@@ -382,7 +382,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 9,
       "title": "Trolled",
       "creator": "Light",
       "video": "-",
@@ -427,7 +427,7 @@
       "clears": []
     },
     {
-      "id": 11,
+      "id": 10,
       "title": "JPA EP4",
       "creator": "Choco",
       "video": "-",
@@ -474,7 +474,7 @@
       "clears": []
     },
     {
-      "id": 12,
+      "id": 11,
       "title": "JPA EP5",
       "creator": "Choco",
       "video": "-",
@@ -519,7 +519,7 @@
       "clears": []
     },
     {
-      "id": 13,
+      "id": 12,
       "title": "JPA EP1",
       "creator": "Choco",
       "video": "-",
@@ -565,7 +565,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 13,
       "title": "JPA EP7",
       "creator": "Choco",
       "video": "-",
@@ -611,7 +611,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 14,
       "title": "JPA EP2",
       "creator": "Choco",
       "video": "-",
@@ -657,7 +657,7 @@
       "clears": []
     },
     {
-      "id": 16,
+      "id": 15,
       "title": "LT EP7",
       "creator": "Light",
       "video": "-",
@@ -705,7 +705,7 @@
       "clears": []
     },
     {
-      "id": 17,
+      "id": 16,
       "title": "LT EP2",
       "creator": "Light",
       "video": "-",
@@ -750,7 +750,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 17,
       "title": "JPA EP3",
       "creator": "Choco",
       "video": "-",
@@ -796,7 +796,7 @@
       "clears": []
     },
     {
-      "id": 19,
+      "id": 18,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -838,7 +838,7 @@
       "clears": []
     },
     {
-      "id": 20,
+      "id": 19,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -878,7 +878,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 20,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -921,7 +921,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 21,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -961,7 +961,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 22,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1001,7 +1001,7 @@
       "clears": []
     },
     {
-      "id": 24,
+      "id": 23,
       "title": "Glide Fastival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1043,7 +1043,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 24,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1085,7 +1085,7 @@
       "clears": []
     },
     {
-      "id": 26,
+      "id": 25,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1126,7 +1126,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 26,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1169,5 +1169,6 @@
   ],
   "history": []
 }
+
 
 
