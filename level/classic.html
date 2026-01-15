@@ -874,9 +874,9 @@ function showDetail(item, element) {
         <span><b>Date:</b> ${item.map?.uploadDate || '-'}</span>
       </div>
       <div class="song-info" style="background: #333; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-        <div style="font-family: Paperlogy7; color: #f1c40f;">노래 정보</div>
-        <div style="font-size: 0.9rem; color: #eee;">
-          ${item.song?.name || 'Unknown'} by ${item.song?.artist || 'Unknown'} 
+        <div style="font-family: Paperlogy7; color: #fff;">노래 정보</div>
+        <div style="font-size: 0.9rem; color: #eee; font-family: Paperlogy5;">
+          ${item.song?.artist || 'Unknown'} - ${item.song?.name || 'Unknown'}
           <span style="color: #888;">(ID: ${item.song?.id || '-'})</span>
         </div>
       </div>
@@ -1141,6 +1141,7 @@ function exportJson() {
 </script>
 </body>
 </html>
+
 
 
 
