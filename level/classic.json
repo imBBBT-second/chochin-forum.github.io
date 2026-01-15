@@ -19,15 +19,40 @@
       },
       "gameplay": {
         "mainMode": "Wave",
-        "modeRatio": { "Cube": 35.97, "Ship": 11.14, "Wave": 52.82 },
-        "speedRatio": { "0.5x": 10.01, "1x": 5.09, "4x": 84.9 }
+        "modeRatio": {
+          "Cube": 35.97,
+          "Ship": 11.14,
+          "Wave": 52.82
+        },
+        "speedRatio": {
+          "0.5x": 10.01,
+          "1x": 5.09,
+          "4x": 84.9
+        }
       },
       "framePerfect": {
         "total": 30,
-        "fps": { "30": 21, "60": 9, "120": 0, "240": 0 }
+        "fps": {
+          "30": 21,
+          "60": 9,
+          "120": 0,
+          "240": 0
+        }
       },
-      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
-      "clears": [{ "player": "Timo", "date": "2025-12-17", "percent": 100 }]
+      "tags": [
+        "Wave",
+        "4x",
+        "Short",
+        "Physical",
+        "None-Effect"
+      ],
+      "clears": [
+        {
+          "player": "Timo",
+          "date": "2025-12-17",
+          "percent": 100
+        }
+      ]
     },
     {
       "id": 2,
@@ -35,11 +60,46 @@
       "creator": "Choco",
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "verifier": "Choco",
-      "map": { "mapId": 129453627, "length": "0m 28s", "objects": 1431, "uploadDate": "2025-12-14" },
-      "song": { "name": "Portal To The Other Side (feat. Hatsune Miku)", "artist": "nandinanubis", "id": 941913 },
-      "gameplay": { "mainMode": "Wave", "modeRatio": { "Wave": 100 }, "speedRatio": { "1x": 97.86, "4x": 2.14 } },
-      "framePerfect": { "total": 3, "fps": { "30": 3, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Wave", "1x", "Short", "Memory", "Spam", "Low-Effect", "One-Mode", "No-Clear"],
+      "map": {
+        "mapId": 129453627,
+        "length": "0m 28s",
+        "objects": 1431,
+        "uploadDate": "2025-12-14"
+      },
+      "song": {
+        "name": "Portal To The Other Side (feat. Hatsune Miku)",
+        "artist": "nandinanubis",
+        "id": 941913
+      },
+      "gameplay": {
+        "mainMode": "Wave",
+        "modeRatio": {
+          "Wave": 100
+        },
+        "speedRatio": {
+          "1x": 97.86,
+          "4x": 2.14
+        }
+      },
+      "framePerfect": {
+        "total": 3,
+        "fps": {
+          "30": 3,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Wave",
+        "1x",
+        "Short",
+        "Memory",
+        "Spam",
+        "Low-Effect",
+        "One-Mode",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -48,11 +108,44 @@
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "verifier": "Timo",
-      "map": { "mapId": 126915240, "length": "0m 25s", "objects": 33111, "uploadDate": "2025-10-11" },
-      "song": { "name": "Flow", "artist": "Creo", "id": 1132447 },
-      "gameplay": { "mainMode": "Cube", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 12, "fps": { "30": 7, "60": 5, "120": 0, "240": 0 } },
-      "tags": ["Cube", "1x", "Short", "Physical", "One-Mode", "Full-Effect", "No-Clear"],
+      "map": {
+        "mapId": 126915240,
+        "length": "0m 25s",
+        "objects": 33111,
+        "uploadDate": "2025-10-11"
+      },
+      "song": {
+        "name": "Flow",
+        "artist": "Creo",
+        "id": 1132447
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 12,
+        "fps": {
+          "30": 7,
+          "60": 5,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Cube",
+        "1x",
+        "Short",
+        "Physical",
+        "One-Mode",
+        "Full-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -61,11 +154,43 @@
       "creator": "Timo",
       "video": "https://www.youtube.com/embed/Zo14uVzdCaY",
       "verifier": "Timo",
-      "map": { "mapId": 110122641, "length": "0m 33s", "objects": 1326, "uploadDate": "2024-09-14" },
-      "song": { "name": "[Silent Hill Dupstep]*", "artist": "Solkrieg", "id": 509014 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "Any-Speed", "Medium", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 110122641,
+        "length": "0m 33s",
+        "objects": 1326,
+        "uploadDate": "2024-09-14"
+      },
+      "song": {
+        "name": "[Silent Hill Dupstep]*",
+        "artist": "Solkrieg",
+        "id": 509014
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "Any-Speed",
+        "Medium",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -74,11 +199,44 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Timo",
-      "map": { "mapId": 118253574, "length": "0m 50s", "objects": 3594, "uploadDate": "2025-05-02" },
-      "song": { "name": "Stereo Madness*", "artist": "ForeverBound", "id": 0 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Physical", "Low-Effect", "No-Clear"],
+      "map": {
+        "mapId": 118253574,
+        "length": "0m 50s",
+        "objects": 3594,
+        "uploadDate": "2025-05-02"
+      },
+      "song": {
+        "name": "Stereo Madness*",
+        "artist": "ForeverBound",
+        "id": 0
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -87,11 +245,45 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 86335155, "length": "2m 11s", "objects": 7467, "uploadDate": "2022-12-03" },
-      "song": { "name": "Stardust", "artist": "Geoxor", "id": 864327 },
-      "gameplay": { "mainMode": "Cube", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Cube", "3x", "XL", "Gimmick", "Physical", "Luck", "Low-Effect", "No-Clear"],
+      "map": {
+        "mapId": 86335155,
+        "length": "2m 11s",
+        "objects": 7467,
+        "uploadDate": "2022-12-03"
+      },
+      "song": {
+        "name": "Stardust",
+        "artist": "Geoxor",
+        "id": 864327
+      },
+      "gameplay": {
+        "mainMode": "Cube",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Cube",
+        "3x",
+        "XL",
+        "Gimmick",
+        "Physical",
+        "Luck",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -100,11 +292,43 @@
       "creator": "Light",
       "video": "-",
       "verifier": "Light",
-      "map": { "mapId": 85646626, "length": "0m 36s", "objects": 553, "uploadDate": "2022-11-13" },
-      "song": { "name": "Youve been Trolled", "artist": "AntonyC", "id": 477402 },
-      "gameplay": { "mainMode": "Any-mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 1, "fps": { "30": 0, "60": 1, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
+      "map": {
+        "mapId": 85646626,
+        "length": "0m 36s",
+        "objects": 553,
+        "uploadDate": "2022-11-13"
+      },
+      "song": {
+        "name": "Youve been Trolled",
+        "artist": "AntonyC",
+        "id": 477402
+      },
+      "gameplay": {
+        "mainMode": "Any-mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 1,
+        "fps": {
+          "30": 0,
+          "60": 1,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -113,11 +337,45 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 84951046, "length": "1m 28s", "objects": 2064, "uploadDate": "2022-10-24" },
-      "song": { "name": "Hexagon Force", "artist": "Waterflame", "id": 15 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Cube", "Dual", "2x", "Long", "Memory", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 84951046,
+        "length": "1m 28s",
+        "objects": 2064,
+        "uploadDate": "2022-10-24"
+      },
+      "song": {
+        "name": "Hexagon Force",
+        "artist": "Waterflame",
+        "id": 15
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Cube",
+        "Dual",
+        "2x",
+        "Long",
+        "Memory",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -126,11 +384,43 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 85596521, "length": "1m 36s", "objects": 9344, "uploadDate": "2022-11-12" },
-      "song": { "name": "-Final Battle-", "artist": "Waterflame", "id": 598349 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
+      "map": {
+        "mapId": 85596521,
+        "length": "1m 36s",
+        "objects": 9344,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "-Final Battle-",
+        "artist": "Waterflame",
+        "id": 598349
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -139,11 +429,44 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 84244031, "length": "1m 39s", "objects": 3054, "uploadDate": "2022-10-02" },
-      "song": { "name": "Theory of Everthing", "artist": "DJ-Nate", "id": 11 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "Dual", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 84244031,
+        "length": "1m 39s",
+        "objects": 3054,
+        "uploadDate": "2022-10-02"
+      },
+      "song": {
+        "name": "Theory of Everthing",
+        "artist": "DJ-Nate",
+        "id": 11
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "Dual",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -152,11 +475,44 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 86204427, "length": "2m 35s", "objects": 5115, "uploadDate": "2022-11-29" },
-      "song": { "name": "Thundaga (FL Core)", "artist": "Garlagan", "id": 465848 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "2x", "XL", "XXL", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 86204427,
+        "length": "2m 35s",
+        "objects": 5115,
+        "uploadDate": "2022-11-29"
+      },
+      "song": {
+        "name": "Thundaga (FL Core)",
+        "artist": "Garlagan",
+        "id": 465848
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "2x",
+        "XL",
+        "XXL",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -165,11 +521,44 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 84536046, "length": "1m 33s", "objects": 3025, "uploadDate": "2022-10-11" },
-      "song": { "name": "Theory of Everthing 2", "artist": "DJ-Nate", "id": 17 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "1x", "2x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 84536046,
+        "length": "1m 33s",
+        "objects": 3025,
+        "uploadDate": "2022-10-11"
+      },
+      "song": {
+        "name": "Theory of Everthing 2",
+        "artist": "DJ-Nate",
+        "id": 17
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "2x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -178,11 +567,46 @@
       "creator": "Light",
       "video": "-",
       "verifier": "Light",
-      "map": { "mapId": 85837732, "length": "1m 37s", "objects": 2815, "uploadDate": "2022-11-19" },
-      "song": { "name": "-Final Battle-", "artist": "Waterflame", "id": 598349 },
-      "gameplay": { "mainMode": "Any-Mode", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "Dual", "Boss", "1x", "Long", "Physical", "Luck", "Low-Effect", "No-Clear"],
+      "map": {
+        "mapId": 85837732,
+        "length": "1m 37s",
+        "objects": 2815,
+        "uploadDate": "2022-11-19"
+      },
+      "song": {
+        "name": "-Final Battle-",
+        "artist": "Waterflame",
+        "id": 598349
+      },
+      "gameplay": {
+        "mainMode": "Any-Mode",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "Dual",
+        "Boss",
+        "1x",
+        "Long",
+        "Physical",
+        "Luck",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -191,11 +615,43 @@
       "creator": "Light",
       "video": "-",
       "verifier": "Light",
-      "map": { "mapId": 84729138, "length": "1m 2s", "objects": 2387, "uploadDate": "2022-10-17" },
-      "song": { "name": "At the Speed of Light", "artist": "Dimrain47", "id": 467339 },
-      "gameplay": { "mainMode": "Ship", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 84729138,
+        "length": "1m 2s",
+        "objects": 2387,
+        "uploadDate": "2022-10-17"
+      },
+      "song": {
+        "name": "At the Speed of Light",
+        "artist": "Dimrain47",
+        "id": 467339
+      },
+      "gameplay": {
+        "mainMode": "Ship",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Ship",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -204,11 +660,44 @@
       "creator": "Choco",
       "video": "-",
       "verifier": "Choco",
-      "map": { "mapId": 84660687, "length": "1m 22s", "objects": 3700, "uploadDate": "2022-10-15" },
-      "song": { "name": "Electrodynamix", "artist": "DJ-Nate", "id": 14 },
-      "gameplay": { "mainMode": "Ship", "modeRatio": { "Cube": 100 }, "speedRatio": { "1x": 100 } },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Ship", "3x", "Long", "Fast", "Physical", "None-Effect", "No-Clear"],
+      "map": {
+        "mapId": 84660687,
+        "length": "1m 22s",
+        "objects": 3700,
+        "uploadDate": "2022-10-15"
+      },
+      "song": {
+        "name": "Electrodynamix",
+        "artist": "DJ-Nate",
+        "id": 14
+      },
+      "gameplay": {
+        "mainMode": "Ship",
+        "modeRatio": {
+          "Cube": 100
+        },
+        "speedRatio": {
+          "1x": 100
+        }
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Ship",
+        "3x",
+        "Long",
+        "Fast",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -217,11 +706,40 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "-",
-      "map": { "mapId": 87116363, "length": "1m 22s", "objects": 7380, "uploadDate": "2022-12-26" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "1x", "3x", "Long", "Low-Effect", "Fast", "Learny", "Physical"],
+      "map": {
+        "mapId": 87116363,
+        "length": "1m 22s",
+        "objects": 7380,
+        "uploadDate": "2022-12-26"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "3x",
+        "Long",
+        "Low-Effect",
+        "Fast",
+        "Learny",
+        "Physical"
+      ],
       "clears": []
     },
     {
@@ -230,11 +748,38 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "-",
-      "map": { "mapId": 85797010, "length": "2m 55s", "objects": 4055, "uploadDate": "2022-11-18" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
+      "map": {
+        "mapId": 85797010,
+        "length": "2m 55s",
+        "objects": 4055,
+        "uploadDate": "2022-11-18"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "2x",
+        "Sync",
+        "Learny",
+        "Low-Effect",
+        "XL",
+        "Ship"
+      ],
       "clears": []
     },
     {
@@ -243,11 +788,41 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
-      "map": { "mapId": 85605798, "length": "43s", "objects": 1628, "uploadDate": "2022-11-12" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Cube", "Ship", "Any-Mode", "2x", "1x", "Medium", "Learny", "Physical", "Low-Effect"],
+      "map": {
+        "mapId": 85605798,
+        "length": "43s",
+        "objects": 1628,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Cube",
+        "Ship",
+        "Any-Mode",
+        "2x",
+        "1x",
+        "Medium",
+        "Learny",
+        "Physical",
+        "Low-Effect"
+      ],
       "clears": []
     },
     {
@@ -256,11 +831,38 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
-      "map": { "mapId": 85191093, "length": "45s", "objects": 1785, "uploadDate": "2022-10-31" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
+      "map": {
+        "mapId": 85191093,
+        "length": "45s",
+        "objects": 1785,
+        "uploadDate": "2022-10-31"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Sync",
+        "Slow",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
@@ -269,11 +871,38 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
-      "map": { "mapId": 85596289, "length": "53s", "objects": 1492, "uploadDate": "2022-11-12" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "Fast", "Physical", "Medium", "Any-Speed", "None-Effect"],
+      "map": {
+        "mapId": 85596289,
+        "length": "53s",
+        "objects": 1492,
+        "uploadDate": "2022-11-12"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "Fast",
+        "Physical",
+        "Medium",
+        "Any-Speed",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
@@ -282,11 +911,40 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "-",
-      "map": { "mapId": 122547026, "length": "2m 37s", "objects": 5683, "uploadDate": "2025-07-08" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "2x", "3x", "Fast", "XXL", "Physical", "Sync", "None-Effect"],
+      "map": {
+        "mapId": 122547026,
+        "length": "2m 37s",
+        "objects": 5683,
+        "uploadDate": "2025-07-08"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Any-Mode",
+        "2x",
+        "3x",
+        "Fast",
+        "XXL",
+        "Physical",
+        "Sync",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
@@ -295,11 +953,40 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
-      "map": { "mapId": 84810667, "length": "39s", "objects": 742, "uploadDate": "2022-10-20" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Cube", "Ship", "1x", "Medium", "Boss", "Physical", "Spam", "None-Effect"],
+      "map": {
+        "mapId": 84810667,
+        "length": "39s",
+        "objects": 742,
+        "uploadDate": "2022-10-20"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Cube",
+        "Ship",
+        "1x",
+        "Medium",
+        "Boss",
+        "Physical",
+        "Spam",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
@@ -307,12 +994,40 @@
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "",
-      "map": { "mapId": 124680897, "length": "20s", "objects": 1040, "uploadDate": "2025-08-15" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Any-Mode", "3x", "Fast", "Sync", "Learny", "Short", "Full-Effect"],
+      "video": "https://www.youtube.com/embed/QKVv_6gxOFg",
+      "map": {
+        "mapId": "124680897",
+        "length": "20s",
+        "objects": 1040,
+        "uploadDate": "2025-08-15"
+      },
+      "song": {
+        "name": "",
+        "author": "",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        },
+        "total": 0
+      },
+      "tags": [
+        "Any-Mode",
+        "3x",
+        "Fast",
+        "Sync",
+        "Learny",
+        "Short",
+        "Full-Effect"
+      ],
       "clears": []
     },
     {
@@ -321,14 +1036,42 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "-",
-      "map": { "mapId": 101683550, "length": "2m 55s", "objects": 1718, "uploadDate": "2024-02-29" },
-      "song": { "name": "", "artist": "", "id": 0 },
-      "gameplay": { "modeRatio": {}, "speedRatio": {} },
-      "framePerfect": { "total": 0, "fps": { "30": 0, "60": 0, "120": 0, "240": 0 } },
-      "tags": ["Wave", "4x", "XXL", "Gimmick", "Physical", "Slow", "None-Effect"],
+      "map": {
+        "mapId": 101683550,
+        "length": "2m 55s",
+        "objects": 1718,
+        "uploadDate": "2024-02-29"
+      },
+      "song": {
+        "name": "",
+        "artist": "",
+        "id": 0
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "total": 0,
+        "fps": {
+          "30": 0,
+          "60": 0,
+          "120": 0,
+          "240": 0
+        }
+      },
+      "tags": [
+        "Wave",
+        "4x",
+        "XXL",
+        "Gimmick",
+        "Physical",
+        "Slow",
+        "None-Effect"
+      ],
       "clears": []
     }
   ],
-  "history": []
+  "history": [
+  ]
 }
-
