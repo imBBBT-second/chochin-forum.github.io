@@ -1002,9 +1002,9 @@
         "uploadDate": "2025-08-15"
       },
       "song": {
-        "name": "",
-        "author": "",
-        "id": ""
+        "name": "Infinite Power",
+        "author": "TheFatRat",
+        "id": "621144"
       },
       "gameplay": {
         "modeRatio": {},
@@ -1072,6 +1072,5 @@
       "clears": []
     }
   ],
-  "history": [
-  ]
+  "history": []
 }
