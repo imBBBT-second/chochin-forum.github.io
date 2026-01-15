@@ -339,7 +339,7 @@
       "id": 8,
       "title": "Egg Layout",
       "creator": "Light",
-      "video": "https://youtu.be/Enf5QGaAPyI",
+      "video": "https://youtu.be/embed/Enf5QGaAPyI",
       "verifier": "Light",
       "map": {
         "mapId": 123940130,
@@ -1169,6 +1169,7 @@
   ],
   "history": []
 }
+
 
 
 
