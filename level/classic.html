@@ -1186,7 +1186,7 @@ function saveLevelForm(idx) {
 
     // 4. 화면 갱신 및 패널 닫기
     generateList(demonData);
-    alert("수정 완료되었어!");
+    alert("수정 완료");
     renderDevHome(); // 다시 홈으로 이동
     
   } catch (err) {
@@ -1221,9 +1221,25 @@ function exportJson() {
   a.download = 'classic.json';
   a.click();
 }
+
+  // 히스토리를 changeHistory 배열에 추가하는 함수
+function addHistory(type, title, detail) {
+  const now = new Date();
+  const timeStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  
+  if (typeof changeHistory !== 'undefined') {
+    changeHistory.unshift({
+      time: timeStr,
+      type: type,
+      title: title,
+      detail: detail
+    });
+  }
+}
 </script>
 </body>
 </html>
+
 
 
 
