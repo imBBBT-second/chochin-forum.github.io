@@ -402,10 +402,10 @@
       "id": 9,
       "title": "Trolled",
       "creator": "Light",
-      "video": "-",
       "verifier": "Light",
+      "video": "-",
       "map": {
-        "mapId": 85646626,
+        "mapId": "85646626",
         "length": "0m 36s",
         "objects": 553,
         "uploadDate": "2022-11-13"
@@ -413,10 +413,9 @@
       "song": {
         "name": "Youve been Trolled",
         "artist": "AntonyC",
-        "id": 477402
+        "id": "477402"
       },
       "gameplay": {
-        "mainMode": "Any-mode",
         "modeRatio": {
           "Cube": 100
         },
@@ -425,13 +424,13 @@
         }
       },
       "framePerfect": {
-        "total": 1,
         "fps": {
           "30": 0,
           "60": 1,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 1
       },
       "tags": [
         "Any-Mode",
@@ -441,7 +440,13 @@
         "Low-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-16"
+        }
+      ]
     },
     {
       "id": 10,
