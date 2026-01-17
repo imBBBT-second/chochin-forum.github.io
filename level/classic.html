@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -117,7 +117,9 @@
         border: none;
         border-radius: 10px;
         width: 100%;
-        transition: background-color 0.25s ease, color 0.25s ease;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
         font-family: Paperlogy5;
       }
       .header-btn:hover,
@@ -252,7 +254,9 @@
         gap: 0.8rem;
         border-bottom: 1px solid #777;
         cursor: pointer;
-        transition: background-color 0.15s ease, color 0.15s ease;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
         min-height: fit-content;
       }
       .item:hover,
@@ -727,7 +731,9 @@
         font-size: clamp(1.2rem, 3vw, 2rem);
         font-weight: 500;
         cursor: pointer;
-        transition: background 0.2s, color 0.2s;
+        transition:
+          background 0.2s,
+          color 0.2s;
       }
 
       @media (max-width: 768px) {
@@ -852,7 +858,9 @@
       .tag-content {
         max-height: 500px; /* 충분한 높이 */
         overflow: hidden;
-        transition: max-height 0.3s ease-out, opacity 0.2s;
+        transition:
+          max-height 0.3s ease-out,
+          opacity 0.2s;
         opacity: 1;
       }
 
@@ -864,7 +872,9 @@
       }
       /* 히스토리 토글용 스타일 */
       .history-content-wrapper {
-        transition: max-height 0.3s ease-out, opacity 0.2s;
+        transition:
+          max-height 0.3s ease-out,
+          opacity 0.2s;
         max-height: 2000px; /* 내용이 많아도 잘리지 않도록 넉넉하게 설정 */
         opacity: 1;
         overflow: hidden;
@@ -910,10 +920,10 @@
       <div id="detailSubtitle"><레벨 리스트 바로가기></div>
       <div id="modeShortcut">
         <button class="mode-btn active">Classic</button>
-        <button class="mode-btn" onclick="location.href='challenge.html'">
+        <button class="mode-btn" onclick="location.href = 'challenge.html'">
           Challenge
         </button>
-        <button class="mode-btn" onclick="location.href='platformer.html'">
+        <button class="mode-btn" onclick="location.href = 'platformer.html'">
           Platformer
         </button>
       </div>
@@ -1087,7 +1097,7 @@
       let currentUser = localStorage.getItem('currentUser') || null;
 
       // GitHub 설정 상수
-      const GH_OWNER = 'imBBBT';
+      const GH_OWNER = 'imBBBT-second';
       const GH_REPO = 'chochin-forum';
       const GH_PATH = 'level/classic.json';
       const GH_TOKEN = ''; // 코드에 토큰을 고정하려면 이곳에 입력
@@ -1109,9 +1119,8 @@
           filteredData = [...demonData];
 
           if (currentUser) {
-            document.getElementById(
-              'userStatus'
-            ).innerText = `접속 계정 : ${currentUser}`;
+            document.getElementById('userStatus').innerText =
+              `접속 계정 : ${currentUser}`;
           }
 
           renderTagFilterButtons();
@@ -1121,9 +1130,8 @@
           if (filteredData.length > 0) showDetail(filteredData[0]);
         } catch (err) {
           console.error(err);
-          document.getElementById(
-            'list'
-          ).innerHTML = `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
+          document.getElementById('list').innerHTML =
+            `<div style="color:white;text-align:center;padding:20px;">데이터를 불러오는 데 실패했습니다.</div>`;
         }
       };
 
@@ -1170,8 +1178,8 @@
       <div class="rank">${item.id}</div>
       <div>
         <div class="title">${item.title} ${
-            isDone ? '<span class="clear-check">✅</span>' : ''
-          }</div>
+          isDone ? '<span class="clear-check">✅</span>' : ''
+        }</div>
         <div class="creator">${item.creator}</div>
       </div>
     `;
@@ -1239,18 +1247,18 @@
           if (item.gameplay) {
             graph.innerHTML += makeRatioGraph(
               '게임모드 비율',
-              item.gameplay.modeRatio
+              item.gameplay.modeRatio,
             );
             graph.innerHTML += makeRatioGraph(
               '속도 비율',
-              item.gameplay.speedRatio
+              item.gameplay.speedRatio,
             );
           }
           if (item.framePerfect) {
             graph.innerHTML += makeRatioGraph(
               '프레임 퍼펙트',
               item.framePerfect.fps,
-              ''
+              '',
             );
           }
         }
@@ -1263,7 +1271,7 @@
             const tagsHtml = item.tags
               .map(
                 (t) =>
-                  `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`
+                  `<span class="tag" onclick="searchByTag('${t}')">#${t}</span>`,
               )
               .join('');
             description.innerHTML = `<div class="section"><div class="section-title">태그</div><div class="tag-group-container">${tagsHtml}</div></div>`;
@@ -1273,7 +1281,7 @@
         // --- [핵심 수정 부분: 변경 이력] ---
         // levelSpecificHistory 변수를 정의만 하지 말고, 데이터가 있는지 콘솔로 확인해봐.
         const levelSpecificHistory = changeHistory.filter(
-          (h) => h.title === item.title
+          (h) => h.title === item.title,
         );
 
         // 만약 renderHistory 함수가 내부적으로 changeHistory 전체를 사용한다면
@@ -1299,8 +1307,8 @@
         <div class="clear-rank">${i + 1}</div>
         <div class="clear-player">${playerHTML}</div>
         <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">${
-              c.percent
-            }%</div>
+          c.percent
+        }%</div>
         <div class="clear-date">${c.date || ''}</div>
       `;
             clearBox.appendChild(row);
@@ -1321,7 +1329,7 @@
           <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${v}%"></div></div>
           <div class="graph-value">${v}${suffix}</div>
         </div>
-      `
+      `,
         )
         .join('')}
     </div>
@@ -1339,12 +1347,12 @@
         ${tags
           .map(
             (t) =>
-              `<button class="filter-tag-btn" onclick="searchByTag('${t}')">#${t}</button>`
+              `<button class="filter-tag-btn" onclick="searchByTag('${t}')">#${t}</button>`,
           )
           .join('')}
       </div>
     </div>
-  `
+  `,
           )
           .join('');
       }
@@ -1372,7 +1380,7 @@
           const tagMatch =
             item.tags &&
             item.tags.some(
-              (t) => t.toLowerCase() === term || t.toLowerCase().includes(term)
+              (t) => t.toLowerCase() === term || t.toLowerCase().includes(term),
             );
           return titleMatch || tagMatch;
         });
@@ -1403,7 +1411,7 @@
 
           // 2. 이력에서 순위 파싱
           const specificHistory = changeHistory.filter(
-            (h) => h.title === targetTitle
+            (h) => h.title === targetTitle,
           );
           specificHistory.forEach((h) => {
             const matches = h.detail.match(/(\d+)위/g);
@@ -1440,8 +1448,8 @@
           item.innerHTML = `
       <div style="color: #aaa; min-width: 100px;">${h.time.split(' ')[0]}</div>
       <div style="flex: 1;"><b style="color: #fff;">${h.title}</b> ${
-            h.detail
-          }</div>
+        h.detail
+      }</div>
     `;
           list.appendChild(item);
         });
@@ -1515,7 +1523,7 @@
         'f-placement',
         `순위 (1~${demonData.length + (isEdit ? 0 : 1)})`,
         isEdit ? idx + 1 : demonData.length + 1,
-        'number'
+        'number',
       )}
         
       <label>기본: 제목, 제작자, 베리파이어, 영상URL</label>
@@ -1539,13 +1547,13 @@
 
       <label>비율(JSON): 모드, 속도, 프레임퍼펙트</label>
       <textarea id="f-mode" class="dev-input" placeholder='모드 비율 {"Cube":50...}'>${JSON.stringify(
-        lv.gameplay?.modeRatio || {}
+        lv.gameplay?.modeRatio || {},
       )}</textarea>
       <textarea id="f-speed" class="dev-input" placeholder='속도 비율 {"1x":100...}'>${JSON.stringify(
-        lv.gameplay?.speedRatio || {}
+        lv.gameplay?.speedRatio || {},
       )}</textarea>
       <textarea id="f-fps" class="dev-input" placeholder='FPS {"60hz":1...}'>${JSON.stringify(
-        lv.framePerfect?.fps || {}
+        lv.framePerfect?.fps || {},
       )}</textarea>
 
       <label>태그 (쉼표 구분)</label>
@@ -1578,7 +1586,7 @@
             }" style="flex:1.5">
             <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
           </div>
-        `
+        `,
           )
           .join('')}
       </div>
@@ -1600,8 +1608,8 @@
           let targetRank = placementInput
             ? parseInt(placementInput.value) - 1
             : isEdit
-            ? idx
-            : demonData.length;
+              ? idx
+              : demonData.length;
 
           playerInputs.forEach((input, i) => {
             const pName = input.value.trim();
@@ -1651,7 +1659,7 @@
               fps: fpsData,
               total: Object.values(fpsData).reduce(
                 (a, b) => a + (parseInt(b) || 0),
-                0
+                0,
               ),
             },
             tags: getValue('f-tags')
@@ -1673,7 +1681,7 @@
                 newData.title,
                 `재평가로 인해 순위가 ${oldRank + 1}위에서 ${
                   targetRank + 1
-                }위로 ${direction}하였습니다.`
+                }위로 ${direction}하였습니다.`,
               );
 
               // 사이의 레벨들 순위 변동 기록
@@ -1690,7 +1698,7 @@
                   affectedLv.title,
                   `상위 레벨의 순위 변동으로 인해 ${i + 1}위에서 ${
                     i + 1 + shift
-                  }위로 ${shiftDir}하였습니다.`
+                  }위로 ${shiftDir}하였습니다.`,
                 );
               }
 
@@ -1710,7 +1718,7 @@
                 demonData[i].title,
                 `새로운 레벨 추가로 인해 순위가 ${i + 1}위에서 ${
                   i + 2
-                }위로 하락하였습니다.`
+                }위로 하락하였습니다.`,
               );
             }
 
@@ -1718,7 +1726,7 @@
             addHistory(
               'add',
               newData.title,
-              `${targetRank + 1}위에 새로운 레벨이 등록되었습니다.`
+              `${targetRank + 1}위에 새로운 레벨이 등록되었습니다.`,
             );
           }
 
@@ -1740,7 +1748,7 @@
       function deleteLevel(idx) {
         if (
           !confirm(
-            '정말로 이 레벨을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.'
+            '정말로 이 레벨을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.',
           )
         )
           return;
@@ -1752,7 +1760,7 @@
         addHistory(
           'remove',
           deletedLv.title,
-          `${oldRank}위에 있던 레벨이 삭제되었습니다.`
+          `${oldRank}위에 있던 레벨이 삭제되었습니다.`,
         );
 
         // 2. 영향받는 레벨들 (삭제된 레벨 뒤에 있던 레벨들은 순위가 1씩 상승)
@@ -1761,7 +1769,7 @@
           addHistory(
             'move',
             affectedLv.title,
-            `상위 레벨 삭제로 인해 ${i + 1}위에서 ${i}위로 상승하였습니다.`
+            `상위 레벨 삭제로 인해 ${i + 1}위에서 ${i}위로 상승하였습니다.`,
           );
         }
 
@@ -1829,10 +1837,10 @@
       <input id="gh-token" class="dev-input" type="password" value="${
         githubConfig.token
       }" ${
-          isTokenFixed
-            ? 'readonly style="background:#222; color:#888;"'
-            : 'placeholder="ghp_..."'
-        }>
+        isTokenFixed
+          ? 'readonly style="background:#222; color:#888;"'
+          : 'placeholder="ghp_..."'
+      }>
       
       ${
         !isTokenFixed
@@ -1863,7 +1871,7 @@
         const content = JSON.stringify(
           { levels: demonData, history: changeHistory },
           null,
-          2
+          2,
         );
         const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.path}`;
 
@@ -1907,9 +1915,9 @@
       function addHistory(type, title, detail) {
         const now = new Date();
         const timeStr = `${now.getFullYear()}-${String(
-          now.getMonth() + 1
+          now.getMonth() + 1,
         ).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(
-          now.getHours()
+          now.getHours(),
         ).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
         if (typeof changeHistory !== 'undefined') {
