@@ -1519,7 +1519,7 @@
     {
       "time": "2026-12-14 22:04",
       "type": "move",
-      "title": "Nullscube",
+      "title": "nullscube",
       "detail": "새로운 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
     },
     {
@@ -1543,13 +1543,13 @@
     {
       "time": "2026-01-15 12:28",
       "type": "move",
-      "title": "Nullscube",
+      "title": "nullscube",
       "detail": "새로운 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
     },
     {
       "time": "2026-12-10 21:37",
       "type": "reeval",
-      "title": "Chocubed",
+      "title": "chocubed",
       "detail": "하위 레벨의 재평가로 인해 순위가 3위에서 1위로 상승하였습니다."
     }
   ]
