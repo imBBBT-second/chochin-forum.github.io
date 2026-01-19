@@ -89,13 +89,8 @@
           "author": "Choco"
         }
       ],
-      "clears": [
-        {
-          "player": "Choco",
-          "date": "2026-01-15"
-        }
-      ]
-    }
+      "clears": []
+    },
     {
       "id": "pack 5",
       "title": "Troll Pack",
