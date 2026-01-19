@@ -1133,12 +1133,12 @@
     },
     {
       "id": 25,
-      "title": "Glide Fastival",
+      "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
       "video": "-",
       "map": {
-        "mapId": 122547026,
+        "mapId": "122547026",
         "length": "2m 37s",
         "objects": 5683,
         "uploadDate": "2025-07-08"
@@ -1146,20 +1146,20 @@
       "song": {
         "name": "",
         "artist": "",
-        "id": 0
+        "id": ""
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Any-Mode",
