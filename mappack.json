@@ -47,6 +47,7 @@
         }
       ]
     },
+    
     {
       "id": "pack 3",
       "title": "Adventure Pack II",
@@ -75,6 +76,28 @@
     },
     {
       "id": "pack 4",
+      "title": "Egg Pack",
+      "tier": "Tier 1",
+      "description": "달걀 콘테스트에 사용된 맵들을 해보세요!",
+      "levels": [
+        {
+          "name": "Egg Layout",
+          "author": "Light"
+        },
+        {
+          "name": "Glide Festival",
+          "author": "Choco"
+        }
+      ],
+      "clears": [
+        {
+          "player": "Choco",
+          "date": "2026-01-15"
+        }
+      ]
+    }
+    {
+      "id": "pack 5",
       "title": "Troll Pack",
       "tier": "Tier 2",
       "description": "찌끄레기같은 맵들을 쳐 즐겨보세요!",
@@ -91,7 +114,28 @@
       "clears": []
     },
     {
-      "id": "pack 5",
+      "id": "pack 6",
+      "title": "Japanese Pack",
+      "tier": "Tier 2",
+      "description": "일본 노래로 구성된 맵을 해보세요!",
+      "levels": [
+        {
+          "name": "FlipBook",
+          "author": "Choco"
+        },
+        {
+          "name": "Endless Dreaming",
+          "author": "Light"
+        },
+        {
+          "name": "PPPP",
+          "author": "Choco"
+        }
+      ],
+      "clears": []
+    },
+    {
+      "id": "pack 7",
       "title": "Wave Pack",
       "tier": "Tier 3",
       "description": "웨이브 원툴인 맵들을 해보세요!",
@@ -112,7 +156,7 @@
       "clears": []
     },
     {
-      "id": "pack 6",
+      "id": "pack 8",
       "title": "Inspired Pack",
       "tier": "Tier 3",
       "description": "다른 맵들을 모티브로 만들어진 맵들을 해보세요!",
@@ -135,6 +179,23 @@
         }
       ],
       "clears": []
+    },
+    {
+      "id": "pack 9",
+      "title": "TOP 1 Pack",
+      "tier": "Tier 3",
+      "description": "현재와 과거의 TOP 1 자리를 지키는(던) 맵들을 즐길... 수 있어요?",
+      "levels": [
+        {
+          "name": "chocubed",
+          "author": "Light"
+        },
+        {
+          "name": "nullscube",
+          "author": "Timo"
+        }
+      ],
+      "clears": []
     }
   ],
   "history": [
@@ -142,6 +203,11 @@
       "time": "2026-01-11",
       "type": "팩 추가",
       "detail": "Treasure Pack / Adventure Pack I / Adventure Pack II / Troll Pack / Wave Pack / Inspired Pack 추가"
+    },
+    {
+      "time": "2026-01-19",
+      "type": "팩 추가",
+      "detail": "Egg Pack / Japanese Pack / TOP 1 Pack 추가"
     }
   ]
 }
