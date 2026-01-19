@@ -38,7 +38,13 @@
         },
         "total": 30
       },
-      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
+      "tags": [
+        "Wave",
+        "4x",
+        "Short",
+        "Physical",
+        "None-Effect"
+      ],
       "clears": [
         {
           "player": "Timo",
@@ -307,7 +313,13 @@
         "fps": {},
         "total": 0
       },
-      "tags": ["Any-Mode", "Long", "Sync", "Flow", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "Long",
+        "Sync",
+        "Flow",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -358,6 +370,7 @@
         "Sync",
         "Physical",
         "Flow",
+        "High-CPS",
         "Full-Effect",
         "No-Clear"
       ],
@@ -511,7 +524,14 @@
         },
         "total": 1
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": [
         {
           "player": "imBBBT",
@@ -608,7 +628,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -832,7 +859,14 @@
           "240": 0
         }
       },
-      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Ship",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -953,7 +987,14 @@
           "240": 0
         }
       },
-      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
+      "tags": [
+        "2x",
+        "Sync",
+        "Learny",
+        "Low-Effect",
+        "XL",
+        "Ship"
+      ],
       "clears": []
     },
     {
@@ -1029,7 +1070,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Sync",
+        "Slow",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
