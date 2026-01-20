@@ -200,8 +200,13 @@
       }
 
       @media (max-width: 1400px) {
+        body {
+          height: auto;
+          overflow-y: auto;
+        }
         .main-container {
           flex-direction: column;
+          flex: none;
         }
         .container,
         .detail-panel,
@@ -210,6 +215,12 @@
           margin-bottom: 20px;
           height: auto;
           flex: none;
+          overflow-y: visible;
+          min-height: 400px; /* Give some base height */
+        }
+        #list {
+          overflow-y: auto; /* Allow list to scroll internally on mobile if it's too long */
+          max-height: 60vh;
         }
         .header-container {
           flex-direction: column;
@@ -221,6 +232,21 @@
         .hamburger {
           display: block;
         }
+      }
+
+      /* --- 스크롤바 커스텀 --- */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #777;
       }
 
       /* --- 검색 및 태그 --- */
@@ -1111,6 +1137,38 @@
           <div id="detailDescription"></div>
         </div>
         <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
+
+        <div id="historySection" class="section" style="margin-top: 20px">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+            "
+          >
+            <div class="section-title" style="margin-bottom: 0">
+              변경 이력 (Level History)
+            </div>
+            <button
+              onclick="toggleHistoryPanel()"
+              id="historyToggleBtn"
+              style="
+                background: none;
+                border: 1px solid #555;
+                color: #ccc;
+                cursor: pointer;
+                border-radius: 4px;
+                padding: 2px 8px;
+              "
+            >
+              접기
+            </button>
+          </div>
+          <div id="historyContentWrapper" class="history-content-wrapper">
+            <div id="historyList"></div>
+          </div>
+        </div>
       </div>
 
       <div class="detail-panel clears-panel" id="mobileClearsPanel">
@@ -1125,42 +1183,6 @@
           기록 명단
         </div>
         <div id="detailClears"></div>
-      </div>
-    </div>
-
-    <div
-      id="historySection"
-      class="section"
-      style="margin: 20px 20px 40px 20px"
-    >
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 10px;
-        "
-      >
-        <div class="section-title" style="margin-bottom: 0">
-          변경 이력 (Level History)
-        </div>
-        <button
-          onclick="toggleHistoryPanel()"
-          id="historyToggleBtn"
-          style="
-            background: none;
-            border: 1px solid #555;
-            color: #ccc;
-            cursor: pointer;
-            border-radius: 4px;
-            padding: 2px 8px;
-          "
-        >
-          접기
-        </button>
-      </div>
-      <div id="historyContentWrapper" class="history-content-wrapper">
-        <div id="historyList"></div>
       </div>
     </div>
 
