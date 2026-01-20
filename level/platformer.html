@@ -160,6 +160,18 @@
         height: 0;
         margin: 6px 0;
       }
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
 
       .main-container {
         flex: 1;
@@ -739,6 +751,16 @@
           font-size: 2.8rem;
           word-break: keep-all;
         }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
       }
 
       #modeShortcut .mode {
@@ -998,10 +1020,6 @@
         #historySection {
           margin-top: auto !important;
         }
-        .header-btn {
-          font-size: 1.2rem;
-          padding: 8px 0;
-        }
       }
     </style>
   </head>
@@ -1013,6 +1031,7 @@
     </div>
 
     <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
       <a
         href="../index.html"
         class="header-btn-wrapper"
@@ -2032,6 +2051,11 @@
           document.getElementById('mobileClearsPanel').classList.toggle('show');
           btn.classList.toggle('active');
         }
+      }
+
+      function toggleMenu() {
+        const header = document.querySelector('.header-container');
+        header.classList.toggle('open');
       }
     </script>
   </body>

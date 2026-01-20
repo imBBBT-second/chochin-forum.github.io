@@ -9,7 +9,7 @@
       /* --- 기본 설정 --- */
       html,
       body {
-        min-height: 100vh;
+        height: 100%;
         margin: 0;
         background: #323232;
         display: flex;
@@ -142,6 +142,18 @@
         height: 0;
         margin: 6px 0;
       }
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
 
       /* --- 메인 컨테이너 --- */
       .main-container {
@@ -197,6 +209,16 @@
           margin-bottom: 20px;
           height: auto;
           flex: none;
+        }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
         }
       }
 
@@ -966,11 +988,6 @@
         #historySection {
           margin-top: auto !important;
         }
-
-        .header-btn {
-          font-size: 1.2rem;
-          padding: 8px 0;
-        }
       }
     </style>
   </head>
@@ -982,7 +999,8 @@
     </div>
 
     <div class="header-container">
-      <a href="../index.html" class="header-btn-wrapper"
+      <button class="hamburger" onclick="toggleMenu()">☰</button
+      ><a href="../index.html" class="header-btn-wrapper"
         ><button class="header-btn">홈</button></a
       >
       <a href="../level.html" class="header-btn-wrapper"
@@ -2095,6 +2113,11 @@
           document.getElementById('mobileClearsPanel').classList.toggle('show');
           btn.classList.toggle('active');
         }
+      }
+
+      function toggleMenu() {
+        const header = document.querySelector('.header-container');
+        header.classList.toggle('open');
       }
     </script>
   </body>
