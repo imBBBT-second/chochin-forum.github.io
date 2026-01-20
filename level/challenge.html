@@ -159,19 +159,6 @@
         margin: 6px 0;
       }
 
-      .hamburger {
-        display: none;
-        font-size: 2.5rem;
-        color: white;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-      }
-      .header-container.open .header-btn-wrapper {
-        display: flex;
-      }
-
       /* --- 메인 컨테이너 레이아웃 (수정됨) --- */
       .main-container {
         display: flex;
@@ -234,16 +221,6 @@
           margin-bottom: 20px;
           height: auto;
           flex: none; /* 반응형에서는 비율 해제 */
-        }
-        .header-container {
-          flex-direction: column;
-          gap: 10px;
-        }
-        .header-btn-wrapper {
-          display: none;
-        }
-        .hamburger {
-          display: block;
         }
       }
 
@@ -863,8 +840,51 @@
           font-size: 2.8rem;
           word-break: keep-all;
         }
+      }
+    </style>
+    <style>
+      /* 모바일 전용 컨트롤 및 패널 제어 */
+      .mobile-controls {
+        display: none;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .mobile-toggle-btn {
+        background: #444;
+        color: white;
+        border: 1px solid #777;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-family: Paperlogy5;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .mobile-toggle-btn.active {
+        background: #fff;
+        color: #333;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-controls {
+          display: flex;
+        }
+        .container,
+        .detail-panel.clears-panel {
+          display: none;
+        }
+        .container.show,
+        .detail-panel.clears-panel.show {
+          display: flex;
+        }
         #historySection {
-          margin-top: 50px !important;
+          margin-top: auto !important;
+        }
+        .header-btn {
+          font-size: 1.2rem;
+          padding: 8px 0;
         }
       }
     </style>
@@ -877,7 +897,6 @@
     </div>
 
     <div class="header-container">
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
       <a href="../index.html" class="header-btn-wrapper">
         <button class="header-btn">홈</button>
       </a>
@@ -921,8 +940,23 @@
       </div>
     </div>
 
+    <div class="mobile-controls">
+      <button
+        class="mobile-toggle-btn"
+        onclick="toggleMobilePanel('list', this)"
+      >
+        ☰ 레벨 목록
+      </button>
+      <button
+        class="mobile-toggle-btn"
+        onclick="toggleMobilePanel('clears', this)"
+      >
+        🏆 기록 명단
+      </button>
+    </div>
+
     <div class="main-container">
-      <div class="container">
+      <div class="container" id="mobileListPanel">
         <input
           id="search"
           placeholder="제목 또는 태그 검색..."
@@ -975,7 +1009,7 @@
         <p class="fp-warning">※ 프레임 퍼펙트는 정확하지 않습니다 ※</p>
       </div>
 
-      <div class="detail-panel clears-panel">
+      <div class="detail-panel clears-panel" id="mobileClearsPanel">
         <div
           style="
             font-family: Paperlogy9;
@@ -1955,9 +1989,14 @@
         }
       }
 
-      function toggleMenu() {
-        const header = document.querySelector('.header-container');
-        header.classList.toggle('open');
+      function toggleMobilePanel(type, btn) {
+        if (type === 'list') {
+          document.getElementById('mobileListPanel').classList.toggle('show');
+          btn.classList.toggle('active');
+        } else if (type === 'clears') {
+          document.getElementById('mobileClearsPanel').classList.toggle('show');
+          btn.classList.toggle('active');
+        }
       }
     </script>
   </body>
