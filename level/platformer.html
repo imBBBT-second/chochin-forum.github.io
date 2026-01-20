@@ -8,12 +8,12 @@
     <style>
       html,
       body {
-        min-height: 100vh;
+        height: 100vh;
         margin: 0;
         background: #323232;
         display: flex;
         flex-direction: column;
-        overflow-x: hidden;
+        overflow: hidden;
       }
       * {
         box-sizing: border-box;
@@ -179,13 +179,7 @@
         display: flex;
         gap: 2%;
         padding: 1.2%;
-        min-height: 1000px;
-      }
-
-      .container,
-      .detail-panel,
-      .detail-panel.clears-panel {
-        min-height: 900px;
+        min-height: 0;
       }
 
       .container,

@@ -9,12 +9,12 @@
       /* --- 기본 설정 --- */
       html,
       body {
-        min-height: 100vh;
+        height: 100vh;
         margin: 0;
         background: #323232;
         display: flex;
         flex-direction: column;
-        overflow-x: hidden;
+        overflow: hidden;
       }
       * {
         box-sizing: border-box;
@@ -177,7 +177,8 @@
         gap: 20px; /* 갭을 고정 픽셀로 변경하여 안정성 확보 (원하면 %로 변경 가능) */
         padding: 20px;
         align-items: stretch;
-        min-height: 800px;
+        flex: 1;
+        min-height: 0;
       }
 
       /* 패널 공통 스타일 */
@@ -257,6 +258,10 @@
         font-family: Paperlogy5;
         background: #333;
         color: white;
+      }
+      #list {
+        flex: 1;
+        overflow-y: auto;
       }
 
       #tagCategoryContainer {
