@@ -14,38 +14,47 @@
       @font-face {
         font-family: Paperlogy1;
         src: url('font - paperlogy/Paperlogy-1.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy2;
         src: url('font - paperlogy/Paperlogy-2.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy3;
         src: url('font - paperlogy/Paperlogy-3.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy4;
         src: url('font - paperlogy/Paperlogy-4.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy5;
         src: url('font - paperlogy/Paperlogy-5.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy6;
         src: url('font - paperlogy/Paperlogy-6.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy7;
         src: url('font - paperlogy/Paperlogy-7.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy8;
         src: url('font - paperlogy/Paperlogy-8.ttf') format('truetype');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy9;
         src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype');
+        font-display: swap;
       }
 
       body {
@@ -137,6 +146,19 @@
         width: 100%;
         height: 0;
         margin: 10px 0;
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
       }
 
       .main-content {
@@ -257,6 +279,16 @@
         .discord-description {
           text-align: center;
         }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
       }
 
       @media (max-width: 480px) {
@@ -279,6 +311,7 @@
 
   <body>
     <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
       <a href="index.html" class="header-btn-wrapper">
         <button class="header-btn" style="font-family: Paperlogy9">홈</button>
       </a>
@@ -291,7 +324,9 @@
         </a>
       </div>
       <div class="header-btn-wrapper">
-        <button class="header-btn">하디스트</button>
+        <a href="roulette.html" class="header-btn-wrapper">
+          <button class="header-btn">룰렛</button>
+        </a>
       </div>
     </div>
 
@@ -342,5 +377,10 @@
         <p class="credit-text">제작 : 초코, 앞티</p>
       </div>
     </div>
+    <script>
+      function toggleMenu() {
+        document.querySelector('.header-container').classList.toggle('open');
+      }
+    </script>
   </body>
 </html>

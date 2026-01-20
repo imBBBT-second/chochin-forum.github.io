@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>초친 포럼 (레벨 - 플랫포머)</title>
 
     <style>
@@ -28,38 +28,47 @@
       @font-face {
         font-family: Paperlogy1;
         src: url('font - paperlogy/Paperlogy-1.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy2;
         src: url('font - paperlogy/Paperlogy-2.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy3;
         src: url('font - paperlogy/Paperlogy-3.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy4;
         src: url('font - paperlogy/Paperlogy-4.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy5;
         src: url('font - paperlogy/Paperlogy-5.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy6;
         src: url('font - paperlogy/Paperlogy-6.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy7;
         src: url('font - paperlogy/Paperlogy-7.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy8;
         src: url('font - paperlogy/Paperlogy-8.ttf');
+        font-display: swap;
       }
       @font-face {
         font-family: Paperlogy9;
         src: url('font - paperlogy/Paperlogy-9.ttf');
+        font-display: swap;
       }
 
       h1 {
@@ -150,6 +159,19 @@
         width: 100%;
         height: 0;
         margin: 6px 0;
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
       }
 
       .main-container {
@@ -707,6 +729,39 @@
         .clears-panel > div:first-child {
           font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
         }
+
+        .main-container {
+          padding: 10px;
+          gap: 15px;
+        }
+        .container,
+        .detail-panel,
+        .detail-panel.clears-panel {
+          padding: 15px;
+        }
+        #detailHeader {
+          margin-bottom: 30px;
+        }
+        #headerTitle {
+          font-size: 100px;
+        }
+        #detailSubtitle {
+          font-size: 20px;
+        }
+        .detail-title {
+          font-size: 2.8rem;
+          word-break: keep-all;
+        }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
       }
 
       #modeShortcut .mode {
@@ -936,6 +991,7 @@
     </div>
 
     <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
       <a
         href="../index.html"
         class="header-btn-wrapper"
@@ -956,7 +1012,9 @@
         </a>
       </div>
       <div class="header-btn-wrapper">
-        <button class="header-btn">하디스트</button>
+        <a href="../roulette.html" class="header-btn-wrapper">
+          <button class="header-btn">룰렛</button>
+        </a>
       </div>
     </div>
 
@@ -1169,7 +1227,22 @@
           generateList(filteredData);
           renderHistory();
 
-          if (filteredData.length > 0) showDetail(filteredData[0]);
+          const urlParams = new URLSearchParams(window.location.search);
+          const idParam = urlParams.get('id');
+          let initialIndex = 0;
+
+          if (idParam) {
+            const foundIndex = filteredData.findIndex((d) => d.id == idParam);
+            if (foundIndex !== -1) initialIndex = foundIndex;
+          }
+
+          if (filteredData.length > 0) {
+            const list = document.getElementById('list');
+            const targetEl = list.children[initialIndex];
+            showDetail(filteredData[initialIndex], targetEl);
+            if (idParam && targetEl)
+              targetEl.scrollIntoView({ block: 'center' });
+          }
         } catch (err) {
           console.error(err);
           document.getElementById('list').innerHTML =
@@ -1228,22 +1301,22 @@
           info.innerHTML = '';
           if (item.map) {
             info.innerHTML = `
-      <div class="info-row" style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #555;">
-        <span><b>ID:</b> ${item.map?.mapId || '-'}</span>
-        <span><b>Length:</b> ${item.map?.length || '-'}</span>
-        <span><b>Objects:</b> ${
-          item.map?.objects?.toLocaleString() || '0'
-        }</span>
-        <span><b>Date:</b> ${item.map?.uploadDate || '-'}</span>
-      </div>
-      <div class="song-info" style="background: #333; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-        <div style="font-family: Paperlogy7; color: #fff;">노래 정보</div>
-        <div style="font-size: 0.9rem; color: #eee; font-family: Paperlogy5;">
-          ${item.song?.artist || 'Unknown'} - ${item.song?.name || 'Unknown'}
-          <span style="color: #888;">(ID: ${item.song?.id || '-'})</span>
-        </div>
-      </div>
-    `;
+          <div class="info-row" style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #555;">
+            <span><b>ID:</b> ${item.map?.mapId || '-'}</span>
+            <span><b>Length:</b> ${item.map?.length || '-'}</span>
+            <span><b>Objects:</b> ${
+              item.map?.objects?.toLocaleString() || '0'
+            }</span>
+            <span><b>Date:</b> ${item.map?.uploadDate || '-'}</span>
+          </div>
+          <div class="song-info" style="background: #333; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+            <div style="font-family: Paperlogy7; color: #fff;">노래 정보</div>
+            <div style="font-size: 0.9rem; color: #eee; font-family: Paperlogy5;">
+              ${item.song?.artist || 'Unknown'} - ${item.song?.name || 'Unknown'}
+              <span style="color: #888;">(ID: ${item.song?.id || '-'})</span>
+            </div>
+          </div>
+        `;
           }
         }
 
@@ -1296,13 +1369,13 @@
               ? `<a href="${youtube}" target="_blank">${c.player}</a>`
               : c.player;
             row.innerHTML = `
-        <div class="clear-rank">#${i + 1}</div>
-        <div class="clear-player">${playerHTML}</div>
-        <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">${
-          c.percent
-        }%</div>
-        <div class="clear-date">${c.date}</div>
-      `;
+            <div class="clear-rank">#${i + 1}</div>
+            <div class="clear-player">${playerHTML}</div>
+            <div class="clear-percent ${c.percent === 100 ? 'full' : ''}">${
+              c.percent
+            }%</div>
+            <div class="clear-date">${c.date}</div>
+          `;
             clearBox.appendChild(row);
           });
         }
@@ -1315,21 +1388,21 @@
       function makeRatioGraph(title, data, suffix = '%') {
         if (!data || Object.keys(data).length === 0) return '';
         return `
-    <div class="graph-box">
-      <div class="graph-title">${title}</div>
-      ${Object.entries(data)
-        .map(
-          ([k, v]) => `
-        <div class="graph-row">
-          <div class="graph-label">${k}</div>
-          <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${v}%"></div></div>
-          <div class="graph-value">${v}${suffix}</div>
+        <div class="graph-box">
+          <div class="graph-title">${title}</div>
+          ${Object.entries(data)
+            .map(
+              ([k, v]) => `
+            <div class="graph-row">
+              <div class="graph-label">${k}</div>
+              <div class="graph-bar-bg"><div class="graph-bar" data-key="${k}" style="width:${v}%"></div></div>
+              <div class="graph-value">${v}${suffix}</div>
+            </div>
+          `,
+            )
+            .join('')}
         </div>
-      `,
-        )
-        .join('')}
-    </div>
-  `;
+      `;
       }
 
       function generateList(data) {
@@ -1347,14 +1420,14 @@
           const div = document.createElement('div');
           div.className = `item ${isDone ? 'cleared' : ''}`;
           div.innerHTML = `
-      <div class="rank">${d.id}</div>
-      <div>
-        <div class="title">${d.title} ${
-          isDone ? '<span class="clear-check">✅</span>' : ''
-        }</div>
-        <div class="creator">by ${d.creator}</div>
-      </div>
-    `;
+          <div class="rank">${d.id}</div>
+          <div>
+            <div class="title">${d.title} ${
+              isDone ? '<span class="clear-check">✅</span>' : ''
+            }</div>
+            <div class="creator">by ${d.creator}</div>
+          </div>
+        `;
           div.onclick = () => showDetail(d, div);
           list.appendChild(div);
         });
@@ -1365,18 +1438,18 @@
         container.innerHTML = Object.entries(FILTER_CATEGORIES)
           .map(
             ([catName, tags]) => `
-    <div class="tag-cat-row">
-      <div class="tag-cat-name">${catName}</div>
-      <div class="tag-cat-list">
-        ${tags
-          .map(
-            (t) =>
-              `<button class="filter-tag-btn" onclick="searchByTag('${t}')">#${t}</button>`,
-          )
-          .join('')}
-      </div>
-    </div>
-  `,
+        <div class="tag-cat-row">
+          <div class="tag-cat-name">${catName}</div>
+          <div class="tag-cat-list">
+            ${tags
+              .map(
+                (t) =>
+                  `<button class="filter-tag-btn" onclick="searchByTag('${t}')">#${t}</button>`,
+              )
+              .join('')}
+          </div>
+        </div>
+      `,
           )
           .join('');
       }
@@ -1427,51 +1500,51 @@
 
       function renderDevHome() {
         document.getElementById('devContent').innerHTML = `
-    <button class="dev-btn" onclick="renderLevelForm()">새 레벨 등록</button>
-    <button class="dev-btn" onclick="renderEditList()">레벨 수정</button>
-    <button class="dev-btn" onclick="renderGitHubConfig()" style="background:#8e44ad;">GitHub 설정</button>
-    <button class="dev-btn" onclick="saveToGitHub()" style="background:#2980b9;">GitHub에 저장</button>
-    <button class="dev-btn" onclick="exportJson()" style="background:#5cb85c;">JSON 내보내기</button>
-  `;
+        <button class="dev-btn" onclick="renderLevelForm()">새 레벨 등록</button>
+        <button class="dev-btn" onclick="renderEditList()">레벨 수정</button>
+        <button class="dev-btn" onclick="renderGitHubConfig()" style="background:#8e44ad;">GitHub 설정</button>
+        <button class="dev-btn" onclick="saveToGitHub()" style="background:#2980b9;">GitHub에 저장</button>
+        <button class="dev-btn" onclick="exportJson()" style="background:#5cb85c;">JSON 내보내기</button>
+      `;
       }
 
       function renderGitHubConfig() {
         const isTokenFixed = !!GH_TOKEN;
         document.getElementById('devContent').innerHTML = `
-    <h3>GitHub 연동 설정</h3>
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <label>Repository Owner (고정)</label>
-      <input class="dev-input" value="${
-        githubConfig.owner
-      }" readonly style="background:#222; color:#888;">
-      
-      <label>Repository Name (고정)</label>
-      <input class="dev-input" value="${
-        githubConfig.repo
-      }" readonly style="background:#222; color:#888;">
-      
-      <label>File Path (고정)</label>
-      <input class="dev-input" value="${
-        githubConfig.path
-      }" readonly style="background:#222; color:#888;">
-      
-      <label>Personal Access Token ${isTokenFixed ? '(고정됨)' : ''}</label>
-      <input id="gh-token" class="dev-input" type="password" value="${
-        githubConfig.token
-      }" ${
-        isTokenFixed
-          ? 'readonly style="background:#222; color:#888;"'
-          : 'placeholder="ghp_..."'
-      }>
-      
-      ${
-        !isTokenFixed
-          ? '<button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">토큰 저장</button>'
-          : ''
-      }
-      <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
-    </div>
-  `;
+        <h3>GitHub 연동 설정</h3>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <label>Repository Owner (고정)</label>
+          <input class="dev-input" value="${
+            githubConfig.owner
+          }" readonly style="background:#222; color:#888;">
+
+          <label>Repository Name (고정)</label>
+          <input class="dev-input" value="${
+            githubConfig.repo
+          }" readonly style="background:#222; color:#888;">
+
+          <label>File Path (고정)</label>
+          <input class="dev-input" value="${
+            githubConfig.path
+          }" readonly style="background:#222; color:#888;">
+
+          <label>Personal Access Token ${isTokenFixed ? '(고정됨)' : ''}</label>
+          <input id="gh-token" class="dev-input" type="password" value="${
+            githubConfig.token
+          }" ${
+            isTokenFixed
+              ? 'readonly style="background:#222; color:#888;"'
+              : 'placeholder="ghp_..."'
+          }>
+
+          ${
+            !isTokenFixed
+              ? '<button class="dev-btn dev-btn-save" onclick="saveGitHubConfig()">토큰 저장</button>'
+              : ''
+          }
+          <button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>
+        </div>
+      `;
       }
 
       function saveGitHubConfig() {
@@ -1539,8 +1612,8 @@
           '<h3>수정할 레벨 선택</h3><div style="max-height:300px; overflow-y:auto; background:#333; border-radius:5px;">';
         demonData.forEach((lv, idx) => {
           html += `<div class="item" style="padding:10px; border-bottom:1px solid #444;" onclick="renderLevelForm(${idx})">
-              ${lv.id}. ${lv.title}
-              </div>`;
+                  ${lv.id}. ${lv.title}
+                  </div>`;
         });
         html +=
           '</div><button class="dev-btn" onclick="renderDevHome()">뒤로가기</button>';
@@ -1570,69 +1643,69 @@
           }">`;
 
         document.getElementById('devContent').innerHTML = `
-    <h3>${isEdit ? '레벨 수정' : '새 레벨 등록'}</h3>
-    <div style="max-height:450px; overflow-y:auto; padding-right:5px; display:flex; flex-direction:column; gap:10px;">
-      <label>순위 설정 (현재 총 ${demonData.length}개)</label>
-      ${mkInput(
-        'f-placement',
-        `순위 (1~${demonData.length + (isEdit ? 0 : 1)})`,
-        isEdit ? idx + 1 : demonData.length + 1,
-        'number',
-      )}
+        <h3>${isEdit ? '레벨 수정' : '새 레벨 등록'}</h3>
+        <div style="max-height:450px; overflow-y:auto; padding-right:5px; display:flex; flex-direction:column; gap:10px;">
+          <label>순위 설정 (현재 총 ${demonData.length}개)</label>
+          ${mkInput(
+            'f-placement',
+            `순위 (1~${demonData.length + (isEdit ? 0 : 1)})`,
+            isEdit ? idx + 1 : demonData.length + 1,
+            'number',
+          )}
 
-      <label>기본 정보</label>
-      ${mkInput('f-title', '제목', lv.title)}
-      ${mkInput('f-creator', '제작자', lv.creator)}
-      ${mkInput('f-verifier', '베리파이어', lv.verifier)}
-      ${mkInput('f-video', '영상 URL', lv.video)}
-      
-      <label>맵 정보</label>
-      ${mkInput('f-mid', '맵 ID', lv.map?.mapId)}
-      ${mkInput('f-mlen', '길이', lv.map?.length)}
-      ${mkInput('f-mobj', '오브젝트', lv.map?.objects)}
-      ${mkInput('f-mdate', '날짜', lv.map?.uploadDate)}
-      
-      <label>노래 정보</label>
-      ${mkInput('f-sname', '노래 제목', lv.song?.name)}
-      ${mkInput('f-sauth', '작곡가', lv.song?.artist)}
-      ${mkInput('f-sid', '노래 ID', lv.song?.id)}
-      
-      <label>태그 (쉼표 구분)</label>
-      ${mkInput('f-tags', '태그1, 태그2', lv.tags?.join(', '))}
-    </div>
-    <button class="dev-btn dev-btn-save" onclick="saveLevelForm(${idx})">${
-      isEdit ? '수정 완료' : '등록 완료'
-    }</button>
-    ${
-      isEdit
-        ? `<button class="dev-btn" onclick="deleteLevel(${idx})" style="background:#e74c3c;">삭제</button>`
-        : ''
-    }
-    <button class="dev-btn" onclick="renderDevHome()">취소</button>
+          <label>기본 정보</label>
+          ${mkInput('f-title', '제목', lv.title)}
+          ${mkInput('f-creator', '제작자', lv.creator)}
+          ${mkInput('f-verifier', '베리파이어', lv.verifier)}
+          ${mkInput('f-video', '영상 URL', lv.video)}
 
-    <label>기록 관리 (Clears)</label>
-      <div id="f-clears-container" style="display:flex; flex-direction:column; gap:5px;">
-        ${(lv.clears || [])
-          .map(
-            (c, i) => `
-          <div class="clear-edit-row" style="display:flex; gap:3px;">
-            <input class="dev-input cl-p" placeholder="유저" value="${
-              c.player
-            }" style="flex:2">
-            <input class="dev-input cl-v" placeholder="%" value="${
-              c.percent
-            }" style="flex:1">
-            <input class="dev-input cl-d" placeholder="날짜" value="${
-              c.date || ''
-            }" style="flex:1.5">
-            <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+          <label>맵 정보</label>
+          ${mkInput('f-mid', '맵 ID', lv.map?.mapId)}
+          ${mkInput('f-mlen', '길이', lv.map?.length)}
+          ${mkInput('f-mobj', '오브젝트', lv.map?.objects)}
+          ${mkInput('f-mdate', '날짜', lv.map?.uploadDate)}
+
+          <label>노래 정보</label>
+          ${mkInput('f-sname', '노래 제목', lv.song?.name)}
+          ${mkInput('f-sauth', '작곡가', lv.song?.artist)}
+          ${mkInput('f-sid', '노래 ID', lv.song?.id)}
+
+          <label>태그 (쉼표 구분)</label>
+          ${mkInput('f-tags', '태그1, 태그2', lv.tags?.join(', '))}
+        </div>
+        <button class="dev-btn dev-btn-save" onclick="saveLevelForm(${idx})">${
+          isEdit ? '수정 완료' : '등록 완료'
+        }</button>
+        ${
+          isEdit
+            ? `<button class="dev-btn" onclick="deleteLevel(${idx})" style="background:#e74c3c;">삭제</button>`
+            : ''
+        }
+        <button class="dev-btn" onclick="renderDevHome()">취소</button>
+
+        <label>기록 관리 (Clears)</label>
+          <div id="f-clears-container" style="display:flex; flex-direction:column; gap:5px;">
+            ${(lv.clears || [])
+              .map(
+                (c, i) => `
+              <div class="clear-edit-row" style="display:flex; gap:3px;">
+                <input class="dev-input cl-p" placeholder="유저" value="${
+                  c.player
+                }" style="flex:2">
+                <input class="dev-input cl-v" placeholder="%" value="${
+                  c.percent
+                }" style="flex:1">
+                <input class="dev-input cl-d" placeholder="날짜" value="${
+                  c.date || ''
+                }" style="flex:1.5">
+                <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+              </div>
+            `,
+              )
+              .join('')}
           </div>
-        `,
-          )
-          .join('')}
-      </div>
-      <button class="dev-btn" onclick="addClearInputRow()" style="background:#3498db; margin-top:5px;">+ 기록 추가</button>
-  `;
+          <button class="dev-btn" onclick="addClearInputRow()" style="background:#3498db; margin-top:5px;">+ 기록 추가</button>
+      `;
       }
 
       function saveLevelForm(idx) {
@@ -1824,11 +1897,11 @@
         div.className = 'clear-edit-row';
         div.style = 'display:flex; gap:3px;';
         div.innerHTML = `
-    <input class="dev-input cl-p" placeholder="유저" style="flex:2">
-    <input class="dev-input cl-v" placeholder="%" style="flex:1">
-    <input class="dev-input cl-d" placeholder="날짜" style="flex:1.5">
-    <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
-  `;
+        <input class="dev-input cl-p" placeholder="유저" style="flex:2">
+        <input class="dev-input cl-v" placeholder="%" style="flex:1">
+        <input class="dev-input cl-d" placeholder="날짜" style="flex:1.5">
+        <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
+      `;
         container.appendChild(div);
       }
 
@@ -1881,11 +1954,11 @@
           item.style =
             'display: flex; gap: 15px; padding: 10px; border-bottom: 1px solid #444; color: #eee;';
           item.innerHTML = `
-      <div style="color: #aaa; min-width: 100px;">${h.time.split(' ')[0]}</div>
-      <div style="flex: 1;"><b style="color: #fff;">${h.title}</b> ${
-        h.detail
-      }</div>
-    `;
+          <div style="color: #aaa; min-width: 100px;">${h.time.split(' ')[0]}</div>
+          <div style="flex: 1;"><b style="color: #fff;">${h.title}</b> ${
+            h.detail
+          }</div>
+        `;
           list.appendChild(item);
         });
       }
@@ -1913,6 +1986,11 @@
         } else {
           btn.textContent = '접기';
         }
+      }
+
+      function toggleMenu() {
+        const header = document.querySelector('.header-container');
+        header.classList.toggle('open');
       }
     </script>
   </body>

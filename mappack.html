@@ -1,357 +1,657 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
-<title>초친 포럼 (맵 팩)</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>초친 포럼 (맵 팩)</title>
 
-<style>
-/* --- 기본 설정 --- */
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #323232;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-* { box-sizing: border-box; }
+    <style>
+      /* --- 기본 설정 --- */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: #323232;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+      * {
+        box-sizing: border-box;
+      }
 
-/* 폰트 설정 */
-@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf'); }
-@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf'); }
-@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf'); }
-@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf'); }
-@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf'); }
-@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf'); }
-@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf'); }
-@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf'); }
-@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf'); }
+      /* 폰트 설정 */
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf');
+        font-display: swap;
+      }
 
-a { color: inherit; text-decoration: none; }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-/* --- 헤더 영역 --- */
-.header-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5vw;
-  padding: 2vh 0;
-  flex-wrap: wrap;
-}
-.header-btn-wrapper {
-  width: min(400px, 90vw);
-  display: flex;
-  justify-content: center;
-}
-.header-btn {
-  background-color: #323232;
-  color: white;
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  cursor: pointer;
-  padding: 1.5vh 0;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  font-family: Paperlogy5;
-}
-.header-btn:hover, .header-btn.active {
-  background-color: #fff;
-  color: #323232;
-}
-.divider {
-  border: 2px solid white;
-  width: 100%;
-  height: 0;
-  margin: 6px 0;
-}
+      /* --- 헤더 영역 --- */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        padding: 2vh 0;
+        flex-wrap: wrap;
+      }
+      .header-btn-wrapper {
+        width: min(400px, 90vw);
+        display: flex;
+        justify-content: center;
+      }
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        cursor: pointer;
+        padding: 1.5vh 0;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
+        font-family: Paperlogy5;
+      }
+      .header-btn:hover {
+        background-color: #fff;
+        color: #323232;
+      }
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 6px 0;
+      }
 
-/* --- 메인 컨테이너 --- */
-.main-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  align-items: stretch;
-  min-height: 800px;
-}
-  
-.container,
-.detail-panel {
-  background: #404040;
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
 
-.container { flex: 1; min-width: 0; }
-.detail-panel { flex: 2; background: #505050; overflow-y: auto; min-width: 0; }
-.detail-panel.clears-panel { flex: 1; background: #404040; }
+      /* --- 메인 컨테이너 --- */
+      .main-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        align-items: stretch;
+        min-height: 800px;
+      }
 
-.history-panel {
-  width: calc(100% - 40px);
-  margin: 0 auto 40px auto;
-  background: #3a3a3a;
-  border-radius: 10px;
-  padding: 20px;
-  min-height: 200px;
-}
+      .container,
+      .detail-panel {
+        background: #404040;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
 
-@media (max-width: 1400px) {
-  .main-container { flex-direction: column; }
-  .container, .detail-panel, .detail-panel.clears-panel { width: 100%; margin-bottom: 20px; height: 600px; flex: none; }
-}
+      .container {
+        flex: 1;
+        min-width: 0;
+      }
+      .detail-panel {
+        flex: 2;
+        background: #505050;
+        overflow-y: auto;
+        min-width: 0;
+      }
+      .detail-panel.clears-panel {
+        flex: 1;
+        background: #404040;
+      }
 
-/* --- 리스트 아이템 스타일 --- */
-.item {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  gap: 15px;
-  border-bottom: 1px solid #777;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.item:hover, .item.active { background-color: #ffffff; }
-.item:hover *, .item.active * { color: #000000 !important; }
+      .history-panel {
+        width: calc(100% - 40px);
+        margin: 0 auto 40px auto;
+        background: #3a3a3a;
+        border-radius: 10px;
+        padding: 20px;
+        min-height: 200px;
+      }
 
-/* 맵 팩 전체 클리어 강조 */
-.item.all-cleared {
-  background-color: #2e4a2e;
-  border-left: 6px solid #4f9;
-}
+      @media (max-width: 1400px) {
+        .main-container {
+          flex-direction: column;
+        }
+        .container,
+        .detail-panel,
+        .detail-panel.clears-panel {
+          width: 100%;
+          margin-bottom: 20px;
+          height: auto;
+          flex: none;
+        }
+      }
 
-.pack-tier {
-  font-family: Paperlogy9;
-  font-size: 1.8rem;
-  min-width: 60px;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
-}
-.title { font-family: Paperlogy7; font-size: 1.4rem; color: #fff; }
-.creator { font-family: Paperlogy4; font-size: 0.9rem; color: #d0d0d0; }
+      /* --- 리스트 아이템 스타일 --- */
+      .item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+        border-bottom: 1px solid #777;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .item:hover,
+      .item.active {
+        background-color: #ffffff;
+      }
+      .item:hover *,
+      .item.active * {
+        color: #000000 !important;
+      }
 
-/* --- 상세 정보 패널 --- */
-.detail-header { text-align: center; margin-bottom: 20px; }
-.pack-title { font-family: Paperlogy9; font-size: 3rem; color: #fff; margin-bottom: 5px; }
-.pack-subtitle { font-family: Paperlogy4; font-size: 1.1rem; color: #aaa; }
+      /* 맵 팩 전체 클리어 강조 */
+      .item.all-cleared {
+        background-color: #2e4a2e;
+        border-left: 6px solid #4f9;
+      }
 
-.pack-content-box {
-  background: #444;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
-}
-.content-header {
-  font-family: Paperlogy6;
-  font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #666;
-  padding-bottom: 10px;
-}
+      .pack-tier {
+        font-family: Paperlogy9;
+        font-size: 1.8rem;
+        min-width: 60px;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .title {
+        font-family: Paperlogy7;
+        font-size: 1.4rem;
+        color: #fff;
+      }
+      .creator {
+        font-family: Paperlogy4;
+        font-size: 0.9rem;
+        color: #d0d0d0;
+      }
 
-/* 개별 레벨 아이템 스타일 */
-.level-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background: #3a3a3a;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-.level-item:hover { background: #666; transform: translateX(5px); }
+      /* --- 상세 정보 패널 --- */
+      .detail-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .pack-title {
+        font-family: Paperlogy9;
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 5px;
+      }
+      .pack-subtitle {
+        font-family: Paperlogy4;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
 
-/* 개별 레벨 클리어 강조 */
-.level-item.cleared {
-  background-color: #2e4a2e !important;
-}
-.level-item.cleared .level-name { color: #4f9 !important; }
-.check-mark { color: #4f9; margin-left: 8px; display: none; }
-.level-item.cleared .check-mark { display: inline; }
+      .pack-content-box {
+        background: #444;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .content-header {
+        font-family: Paperlogy6;
+        font-size: 1.5rem;
+        color: #fff;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #666;
+        padding-bottom: 10px;
+      }
 
-.level-idx {
-  font-family: Paperlogy7;
-  font-size: 1.2rem;
-  color: #aaa;
-  width: 40px;
-  text-align: center;
-}
-.level-info { flex: 1; }
-.level-name { font-family: Paperlogy6; font-size: 1.1rem; color: #fff; }
-.level-author { font-family: Paperlogy4; font-size: 0.85rem; color: #ccc; }
+      /* 개별 레벨 아이템 스타일 */
+      .level-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: #3a3a3a;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      .level-item:hover {
+        background: #666;
+        transform: translateX(5px);
+      }
 
-.clear-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 10px;
-  border-bottom: 1px solid #555;
-  color: #fff;
-  font-family: Paperlogy5;
-}
+      /* 개별 레벨 클리어 강조 */
+      .level-item.cleared {
+        background-color: #2e4a2e !important;
+      }
+      .level-item.cleared .level-name {
+        color: #4f9 !important;
+      }
+      .check-mark {
+        color: #4f9;
+        margin-left: 8px;
+        display: none;
+      }
+      .level-item.cleared .check-mark {
+        display: inline;
+      }
 
-#detailHeader { text-align: center; margin-bottom: 60px; }
-#headerTitle { font-family: Paperlogy7; font-size: 120px; color: #fff; margin: 20px 0; }
-#detailSubtitle { color: #aaa; font-family: Paperlogy3; font-size: 24px; }
+      .level-idx {
+        font-family: Paperlogy7;
+        font-size: 1.2rem;
+        color: #aaa;
+        width: 40px;
+        text-align: center;
+      }
+      .level-info {
+        flex: 1;
+      }
+      .level-name {
+        font-family: Paperlogy6;
+        font-size: 1.1rem;
+        color: #fff;
+      }
+      .level-author {
+        font-family: Paperlogy4;
+        font-size: 0.85rem;
+        color: #ccc;
+      }
 
-/* 계정 선택 버튼 스타일 */
-.auth-container {
-  text-align: right;
-  padding: 10px 20px;
-  background: #222;
-  border-bottom: 1px solid #444;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-}
-.user-status { color: #4f9; font-family: Paperlogy5; }
-.mode-btn {
-  background: transparent; border: 1.5px solid #fff; color: #fff; padding: 5px 15px; border-radius: 5px;
-  font-family: Paperlogy7; cursor: pointer; transition: 0.2s;
-}
-.mode-btn:hover { background: #fff; color: #000; }
+      .level-rank {
+        font-family: Paperlogy9;
+        font-size: 1.4rem;
+        color: #ffdd44;
+        margin: 0 15px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
 
-/* 관리자 패널 */
-.dev-panel {
-  position: fixed; top: 0; right: -480px; width: 480px; height: 100%;
-  background: #2f2f2f; box-shadow: -4px 0 16px rgba(0,0,0,0.5);
-  transition: 0.3s; z-index: 9999; display: flex; flex-direction: column;
-}
-.dev-panel.open { right: 0; }
-.dev-content { padding: 20px; overflow-y: auto; flex: 1; }
-.dev-input { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: none; font-family: Paperlogy5; }
-.dev-label { color: #fff; margin-bottom: 5px; display: block; font-family: Paperlogy4; }
-</style>
-</head>
+      .clear-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        border-bottom: 1px solid #555;
+        color: #fff;
+        font-family: Paperlogy5;
+      }
 
-<body>
+      #detailHeader {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      #headerTitle {
+        font-family: Paperlogy7;
+        font-size: 120px;
+        color: #fff;
+        margin: 20px 0;
+      }
+      #detailSubtitle {
+        color: #aaa;
+        font-family: Paperlogy3;
+        font-size: 24px;
+      }
 
-<div class="auth-container">
-  <div id="userStatus" class="user-status"></div>
-  <button onclick="login()" class="mode-btn">계정 선택</button>
-</div>
+      /* 계정 선택 버튼 스타일 */
+      .auth-container {
+        text-align: right;
+        padding: 10px 20px;
+        background: #222;
+        border-bottom: 1px solid #444;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+      }
+      .user-status {
+        color: #4f9;
+        font-family: Paperlogy5;
+      }
+      .mode-btn {
+        background: transparent;
+        border: 1.5px solid #fff;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-family: Paperlogy7;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .mode-btn:hover {
+        background: #fff;
+        color: #000;
+      }
 
-<div class="header-container">
-  <a href="../index.html" class="header-btn-wrapper"><button class="header-btn">홈</button></a>
-  <a href="level.html" class="header-btn-wrapper"><button class="header-btn">레벨</button></a>
-  <div class="header-btn-wrapper"><button class="header-btn active">맵 팩</button></div>
-  <div class="header-btn-wrapper"><button class="header-btn">하디스트</button></div>
-</div>
+      /* 관리자 패널 */
+      .dev-panel {
+        position: fixed;
+        top: 0;
+        right: -480px;
+        width: 480px;
+        height: 100%;
+        background: #2f2f2f;
+        box-shadow: -4px 0 16px rgba(0, 0, 0, 0.5);
+        transition: 0.3s;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+      }
+      .dev-panel.open {
+        right: 0;
+      }
+      .dev-content {
+        padding: 20px;
+        overflow-y: auto;
+        flex: 1;
+      }
+      .dev-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        border: none;
+        font-family: Paperlogy5;
+      }
+      .dev-label {
+        color: #fff;
+        margin-bottom: 5px;
+        display: block;
+        font-family: Paperlogy4;
+      }
 
-<div class="divider"></div>
+      @media (max-width: 768px) {
+        .main-container {
+          padding: 10px;
+          gap: 15px;
+        }
+        .container,
+        .detail-panel,
+        .detail-panel.clears-panel {
+          padding: 15px;
+        }
+        #headerTitle {
+          font-size: 80px;
+        }
+        .pack-title {
+          font-size: 2.2rem;
+        }
+        .level-item > div:last-child {
+          display: none;
+        }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
+    </style>
+  </head>
 
-<div id="detailHeader">
-  <div id="headerTitle">Map Packs</div>
-  <div id="detailSubtitle">다양한 테마와 난이도로 묶인 맵 팩에 도전하세요!</div>
-</div>
-
-<div class="main-container">
-  <div class="container">
-    <input id="search" placeholder="팩 검색..." style="width:100%; padding:10px; border-radius:8px; border:none; background:#333; color:white; margin-bottom:10px;">
-    <div id="packList" style="overflow-y:auto; flex:1;"></div>
-  </div>
-
-  <div class="detail-panel">
-    <div id="packDetailContent">
-      <div style="text-align:center; margin-top:50px; color:#888; font-family:Paperlogy5;">데이터를 불러오는 중...</div>
+  <body>
+    <div class="auth-container">
+      <div id="userStatus" class="user-status"></div>
+      <button onclick="login()" class="mode-btn">계정 선택</button>
     </div>
-  </div>
 
-  <div class="detail-panel clears-panel">
-    <div style="font-family:Paperlogy9; font-size:2.5rem; text-align:center; color:white; margin-bottom:20px;">All Clears</div>
-    <div id="packClears"></div>
-  </div>
-</div>
+    <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <a href="../index.html" class="header-btn-wrapper"
+        ><button class="header-btn">홈</button></a
+      >
+      <a href="level.html" class="header-btn-wrapper"
+        ><button class="header-btn">레벨</button></a
+      >
+      <div class="header-btn-wrapper">
+        <button class="header-btn">맵 팩</button>
+      </div>
+      <div class="header-btn-wrapper">
+        <a href="roulette.html" class="header-btn-wrapper">
+          <button class="header-btn">룰렛</button>
+        </a>
+      </div>
+    </div>
 
-<div class="history-panel">
-  <div style="font-family:Paperlogy9; font-size:2rem; text-align:center; color:white; margin-bottom:10px;">최근 변경 기록</div>
-  <div id="historyBox"></div>
-</div>
+    <div class="divider"></div>
 
-<script>
-const DEV_PASSWORD = '6974';
-const TIER_COLORS = {
-  "Tier 1": "#00ffff", "Tier 2": "#00ff00", "Tier 3": "#ffff00",
-  "Tier 4": "#ffaa00", "Tier 5": "#ff0000", "Tier 6": "#ff00ff", "Unrated": "#888888"
-};
+    <div id="detailHeader">
+      <div id="headerTitle">Map Packs</div>
+      <div id="detailSubtitle">
+        다양한 테마와 난이도로 묶인 맵 팩에 도전하세요!
+      </div>
+    </div>
 
-let packData = [];
-let classicLevelData = []; 
-let changeHistory = [];
-let currentUser = localStorage.getItem('currentUser') || null;
+    <div class="main-container">
+      <div class="container">
+        <input
+          id="search"
+          placeholder="팩 검색..."
+          style="
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: #333;
+            color: white;
+            margin-bottom: 10px;
+          "
+        />
+        <div id="packList" style="overflow-y: auto; flex: 1"></div>
+      </div>
 
-// 데이터 로딩
-Promise.all([
-  fetch('mappack.json').then(r => r.json()).catch(() => ({ packs: [], history: [] })),
-  fetch('level/classic.json').then(r => r.json()).catch(() => ({ levels: [] }))
-]).then(([packJson, levelJson]) => {
-  packData = packJson.packs || [];
-  changeHistory = packJson.history || [];
-  classicLevelData = levelJson.levels || [];
-  
-  if(currentUser) document.getElementById('userStatus').innerText = `접속: ${currentUser}`;
-  initPage();
-}).catch(err => {
-  console.error("데이터 로딩 실패:", err);
-});
+      <div class="detail-panel">
+        <div id="packDetailContent">
+          <div
+            style="
+              text-align: center;
+              margin-top: 50px;
+              color: #888;
+              font-family: Paperlogy5;
+            "
+          >
+            데이터를 불러오는 중...
+          </div>
+        </div>
+      </div>
 
-function initPage() {
-  renderList(packData);
-  renderHistory();
-  if(packData.length > 0) showPackDetail(packData[0]);
-}
+      <div class="detail-panel clears-panel">
+        <div
+          style="
+            font-family: Paperlogy9;
+            font-size: 2.5rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+          "
+        >
+          All Clears
+        </div>
+        <div id="packClears"></div>
+      </div>
+    </div>
 
-// 클리어 체크 로직
-function checkIfLevelCleared(levelName) {
-  if (!currentUser) return false;
-  const name = currentUser.toLowerCase();
-  const level = classicLevelData.find(l => l.title.trim().toLowerCase() === levelName.trim().toLowerCase());
-  
-  if (!level) return false;
+    <div class="history-panel">
+      <div
+        style="
+          font-family: Paperlogy9;
+          font-size: 2rem;
+          text-align: center;
+          color: white;
+          margin-bottom: 10px;
+        "
+      >
+        최근 변경 기록
+      </div>
+      <div id="historyBox"></div>
+    </div>
 
-  const isCleared = level.clears && level.clears.some(c => c.player.toLowerCase() === name && Number(c.percent) === 100);
-  const isVerifier = level.verifier && level.verifier.toLowerCase() === name;
+    <script>
+      const DEV_PASSWORD = '6974';
+      const TIER_COLORS = {
+        'Tier 1': '#00ffff',
+        'Tier 2': '#00ff00',
+        'Tier 3': '#ffff00',
+        'Tier 4': '#ffaa00',
+        'Tier 5': '#ff0000',
+        'Tier 6': '#ff00ff',
+        Unrated: '#888888',
+      };
 
-  return isCleared || isVerifier;
-}
+      let packData = [];
+      let classicLevelData = [];
+      let changeHistory = [];
+      let currentUser = localStorage.getItem('currentUser') || null;
 
-// 맵 팩 리스트 렌더링
-function renderList(data) {
-  const list = document.getElementById('packList');
-  list.innerHTML = '';
-  data.forEach(pack => {
-    // 맵 팩 전체 클리어 여부 확인
-    const isPackAllCleared = pack.levels.every(lvl => checkIfLevelCleared(lvl.name));
+      // 데이터 로딩
+      Promise.all([
+        fetch('mappack.json')
+          .then((r) => r.json())
+          .catch(() => ({ packs: [], history: [] })),
+        fetch('level/classic.json')
+          .then((r) => r.json())
+          .catch(() => ({ levels: [] })),
+      ])
+        .then(([packJson, levelJson]) => {
+          packData = packJson.packs || [];
+          changeHistory = packJson.history || [];
+          classicLevelData = levelJson.levels || [];
 
-    const div = document.createElement('div');
-    div.className = `item ${isPackAllCleared ? 'all-cleared' : ''}`;
-    const tierColor = TIER_COLORS[pack.tier] || "#ffffff";
-    div.innerHTML = `
+          if (currentUser)
+            document.getElementById('userStatus').innerText =
+              `접속: ${currentUser}`;
+          initPage();
+        })
+        .catch((err) => {
+          console.error('데이터 로딩 실패:', err);
+        });
+
+      function initPage() {
+        renderList(packData);
+        renderHistory();
+        if (packData.length > 0) showPackDetail(packData[0]);
+      }
+
+      // 클리어 체크 로직
+      function checkIfLevelCleared(levelName) {
+        if (!currentUser) return false;
+        const name = currentUser.toLowerCase();
+        const level = classicLevelData.find(
+          (l) =>
+            l.title.trim().toLowerCase() === levelName.trim().toLowerCase(),
+        );
+
+        if (!level) return false;
+
+        const isCleared =
+          level.clears &&
+          level.clears.some(
+            (c) => c.player.toLowerCase() === name && Number(c.percent) === 100,
+          );
+        const isVerifier =
+          level.verifier && level.verifier.toLowerCase() === name;
+
+        return isCleared || isVerifier;
+      }
+
+      function getLevelRank(levelName, author) {
+        const levelIndex = classicLevelData.findIndex(
+          (l) =>
+            l.title.trim().toLowerCase() === levelName.trim().toLowerCase() &&
+            l.creator.trim().toLowerCase() === author.trim().toLowerCase(),
+        );
+        return levelIndex !== -1 ? levelIndex + 1 : '???';
+      }
+
+      // 맵 팩 리스트 렌더링
+      function renderList(data) {
+        const list = document.getElementById('packList');
+        list.innerHTML = '';
+        data.forEach((pack) => {
+          // 맵 팩 전체 클리어 여부 확인
+          const isPackAllCleared = pack.levels.every((lvl) =>
+            checkIfLevelCleared(lvl.name),
+          );
+
+          const div = document.createElement('div');
+          div.className = `item ${isPackAllCleared ? 'all-cleared' : ''}`;
+          const tierColor = TIER_COLORS[pack.tier] || '#ffffff';
+          div.innerHTML = `
       <div class="pack-tier" style="color: ${tierColor}">${pack.tier}</div>
       <div>
         <div class="title">${pack.title} ${isPackAllCleared ? '✅' : ''}</div>
         <div class="creator">by ${pack.creator}</div>
       </div>
     `;
-    div.onclick = () => showPackDetail(pack, div);
-    list.appendChild(div);
-  });
-}
+          div.onclick = () => showPackDetail(pack, div);
+          list.appendChild(div);
+        });
+      }
 
-// 상세 페이지 렌더링
-function showPackDetail(pack, el) {
-  document.querySelectorAll('.item.active').forEach(i => i.classList.remove('active'));
-  if(el) el.classList.add('active');
+      // 상세 페이지 렌더링
+      function showPackDetail(pack, el) {
+        document
+          .querySelectorAll('.item.active')
+          .forEach((i) => i.classList.remove('active'));
+        if (el) el.classList.add('active');
 
-  const tierColor = TIER_COLORS[pack.tier] || "#ffffff";
-  const content = document.getElementById('packDetailContent');
-  
-  content.innerHTML = `
+        const tierColor = TIER_COLORS[pack.tier] || '#ffffff';
+        const content = document.getElementById('packDetailContent');
+
+        content.innerHTML = `
     <div class="detail-header">
       <div class="pack-title">${pack.title}</div>
       <div class="pack-subtitle">${pack.description}</div>
@@ -363,77 +663,97 @@ function showPackDetail(pack, el) {
 
     <div class="pack-content-box">
       <div class="content-header">맵 리스트</div>
-      ${pack.levels.map((lvl, idx) => {
-        const cleared = checkIfLevelCleared(lvl.name);
-        return `
+      ${pack.levels
+        .map((lvl, idx) => {
+          const cleared = checkIfLevelCleared(lvl.name);
+          const rank = getLevelRank(lvl.name, lvl.author);
+          return `
           <div class="level-item ${cleared ? 'cleared' : ''}" onclick="goToLevelAuto('${lvl.name}', '${lvl.author}')">
             <div class="level-idx">${idx + 1}</div>
             <div class="level-info">
               <div class="level-name">${lvl.name} <span class="check-mark">✅</span></div>
               <div class="level-author">by ${lvl.author}</div>
             </div>
+            <div class="level-rank">#${rank}</div>
             <div style="color:#888; font-size:0.8rem;">Click to View →</div>
           </div>
         `;
-      }).join('')}
+        })
+        .join('')}
     </div>
   `;
 
-  const clearBox = document.getElementById('packClears');
-  clearBox.innerHTML = '';
-  if(pack.clears && pack.clears.length > 0) {
-    pack.clears.forEach(c => {
-      const row = document.createElement('div');
-      row.className = 'clear-row';
-      row.innerHTML = `<span class="clear-user">${c.player}</span><span class="clear-date">${c.date}</span>`;
-      clearBox.appendChild(row);
-    });
-  } else {
-    clearBox.innerHTML = '<div style="text-align:center; color:#777; margin-top:20px;">클리어 유저가 없습니다.</div>';
-  }
-}
+        const clearBox = document.getElementById('packClears');
+        clearBox.innerHTML = '';
+        if (pack.clears && pack.clears.length > 0) {
+          pack.clears.forEach((c) => {
+            const row = document.createElement('div');
+            row.className = 'clear-row';
+            row.innerHTML = `<span class="clear-user">${c.player}</span><span class="clear-date">${c.date}</span>`;
+            clearBox.appendChild(row);
+          });
+        } else {
+          clearBox.innerHTML =
+            '<div style="text-align:center; color:#777; margin-top:20px;">클리어 유저가 없습니다.</div>';
+        }
+      }
 
-// 계정 선택 (로그인)
-function login() {
-  const name = prompt("닉네임을 입력해주세요.");
-  if (!name) return;
-  currentUser = name;
-  localStorage.setItem('currentUser', name);
-  document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
-  alert(`${name}님, 환영합니다!`);
-  renderList(packData);
-  // 현재 선택된 팩 상세 내용 갱신
-  const activeTitle = document.querySelector('.item.active .title')?.innerText.replace(' ✅', '');
-  const currentPack = packData.find(p => p.title === activeTitle);
-  if(currentPack) showPackDetail(currentPack);
-}
+      // 계정 선택 (로그인)
+      function login() {
+        const name = prompt('닉네임을 입력해주세요.');
+        if (!name) return;
+        currentUser = name;
+        localStorage.setItem('currentUser', name);
+        document.getElementById('userStatus').innerText = `접속 계정 : ${name}`;
+        alert(`${name}님, 환영합니다!`);
+        renderList(packData);
+        // 현재 선택된 팩 상세 내용 갱신
+        const activeTitle = document
+          .querySelector('.item.active .title')
+          ?.innerText.replace(' ✅', '');
+        const currentPack = packData.find((p) => p.title === activeTitle);
+        if (currentPack) showPackDetail(currentPack);
+      }
 
-function goToLevelAuto(levelName, author) {
-  const target = classicLevelData.find(l => 
-    l.title.trim().toLowerCase() === levelName.trim().toLowerCase() &&
-    l.creator.trim().toLowerCase() === author.trim().toLowerCase()
-  );
-  if (target && target.id) {
-    window.location.href = `level/classic.html?id=${target.id}`;
-  } else {
-    alert(`'${levelName}' 레벨을 찾을 수 없습니다.`);
-  }
-}
+      function goToLevelAuto(levelName, author) {
+        const target = classicLevelData.find(
+          (l) =>
+            l.title.trim().toLowerCase() === levelName.trim().toLowerCase() &&
+            l.creator.trim().toLowerCase() === author.trim().toLowerCase(),
+        );
+        if (target && target.id) {
+          window.location.href = `level/classic.html?id=${target.id}`;
+        } else {
+          alert(`'${levelName}' 레벨을 찾을 수 없습니다.`);
+        }
+      }
 
-document.getElementById('search').addEventListener('input', (e) => {
-  const val = e.target.value.toLowerCase();
-  const filtered = packData.filter(p => p.title.toLowerCase().includes(val));
-  renderList(filtered);
-});
+      document.getElementById('search').addEventListener('input', (e) => {
+        const val = e.target.value.toLowerCase();
+        const filtered = packData.filter((p) =>
+          p.title.toLowerCase().includes(val),
+        );
+        renderList(filtered);
+      });
 
-function renderHistory() {
-  const box = document.getElementById('historyBox');
-  box.innerHTML = changeHistory.slice(0, 10).map(h => `
+      function renderHistory() {
+        const box = document.getElementById('historyBox');
+        box.innerHTML = changeHistory
+          .slice(0, 10)
+          .map(
+            (h) => `
     <div style="color:#ccc; font-family:Paperlogy3; margin-bottom:5px;">
       <span style="color:#66ccff">[${h.time}]</span> <b>${h.type}</b>: ${h.detail}
     </div>
-  `).join('');
-}
-</script>
-</body>
+  `,
+          )
+          .join('');
+      }
+
+      function toggleMenu() {
+        const header = document.querySelector('.header-container');
+        header.classList.toggle('open');
+      }
+    </script>
+  </body>
 </html>

@@ -1,286 +1,353 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>초친 포럼 (레벨)</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>초친 포럼 (레벨)</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-html, body {
-  min-height: 100vh;
-  background-color: #323232;
-  display: flex;
-  flex-direction: column;
-}
+      html,
+      body {
+        min-height: 100vh;
+        background-color: #323232;
+        display: flex;
+        flex-direction: column;
+      }
 
-@font-face { font-family: Paperlogy1; src: url('font - paperlogy/Paperlogy-1.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy2; src: url('font - paperlogy/Paperlogy-2.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy3; src: url('font - paperlogy/Paperlogy-3.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy4; src: url('font - paperlogy/Paperlogy-4.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy5; src: url('font - paperlogy/Paperlogy-5.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy6; src: url('font - paperlogy/Paperlogy-6.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy7; src: url('font - paperlogy/Paperlogy-7.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy8; src: url('font - paperlogy/Paperlogy-8.ttf') format('truetype'); }
-@font-face { font-family: Paperlogy9; src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype'); }
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf') format('truetype');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf') format('truetype');
+        font-display: swap;
+      }
 
-h1 {
-  font-family: Paperlogy7;
-  font-size: clamp(3rem, 10vw, 10rem);
-  color: #fff;
-  text-align: center;
-  margin: 20px 0;
-}
+      h1 {
+        font-family: Paperlogy7;
+        font-size: clamp(3rem, 10vw, 10rem);
+        color: #fff;
+        text-align: center;
+        margin: 20px 0;
+      }
 
-h4 {
-  font-family: Paperlogy3;
-  font-size: clamp(1.2rem, 3vw, 2.5rem);
-  color: #a0a0a0;
-  text-align: center;
-}
+      h4 {
+        font-family: Paperlogy3;
+        font-size: clamp(1.2rem, 3vw, 2.5rem);
+        color: #a0a0a0;
+        text-align: center;
+      }
 
-p {
-  font-family: Paperlogy2;
-  color: #c8c8c8;
-  text-align: center;
-}
+      p {
+        font-family: Paperlogy2;
+        color: #c8c8c8;
+        text-align: center;
+      }
 
-a {
-  text-decoration: none;
-}
+      a {
+        text-decoration: none;
+      }
 
-.header-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5vw;
-  padding: 2vh 0;
-  flex-wrap: wrap;
-}
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        padding: 2vh 0;
+        flex-wrap: wrap;
+      }
 
-.header-btn-wrapper {
-  width: min(400px, 90vw);
-  display: flex;
-  justify-content: center;
-}
+      .header-btn-wrapper {
+        width: min(400px, 90vw);
+        display: flex;
+        justify-content: center;
+      }
 
-.header-btn {
-  background-color: #323232;
-  color: white;
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  cursor: pointer;
-  padding: 1.5vh 0;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  font-family: Paperlogy5;
-}
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        cursor: pointer;
+        padding: 1.5vh 0;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
+        font-family: Paperlogy5;
+      }
 
-.header-btn:hover {
-  background-color: #fff;
-  color: #323232;
-}
+      .header-btn:hover {
+        background-color: #fff;
+        color: #323232;
+      }
 
-.divider {
-  border: 2px solid white;
-  width: 100%;
-  height: 0;
-  margin: 10px 0;
-}
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 10px 0;
+      }
 
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 0 2rem;
-}
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
 
-.description {
-  font-size: clamp(1rem, 2vw, 1.8rem);
-  max-width: 1200px;
-  margin: 2rem auto;
-  line-height: 1.6;
-  padding: 0 1rem;
-}
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem;
+      }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(20px, 3vw, 50px);
-  margin: 2rem auto;
-  max-width: 1900px;
-  width: 100%;
-}
+      .description {
+        font-size: clamp(1rem, 2vw, 1.8rem);
+        max-width: 1200px;
+        margin: 2rem auto;
+        line-height: 1.6;
+        padding: 0 1rem;
+      }
 
-.card {
-  position: relative;
-  width: clamp(280px, 42vw, 800px);
-  height: clamp(158px, 23.5vw, 450px);
-  border: 5px solid #fff;
-  border-radius: 45px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
+      .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(20px, 3vw, 50px);
+        margin: 2rem auto;
+        max-width: 1900px;
+        width: 100%;
+      }
 
-.card:hover {
-  transform: scale(1.06);
-}
+      .card {
+        position: relative;
+        width: clamp(280px, 42vw, 800px);
+        height: clamp(158px, 23.5vw, 450px);
+        border: 5px solid #fff;
+        border-radius: 45px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(4px) brightness(70%);
-}
+      .card:hover {
+        transform: scale(1.06);
+      }
 
-.card-title {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Paperlogy7;
-  font-size: clamp(2.5rem, 7.5vw, 6.5rem);
-  margin: 0;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-}
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(4px) brightness(70%);
+      }
 
-.card-subtitle {
-  color: #ddd;
-  position: absolute;
-  bottom: 14%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: Paperlogy3;
-  font-size: clamp(1rem, 2.8vw, 2rem);
-  white-space: nowrap;
-}
+      .card-title {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Paperlogy7;
+        font-size: clamp(2.5rem, 7.5vw, 6.5rem);
+        margin: 0;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      }
 
-.credit-section {
-  margin-top: auto;
-  padding: 2rem 0;
-}
+      .card-subtitle {
+        color: #ddd;
+        position: absolute;
+        bottom: 14%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: Paperlogy3;
+        font-size: clamp(1rem, 2.8vw, 2rem);
+        white-space: nowrap;
+      }
 
-.credit-text {
-  font-size: clamp(1rem, 2vw, 1.8rem);
-  color: #808080;
-  margin-top: 0.5rem;
-}
+      .credit-section {
+        margin-top: auto;
+        padding: 2rem 0;
+      }
 
-@media (max-width: 1200px) {
-  .cards-container {
-    gap: 20px;
-  }
-  
-  .card {
-    width: clamp(250px, 45vw, 500px);
-    height: clamp(140px, 25vw, 280px);
-  }
-}
+      .credit-text {
+        font-size: clamp(1rem, 2vw, 1.8rem);
+        color: #808080;
+        margin-top: 0.5rem;
+      }
 
-@media (max-width: 768px) {
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .card {
-    width: min(90vw, 500px);
-    height: min(50vw, 280px);
-  }
-  
-  .description {
-    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
-  }
-}
+      @media (max-width: 1200px) {
+        .cards-container {
+          gap: 20px;
+        }
 
-@media (max-width: 480px) {
-  .main-content {
-    padding: 0 1rem;
-  }
-  
-  .card {
-    border-width: 3px;
-    border-radius: 30px;
-  }
-  
-  .description br {
-    display: none;
-  }
-}
-</style>
-</head>
+        .card {
+          width: clamp(250px, 45vw, 500px);
+          height: clamp(140px, 25vw, 280px);
+        }
+      }
 
-<body>
-<div class="header-container">
-  <a href="index.html" class="header-btn-wrapper">
-    <button class="header-btn">홈</button>
-  </a>
-  <a href="level.html" class="header-btn-wrapper">
-    <button class="header-btn" style="font-family:Paperlogy9">레벨</button>
-  </a>
-  <div class="header-btn-wrapper">
-    <a href="mappack.html" class="header-btn-wrapper">
-      <button class="header-btn">맵 팩</button>
-    </a>
-  </div>
-  <div class="header-btn-wrapper">
-    <button class="header-btn">하디스트</button>
-  </div>
-</div>
+      @media (max-width: 768px) {
+        .cards-container {
+          flex-direction: column;
+          align-items: center;
+        }
 
-<div class="divider"></div>
+        .card {
+          width: min(90vw, 500px);
+          height: min(50vw, 280px);
+        }
 
-<div class="main-content">
-  <h1>레벨</h1>
-  
-  <p class="description">
-    초친 멤버들이 제작한 커스텀 레벨의 난이도를 기준으로 랭킹을 나눈 곳입니다.<br />
-    일반적인 클래식, 20초 내의 길이를 가진 챌린지, 플랫포머로 레벨이 구분됩니다.<br />
-  </p>
+        .description {
+          font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+        }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
 
-  <div class="cards-container">
-    <a href="level/classic.html">
-      <div class="card">
-        <img src="image/classic.jpg" alt="Classic" />
-        <h2 class="card-title">Classic</h2>
-        <h4 class="card-subtitle">기본적인 맵</h4>
+      @media (max-width: 480px) {
+        .main-content {
+          padding: 0 1rem;
+        }
+
+        .card {
+          border-width: 3px;
+          border-radius: 30px;
+        }
+
+        .description br {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <a href="index.html" class="header-btn-wrapper">
+        <button class="header-btn">홈</button>
+      </a>
+      <a href="level.html" class="header-btn-wrapper">
+        <button class="header-btn" style="font-family: Paperlogy9">레벨</button>
+      </a>
+      <div class="header-btn-wrapper">
+        <a href="mappack.html" class="header-btn-wrapper">
+          <button class="header-btn">맵 팩</button>
+        </a>
       </div>
-    </a>
-    
-    <a href="level/challenge.html">
-      <div class="card">
-        <img src="image/끼양.png" alt="Challenge" />
-        <h2 class="card-title">Challenge</h2>
-        <h4 class="card-subtitle">20초 이내의 맵</h4>
+      <div class="header-btn-wrapper">
+        <a href="roulette.html" class="header-btn-wrapper">
+          <button class="header-btn">룰렛</button>
+        </a>
       </div>
-    </a>
-    
-    <a href="level/platformer.html">
-      <div class="card">
-        <img src="image/새해복.png" alt="Platformer" />
-        <h2 class="card-title">Platformer</h2>
-        <h4 class="card-subtitle">플랫포머 맵</h4>
-      </div>
-    </a>
-  </div>
+    </div>
 
-  <div class="credit-section">
-    <h4>크레딧</h4>
-    <p class="credit-text">제작 : 초코, 앞티</p>
-  </div>
-</div>
-</body>
+    <div class="divider"></div>
+
+    <div class="main-content">
+      <h1>레벨</h1>
+
+      <p class="description">
+        초친 멤버들이 제작한 커스텀 레벨의 난이도를 기준으로 랭킹을 나눈
+        곳입니다.<br />
+        일반적인 클래식, 20초 내의 길이를 가진 챌린지, 플랫포머로 레벨이
+        구분됩니다.<br />
+      </p>
+
+      <div class="cards-container">
+        <a href="level/classic.html">
+          <div class="card">
+            <img src="image/classic.jpg" alt="Classic" />
+            <h2 class="card-title">Classic</h2>
+            <h4 class="card-subtitle">기본적인 맵</h4>
+          </div>
+        </a>
+
+        <a href="level/challenge.html">
+          <div class="card">
+            <img src="image/끼양.png" alt="Challenge" />
+            <h2 class="card-title">Challenge</h2>
+            <h4 class="card-subtitle">20초 이내의 맵</h4>
+          </div>
+        </a>
+
+        <a href="level/platformer.html">
+          <div class="card">
+            <img src="image/새해복.png" alt="Platformer" />
+            <h2 class="card-title">Platformer</h2>
+            <h4 class="card-subtitle">플랫포머 맵</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="credit-section">
+        <h4>크레딧</h4>
+        <p class="credit-text">제작 : 초코, 앞티</p>
+      </div>
+    </div>
+    <script>
+      function toggleMenu() {
+        document.querySelector('.header-container').classList.toggle('open');
+      }
+    </script>
+  </body>
 </html>
-
-
-
-
-

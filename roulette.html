@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>초친 포럼 (룰렛)</title>
+
+    <style>
+      /* --- 기본 설정 --- */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: #323232;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        color: white;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      /* 폰트 설정 */
+      @font-face {
+        font-family: Paperlogy1;
+        src: url('font - paperlogy/Paperlogy-1.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy2;
+        src: url('font - paperlogy/Paperlogy-2.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy3;
+        src: url('font - paperlogy/Paperlogy-3.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy4;
+        src: url('font - paperlogy/Paperlogy-4.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy5;
+        src: url('font - paperlogy/Paperlogy-5.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy6;
+        src: url('font - paperlogy/Paperlogy-6.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy7;
+        src: url('font - paperlogy/Paperlogy-7.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy8;
+        src: url('font - paperlogy/Paperlogy-8.ttf');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Paperlogy9;
+        src: url('font - paperlogy/Paperlogy-9.ttf');
+        font-display: swap;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* --- 헤더 영역 --- */
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        padding: 2vh 0;
+        flex-wrap: wrap;
+      }
+      .header-btn-wrapper {
+        width: min(400px, 90vw);
+        display: flex;
+        justify-content: center;
+      }
+      .header-btn {
+        background-color: #323232;
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        cursor: pointer;
+        padding: 1.5vh 0;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
+        font-family: Paperlogy5;
+      }
+      .header-btn:hover {
+        background-color: #fff;
+        color: #323232;
+      }
+      .divider {
+        border: 2px solid white;
+        width: 100%;
+        height: 0;
+        margin: 6px 0;
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 2.5rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .header-container.open .header-btn-wrapper {
+        display: flex;
+      }
+
+      /* --- 메인 컨텐츠 --- */
+      .main-content {
+        text-align: center;
+        padding: 40px 20px;
+      }
+      #headerTitle {
+        font-family: Paperlogy7;
+        font-size: 120px;
+        color: #fff;
+        margin: 20px 0;
+      }
+      #detailSubtitle {
+        color: #aaa;
+        font-family: Paperlogy3;
+        font-size: 24px;
+        margin-bottom: 50px;
+      }
+      .roulette-controls {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .roulette-btn {
+        font-family: Paperlogy7;
+        font-size: 1.8rem;
+        padding: 15px 30px;
+        border-radius: 12px;
+        border: 2px solid white;
+        background: #444;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .roulette-btn:hover {
+        background: white;
+        color: #333;
+        transform: scale(1.05);
+      }
+      .roulette-btn.active {
+        background: white;
+        color: #333;
+        font-weight: bold;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      }
+      .spin-btn {
+        background: #ffdd44;
+        color: #000;
+        border-color: #ffdd44;
+        font-size: 2rem;
+        padding: 15px 50px;
+        margin-top: 20px;
+      }
+      .result-container {
+        margin-top: 30px;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .result-box {
+        background: #404040;
+        border-radius: 15px;
+        padding: 30px;
+        width: min(800px, 90vw);
+        border: 2px solid #666;
+        display: none; /* Initially hidden */
+      }
+      .result-title {
+        font-family: Paperlogy9;
+        font-size: 3rem;
+        color: #ffdd44;
+      }
+      .result-creator {
+        font-family: Paperlogy4;
+        font-size: 1.2rem;
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+      .result-link {
+        font-family: Paperlogy6;
+        font-size: 1.3rem;
+        padding: 10px 25px;
+        background: #5c5;
+        color: #232;
+        border-radius: 8px;
+        display: inline-block;
+      }
+
+      @media (max-width: 768px) {
+        #headerTitle {
+          font-size: 80px;
+        }
+        .roulette-btn {
+          font-size: 1.4rem;
+          padding: 12px 20px;
+        }
+        .spin-btn {
+          font-size: 1.6rem;
+        }
+        .result-title {
+          font-size: 2rem;
+          word-break: keep-all;
+        }
+        .header-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .header-btn-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <a href="index.html" class="header-btn-wrapper"
+        ><button class="header-btn">홈</button></a
+      >
+      <a href="level.html" class="header-btn-wrapper"
+        ><button class="header-btn">레벨</button></a
+      >
+      <a href="mappack.html" class="header-btn-wrapper"
+        ><button class="header-btn">맵 팩</button></a
+      >
+      <div class="header-btn-wrapper">
+        <button class="header-btn" style="font-family: Paperlogy9">룰렛</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="main-content">
+      <div id="headerTitle">Roulette</div>
+      <div id="detailSubtitle">원하는 범위의 레벨을 무작위로 선택합니다.</div>
+
+      <div class="roulette-controls">
+        <button class="roulette-btn" onclick="toggleCategory('main', this)">
+          메인 (1-10위)
+        </button>
+        <button class="roulette-btn" onclick="toggleCategory('ext', this)">
+          익텐 (11-20위)
+        </button>
+        <button class="roulette-btn" onclick="toggleCategory('legacy', this)">
+          레거시 (21위~)
+        </button>
+      </div>
+      <div style="text-align: center; margin-bottom: 40px">
+        <button class="roulette-btn spin-btn" onclick="startSpin()">
+          룰렛 돌리기
+        </button>
+      </div>
+
+      <div class="result-container">
+        <div id="resultBox" class="result-box">
+          <div id="resultTitle" class="result-title"></div>
+          <div id="resultCreator" class="result-creator"></div>
+          <a id="resultLink" class="result-link" href="#">레벨 보러가기</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let classicLevels = [];
+      const selectedCategories = new Set();
+
+      fetch('level/classic.json')
+        .then((res) => res.json())
+        .then((data) => {
+          classicLevels = data.levels || [];
+        })
+        .catch((err) =>
+          console.error('레벨 데이터를 불러오지 못했습니다.', err),
+        );
+
+      function toggleCategory(category, btn) {
+        if (selectedCategories.has(category)) {
+          selectedCategories.delete(category);
+          btn.classList.remove('active');
+        } else {
+          selectedCategories.add(category);
+          btn.classList.add('active');
+        }
+      }
+
+      function startSpin() {
+        if (classicLevels.length === 0) {
+          alert(
+            '레벨 데이터가 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.',
+          );
+          return;
+        }
+        if (selectedCategories.size === 0) {
+          alert('범위를 하나 이상 선택해주세요!');
+          return;
+        }
+
+        let pool = [];
+        if (selectedCategories.has('main'))
+          pool = pool.concat(
+            classicLevels.filter((l) => l.id >= 1 && l.id <= 10),
+          );
+        if (selectedCategories.has('ext'))
+          pool = pool.concat(
+            classicLevels.filter((l) => l.id >= 11 && l.id <= 20),
+          );
+        if (selectedCategories.has('legacy'))
+          pool = pool.concat(classicLevels.filter((l) => l.id >= 21));
+
+        if (pool.length === 0) {
+          alert('해당 범위에 레벨이 없습니다.');
+          return;
+        }
+
+        // UI 초기화
+        const resultBox = document.getElementById('resultBox');
+        const titleEl = document.getElementById('resultTitle');
+        const creatorEl = document.getElementById('resultCreator');
+        const linkEl = document.getElementById('resultLink');
+
+        resultBox.style.display = 'block';
+        linkEl.style.display = 'none'; // 추첨 중에는 링크 숨김
+
+        let count = 0;
+        const maxCount = 20; // 20번 바뀜
+        const interval = setInterval(() => {
+          const randomLevel = pool[Math.floor(Math.random() * pool.length)];
+          titleEl.innerText = `#${randomLevel.id} - ${randomLevel.title}`;
+          creatorEl.innerText = `by ${randomLevel.creator}`;
+
+          count++;
+          if (count >= maxCount) {
+            clearInterval(interval);
+            // 최종 결과 확정 (마지막에 보여진 것이 결과가 됨)
+            linkEl.href = `level/classic.html?id=${randomLevel.id}`;
+            linkEl.style.display = 'inline-block';
+          }
+        }, 80); // 0.08초마다 변경
+      }
+
+      function toggleMenu() {
+        const header = document.querySelector('.header-container');
+        header.classList.toggle('open');
+      }
+    </script>
+  </body>
+</html>
