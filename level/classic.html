@@ -9,12 +9,12 @@
       /* --- 기본 설정 --- */
       html,
       body {
-        height: 100vh;
+        min-height: 100vh;
         margin: 0;
         background: #323232;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow-x: hidden;
       }
       * {
         box-sizing: border-box;
@@ -161,8 +161,6 @@
         gap: 20px;
         padding: 20px;
         align-items: stretch;
-        flex: 1;
-        min-height: 0;
       }
 
       .container,
@@ -182,7 +180,7 @@
       .detail-panel {
         flex: 2;
         background: #505050;
-        overflow-y: auto;
+        /* overflow-y: auto; */
         min-width: 0;
       }
       .detail-panel.clears-panel {
@@ -196,15 +194,9 @@
         background: #3a3a3a;
         border-radius: 10px;
         padding: 20px;
-        min-height: 450px;
       }
 
       @media (max-width: 1400px) {
-        html,
-        body {
-          height: auto;
-          overflow-y: auto;
-        }
         .main-container {
           flex-direction: column;
           flex: none;
@@ -216,12 +208,10 @@
           margin-bottom: 20px;
           height: auto;
           flex: none;
-          overflow-y: visible;
           min-height: 400px; /* Give some base height */
         }
         #list {
-          overflow-y: auto; /* Allow list to scroll internally on mobile if it's too long */
-          max-height: 60vh;
+          /* Mobile scrolling is handled by body now */
         }
         .header-container {
           flex-direction: column;
@@ -263,8 +253,7 @@
         color: white;
       }
       #list {
-        flex: 1;
-        overflow-y: auto;
+        /* flex: 1; */
       }
 
       #tagCategoryContainer {
