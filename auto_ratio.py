@@ -37,6 +37,10 @@ SPEED_VALUES = {
     'Faster': 576.0,
 }
 
+# Mapping between speed names and portal names
+PORTAL_NAME_TO_SPEED_NAME = {'0.5x': 'Slow', '1x': 'Normal', '2x': 'Fast', '3x': 'Very Fast', '4x': 'Faster'}
+SPEED_NAME_TO_PORTAL_NAME = {v: k for k, v in PORTAL_NAME_TO_SPEED_NAME.items()}
+
 # Start Settings Mappings (from level header)
 START_GAMEMODES = {
     0: 'Cube',
@@ -169,7 +173,9 @@ def analyze_level(level_string, level_name="Unknown"):
             duration = distance / speed_val
             
             mode_times[current_gamemode] += duration
-            speed_times[current_speed] += duration
+            
+            speed_times_key = SPEED_NAME_TO_PORTAL_NAME.get(current_speed, '1x')
+            speed_times[speed_times_key] += duration
             total_time += duration
             
             current_x = next_x
@@ -178,7 +184,7 @@ def analyze_level(level_string, level_name="Unknown"):
         if p['type'] == 'gamemode':
             current_gamemode = p['value']
         elif p['type'] == 'speed':
-            current_speed = p['value']
+            current_speed = PORTAL_NAME_TO_SPEED_NAME.get(p['value'], 'Normal')
 
     # Output Results
     print(f"\n{'='*30}")
