@@ -8,7 +8,7 @@
       "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
       "map": {
         "mapId": "126886071",
-        "length": "0m 24s",
+        "length": "24s",
         "objects": 1930,
         "uploadDate": "2025-10-10"
       },
@@ -38,7 +38,13 @@
         },
         "total": 30
       },
-      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
+      "tags": [
+        "Wave",
+        "4x",
+        "Short",
+        "Physical",
+        "None-Effect"
+      ],
       "clears": [
         {
           "player": "Timo",
@@ -108,7 +114,7 @@
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "map": {
         "mapId": "129453627",
-        "length": "0m 28s",
+        "length": "28s",
         "objects": 1431,
         "uploadDate": "2025-12-14"
       },
@@ -155,7 +161,7 @@
       "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "map": {
         "mapId": "126915240",
-        "length": "0m 25s",
+        "length": "25s",
         "objects": 33111,
         "uploadDate": "2025-10-11"
       },
@@ -238,7 +244,7 @@
       "video": "https://www.youtube.com/embed/7cljAqFCxXQ",
       "map": {
         "mapId": "110122641",
-        "length": "0m 33s",
+        "length": "33s",
         "objects": 1326,
         "uploadDate": "2024-09-14"
       },
@@ -308,7 +314,13 @@
         "fps": {},
         "total": 0
       },
-      "tags": ["Any-Mode", "Long", "Sync", "Flow", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "Long",
+        "Sync",
+        "Flow",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -488,7 +500,7 @@
       "video": "-",
       "map": {
         "mapId": "85646626",
-        "length": "0m 36s",
+        "length": "36s",
         "objects": 553,
         "uploadDate": "2022-11-13"
       },
@@ -519,7 +531,14 @@
         },
         "total": 1
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Memory",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": [
         {
           "player": "imBBBT",
@@ -621,7 +640,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
+      "tags": [
+        "Any-Mode",
+        "4x",
+        "Long",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -845,7 +871,14 @@
           "240": 0
         }
       },
-      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
+      "tags": [
+        "Ship",
+        "1x",
+        "Long",
+        "Physical",
+        "None-Effect",
+        "No-Clear"
+      ],
       "clears": []
     },
     {
@@ -966,7 +999,14 @@
           "240": 0
         }
       },
-      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
+      "tags": [
+        "2x",
+        "Sync",
+        "Learny",
+        "Low-Effect",
+        "XL",
+        "Ship"
+      ],
       "clears": []
     },
     {
@@ -1042,7 +1082,14 @@
           "240": 0
         }
       },
-      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
+      "tags": [
+        "Any-Mode",
+        "1x",
+        "Medium",
+        "Sync",
+        "Slow",
+        "None-Effect"
+      ],
       "clears": []
     },
     {
