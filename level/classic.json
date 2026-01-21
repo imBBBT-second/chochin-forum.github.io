@@ -38,13 +38,7 @@
         },
         "total": 30
       },
-      "tags": [
-        "Wave",
-        "4x",
-        "Short",
-        "Physical",
-        "None-Effect"
-      ],
+      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
       "clears": [
         {
           "player": "Timo",
@@ -314,13 +308,7 @@
         "fps": {},
         "total": 0
       },
-      "tags": [
-        "Any-Mode",
-        "Long",
-        "Sync",
-        "Flow",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "Long", "Sync", "Flow", "No-Clear"],
       "clears": []
     },
     {
@@ -531,14 +519,7 @@
         },
         "total": 1
       },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Memory",
-        "Low-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
       "clears": [
         {
           "player": "imBBBT",
@@ -640,14 +621,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Any-Mode",
-        "4x",
-        "Long",
-        "Physical",
-        "Low-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -871,14 +845,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Ship",
-        "1x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -999,14 +966,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "2x",
-        "Sync",
-        "Learny",
-        "Low-Effect",
-        "XL",
-        "Ship"
-      ],
+      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
       "clears": []
     },
     {
@@ -1082,14 +1042,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Sync",
-        "Slow",
-        "None-Effect"
-      ],
+      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
       "clears": []
     },
     {
@@ -1300,6 +1253,156 @@
     }
   ],
   "history": [
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "nullscube",
+      "detail": "1위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "Reaper Wave",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "chocubed",
+      "detail": "3위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-01-15 00:00",
+      "type": "add",
+      "title": "Stereo MadnesS EX",
+      "detail": "2위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-11-16 00:00",
+      "type": "add",
+      "title": "PPPP",
+      "detail": "6위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP 8",
+      "detail": "7위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "Egg Layout",
+      "detail": "8위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "Trolled",
+      "detail": "9위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP4",
+      "detail": "10위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP5",
+      "detail": "11위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP1",
+      "detail": "12위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP7",
+      "detail": "13위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP2",
+      "detail": "14위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "LT EP7",
+      "detail": "15위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "LT EP2",
+      "detail": "16위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP3",
+      "detail": "17위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP9",
+      "detail": "18위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "JPA EP6",
+      "detail": "19위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "LT EP6",
+      "detail": "20위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "LT EP4",
+      "detail": "21위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "LT EP5",
+      "detail": "22위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "Glide Festival",
+      "detail": "23위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "LT EP3",
+      "detail": "24위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "Slow Challenge",
+      "detail": "26위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2025-10-11 00:00",
+      "type": "add",
+      "title": "Answer Me",
+      "detail": "25위에 새로운 레벨이 등록되었습니다."
+    },
     {
       "time": "2026-01-20 12:54",
       "type": "move",
