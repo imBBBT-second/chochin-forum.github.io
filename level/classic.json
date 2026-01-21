@@ -8,7 +8,7 @@
       "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
       "map": {
         "mapId": "126886071",
-        "length": "24s",
+        "length": "0m 24s",
         "objects": 1930,
         "uploadDate": "2025-10-10"
       },
@@ -19,14 +19,14 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 32.93,
-          "Ship": 11.78,
-          "Wave": 55.29
+          "Cube": 32.9,
+          "Ship": 11.8,
+          "Wave": 55.3
         },
         "speedRatio": {
-          "0.5x": 5.14,
-          "1x": 5.96,
-          "4x": 88.91
+          "0.5x": 5.1,
+          "1x": 6,
+          "4x": 88.9
         }
       },
       "framePerfect": {
@@ -38,13 +38,7 @@
         },
         "total": 30
       },
-      "tags": [
-        "Wave",
-        "4x",
-        "Short",
-        "Physical",
-        "None-Effect"
-      ],
+      "tags": ["Wave", "4x", "Short", "Physical", "None-Effect"],
       "clears": [
         {
           "player": "Timo",
@@ -72,14 +66,14 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 47.08,
-          "Ship": 30.48,
-          "Ball": 2.72,
-          "UFO": 1.13,
-          "Wave": 7.93,
-          "Robot": 9.69,
-          "Spider": 0.96,
-          "Swing": 8.84
+          "Cube": 47,
+          "Ship": 30.5,
+          "Ball": 2.7,
+          "UFO": 1.1,
+          "Wave": 7.9,
+          "Robot": 9.7,
+          "Spider": 1,
+          "Swing": 8.8
         },
         "speedRatio": {
           "1x": 100
@@ -114,7 +108,7 @@
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
       "map": {
         "mapId": "129453627",
-        "length": "28s",
+        "length": "0m 28s",
         "objects": 1431,
         "uploadDate": "2025-12-14"
       },
@@ -128,8 +122,8 @@
           "Wave": 100
         },
         "speedRatio": {
-          "1x": 97.92,
-          "4x": 2.09
+          "1x": 97.9,
+          "4x": 2.1
         }
       },
       "framePerfect": {
@@ -161,7 +155,7 @@
       "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
       "map": {
         "mapId": "126915240",
-        "length": "25s",
+        "length": "0m 25s",
         "objects": 33111,
         "uploadDate": "2025-10-11"
       },
@@ -175,8 +169,8 @@
           "Cube": 100
         },
         "speedRatio": {
-          "0.5x": 7.61,
-          "1x": 92.39
+          "0.5x": 7.6,
+          "1x": 92.4
         }
       },
       "framePerfect": {
@@ -244,7 +238,7 @@
       "video": "https://www.youtube.com/embed/7cljAqFCxXQ",
       "map": {
         "mapId": "110122641",
-        "length": "33s",
+        "length": "0m 33s",
         "objects": 1326,
         "uploadDate": "2024-09-14"
       },
@@ -256,18 +250,18 @@
       "gameplay": {
         "modeRatio": {
           "Cube": 25.5,
-          "Ship": 5.39,
-          "Ball": 8.34,
-          "UFO": 13.47,
-          "Wave": 34.99,
-          "Spider": 10.17,
-          "Swing": 2.14
+          "Ship": 5.4,
+          "Ball": 8.3,
+          "UFO": 13.5,
+          "Wave": 35,
+          "Spider": 10.2,
+          "Swing": 2.1
         },
         "speedRatio": {
-          "0.5x": 47.62,
+          "0.5x": 47.6,
           "2x": 0.5,
-          "3x": 47.84,
-          "4x": 4.04
+          "3x": 47.8,
+          "4x": 4
         }
       },
       "framePerfect": {
@@ -314,13 +308,7 @@
         "fps": {},
         "total": 0
       },
-      "tags": [
-        "Any-Mode",
-        "Long",
-        "Sync",
-        "Flow",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "Long", "Sync", "Flow", "No-Clear"],
       "clears": []
     },
     {
@@ -342,17 +330,17 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 72.41,
-          "Ball": 4.12,
-          "UFO": 7.97,
-          "Wave": 6.9,
-          "Spider": 8.59
+          "Cube": 72.4,
+          "Ball": 4.1,
+          "UFO": 8,
+          "Wave": 7,
+          "Spider": 8.6
         },
         "speedRatio": {
           "1x": 9.5,
-          "2x": 67.64,
-          "3x": 20.47,
-          "4x": 2.39
+          "2x": 67.6,
+          "3x": 20.5,
+          "4x": 2.4
         }
       },
       "framePerfect": {
@@ -396,18 +384,18 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 48.48,
-          "Ship": 26.75,
-          "Ball": 8.44,
-          "UFO": 3.36,
-          "Wave": 9.59,
-          "Robot": 1.77,
-          "Spider": 1.62
+          "Cube": 48.5,
+          "Ship": 26.8,
+          "Ball": 8.4,
+          "UFO": 3.4,
+          "Wave": 9.6,
+          "Robot": 1.8,
+          "Spider": 1.6
         },
         "speedRatio": {
-          "1x": 59.74,
-          "2x": 23.45,
-          "3x": 16.81
+          "1x": 59.7,
+          "2x": 23.5,
+          "3x": 16.8
         }
       },
       "framePerfect": {
@@ -450,20 +438,20 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 38.84,
-          "Ship": 13.37,
-          "Ball": 8.11,
-          "UFO": 5.69,
-          "Wave": 8.13,
-          "Robot": 9.56,
-          "Spider": 12.39,
-          "Swing": 3.91
+          "Cube": 38.8,
+          "Ship": 13.4,
+          "Ball": 8.1,
+          "UFO": 5.7,
+          "Wave": 8.1,
+          "Robot": 9.6,
+          "Spider": 12.4,
+          "Swing": 3.9
         },
         "speedRatio": {
-          "1x": 34.16,
-          "2x": 17.37,
-          "3x": 45.78,
-          "4x": 2.69
+          "1x": 34.2,
+          "2x": 17.4,
+          "3x": 45.8,
+          "4x": 2.7
         }
       },
       "framePerfect": {
@@ -500,7 +488,7 @@
       "video": "-",
       "map": {
         "mapId": "85646626",
-        "length": "36s",
+        "length": "0m 36s",
         "objects": 553,
         "uploadDate": "2022-11-13"
       },
@@ -511,12 +499,12 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 44.07,
-          "Ship": 9.68,
+          "Cube": 44,
+          "Ship": 9.7,
           "Ball": 8.6,
-          "UFO": 6.72,
-          "Wave": 25.54,
-          "Robot": 5.38
+          "UFO": 6.7,
+          "Wave": 25.5,
+          "Robot": 5.4
         },
         "speedRatio": {
           "1x": 100
@@ -531,14 +519,7 @@
         },
         "total": 1
       },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Memory",
-        "Low-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "1x", "Medium", "Memory", "Low-Effect", "No-Clear"],
       "clears": [
         {
           "player": "imBBBT",
@@ -571,17 +552,17 @@
       },
       "gameplay": {
         "modeRatio": {
-          "Cube": 32.56,
-          "Ship": 38.46,
-          "Wave": 13.18,
-          "Robot": 6.87,
-          "Spider": 8.93
+          "Cube": 32.6,
+          "Ship": 38.5,
+          "Wave": 13.2,
+          "Robot": 6.9,
+          "Spider": 8.9
         },
         "speedRatio": {
-          "0.5x": 12.88,
-          "1x": 40.27,
-          "2x": 40.36,
-          "3x": 6.49
+          "0.5x": 12.9,
+          "1x": 40.3,
+          "2x": 40.4,
+          "3x": 6.45
         }
       },
       "framePerfect": {
@@ -640,14 +621,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Any-Mode",
-        "4x",
-        "Long",
-        "Physical",
-        "Low-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Any-Mode", "4x", "Long", "Physical", "Low-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -871,14 +845,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Ship",
-        "1x",
-        "Long",
-        "Physical",
-        "None-Effect",
-        "No-Clear"
-      ],
+      "tags": ["Ship", "1x", "Long", "Physical", "None-Effect", "No-Clear"],
       "clears": []
     },
     {
@@ -999,14 +966,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "2x",
-        "Sync",
-        "Learny",
-        "Low-Effect",
-        "XL",
-        "Ship"
-      ],
+      "tags": ["2x", "Sync", "Learny", "Low-Effect", "XL", "Ship"],
       "clears": []
     },
     {
@@ -1082,14 +1042,7 @@
           "240": 0
         }
       },
-      "tags": [
-        "Any-Mode",
-        "1x",
-        "Medium",
-        "Sync",
-        "Slow",
-        "None-Effect"
-      ],
+      "tags": ["Any-Mode", "1x", "Medium", "Sync", "Slow", "None-Effect"],
       "clears": []
     },
     {
@@ -1443,6 +1396,18 @@
       "type": "add",
       "title": "PPPP",
       "detail": "6위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-01-20 12:54",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Slow Challenge' 레벨의 순위 변동으로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-20 12:54",
+      "type": "reeval",
+      "title": "Slow Challenge",
+      "detail": "'Slow Challenge' 레벨의 재평가로 인해 순위가 28위에서 27위로 상승하였습니다."
     },
     {
       "time": "2025-12-10 21:37",
