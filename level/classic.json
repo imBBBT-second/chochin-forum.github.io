@@ -234,7 +234,13 @@
         "No-Clear",
         "NONG"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Light",
+          "percent": 100,
+          "date": "2026-01-23"
+        }
+      ]
     },
     {
       "id": 6,
