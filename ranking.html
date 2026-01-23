@@ -662,6 +662,7 @@
             points: stats.points,
             clears: stats.clears,
             hardest: stats.hardestName,
+            hardestRank: stats.hardestRank,
           }))
           .sort((a, b) => b.points - a.points);
       }
@@ -717,17 +718,25 @@
           }
 
           if (isHardest) {
+            let levelRankStr = '';
+            if (user.hardest) {
+              const found = allLevels.find(
+                (l) => l.title.toLowerCase() === user.hardest.toLowerCase().trim(),
+              );
+              if (found) levelRankStr = ` (#${found.id})`;
+            }
             tr.innerHTML = `
             <td class="${rankClass}">${rank}</td>
             <td class="user-name">${user.name}</td>
-            <td class="hardest-level" style="color:#fff;">${user.hardest || '-'}</td>
+            <td class="hardest-level" style="color:#fff;">${user.hardest || '-'}${levelRankStr}</td>
           `;
           } else {
+            const hardestStr = user.hardest ? `${user.hardest} (#${user.hardestRank})` : '-';
             tr.innerHTML = `
             <td class="${rankClass}">${rank}</td>
             <td class="user-name">${user.name}</td>
             <td class="user-points">${user.points.toLocaleString()}pt</td>
-            <td class="hardest-level">${user.hardest || '-'}</td>
+            <td class="hardest-level">${hardestStr}</td>
             <td class="clear-count">${user.clears}회</td>
           `;
           }
