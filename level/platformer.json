@@ -2,19 +2,19 @@
   "levels": [
     {
       "id": 1,
-      "title": "cc tower",
+      "title": "CC Tower",
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/VucerZF6Ewk",
       "map": {
-        "mapId": "85646626",
-        "length": "Plat",
+        "mapId": "131896624",
+        "length": "27s",
         "objects": 381,
         "uploadDate": "2026-01-22"
       },
       "song": {
         "name": "Amazing Plan",
-        "artist": "Kevin Macleod",
+        "artist": "Kevin MacLeod",
         "id": "10002980"
       },
       "gameplay": {
@@ -25,49 +25,54 @@
         "fps": {},
         "total": 0
       },
-      "tags": [],
+      "tags": [
+        "Any-Mode",
+        "Physical",
+        "Low-Effect",
+        "No-Clear"
+      ],
       "clears": []
     }
   ],
   "history": [
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:25",
       "type": "add",
-      "title": "cc tower",
+      "title": "CC Tower",
       "detail": "1위에 새로운 레벨이 등록되었습니다."
     },
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:23",
       "type": "remove",
       "title": "nullscube",
       "detail": "1위에 있던 레벨이 삭제되었습니다."
     },
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:23",
       "type": "move",
       "title": "nullscube",
       "detail": "'BOOBAWAVEBA' 레벨 삭제로 인해 순위가 2위에서 1위로 상승하였습니다."
     },
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:23",
       "type": "remove",
       "title": "BOOBAWAVEBA",
       "detail": "1위에 있던 레벨이 삭제되었습니다."
     },
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:23",
       "type": "move",
       "title": "nullscube",
       "detail": "'chocubed' 레벨 삭제로 인해 순위가 3위에서 2위로 상승하였습니다."
     },
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:23",
       "type": "move",
       "title": "BOOBAWAVEBA",
       "detail": "'chocubed' 레벨 삭제로 인해 순위가 2위에서 1위로 상승하였습니다."
     },
     {
-      "time": "2026-01-23 20:21",
+      "time": "2026-01-23 20:23",
       "type": "remove",
       "title": "chocubed",
       "detail": "1위에 있던 레벨이 삭제되었습니다."
