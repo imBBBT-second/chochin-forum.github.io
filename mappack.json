@@ -192,12 +192,21 @@
         {
           "name": "nullscube",
           "author": "Timo"
+        },
+        {
+          "name": "Reaper Wave",
+          "author": "Timo"
         }
       ],
       "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-01-25",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-01-25",
       "type": "팩 수정",
