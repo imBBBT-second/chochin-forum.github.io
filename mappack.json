@@ -47,7 +47,6 @@
         }
       ]
     },
-    
     {
       "id": "pack 3",
       "title": "Adventure Pack II",
@@ -128,7 +127,7 @@
           "author": "Light"
         },
         {
-          "name": "Stereo Madness EX",
+          "name": "Stereo MadnesS EX",
           "author": "Choco & Timo"
         }
       ],
@@ -174,7 +173,7 @@
           "author": "Timo"
         },
         {
-          "name": "Stereo Madness EX",
+          "name": "Stereo MadnesS EX",
           "author": "Choco & Timo"
         }
       ],
@@ -199,6 +198,16 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-25",
+      "type": "팩 수정",
+      "detail": "Troll Pack 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-25",
+      "type": "팩 수정",
+      "detail": "Inspired Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-01-11",
       "type": "팩 추가",
