@@ -2,6 +2,41 @@
   "levels": [
     {
       "id": 1,
+      "title": "Desuwa",
+      "creator": "Choco",
+      "verifier": "Timo",
+      "video": "",
+      "map": {
+        "mapId": "132192819",
+        "length": "36s",
+        "objects": 3588,
+        "uploadDate": "2026-01-26"
+      },
+      "song": {
+        "name": "Glory",
+        "artist": "FyremanMusic",
+        "id": ""
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "framePerfect": {
+        "fps": {},
+        "total": 0
+      },
+      "tags": [
+        "Wave",
+        "Medium",
+        "Physical",
+        "Learny",
+        "Fast",
+        "Full-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 2,
       "title": "chocubed",
       "creator": "Light",
       "verifier": "Light",
@@ -54,7 +89,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Stereo MadnesS EX",
       "creator": "Choco & Timo",
       "verifier": "Timo",
@@ -107,7 +142,7 @@
       "clears": []
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "BOOBAWAVEBA",
       "creator": "Choco",
       "verifier": "Choco",
@@ -154,7 +189,7 @@
       "clears": []
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "nullscube",
       "creator": "Timo",
       "verifier": "Timo",
@@ -201,7 +236,7 @@
       "clears": []
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "FlipBook",
       "creator": "Choco",
       "verifier": "Choco",
@@ -242,7 +277,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Reaper Wave",
       "creator": "Timo",
       "verifier": "Timo",
@@ -300,7 +335,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "PPPP",
       "creator": "Choco",
       "verifier": "Choco",
@@ -354,7 +389,7 @@
       "clears": []
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Endless Dreaming",
       "creator": "Light",
       "verifier": "Light",
@@ -388,7 +423,7 @@
       "clears": []
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "JPA EP8",
       "creator": "Choco",
       "verifier": "Choco",
@@ -442,7 +477,7 @@
       "clears": []
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "Egg Layout",
       "creator": "Light",
       "verifier": "Light",
@@ -502,7 +537,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "Trolled",
       "creator": "Light",
       "verifier": "Light",
@@ -561,7 +596,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "JPA EP4",
       "creator": "Choco",
       "verifier": "Choco",
@@ -614,7 +649,7 @@
       "clears": []
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "JPA EP5",
       "creator": "Choco",
       "video": "-",
@@ -659,7 +694,7 @@
       "clears": []
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "JPA EP1",
       "creator": "Choco",
       "video": "-",
@@ -705,7 +740,7 @@
       "clears": []
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "JPA EP7",
       "creator": "Choco",
       "video": "-",
@@ -751,7 +786,7 @@
       "clears": []
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "JPA EP2",
       "creator": "Choco",
       "video": "-",
@@ -797,7 +832,7 @@
       "clears": []
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "LT EP7",
       "creator": "Light",
       "video": "-",
@@ -845,7 +880,7 @@
       "clears": []
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "LT EP2",
       "creator": "Light",
       "video": "-",
@@ -890,7 +925,7 @@
       "clears": []
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "JPA EP3",
       "creator": "Choco",
       "video": "-",
@@ -936,7 +971,7 @@
       "clears": []
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
@@ -978,7 +1013,7 @@
       "clears": []
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1018,7 +1053,7 @@
       "clears": []
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "LT EP6",
       "creator": "Light",
       "verifier": "Light",
@@ -1061,7 +1096,7 @@
       "clears": []
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "LT EP4",
       "creator": "Light",
       "verifier": "Light",
@@ -1101,7 +1136,7 @@
       "clears": []
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "LT EP5",
       "creator": "Light",
       "verifier": "Light",
@@ -1141,7 +1176,7 @@
       "clears": []
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1183,7 +1218,7 @@
       "clears": []
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "LT EP3",
       "creator": "Light",
       "verifier": "Light",
@@ -1225,7 +1260,7 @@
       "clears": []
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "Slow Challenge",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1266,7 +1301,7 @@
       "clears": []
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "Answer Me",
       "creator": "Choco",
       "verifier": "Choco",
@@ -1308,6 +1343,180 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-26 21:23",
+      "type": "add",
+      "title": "Desuwa",
+      "detail": "1위에 새로운 레벨이 등록되었습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Answer Me",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 28위에서 29위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Slow Challenge",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 27위에서 28위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "LT EP3",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 26위에서 27위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Glide Festival",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 25위에서 26위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "LT EP5",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 24위에서 25위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "LT EP4",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 23위에서 24위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "LT EP6",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 22위에서 23위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP6",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 21위에서 22위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP9",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 20위에서 21위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP3",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 19위에서 20위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "LT EP2",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 18위에서 19위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "LT EP7",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 17위에서 18위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP2",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 16위에서 17위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP7",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 15위에서 16위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP1",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 14위에서 15위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP5",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 13위에서 14위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP4",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 12위에서 13위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Trolled",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 11위에서 12위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Egg Layout",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 10위에서 11위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "JPA EP8",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 9위에서 10위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Endless Dreaming",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 8위에서 9위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "PPPP",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 7위에서 8위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Reaper Wave",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 6위에서 7위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "FlipBook",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 5위에서 6위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "nullscube",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 4위에서 5위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "BOOBAWAVEBA",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 3위에서 4위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "Stereo MadnesS EX",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 2위에서 3위로 하락하였습니다."
+    },
+    {
+      "time": "2026-01-26 21:23",
+      "type": "move",
+      "title": "chocubed",
+      "detail": "'Desuwa' 레벨 추가로 인해 순위가 1위에서 2위로 하락하였습니다."
+    },
     {
       "time": "2026-01-23 18:45",
       "type": "move",
