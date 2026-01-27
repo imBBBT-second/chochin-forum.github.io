@@ -1142,7 +1142,7 @@
       "verifier": "Light",
       "video": "-",
       "map": {
-        "mapId": 85596289,
+        "mapId": "85596289",
         "length": "53s",
         "objects": 1492,
         "uploadDate": "2022-11-12"
@@ -1150,20 +1150,11 @@
       "song": {
         "name": "",
         "artist": "",
-        "id": 0
+        "id": ""
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Any-Mode",
@@ -1173,7 +1164,13 @@
         "Any-Speed",
         "None-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-27"
+        }
+      ]
     },
     {
       "id": 26,
