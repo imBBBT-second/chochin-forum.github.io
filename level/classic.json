@@ -975,9 +975,9 @@
       "title": "JPA EP9",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/WFhj0H3_IBo",
       "map": {
-        "mapId": 87116363,
+        "mapId": "87116363",
         "length": "1m 22s",
         "objects": 7380,
         "uploadDate": "2022-12-26"
@@ -985,20 +985,11 @@
       "song": {
         "name": "",
         "artist": "",
-        "id": 0
+        "id": ""
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "Any-Mode",
@@ -1017,9 +1008,9 @@
       "title": "JPA EP6",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/x1_DooaskKc",
       "map": {
-        "mapId": 85797010,
+        "mapId": "85797010",
         "length": "2m 55s",
         "objects": 4055,
         "uploadDate": "2022-11-18"
@@ -1027,20 +1018,11 @@
       "song": {
         "name": "",
         "artist": "",
-        "id": 0
+        "id": ""
       },
       "gameplay": {
         "modeRatio": {},
         "speedRatio": {}
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        }
       },
       "tags": [
         "2x",
