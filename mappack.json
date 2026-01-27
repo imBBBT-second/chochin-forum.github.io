@@ -196,12 +196,47 @@
         {
           "name": "Reaper Wave",
           "author": "Timo"
+        },
+        {
+          "name": "Desuwa",
+          "author": "Choco & Timo"
+        }
+      ],
+      "clears": []
+    },
+    {
+      "id": "pack 10",
+      "title": "Boykisser Pack",
+      "tier": "Tier 3",
+      "description": "Do you like kissing boys don't you?  (보이 키서가 나오는 맵을 쳐 해보세요!)",
+      "levels": [
+        {
+          "name": "Desuwa",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "Stereo MadnesS EX",
+          "author": "Choco & Timo"
+        },
+        {
+          "name": "nullscube",
+          "author": "Timo"
         }
       ],
       "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-01-26",
+      "type": "팩 추가",
+      "detail": "Boykisser Pack 팩이 추가되었습니다."
+    },
+    {
+      "time": "2026-01-26",
+      "type": "팩 수정",
+      "detail": "TOP 1 Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-01-25",
       "type": "팩 수정",

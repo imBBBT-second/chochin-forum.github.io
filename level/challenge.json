@@ -173,10 +173,10 @@
       "id": 5,
       "title": "Jiter Click 2",
       "creator": "Timo",
-      "video": "-",
       "verifier": "Timo",
+      "video": "-",
       "map": {
-        "mapId": 121229320,
+        "mapId": "121229320",
         "length": "3s",
         "objects": 59,
         "uploadDate": "2025-06-18"
@@ -184,10 +184,9 @@
       "song": {
         "name": "YE",
         "artist": "ephixa",
-        "id": 791974
+        "id": "791974"
       },
       "gameplay": {
-        "mainMode": "Wave",
         "modeRatio": {
           "Cube": 100
         },
@@ -196,13 +195,13 @@
         }
       },
       "framePerfect": {
-        "total": 0,
         "fps": {
           "30": 0,
           "60": 0,
           "120": 0,
           "240": 0
-        }
+        },
+        "total": 0
       },
       "tags": [
         "Wave",
@@ -212,7 +211,13 @@
         "None-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-03"
+        }
+      ]
     },
     {
       "id": 6,
