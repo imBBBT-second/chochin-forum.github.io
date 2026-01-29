@@ -6,6 +6,7 @@
       "creator": "Choco & Timo",
       "verifier": "Timo",
       "video": "",
+      "rating": "Featured",
       "map": {
         "mapId": "132194145",
         "length": "36s",
@@ -90,6 +91,7 @@
       "creator": "Choco & Timo",
       "verifier": "Timo",
       "video": "https://www.youtube.com/embed/ys5N_0DgIsk",
+      "rating": "Legendary",
       "map": {
         "mapId": "131445339",
         "length": "1m 25s",
@@ -116,15 +118,6 @@
           "1x": 100
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 3,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 3
-      },
       "tags": [
         "Any-Mode",
         "1x",
@@ -143,6 +136,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/NCW_519mfoc",
+      "rating": "Featured",
       "map": {
         "mapId": "129453627",
         "length": "28s",
@@ -163,15 +157,6 @@
           "4x": 2.1
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 3,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 3
-      },
       "tags": [
         "Wave",
         "1x",
@@ -190,6 +175,7 @@
       "creator": "Timo",
       "verifier": "Timo",
       "video": "https://www.youtube.com/embed/rqmKAdj5gPI",
+      "rating": "Mythic",
       "map": {
         "mapId": "126915240",
         "length": "25s",
@@ -210,15 +196,6 @@
           "1x": 92.4
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 7,
-          "60": 5,
-          "120": 0,
-          "240": 0
-        },
-        "total": 12
-      },
       "tags": [
         "Cube",
         "1x",
@@ -237,6 +214,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/uRG-NHZSKZY",
+      "rating": "Legendary",
       "map": {
         "mapId": "131573660",
         "length": "1m 11s",
@@ -252,10 +230,6 @@
         "modeRatio": {},
         "speedRatio": {}
       },
-      "framePerfect": {
-        "fps": {},
-        "total": 0
-      },
       "tags": [
         "Any-Mode",
         "Long",
@@ -268,7 +242,8 @@
         {
           "player": "Light",
           "percent": 100,
-          "date": "2026-01-23"
+          "date": "2026-01-23",
+          "link": ""
         }
       ]
     },
@@ -278,6 +253,7 @@
       "creator": "Timo",
       "verifier": "Timo",
       "video": "https://www.youtube.com/embed/7cljAqFCxXQ",
+      "rating": "Featured",
       "map": {
         "mapId": "110122641",
         "length": "33s",
@@ -306,15 +282,6 @@
           "4x": 4
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
-      },
       "tags": [
         "Any-Mode",
         "Any-Speed",
@@ -326,7 +293,8 @@
         {
           "player": "Choco",
           "percent": 100,
-          "date": "2026-01-23"
+          "date": "2026-01-23",
+          "link": "https://youtu.be/WchcVcGlI5U"
         }
       ]
     },
@@ -336,6 +304,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/bhJ6x2_qNKs?si=nkMceOtd88D99pn5",
+      "rating": "Featured",
       "map": {
         "mapId": "128210347",
         "length": "1m 4s",
@@ -361,15 +330,6 @@
           "3x": 20.5,
           "4x": 2.4
         }
-      },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
-        },
-        "total": 0
       },
       "tags": [
         "Any-Mode",
@@ -831,10 +791,11 @@
       "id": 18,
       "title": "LT EP7",
       "creator": "Light",
-      "video": "-",
       "verifier": "Light",
+      "video": "-",
+      "rating": "",
       "map": {
-        "mapId": 85837732,
+        "mapId": "85837732",
         "length": "1m 37s",
         "objects": 2815,
         "uploadDate": "2022-11-19"
@@ -842,24 +803,14 @@
       "song": {
         "name": "-Final Battle-",
         "artist": "Waterflame",
-        "id": 598349
+        "id": "598349"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -873,7 +824,14 @@
         "Low-Effect",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-23",
+          "link": "https://youtu.be/HgMXx75SKcM"
+        }
+      ]
     },
     {
       "id": 19,
@@ -1101,6 +1059,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
+      "rating": "",
       "map": {
         "mapId": "85596289",
         "length": "53s",
@@ -1128,7 +1087,8 @@
         {
           "player": "Choco",
           "percent": 100,
-          "date": "2026-01-27"
+          "date": "2026-01-27",
+          "link": "https://youtu.be/7k5j87WtPkE"
         }
       ]
     },
@@ -1171,6 +1131,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
+      "rating": "",
       "map": {
         "mapId": "84810667",
         "length": "39s",
@@ -1200,7 +1161,8 @@
         {
           "player": "Choco",
           "percent": 100,
-          "date": "2026-01-27"
+          "date": "2026-01-27",
+          "link": "https://youtu.be/N3rMc3TlgF8"
         }
       ]
     },
@@ -1242,6 +1204,7 @@
       "creator": "Choco",
       "verifier": "Choco",
       "video": "https://www.youtube.com/embed/QKVv_6gxOFg",
+      "rating": "Featured",
       "map": {
         "mapId": "124680897",
         "length": "20s",
