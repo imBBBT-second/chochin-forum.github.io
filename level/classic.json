@@ -438,6 +438,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "https://www.youtube.com/embed/Enf5QGaAPyI",
+      "rating": "",
       "map": {
         "mapId": "123940130",
         "length": "1m 20s",
@@ -467,15 +468,6 @@
           "4x": 2.7
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 0,
-          "60": 1,
-          "120": 0,
-          "240": 0
-        },
-        "total": 1
-      },
       "tags": [
         "Any-Mode",
         "3x",
@@ -488,7 +480,14 @@
         {
           "player": "Choco",
           "percent": 100,
-          "date": "2026-01-19"
+          "date": "2026-01-19",
+          "link": ""
+        },
+        {
+          "player": "imBBBT",
+          "percent": 100,
+          "date": "2026-01-24",
+          "link": "https://youtu.be/qgcbQj3DYaQ"
         }
       ]
     },
