@@ -412,6 +412,30 @@
       .item.cleared.active {
         background-color: #fff !important;
       }
+      
+      /* 등급 스타일 */
+      .item.featured {
+        border: 2px solid #ffd700 !important;
+        background: rgba(255, 215, 0, 0.05);
+        border-radius: 8px;
+        margin-bottom: 4px;
+      }
+      .item.legendary {
+        border: 2px solid #d940ff !important;
+        background: rgba(217, 64, 255, 0.05);
+        border-radius: 8px;
+        margin-bottom: 4px;
+      }
+      .item.mythic {
+        border: 2px solid #00bfff !important;
+        background: rgba(0, 191, 255, 0.05);
+        border-radius: 8px;
+        margin-bottom: 4px;
+      }
+      .rate-icon { font-size: 1.2rem; margin-left: 6px; vertical-align: middle; text-shadow: 0 0 8px currentColor; }
+      .rate-icon.featured { color: #ffd700; }
+      .rate-icon.legendary { color: #d940ff; }
+      .rate-icon.mythic { color: #00bfff; }
 
       .clear-check {
         color: #4f9;
@@ -1430,12 +1454,25 @@
             }
           }
 
+          let ratingClass = '';
+          let ratingIcon = '';
+          if (item.rating === 'Featured') {
+            ratingClass = 'featured';
+            ratingIcon = '<span class="rate-icon featured">★</span>';
+          } else if (item.rating === 'Legendary') {
+            ratingClass = 'legendary';
+            ratingIcon = '<span class="rate-icon legendary">★</span>';
+          } else if (item.rating === 'Mythic') {
+            ratingClass = 'mythic';
+            ratingIcon = '<span class="rate-icon mythic">★</span>';
+          }
+
           const div = document.createElement('div');
-          div.className = `item ${isDone ? 'cleared' : ''}`;
+          div.className = `item ${isDone ? 'cleared' : ''} ${ratingClass}`;
           div.innerHTML = `
             <div class="rank">${item.id}</div>
             <div>
-              <div class="title">${item.title} ${
+              <div class="title">${item.title} ${ratingIcon} ${
                 isDone ? '<span class="clear-check">✅</span>' : ''
               }</div>
               <div class="creator">${item.creator} <span style="color:#aaa; font-size:0.8rem; margin-left:5px;">${basePts}pt</span>${userPtsDisplay}</div>
@@ -1534,12 +1571,11 @@
           item.clears.forEach((c, i) => {
             const row = document.createElement('div');
             row.className = `clear-row rank-${i + 1}`;
-            const youtube =
-              typeof PLAYER_YOUTUBE !== 'undefined'
-                ? PLAYER_YOUTUBE[c.player]
-                : null;
-            const playerHTML = youtube
-              ? `<a href="${youtube}" target="_blank">${c.player}</a>`
+            const playerLink =
+              c.link ||
+              (PLAYER_YOUTUBE ? PLAYER_YOUTUBE[c.player] : null);
+            const playerHTML = playerLink
+              ? `<a href="${playerLink}" target="_blank">${c.player}</a>`
               : c.player;
 
             row.innerHTML = `
@@ -1681,6 +1717,7 @@
               song: { name: '', artist: '', id: '' },
               gameplay: { modeRatio: {}, speedRatio: {} },
               tags: [],
+              rating: '',
             };
 
         const mkInput = (id, ph, val, type = 'text') =>
@@ -1702,6 +1739,14 @@
             ${mkInput('f-creator', '제작자', lv.creator)}
             ${mkInput('f-verifier', '베리파이어', lv.verifier)}
             ${mkInput('f-video', '영상 URL', lv.video)}
+
+            <label>등급 (Featured, Legendary, Mythic)</label>
+            <select id="f-rating" class="dev-input">
+              <option value="">없음</option>
+              <option value="Featured" ${lv.rating === 'Featured' ? 'selected' : ''}>Featured</option>
+              <option value="Legendary" ${lv.rating === 'Legendary' ? 'selected' : ''}>Legendary</option>
+              <option value="Mythic" ${lv.rating === 'Mythic' ? 'selected' : ''}>Mythic</option>
+            </select>
 
             <label>맵: ID, 길이, 오브젝트, 날짜</label>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
@@ -1743,9 +1788,10 @@
                 .map(
                   (c, i) => `
                 <div class="clear-edit-row" style="display:flex; gap:3px;">
-                  <input class="dev-input cl-p" placeholder="유저" value="${c.player}" style="flex:2">
-                  <input class="dev-input cl-v" placeholder="%" value="${c.percent}" style="flex:1">
-                  <input class="dev-input cl-d" placeholder="날짜" value="${c.date || ''}" style="flex:1.5">
+                  <input class="dev-input cl-p" placeholder="유저" value="${c.player}" style="flex:1">
+                  <input class="dev-input cl-v" placeholder="%" value="${c.percent}" style="flex:0.5">
+                  <input class="dev-input cl-d" placeholder="날짜" value="${c.date || ''}" style="flex:1">
+                  <input class="dev-input cl-l" placeholder="영상 링크" value="${c.link || ''}" style="flex:2">
                   <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
                 </div>
               `,
@@ -1763,6 +1809,7 @@
           const playerInputs = document.querySelectorAll('.cl-p');
           const percentInputs = document.querySelectorAll('.cl-v');
           const dateInputs = document.querySelectorAll('.cl-d');
+          const linkInputs = document.querySelectorAll('.cl-l');
           const newClears = [];
           const placementInput = document.getElementById('f-placement');
           let targetRank = placementInput
@@ -1778,6 +1825,7 @@
                 player: pName,
                 percent: parseInt(percentInputs[i].value) || 100,
                 date: dateInputs[i]?.value.trim() || '',
+                link: linkInputs[i]?.value.trim() || '',
               });
             }
           });
@@ -1790,6 +1838,7 @@
             creator: getValue('f-creator'),
             verifier: getValue('f-verifier'),
             video: getValue('f-video'),
+            rating: getValue('f-rating'),
             map: {
               mapId: getValue('f-mid'),
               length: getValue('f-mlen'),
@@ -1912,9 +1961,10 @@
         div.className = 'clear-edit-row';
         div.style = 'display:flex; gap:3px;';
         div.innerHTML = `
-          <input class="dev-input cl-p" placeholder="유저" style="flex:2">
-          <input class="dev-input cl-v" placeholder="%" style="flex:1">
-          <input class="dev-input cl-d" placeholder="날짜" style="flex:1.5">
+          <input class="dev-input cl-p" placeholder="유저" style="flex:1">
+          <input class="dev-input cl-v" placeholder="%" style="flex:0.5">
+          <input class="dev-input cl-d" placeholder="날짜" style="flex:1">
+          <input class="dev-input cl-l" placeholder="영상 링크" style="flex:2">
           <button onclick="this.parentElement.remove()" style="background:#e74c3c; border:none; color:white; border-radius:4px; cursor:pointer; width:30px;">X</button>
         `;
         container.appendChild(div);

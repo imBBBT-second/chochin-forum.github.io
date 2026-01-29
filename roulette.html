@@ -315,14 +315,25 @@
       </div>
 
       <div class="roulette-controls">
+        <button class="roulette-btn active" onclick="toggleMode('classic', this)">
+          Classic
+        </button>
+        <button class="roulette-btn" onclick="toggleMode('challenge', this)">
+          Challenge
+        </button>
+        <button class="roulette-btn" onclick="toggleMode('platformer', this)">
+          Platformer
+        </button>
+      </div>
+      <div class="roulette-controls">
         <button class="roulette-btn" onclick="toggleCategory('main', this)">
-          메인 (1-10위)
+          메인 (1-5위)
         </button>
         <button class="roulette-btn" onclick="toggleCategory('ext', this)">
-          익텐 (11-20위)
+          익텐 (6-10위)
         </button>
         <button class="roulette-btn" onclick="toggleCategory('legacy', this)">
-          레거시 (21위~)
+          레거시 (11위~)
         </button>
       </div>
       <div style="text-align: center; margin-bottom: 40px">
@@ -342,8 +353,11 @@
 
     <script>
       let classicLevels = [];
+      let challengeLevels = [];
+      let platformerLevels = [];
       let allLevels = [];
       const selectedCategories = new Set();
+      const selectedModes = new Set(['classic']);
 
       let currentUser = localStorage.getItem('currentUser') || null;
 
@@ -363,8 +377,8 @@
       ])
         .then(([classicData, challengeData, platformerData]) => {
           classicLevels = classicData.levels || [];
-          const challengeLevels = challengeData.levels || [];
-          const platformerLevels = platformerData.levels || [];
+          challengeLevels = challengeData.levels || [];
+          platformerLevels = platformerData.levels || [];
           allLevels = [
             ...classicLevels,
             ...challengeLevels,
@@ -441,11 +455,25 @@
         }
       }
 
+      function toggleMode(mode, btn) {
+        if (selectedModes.has(mode)) {
+          selectedModes.delete(mode);
+          btn.classList.remove('active');
+        } else {
+          selectedModes.add(mode);
+          btn.classList.add('active');
+        }
+      }
+
       function startSpin() {
-        if (classicLevels.length === 0) {
+        if (allLevels.length === 0) {
           alert(
             '레벨 데이터가 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.',
           );
+          return;
+        }
+        if (selectedModes.size === 0) {
+          alert('모드를 하나 이상 선택해주세요!');
           return;
         }
         if (selectedCategories.size === 0) {
@@ -454,16 +482,28 @@
         }
 
         let pool = [];
-        if (selectedCategories.has('main'))
-          pool = pool.concat(
-            classicLevels.filter((l) => l.id >= 1 && l.id <= 10),
-          );
-        if (selectedCategories.has('ext'))
-          pool = pool.concat(
-            classicLevels.filter((l) => l.id >= 11 && l.id <= 20),
-          );
-        if (selectedCategories.has('legacy'))
-          pool = pool.concat(classicLevels.filter((l) => l.id >= 21));
+
+        const addLevels = (levels, type) => {
+          if (selectedCategories.has('main')) {
+            levels
+              .filter((l) => l.id >= 1 && l.id <= 5)
+              .forEach((l) => pool.push({ ...l, _type: type }));
+          }
+          if (selectedCategories.has('ext')) {
+            levels
+              .filter((l) => l.id >= 6 && l.id <= 10)
+              .forEach((l) => pool.push({ ...l, _type: type }));
+          }
+          if (selectedCategories.has('legacy')) {
+            levels
+              .filter((l) => l.id >= 11)
+              .forEach((l) => pool.push({ ...l, _type: type }));
+          }
+        };
+
+        if (selectedModes.has('classic')) addLevels(classicLevels, 'classic');
+        if (selectedModes.has('challenge')) addLevels(challengeLevels, 'challenge');
+        if (selectedModes.has('platformer')) addLevels(platformerLevels, 'platformer');
 
         if (pool.length === 0) {
           alert('해당 범위에 레벨이 없습니다.');
@@ -491,7 +531,7 @@
           if (count >= maxCount) {
             clearInterval(interval);
             // 최종 결과 확정 (마지막에 보여진 것이 결과가 됨)
-            linkEl.href = `level/classic.html?id=${randomLevel.id}`;
+            linkEl.href = `level/${randomLevel._type}.html?id=${randomLevel.id}`;
             linkEl.style.display = 'inline-block';
           }
         }, 80); // 0.08초마다 변경
