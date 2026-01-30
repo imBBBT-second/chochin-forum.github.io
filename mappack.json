@@ -2,20 +2,20 @@
   "packs": [
     {
       "id": "pack 1",
-      "title": "Treasure Pack",
+      "title": "Treasure Pack I",
       "tier": "Tier 1",
       "description": "엣날 라이트가 만든 레벨을 해보세요!",
       "levels": [
-        {
-          "name": "Trolled",
-          "author": "Light"
-        },
         {
           "name": "LT EP7",
           "author": "Light"
         },
         {
           "name": "LT EP2",
+          "author": "Light"
+        },
+        {
+          "name": "LT EP6",
           "author": "Light"
         }
       ],
@@ -237,9 +237,50 @@
         }
       ],
       "clears": []
+    },
+    {
+      "id": "pack 12",
+      "title": "Treasure Pack II",
+      "tier": "Tier 1",
+      "description": "옛날 라이트가 만든 레벨을 해보세요! (2)",
+      "levels": [
+        {
+          "name": "LT EP2",
+          "author": "Light"
+        },
+        {
+          "name": "LT EP4",
+          "author": "Light"
+        },
+        {
+          "name": "LT EP5",
+          "author": "Light"
+        }
+      ],
+      "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-01-30",
+      "type": "팩 수정",
+      "detail": "Treasure Pack II 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-30",
+      "type": "팩 수정",
+      "detail": "Treasure Pack I 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-30",
+      "type": "팩 수정",
+      "detail": "Treasure Pack I 팩 정보가 수정되었습니다."
+    },
+    {
+      "time": "2026-01-30",
+      "type": "팩 추가",
+      "detail": "Treasure Pack II 팩이 추가되었습니다."
+    },
     {
       "time": "2026-01-30",
       "type": "팩 수정",
