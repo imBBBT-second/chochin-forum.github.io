@@ -1063,6 +1063,12 @@
           "percent": 100,
           "date": "2026-01-19",
           "link": "https://youtu.be/ZKh-WGpwNt8"
+        },
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-30",
+          "link": ""
         }
       ]
     },
@@ -1072,6 +1078,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "-",
+      "rating": "",
       "map": {
         "mapId": "85191093",
         "length": "45s",
@@ -1095,7 +1102,14 @@
         "Slow",
         "None-Effect"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 100,
+          "date": "2026-01-30",
+          "link": ""
+        }
+      ]
     },
     {
       "id": 26,
