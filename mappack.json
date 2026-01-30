@@ -115,7 +115,7 @@
     {
       "id": "pack 6",
       "title": "Troll Pack",
-      "tier": "Tier 3",
+      "tier": "Tier 2",
       "description": "찌끄레기같은 맵들을 쳐 즐겨보세요!",
       "levels": [
         {
@@ -240,6 +240,11 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-01-30",
+      "type": "팩 수정",
+      "detail": "Troll Pack 팩 정보가 수정되었습니다."
+    },
     {
       "time": "2026-01-30",
       "type": "팩 수정",
