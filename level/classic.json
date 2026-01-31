@@ -782,7 +782,7 @@
       "title": "JPA EP3",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/uxi1zitxa4Y",
       "rating": "",
       "map": {
         "mapId": "84660687",
@@ -818,10 +818,11 @@
       "id": 19,
       "title": "JPA EP2",
       "creator": "Choco",
-      "video": "-",
       "verifier": "Choco",
+      "video": "https://www.youtube.com/embed/q2uQM2yz4K4",
+      "rating": "",
       "map": {
-        "mapId": 84536046,
+        "mapId": "84536046",
         "length": "1m 33s",
         "objects": 3025,
         "uploadDate": "2022-10-11"
@@ -829,24 +830,14 @@
       "song": {
         "name": "Theory of Everthing 2",
         "artist": "DJ-Nate",
-        "id": 17
+        "id": "17"
       },
       "gameplay": {
-        "mainMode": "Any-Mode",
         "modeRatio": {
           "Cube": 100
         },
         "speedRatio": {
           "1x": 100
-        }
-      },
-      "framePerfect": {
-        "total": 0,
-        "fps": {
-          "30": 0,
-          "60": 0,
-          "120": 0,
-          "240": 0
         }
       },
       "tags": [
@@ -1146,7 +1137,8 @@
       "title": "Glide Festival",
       "creator": "Choco",
       "verifier": "Choco",
-      "video": "-",
+      "video": "https://www.youtube.com/embed/tDW5fSMS2NI",
+      "rating": "",
       "map": {
         "mapId": "122547026",
         "length": "2m 37s",
