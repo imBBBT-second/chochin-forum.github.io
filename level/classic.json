@@ -2,6 +2,38 @@
   "levels": [
     {
       "id": 1,
+      "title": "Desuwa",
+      "creator": "Choco & Timo",
+      "verifier": "Timo",
+      "video": "https://www.youtube.com/embed/A3f76rVH-ZM",
+      "rating": "Featured",
+      "map": {
+        "mapId": "132194145",
+        "length": "36s",
+        "objects": 3588,
+        "uploadDate": "2026-01-26"
+      },
+      "song": {
+        "name": "Glory",
+        "artist": "FyremanMusic",
+        "id": "714579"
+      },
+      "gameplay": {
+        "modeRatio": {},
+        "speedRatio": {}
+      },
+      "tags": [
+        "Wave",
+        "Medium",
+        "Physical",
+        "Learny",
+        "Fast",
+        "Full-Effect"
+      ],
+      "clears": []
+    },
+    {
+      "id": 2,
       "title": "GOAT!",
       "creator": "Choco",
       "verifier": "Choco",
@@ -32,38 +64,6 @@
         "Full-Effect",
         "No-Clear",
         "NONG"
-      ],
-      "clears": []
-    },
-    {
-      "id": 2,
-      "title": "Desuwa",
-      "creator": "Choco & Timo",
-      "verifier": "Timo",
-      "video": "https://www.youtube.com/embed/A3f76rVH-ZM",
-      "rating": "Featured",
-      "map": {
-        "mapId": "132194145",
-        "length": "36s",
-        "objects": 3588,
-        "uploadDate": "2026-01-26"
-      },
-      "song": {
-        "name": "Glory",
-        "artist": "FyremanMusic",
-        "id": "714579"
-      },
-      "gameplay": {
-        "modeRatio": {},
-        "speedRatio": {}
-      },
-      "tags": [
-        "Wave",
-        "Medium",
-        "Physical",
-        "Learny",
-        "Fast",
-        "Full-Effect"
       ],
       "clears": []
     },
@@ -1344,6 +1344,18 @@
     }
   ],
   "history": [
+    {
+      "time": "2026-02-06 19:11",
+      "type": "move",
+      "title": "Desuwa",
+      "detail": "'GOAT!' 레벨의 순위 변동으로 인해 순위가 2위에서 1위로 상승하였습니다."
+    },
+    {
+      "time": "2026-02-06 19:11",
+      "type": "reeval",
+      "title": "GOAT!",
+      "detail": "'GOAT!' 레벨의 재평가로 인해 순위가 1위에서 2위로 하락하였습니다."
+    },
     {
       "time": "2026-02-05 23:34",
       "type": "add",
