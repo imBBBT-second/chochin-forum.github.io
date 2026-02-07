@@ -266,9 +266,35 @@
         }
       ],
       "clears": []
+    },
+    {
+      "id": "pack 13",
+      "title": "One Mode Pack",
+      "tier": "Tier 3",
+      "description": "모드가 단 하나인 맵들을 해보세요!",
+      "levels": [
+        {
+          "name": "nullscube",
+          "author": "Timo"
+        },
+        {
+          "name": "First Fantasy",
+          "author": "Choco"
+        },
+        {
+          "name": "BOOBAWAVEBA",
+          "author": "Choco"
+        }
+      ],
+      "clears": []
     }
   ],
   "history": [
+    {
+      "time": "2026-02-07",
+      "type": "팩 추가",
+      "detail": "One Mode Pack 팩이 추가되었습니다."
+    },
     {
       "time": "2026-02-03",
       "type": "팩 수정",
