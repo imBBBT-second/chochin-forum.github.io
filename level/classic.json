@@ -193,6 +193,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "https://www.youtube.com/embed/Q9i2t7wWckw",
+      "rating": "",
       "map": {
         "mapId": "126886071",
         "length": "24s",
@@ -216,15 +217,6 @@
           "4x": 88.9
         }
       },
-      "framePerfect": {
-        "fps": {
-          "30": 21,
-          "60": 9,
-          "120": 0,
-          "240": 0
-        },
-        "total": 30
-      },
       "tags": [
         "Wave",
         "4x",
@@ -236,7 +228,14 @@
         {
           "player": "Timo",
           "percent": 100,
-          "date": "2025-12-17"
+          "date": "2025-12-17",
+          "link": ""
+        },
+        {
+          "player": "Choco",
+          "percent": 55,
+          "date": "2026-02-07",
+          "link": ""
         }
       ]
     },
@@ -519,6 +518,7 @@
       "creator": "Light",
       "verifier": "Light",
       "video": "https://www.youtube.com/embed/J3orGNYTjg8",
+      "rating": "",
       "map": {
         "mapId": "131506005",
         "length": "1m 46s",
@@ -534,10 +534,6 @@
         "modeRatio": {},
         "speedRatio": {}
       },
-      "framePerfect": {
-        "fps": {},
-        "total": 0
-      },
       "tags": [
         "Any-Mode",
         "Long",
@@ -545,7 +541,14 @@
         "Flow",
         "No-Clear"
       ],
-      "clears": []
+      "clears": [
+        {
+          "player": "Choco",
+          "percent": 58,
+          "date": "2026-02-07",
+          "link": ""
+        }
+      ]
     },
     {
       "id": 15,
